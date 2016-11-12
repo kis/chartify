@@ -1,0 +1,1 @@
+# Chartify - simple and lightweight charts for React.js

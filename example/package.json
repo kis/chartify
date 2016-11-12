@@ -1,0 +1,27 @@
+{
+  "name": "chartify",
+  "version": "0.0.1",
+  "description": "chartify",
+  "dependencies": {
+    "autoprefixer": "^6.3.4",
+    "autoprefixer-loader": "^3.2.0",
+    "babel-core": "^5.8.25",
+    "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.25",
+    "css-loader": "^0.23.1",
+    "eslint-plugin-react": "^5.2.2",
+    "extract-text-webpack-plugin": "^1.0.1",
+    "node-sass": "^3.4.2",
+    "postcss-loader": "^0.8.2",
+    "postcss-mixins": "^5.0.0",
+    "precss": "^1.4.0",
+    "react": "^0.14.2",
+    "react-dom": "^0.14.2",
+    "sass-loader": "^3.2.0",
+    "style-loader": "^0.13.0",
+    "webpack": "^1.12.2",
+    "webpack-dev-server": "^1.12.1",
+    "chartify": "1.0.1"
+  },
+  "license": "MIT"
+}
