@@ -1,0 +1,102 @@
+.ruler-container {
+  width: 1000px;
+  height: 200px;
+  position: relative;
+}
+  
+.ruler-container .ruler-row {
+  display: inline-block;
+}
+    
+.ruler-row .mark {
+  position: relative;
+  width: 20px;
+  height: 20px;
+  border-top: 1px solid rgba(249,250,249, 0.9);
+  border-left: 1px solid rgba(249,250,249, 0.9);
+  box-sizing: border-box;
+}
+
+.ruler-row .mark:hover {
+  cursor: pointer;
+}
+
+.mark .line {
+  position: relative;
+  top: 10px;
+  left: 10px;
+  z-index: 99;
+  box-sizing: border-box;
+  transform-origin: left center;
+}
+
+.tooltiptext {
+  position: absolute;
+  z-index: 999;
+  visibility: hidden;
+  width: 120px;
+  left: 20px;
+  background-color: black;
+  color: #fff;
+  text-align: right;
+  padding: 5px 5px;
+}
+
+.tooltiptext div {
+  word-wrap: break-word;
+}
+
+.mark:hover .tooltiptext {
+  visibility: visible;
+}
+
+/* default theme */
+.default .mark {
+  background: rgba(255,90,0,1);
+}
+
+.default .empty {
+  background: #f6f0c7;
+}
+
+.default .painted {
+  background: rgba(255,90,0,0.5);
+} 
+
+.default .line {
+  border: 2px solid #9C27B0;
+}
+
+/* purple theme */
+.purple .mark {
+  background: #448AFF;
+}
+
+.purple .empty {
+  background: #E1BEE7;
+}
+
+.purple .painted {
+  background: #BDBDBD;
+}
+
+.purple .line {
+  border: 2px solid #9C27B0;
+}
+
+/* grey theme */
+.grey .mark {
+  background: #9E9E9E;
+}
+
+.grey .empty {
+  background: #FFFFFF;
+}
+
+.grey .painted {
+  background: #CFD8DC;
+}
+
+.grey .line {
+  border: 2px solid #455A64;
+}

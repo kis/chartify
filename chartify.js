@@ -7,7 +7,7 @@
 		exports["Chartify"] = factory(require("react"));
 	else
 		root["Chartify"] = factory(root["React"]);
-})(this, function(__WEBPACK_EXTERNAL_MODULE_31__) {
+})(this, function(__WEBPACK_EXTERNAL_MODULE_38__) {
 return /******/ (function(modules) { // webpackBootstrap
 /******/ 	var parentHotUpdateCallback = this["webpackHotUpdateChartify"];
 /******/ 	this["webpackHotUpdateChartify"] = function webpackHotUpdateCallback(chunkId, moreModules) { // eslint-disable-line no-unused-vars
@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "40ad191dfa06f082c9f9"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "3cc0d1c5e15b236f2ffe"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -601,36 +601,138 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	var _classCallCheck = __webpack_require__(29)['default'];
 
-	var _interopRequireDefault = __webpack_require__(30)['default'];
+	var _Math$hypot = __webpack_require__(30)['default'];
+
+	var _Math$fround = __webpack_require__(33)['default'];
+
+	var _interopRequireDefault = __webpack_require__(37)['default'];
 
 	Object.defineProperty(exports, '__esModule', {
 		value: true
 	});
 
-	var _react = __webpack_require__(31);
+	var _react = __webpack_require__(38);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	__webpack_require__(39);
 
 	var Chartify = (function (_Component) {
 		_inherits(Chartify, _Component);
 
-		function Chartify() {
+		function Chartify(props) {
 			_classCallCheck(this, Chartify);
 
-			_get(Object.getPrototypeOf(Chartify.prototype), 'constructor', this).apply(this, arguments);
+			_get(Object.getPrototypeOf(Chartify.prototype), 'constructor', this).call(this, props);
+			this.marks = props.data;
+			this.SCALE_WIDTH = props.width || 50;
+			this.SCALE_HEIGHT = props.height || 50;
+			this.BLOCK_WIDTH = props.boxSize || 20;
+			this.hasLine = props.line || false;
+			this.theme = props.theme || 'default';
 		}
 
 		_createClass(Chartify, [{
+			key: 'renderRulers',
+			value: function renderRulers() {
+				var _this = this;
+
+				var rulerClass = 'ruler-container ' + this.theme;
+
+				return _react2['default'].createElement(
+					'div',
+					{ className: rulerClass },
+					this.marks.map(function (mark, markNum) {
+						return _react2['default'].createElement(
+							'div',
+							{ className: 'ruler-row', key: markNum },
+							_this.renderRow(mark, markNum)
+						);
+					})
+				);
+			}
+		}, {
+			key: 'renderRow',
+			value: function renderRow(mark, markNum) {
+				var _this2 = this;
+
+				var rowStyle = {
+					width: this.BLOCK_WIDTH + 'px',
+					height: this.BLOCK_WIDTH + 'px'
+				};
+
+				var row = new Array(this.SCALE_HEIGHT);
+				for (var i = 0; i < row.length; i++) {
+					row[i] = {
+						value: i
+					};
+				}
+
+				return _react2['default'].createElement(
+					'div',
+					null,
+					row.map(function (i) {
+						var markClass = null;
+
+						if (_this2.SCALE_HEIGHT - mark.value > i.value) markClass = "mark empty";
+						if (_this2.SCALE_HEIGHT - mark.value == i.value) markClass = "mark";
+						if (_this2.SCALE_HEIGHT - mark.value < i.value) markClass = "mark painted";
+
+						return _react2['default'].createElement(
+							'div',
+							{ key: i.value, style: rowStyle, className: markClass },
+							_this2.SCALE_HEIGHT - mark.value == i.value && markNum < _this2.marks.length - 1 && _this2.hasLine ? _this2.renderLine(mark, markNum) : null
+						);
+					})
+				);
+			}
+		}, {
+			key: 'renderLine',
+			value: function renderLine(mark, markNum) {
+				return _react2['default'].createElement(
+					'div',
+					null,
+					_react2['default'].createElement('div', { className: 'line', style: this.calculateLineOptions(mark.value, this.marks[markNum + 1].value) }),
+					_react2['default'].createElement(
+						'div',
+						{ className: 'tooltiptext' },
+						_react2['default'].createElement(
+							'div',
+							null,
+							mark.value
+						),
+						_react2['default'].createElement(
+							'div',
+							null,
+							mark.title
+						)
+					)
+				);
+			}
+		}, {
+			key: 'calculateLineOptions',
+			value: function calculateLineOptions(currentMark, nextMark) {
+				var AC = this.BLOCK_WIDTH,
+				    BC = Math.abs(nextMark - currentMark) * this.BLOCK_WIDTH;
+				var AB = _Math$hypot(AC, BC);
+				var angleA = _Math$fround(Math.asin(BC / AB) * 180 / Math.PI);
+
+				if (nextMark > currentMark) angleA = -angleA;
+
+				return {
+					width: AB + 'px',
+					transform: 'rotate(' + angleA + 'deg)',
+					top: parseInt(this.BLOCK_WIDTH / 2) + 'px',
+					left: parseInt(this.BLOCK_WIDTH / 2) + 'px'
+				};
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				return _react2['default'].createElement(
 					'div',
 					null,
-					_react2['default'].createElement(
-						'h3',
-						null,
-						'Hello world!'
-					)
+					this.renderRulers()
 				);
 			}
 		}]);
@@ -1079,6 +1181,103 @@ return /******/ (function(modules) { // webpackBootstrap
 
 /***/ },
 /* 30 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(31), __esModule: true };
+
+/***/ },
+/* 31 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(32);
+	module.exports = __webpack_require__(13).Math.hypot;
+
+/***/ },
+/* 32 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 20.2.2.17 Math.hypot([value1[, value2[, … ]]])
+	var $export = __webpack_require__(11)
+	  , abs     = Math.abs;
+
+	$export($export.S, 'Math', {
+	  hypot: function hypot(value1, value2){ // eslint-disable-line no-unused-vars
+	    var sum   = 0
+	      , i     = 0
+	      , $$    = arguments
+	      , $$len = $$.length
+	      , larg  = 0
+	      , arg, div;
+	    while(i < $$len){
+	      arg = abs($$[i++]);
+	      if(larg < arg){
+	        div  = larg / arg;
+	        sum  = sum * div * div + 1;
+	        larg = arg;
+	      } else if(arg > 0){
+	        div  = arg / larg;
+	        sum += div * div;
+	      } else sum += arg;
+	    }
+	    return larg === Infinity ? Infinity : larg * Math.sqrt(sum);
+	  }
+	});
+
+/***/ },
+/* 33 */
+/***/ function(module, exports, __webpack_require__) {
+
+	module.exports = { "default": __webpack_require__(34), __esModule: true };
+
+/***/ },
+/* 34 */
+/***/ function(module, exports, __webpack_require__) {
+
+	__webpack_require__(35);
+	module.exports = __webpack_require__(13).Math.fround;
+
+/***/ },
+/* 35 */
+/***/ function(module, exports, __webpack_require__) {
+
+	// 20.2.2.16 Math.fround(x)
+	var $export   = __webpack_require__(11)
+	  , sign      = __webpack_require__(36)
+	  , pow       = Math.pow
+	  , EPSILON   = pow(2, -52)
+	  , EPSILON32 = pow(2, -23)
+	  , MAX32     = pow(2, 127) * (2 - EPSILON32)
+	  , MIN32     = pow(2, -126);
+
+	var roundTiesToEven = function(n){
+	  return n + 1 / EPSILON - 1 / EPSILON;
+	};
+
+
+	$export($export.S, 'Math', {
+	  fround: function fround(x){
+	    var $abs  = Math.abs(x)
+	      , $sign = sign(x)
+	      , a, result;
+	    if($abs < MIN32)return $sign * roundTiesToEven($abs / MIN32 / EPSILON32) * MIN32 * EPSILON32;
+	    a = (1 + EPSILON32 / EPSILON) * $abs;
+	    result = a - (a - $abs);
+	    if(result > MAX32 || result != result)return $sign * Infinity;
+	    return $sign * result;
+	  }
+	});
+
+/***/ },
+/* 36 */
+/***/ function(module, exports) {
+
+	// 20.2.2.28 Math.sign(x)
+	module.exports = Math.sign || function sign(x){
+	  return (x = +x) == 0 || x != x ? x : x < 0 ? -1 : 1;
+	};
+
+/***/ },
+/* 37 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -1092,10 +1291,16 @@ return /******/ (function(modules) { // webpackBootstrap
 	exports.__esModule = true;
 
 /***/ },
-/* 31 */
+/* 38 */
 /***/ function(module, exports) {
 
-	module.exports = __WEBPACK_EXTERNAL_MODULE_31__;
+	module.exports = __WEBPACK_EXTERNAL_MODULE_38__;
+
+/***/ },
+/* 39 */
+/***/ function(module, exports) {
+
+	// removed by extract-text-webpack-plugin
 
 /***/ }
 /******/ ])
