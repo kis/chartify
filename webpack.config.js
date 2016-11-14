@@ -5,12 +5,7 @@ var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
 var mixins       = require('postcss-mixins');
 
-var ExtractTextPlugin = require("extract-text-webpack-plugin");
-
 var appContext = path.join(__dirname, '/');
-
-var NODE_ENV = process.env.NODE_ENV || "production";
-console.log(NODE_ENV)
 
 module.exports = {
   context: appContext,
@@ -38,15 +33,14 @@ module.exports = {
       include: path.join(__dirname, '/src')
     }, {
       test: /\.css?$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
+      loader: 'style-loader!css-loader'
     }, {
       test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
       loader: 'file?name=[path][name].[ext]?[hash]'
     }]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("[name].css", { allChunks: true })
+    new webpack.HotModuleReplacementPlugin()
   ],
   postcss: function () {
     return [autoprefixer, precss, mixins];
