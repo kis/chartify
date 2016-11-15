@@ -73,7 +73,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "a9894aaadaa4689e7b65"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "7d63ba02e36830c023eb"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -620,79 +620,54 @@ return /******/ (function(modules) { // webpackBootstrap
 	var Chartify = (function (_Component) {
 		_inherits(Chartify, _Component);
 
+		_createClass(Chartify, null, [{
+			key: 'propTypes',
+			value: {
+				boxSize: _react.PropTypes.number,
+				data: _react.PropTypes.array,
+				height: _react.PropTypes.number,
+				line: _react.PropTypes.bool,
+				theme: _react.PropTypes.string
+			},
+			enumerable: true
+		}]);
+
 		function Chartify(props) {
 			_classCallCheck(this, Chartify);
 
 			_get(Object.getPrototypeOf(Chartify.prototype), 'constructor', this).call(this, props);
-			this.marks = props.data;
 			this.SCALE_WIDTH = props.width || 50;
-			this.SCALE_HEIGHT = props.height || 50;
-			this.BLOCK_WIDTH = props.boxSize || 20;
-			this.hasLine = props.line || false;
-			this.theme = props.theme || 'default';
 		}
 
 		_createClass(Chartify, [{
-			key: 'renderRulers',
-			value: function renderRulers() {
-				var _this = this;
+			key: 'calculateLineOptions',
+			value: function calculateLineOptions(currentMark, nextMark) {
+				var _props$boxSize = this.props.boxSize;
+				var boxSize = _props$boxSize === undefined ? 20 : _props$boxSize;
 
-				var rulerClass = 'ruler-container ' + this.theme;
+				var AC = boxSize;
+				var BC = Math.abs(nextMark - currentMark) * boxSize;
+				var AB = _Math$hypot(AC, BC);
+				var angleA = _Math$fround(Math.asin(BC / AB) * 180 / Math.PI);
 
-				return _react2['default'].createElement(
-					'div',
-					{ className: rulerClass },
-					this.marks.map(function (mark, markNum) {
-						return _react2['default'].createElement(
-							'div',
-							{ className: 'ruler-row', key: markNum },
-							_this.renderRow(mark, markNum)
-						);
-					})
-				);
-			}
-		}, {
-			key: 'renderRow',
-			value: function renderRow(mark, markNum) {
-				var _this2 = this;
+				if (nextMark > currentMark) angleA = -angleA;
 
-				var rowStyle = {
-					width: this.BLOCK_WIDTH + 'px',
-					height: this.BLOCK_WIDTH + 'px'
+				return {
+					width: AB + 'px',
+					transform: 'rotate(' + angleA + 'deg)',
+					top: parseInt(boxSize / 2) + 'px',
+					left: parseInt(boxSize / 2) + 'px'
 				};
-
-				var row = new Array(this.SCALE_HEIGHT);
-				for (var i = 0; i < row.length; i++) {
-					row[i] = {
-						value: i
-					};
-				}
-
-				return _react2['default'].createElement(
-					'div',
-					null,
-					row.map(function (i) {
-						var markClass = null;
-
-						if (_this2.SCALE_HEIGHT - mark.value > i.value) markClass = "mark empty";
-						if (_this2.SCALE_HEIGHT - mark.value == i.value) markClass = "mark";
-						if (_this2.SCALE_HEIGHT - mark.value < i.value) markClass = "mark painted";
-
-						return _react2['default'].createElement(
-							'div',
-							{ key: i.value, style: rowStyle, className: markClass },
-							_this2.SCALE_HEIGHT - mark.value == i.value && markNum < _this2.marks.length - 1 && _this2.hasLine ? _this2.renderLine(mark, markNum) : null
-						);
-					})
-				);
 			}
 		}, {
 			key: 'renderLine',
 			value: function renderLine(mark, markNum) {
+				var marks = this.props.data;
+
 				return _react2['default'].createElement(
 					'div',
 					null,
-					_react2['default'].createElement('div', { className: 'line', style: this.calculateLineOptions(mark.value, this.marks[markNum + 1].value) }),
+					_react2['default'].createElement('div', { className: 'line', style: this.calculateLineOptions(mark.value, marks[markNum + 1].value) }),
 					_react2['default'].createElement(
 						'div',
 						{ className: 'tooltiptext' },
@@ -710,29 +685,68 @@ return /******/ (function(modules) { // webpackBootstrap
 				);
 			}
 		}, {
-			key: 'calculateLineOptions',
-			value: function calculateLineOptions(currentMark, nextMark) {
-				var AC = this.BLOCK_WIDTH,
-				    BC = Math.abs(nextMark - currentMark) * this.BLOCK_WIDTH;
-				var AB = _Math$hypot(AC, BC);
-				var angleA = _Math$fround(Math.asin(BC / AB) * 180 / Math.PI);
+			key: 'renderRow',
+			value: function renderRow(mark, markNum) {
+				var _this = this;
 
-				if (nextMark > currentMark) angleA = -angleA;
+				var _props = this.props;
+				var _props$data = _props.data;
+				var marks = _props$data === undefined ? [] : _props$data;
+				var _props$height = _props.height;
+				var height = _props$height === undefined ? 50 : _props$height;
+				var _props$boxSize2 = _props.boxSize;
+				var boxSize = _props$boxSize2 === undefined ? 20 : _props$boxSize2;
+				var _props$line = _props.line;
+				var line = _props$line === undefined ? false : _props$line;
 
-				return {
-					width: AB + 'px',
-					transform: 'rotate(' + angleA + 'deg)',
-					top: parseInt(this.BLOCK_WIDTH / 2) + 'px',
-					left: parseInt(this.BLOCK_WIDTH / 2) + 'px'
+				var rowStyle = {
+					width: boxSize + 'px',
+					height: boxSize + 'px'
 				};
+				var row = Array(height).fill().map(function (item, i) {
+					return { value: i };
+				});
+
+				return _react2['default'].createElement(
+					'div',
+					null,
+					row.map(function (i) {
+						var markClass = null;
+
+						if (height - mark.value > i.value) markClass = "mark empty";
+						if (height - mark.value == i.value) markClass = "mark";
+						if (height - mark.value < i.value) markClass = "mark painted";
+
+						return _react2['default'].createElement(
+							'div',
+							{ key: i.value, style: rowStyle, className: markClass },
+							height - mark.value == i.value && markNum < marks.length - 1 && line ? _this.renderLine(mark, markNum) : null
+						);
+					})
+				);
 			}
 		}, {
 			key: 'render',
 			value: function render() {
+				var _this2 = this;
+
+				var _props2 = this.props;
+				var marks = _props2.data;
+				var _props2$theme = _props2.theme;
+				var theme = _props2$theme === undefined ? 'default' : _props2$theme;
+
+				var rulerClass = 'ruler-container ' + theme;
+
 				return _react2['default'].createElement(
 					'div',
-					null,
-					this.renderRulers()
+					{ className: rulerClass },
+					marks.map(function (mark, markNum) {
+						return _react2['default'].createElement(
+							'div',
+							{ className: 'ruler-row', key: markNum },
+							_this2.renderRow(mark, markNum)
+						);
+					})
 				);
 			}
 		}]);
@@ -1331,7 +1345,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 
 	// module
-	exports.push([module.id, ".ruler-container {\n  width: 1000px;\n  height: 200px;\n  position: relative;\n}\n  \n.ruler-container .ruler-row {\n  display: inline-block;\n}\n    \n.ruler-row .mark {\n  position: relative;\n  width: 20px;\n  height: 20px;\n  border-top: 1px solid rgba(249,250,249, 0.9);\n  border-left: 1px solid rgba(249,250,249, 0.9);\n  box-sizing: border-box;\n}\n\n.ruler-row .mark:hover {\n  cursor: pointer;\n}\n\n.mark .line {\n  position: relative;\n  top: 10px;\n  left: 10px;\n  z-index: 99;\n  box-sizing: border-box;\n  transform-origin: left center;\n}\n\n.tooltiptext {\n  position: absolute;\n  z-index: 999;\n  visibility: hidden;\n  width: 120px;\n  left: 20px;\n  background-color: black;\n  color: #fff;\n  text-align: right;\n  padding: 5px 5px;\n}\n\n.tooltiptext div {\n  word-wrap: break-word;\n}\n\n.mark:hover .tooltiptext {\n  visibility: visible;\n}\n\n/* default theme */\n.default .mark {\n  background: rgba(255,90,0,1);\n}\n\n.default .empty {\n  background: #f6f0c7;\n}\n\n.default .painted {\n  background: rgba(255,90,0,0.5);\n} \n\n.default .line {\n  border: 2px solid #9C27B0;\n}\n\n/* purple theme */\n.purple .mark {\n  background: #448AFF;\n}\n\n.purple .empty {\n  background: #E1BEE7;\n}\n\n.purple .painted {\n  background: #BDBDBD;\n}\n\n.purple .line {\n  border: 2px solid #9C27B0;\n}\n\n/* grey theme */\n.grey .mark {\n  background: #9E9E9E;\n}\n\n.grey .empty {\n  background: #FFFFFF;\n}\n\n.grey .painted {\n  background: #CFD8DC;\n}\n\n.grey .line {\n  border: 2px solid #455A64;\n}", ""]);
+	exports.push([module.id, ".ruler-container {\r\n  width: 1000px;\r\n  height: 200px;\r\n  position: relative;\r\n}\r\n  \r\n.ruler-container .ruler-row {\r\n  display: inline-block;\r\n}\r\n    \r\n.ruler-row .mark {\r\n  position: relative;\r\n  width: 20px;\r\n  height: 20px;\r\n  border-top: 1px solid rgba(249,250,249, 0.9);\r\n  border-left: 1px solid rgba(249,250,249, 0.9);\r\n  box-sizing: border-box;\r\n}\r\n\r\n.ruler-row .mark:hover {\r\n  cursor: pointer;\r\n}\r\n\r\n.mark .line {\r\n  position: relative;\r\n  top: 10px;\r\n  left: 10px;\r\n  z-index: 99;\r\n  box-sizing: border-box;\r\n  transform-origin: left center;\r\n}\r\n\r\n.tooltiptext {\r\n  position: absolute;\r\n  z-index: 999;\r\n  visibility: hidden;\r\n  width: 120px;\r\n  left: 20px;\r\n  background-color: black;\r\n  color: #fff;\r\n  text-align: right;\r\n  padding: 5px 5px;\r\n}\r\n\r\n.tooltiptext div {\r\n  word-wrap: break-word;\r\n}\r\n\r\n.mark:hover .tooltiptext {\r\n  visibility: visible;\r\n}\r\n\r\n/* default theme */\r\n.default .mark {\r\n  background: rgba(255,90,0,1);\r\n}\r\n\r\n.default .empty {\r\n  background: #f6f0c7;\r\n}\r\n\r\n.default .painted {\r\n  background: rgba(255,90,0,0.5);\r\n} \r\n\r\n.default .line {\r\n  border: 2px solid #9C27B0;\r\n}\r\n\r\n/* purple theme */\r\n.purple .mark {\r\n  background: #448AFF;\r\n}\r\n\r\n.purple .empty {\r\n  background: #E1BEE7;\r\n}\r\n\r\n.purple .painted {\r\n  background: #BDBDBD;\r\n}\r\n\r\n.purple .line {\r\n  border: 2px solid #9C27B0;\r\n}\r\n\r\n/* grey theme */\r\n.grey .mark {\r\n  background: #9E9E9E;\r\n}\r\n\r\n.grey .empty {\r\n  background: #FFFFFF;\r\n}\r\n\r\n.grey .painted {\r\n  background: #CFD8DC;\r\n}\r\n\r\n.grey .line {\r\n  border: 2px solid #455A64;\r\n}", ""]);
 
 	// exports
 
