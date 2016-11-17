@@ -11,17 +11,26 @@ body {
 	right: 0px;
 }
 
+#range {
+	margin: 10px 0 20px 0;
+    padding: 10px 0;
+}
+
 .container {
 	width: 1000px;
 	margin: 0 auto;
-	text-align: center;
 
 	> div {
 		margin-bottom: 30px;
 	}
 }
 
+.text-center {
+	text-align: center;
+}
+
 .button {
+	margin: 20px 10px;
 	border: none;
 	box-shadow: none;
 	background-color: #448AFF;
@@ -30,6 +39,11 @@ body {
 	color: #fff;
 	padding: 10px 20px;
 	cursor: pointer;
+	outline: none;
+}
+
+.button:hover {
+	background: #0e4db7;
 }
 
 header.container {
