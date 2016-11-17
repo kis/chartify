@@ -4,6 +4,8 @@
 [![Download Month](https://img.shields.io/npm/dm/jquery-linechart.svg)](https://www.npmjs.com/package/chartify)
 [![Download Total](https://img.shields.io/npm/dt/jquery-linechart.svg)](https://www.npmjs.com/package/chartify)
 
+[DEMO](https://kirillstepkin.github.io/chartify/)
+
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/placeit1.jpg)
 
 React.js plugin for building a linechart. Bar chart, calendar view visualisation. Diagram, graph, pyramid visualisation of large datasets. Showreel. The source for this module is in the [main repo](https://github.com/kirillstepkin/chartify). Please create issues and pull requests. Check [angular-scale](https://github.com/kirillstepkin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kirillstepkin/jquery-linechart) if you're using JQuery.
