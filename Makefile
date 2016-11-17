@@ -1,71 +1,31 @@
 # Mostly lifted from https://andreypopp.com/posts/2013-05-16-makefile-recipes-for-node-js.html
 # Thanks @andreypopp
 
-export BIN := $(shell npm bin)
-export NODE_ENV = test
-DIST = dist
-LIB = $(DIST)/chartify.js
-MIN = $(DIST)/chartify.min.js
-
-.PHONY: test dev lint build clean
-
-clean:
-	rm -rf dist
-
-lint:
-	@$(BIN)/flow
-	@$(BIN)/eslint lib/* lib/utils/* specs/*
-
-build: $(LIB) $(MIN)
-
-# Allows usage of `make install`, `make link`
-install link:
-	@npm $@
-
-dist/%.min.js: $(LIB) $(BIN)
-	@$(BIN)/uglifyjs $< \
-	  --output $@ \
-	  --source-map $@.map \
-	  --source-map-url $(basename $@.map) \
-	  --in-source-map $<.map \
-	  --compress warnings=false
-
-dist/%.js: $(BIN)
-	@$(BIN)/webpack --devtool source-map
-
-test: $(BIN)
-	@$(BIN)/karma start --single-run
-
-dev: $(BIN)
-	script/build-watch
-
-node_modules/.bin: install
-
 define release
 	VERSION=`node -pe "require('./package.json').version"` && \
 	NEXT_VERSION=`node -pe "require('semver').inc(\"$$VERSION\", '$(1)')"` && \
 	node -e "\
-		['./package.json', './bower.json'].forEach(function(fileName) {\
+		['./package.json'].forEach(function(fileName) {\
 			var j = require(fileName);\
 			j.version = \"$$NEXT_VERSION\";\
 			var s = JSON.stringify(j, null, 2);\
 			require('fs').writeFileSync(fileName, s);\
 		});" && \
-	git add package.json bower.json CHANGELOG.md && \
+	git add package.json && \
 	git add -f dist/ && \
 	git commit -m "release v$$NEXT_VERSION" && \
 	git tag "v$$NEXT_VERSION" -m "release v$$NEXT_VERSION"
 endef
 
-release-patch: test clean build
+release-patch:
 	@$(call release,patch)
 
-release-minor: test clean build
+release-minor:
 	@$(call release,minor)
 
-release-major: test clean build
+release-major:
 	@$(call release,major)
 
-publish: clean build
+publish:
 	git push --tags origin HEAD:master
 	npm publish
