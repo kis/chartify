@@ -1,7 +1,7 @@
 {
   "name": "chartify",
   "description": "React.js plugin for creating charts. Inspired by kinopoisk.ru chart. Feel free for contribute.",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "main": "chartify.js",
   "repository": "kirillstepkin/chartify",
   "homepage": "github.com/kirillstepkin/chartify",
