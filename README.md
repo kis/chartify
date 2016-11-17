@@ -1,8 +1,8 @@
 # Chartify - simple and lightweight charts for React.js
 
-[![NPM Version](https://img.shields.io/npm/v/jquery-linechart.svg)](https://www.npmjs.com/package/chartify)
-[![Download Month](https://img.shields.io/npm/dm/jquery-linechart.svg)](https://www.npmjs.com/package/chartify)
-[![Download Total](https://img.shields.io/npm/dt/jquery-linechart.svg)](https://www.npmjs.com/package/chartify)
+[![NPM Version](https://img.shields.io/npm/v/chartify.svg)](https://www.npmjs.com/package/chartify)
+[![Download Month](https://img.shields.io/npm/dm/chartify.svg)](https://www.npmjs.com/package/chartify)
+[![Download Total](https://img.shields.io/npm/dt/chartify.svg)](https://www.npmjs.com/package/chartify)
 
 [DEMO](https://kirillstepkin.github.io/chartify/)
 
