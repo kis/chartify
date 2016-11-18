@@ -25,11 +25,13 @@ export default class Chartify extends Component {
 
 		if (nextMark > currentMark) angleA = -angleA;
 
+		let linePos = parseInt(boxSize/2);
+
 		return {
-			width: AB + 'px',
-			transform: 'rotate(' + angleA + 'deg)',
-			top: parseInt(boxSize/2) + 'px',
-			left: parseInt(boxSize/2) + 'px'
+			width: `${AB}px`,
+			transform: `rotate(${angleA}deg)`,
+			top: `${linePos}px`,
+			left: `${linePos}px`
 		};
 	}
 
@@ -53,10 +55,12 @@ export default class Chartify extends Component {
 			boxSize = 20,
 			line = false
 		} = this.props;
+
 		const rowStyle = {
 			width: boxSize + 'px',
 			height: boxSize + 'px'
 		};
+
 		const row = Array(height).fill().map((item, i) => ({ value: i }));		
 
 		return (
@@ -83,6 +87,7 @@ export default class Chartify extends Component {
 			data: marks, 
 			theme = 'default' 
 		} = this.props;
+		
 		const rulerClass = `ruler-container ${theme}`;
 
 		return (
