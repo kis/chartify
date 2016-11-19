@@ -16,38 +16,6 @@ export default class Chartify extends Component {
 		this.SCALE_WIDTH = props.width || 50;
 	}
 
-	calculateLineOptions(currentMark, nextMark) {
-		const { boxSize = 20 } = this.props;
-		const AC = boxSize;
-		const BC = Math.abs(nextMark - currentMark) * boxSize;
-		const AB = Math.hypot(AC, BC);
-		let angleA = Math.fround(Math.asin( BC / AB ) * 180 / Math.PI);
-
-		if (nextMark > currentMark) angleA = -angleA;
-
-		let linePos = parseInt(boxSize/2);
-
-		return {
-			width: `${AB}px`,
-			transform: `rotate(${angleA}deg)`,
-			top: `${linePos}px`,
-			left: `${linePos}px`
-		};
-	}
-
-	renderLine(mark, markNum) {
-		const { data: marks } = this.props;
-		return (
-			<div> 
-				<div className="line" style={this.calculateLineOptions(mark.value, marks[markNum + 1].value)} />
-				<div className="tooltiptext">
-					<div>{mark.value}</div>
-					<div>{mark.title}</div>
-				</div>
-			</div>
-		);
-	}
-
 	renderRow(mark, markNum) {
 		const { 
 			data: marks = [],
@@ -80,6 +48,39 @@ export default class Chartify extends Component {
 				})}
 			</div>
 		)
+	}
+
+	renderLine(mark, markNum) {
+		const { data: marks } = this.props;
+		let lineStyle = this.calcLineStyle(mark.value, marks[markNum + 1].value);
+		return (
+			<div>
+				<div className="line" style={lineStyle}></div>
+				<div className="tooltiptext">
+					<div>{mark.value}</div>
+					<div>{mark.title}</div>
+				</div>
+			</div>
+		);
+	}
+
+	calcLineStyle(currentMark, nextMark) {
+		const { boxSize = 20 } = this.props;
+		const AC = boxSize;
+		const BC = Math.abs(nextMark - currentMark) * boxSize;
+		const AB = Math.hypot(AC, BC);
+		let angleA = Math.fround(Math.asin( BC / AB ) * 180 / Math.PI);
+
+		if (nextMark > currentMark) angleA = -angleA;
+
+		let linePos = parseInt(boxSize/2);
+
+		return {
+			width: `${AB}px`,
+			transform: `rotate(${angleA}deg)`,
+			top: `${linePos}px`,
+			left: `${linePos}px`
+		};
 	}
 
 	render() {
