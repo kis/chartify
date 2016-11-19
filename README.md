@@ -4,14 +4,14 @@
 [![Download Month](https://img.shields.io/npm/dm/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![Download Total](https://img.shields.io/npm/dt/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![GitHub issues](https://img.shields.io/github/issues/kirillstepkin/chartify.svg)](https://github.com/kirillstepkin/chartify/issues)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/kirillstepkin/chartify.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/kirillstepkin/chartify.svg?style=social)](https://twitter.com/intent/tweet?text=Simple and lightweight charts for React.js&url=https://github.com/kirillstepkin/chartify)
 
 [DEMO](https://kirillstepkin.github.io/chartify/)
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/placeit1.jpg)
 
-React.js plugin for building a linechart. Bar chart, calendar view visualisation. Diagram, graph, pyramid visualisation of large datasets. Showreel. The source for this module is in the [main repo](https://github.com/kirillstepkin/chartify). Please create issues and pull requests. Check [angular-scale](https://github.com/kirillstepkin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kirillstepkin/jquery-linechart) if you're using JQuery.
+Simple and lightweight React.js plugin for building charts. Bar chart, calendar view visualisation. Diagram, graph, pyramid visualisation of large datasets. Showreel. The source for this module is in the [main repo](https://github.com/kirillstepkin/chartify). Please create issues and pull requests. Check [angular-scale](https://github.com/kirillstepkin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kirillstepkin/jquery-linechart) if you're using JQuery.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/output_eSVfyQ.gif)
 
