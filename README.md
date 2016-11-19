@@ -3,6 +3,9 @@
 [![NPM Version](https://img.shields.io/npm/v/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![Download Month](https://img.shields.io/npm/dm/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![Download Total](https://img.shields.io/npm/dt/chartify.svg)](https://www.npmjs.com/package/chartify)
+[![GitHub issues](https://img.shields.io/github/issues/kirillstepkin/chartify.svg)](https://github.com/kirillstepkin/chartify/issues)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/kirillstepkin/chartify.svg?style=social)](https://twitter.com/intent/tweet?text=Wow:&url=%5Bobject%20Object%5D)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 [DEMO](https://kirillstepkin.github.io/chartify/)
 
@@ -64,8 +67,19 @@ Please check the example folder to see how it's going on practice.
 
 ![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/024486fd94.jpg)
 
+### Changelog
+
+* 11/12/2016 Rewriting the project as React.js component.
+* 10/03/2016 Rewriting the project as JQuery plugin.
+* 10/02/2016 Implemented tooltips.
+* 10/01/2016 Implemented different color schemes.
+* 09/20/2016 Rewriting the project as an Angular.js plugin.
+* 06/05/2016 Finished writing function for calculating angle of the line that connects the points of the chart. Rendering chart.
+
+### Contributing
+
+We're looking for co-maintainers!
+
 ### License
 
 Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin)
-
-[![npm](https://img.shields.io/npm/l/express.svg?maxAge=2592000)](https://github.com/kirillstepkin/chartify)

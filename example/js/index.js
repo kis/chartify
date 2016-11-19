@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Chartify from '../../chartify';
+import Chartify from 'chartify';
 import votes from '../js/votes.json';
 
 class App extends Component {
@@ -19,12 +19,13 @@ class App extends Component {
 				value: item["моя оценка"],
 				title: item["русскоязычное название"]
 			})),
-			boxSize: 16,
-			theme: 'purple'
+			boxSize: 20,
+			theme: 'purple',
+			hasLine: true
 		});
 	}
 
-	changeChart = () => {
+	refreshData = () => {
 		const { items } = this.state;
 		let newItems = items.map(item => {
 			item.sortValue = Math.random().toFixed(5);
@@ -59,8 +60,14 @@ class App extends Component {
 		});
 	}
 
+	toggleLine = () => {
+		this.setState({
+			hasLine: this.state.hasLine ? false : true
+		});
+	}
+
 	render() {
-		const { items, boxSize, theme } = this.state;
+		const { items, boxSize, theme, hasLine } = this.state;
 		return (
 			<div className="container">
 				<input id="range" type="range" min="0" max="20" step="1" onChange={this.changeRange} /> 
@@ -70,19 +77,26 @@ class App extends Component {
 					width = {50} 					      
 					height = {10}
 					boxSize = {boxSize}
-					line = {true}
+					line = {hasLine}
 					theme = {theme} />
 
 				<button 
 					type="button" 
-					className="button"
-					onClick={this.changeChart}>
-					Change chart
+					className="button one"
+					onClick={this.toggleLine}>
+					Toggle line
 				</button>
 
 				<button 
 					type="button" 
-					className="button"
+					className="button two"
+					onClick={this.refreshData}>
+					Refresh data
+				</button>
+
+				<button 
+					type="button" 
+					className="button three"
 					onClick={this.changeTheme}>
 					Change theme
 				</button>

@@ -15,7 +15,9 @@ console.log(NODE_ENV)
 module.exports = {
   context: appContext,
   entry: [
-    './js/index'
+    './js/index',
+    'webpack/hot/dev-server',
+    'webpack-dev-server/client?http://localhost:8080/'
   ],
   output: {
     path: path.resolve(__dirname, "dist"),
@@ -37,6 +39,7 @@ module.exports = {
     }]
   },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("[name].css", { allChunks: true })
   ],
   postcss: function () {
