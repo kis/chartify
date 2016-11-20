@@ -1,15 +1,9 @@
+// @flow
+
 import React, { Component, PropTypes } from 'react';
 import './chartify.css';
 
 export default class Chartify extends Component {
-
-	static propTypes = {
-		boxSize: PropTypes.number,
-		data: PropTypes.array,
-		height: PropTypes.number,
-		line: PropTypes.bool,
-		theme: PropTypes.string
-	}
 
 	constructor(props) {
 		super(props);
@@ -102,4 +96,12 @@ export default class Chartify extends Component {
 		);
 	}
 
+}
+
+Chartify.propTypes = {
+	boxSize: PropTypes.number,
+	data: PropTypes.array,
+	height: PropTypes.number,
+	line: PropTypes.bool,
+	theme: PropTypes.string
 }

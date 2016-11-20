@@ -7,10 +7,7 @@ var mixins       = require('postcss-mixins');
 
 var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
-var appContext = path.join(__dirname, '/');
-
 module.exports = {
-  context: appContext,
   entry: './src/Chartify.js',
   output: {
     filename: "./chartify.min.js",
@@ -30,20 +27,29 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js?$/,
-      loaders: ['babel-loader?stage=0&optional=runtime'],
+      loader: 'babel',
       exclude: /node_modules/,
-      include: path.join(__dirname, '/src')
+      include: path.join(__dirname, '/src'),
+      query: {
+        presets: ['es2015']
+      }
     }, {
       test: /\.css?$/,
       loader: 'style-loader!css-loader'
-    }, {
-      test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-      loader: 'file?name=[path][name].[ext]?[hash]'
     }]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
-    new webpack.optimize.UglifyJsPlugin({minimize: true})
+    new webpack.optimize.UglifyJsPlugin({
+      minimize: true, 
+      debug: true,
+      sourceMap: false,
+      output: {
+        comments: false
+      },
+      compress: {
+        warnings: false
+      }
+    })
   ],
   postcss: function () {
     return [autoprefixer, precss, mixins];

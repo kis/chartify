@@ -1,0 +1,11 @@
+[ignore]
+.*/node_modules/*
+
+[include]
+
+[libs]
+
+[options]
+
+[version]
+0.35.0

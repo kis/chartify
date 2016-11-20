@@ -9,9 +9,6 @@ var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 var appContext = path.join(__dirname, '/');
 
-var NODE_ENV = process.env.NODE_ENV || "production";
-console.log(NODE_ENV)
-
 module.exports = {
   context: appContext,
   entry: [
@@ -27,9 +24,12 @@ module.exports = {
   module: {
     loaders: [{
       test: /\.js?$/,
-      loaders: ['babel-loader?stage=0&optional=runtime'],
+      loader: 'babel',
       exclude: /node_modules/,
-      include: path.join(__dirname, '/js')
+      include: path.join(__dirname, '/js'),
+      query: {
+        presets: ['es2015', 'react', 'stage-0']
+      }
     }, {
       test: /\.css?$/,
       loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
