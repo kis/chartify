@@ -82,4 +82,4 @@ We're looking for co-maintainers!
 
 ### License
 
-Copyright (c) 2016 [Kirill Stepkin](https://www.npmjs.com/~kirillstyopkin)
+The MIT License (MIT) Copyright (c) 2016 Kirill Stepkin
