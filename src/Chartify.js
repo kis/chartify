@@ -3,14 +3,20 @@
 import React, { Component, PropTypes } from 'react';
 import './chartify.css';
 
+type Props = {};
+type Mark = {
+	title: string,
+	value: number
+};
+
 export default class Chartify extends Component {
 
-	constructor(props) {
+	constructor(props: Props) {
 		super(props);
-		this.SCALE_WIDTH = props.width || 50;
+		// this.SCALE_WIDTH = props.width || 50;
 	}
 
-	renderRow(mark, markNum) {
+	renderRow(mark: Mark, markNum: number) {
 		const { 
 			data: marks = [],
 			height = 50,
@@ -44,7 +50,7 @@ export default class Chartify extends Component {
 		)
 	}
 
-	renderLine(mark, markNum) {
+	renderLine(mark: Mark, markNum: number) {
 		const { data: marks } = this.props;
 		let lineStyle = this.calcLineStyle(mark.value, marks[markNum + 1].value);
 		return (
@@ -58,7 +64,7 @@ export default class Chartify extends Component {
 		);
 	}
 
-	calcLineStyle(currentMark, nextMark) {
+	calcLineStyle(currentMark: number, nextMark: number) {
 		const { boxSize = 20 } = this.props;
 		const AC = boxSize;
 		const BC = Math.abs(nextMark - currentMark) * boxSize;
