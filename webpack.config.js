@@ -5,13 +5,15 @@ var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
 var mixins       = require('postcss-mixins');
 
+var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
+
 var appContext = path.join(__dirname, '/');
 
 module.exports = {
   context: appContext,
   entry: './src/Chartify.js',
   output: {
-    filename: "./chartify.js",
+    filename: "./chartify.min.js",
     sourceMapFilename: './chartify.js.map',
     library: 'Chartify',
     libraryTarget: 'umd'
@@ -40,7 +42,8 @@ module.exports = {
     }]
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin()
+    new webpack.HotModuleReplacementPlugin(),
+    new webpack.optimize.UglifyJsPlugin({minimize: true})
   ],
   postcss: function () {
     return [autoprefixer, precss, mixins];
