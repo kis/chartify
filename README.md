@@ -49,14 +49,9 @@ import Chartify from 'chartify';
 * **height** is the vertical length.
 * **box-size** is size of each box in pixels.
 * **line** is param that determines if this is a line-chart.
-
-![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/a03def3092.jpg)
-
 * **theme** is color scheme of the chart.
 
-![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/a657bab0f7.jpg)
-
-Please check the example folder to see how it's going on practice.
+Please check the [DEMO](https://kirillstepkin.github.io/chartify/) and the example folder to see how it's going on practice.
 
 ### Themes
 
