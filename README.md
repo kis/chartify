@@ -21,10 +21,6 @@ Simple and lightweight React.js plugin for building charts. Bar chart, calendar 
 | D3.js      | 116kb         |
 | Highcharts | 45kb          |
 
-Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash. Feel free for contribute.
-
-![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/84d858c0af.png)
-
 ### Install
 
 ```
@@ -70,6 +66,10 @@ Please check the example folder to see how it's going on practice.
 * default
 * purple
 * grey
+
+Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash. Feel free for contribute.
+
+![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/84d858c0af.png)
 
 ### Contributing
 
