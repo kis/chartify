@@ -3066,7 +3066,7 @@ postcss-modules-values@^1.1.0:
     icss-replace-symbols "^1.0.2"
     postcss "^5.0.14"
 
-postcss-nested@^1.0.0:
+postcss-nested, postcss-nested@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/postcss-nested/-/postcss-nested-1.0.0.tgz#d136bd4b576bd5632df142c12b2198a9ccf794df"
   dependencies:
@@ -3167,17 +3167,17 @@ postcss-selector-parser@^2.0.0:
     indexes-of "^1.0.1"
     uniq "^1.0.1"
 
+postcss-simple-vars, postcss-simple-vars@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/postcss-simple-vars/-/postcss-simple-vars-3.0.0.tgz#1fa4ccb4b7151d9f0d52fb8ea19a15c1319599d6"
+  dependencies:
+    postcss "^5.0.21"
+
 postcss-simple-vars@^1.0.1:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/postcss-simple-vars/-/postcss-simple-vars-1.2.0.tgz#2e6689921144b74114e765353275a3c32143f150"
   dependencies:
     postcss "^5.0.13"
-
-postcss-simple-vars@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/postcss-simple-vars/-/postcss-simple-vars-3.0.0.tgz#1fa4ccb4b7151d9f0d52fb8ea19a15c1319599d6"
-  dependencies:
-    postcss "^5.0.21"
 
 postcss-svgo@^2.1.1:
   version "2.1.5"

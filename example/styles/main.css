@@ -3,7 +3,7 @@ body {
 	background-image: radial-gradient(rgba(226, 186, 203, 0.44) 30%, transparent 0), radial-gradient(rgba(180, 176, 241, 0.38) 30%, transparent 0);
 	background-size: 30px 30px;
 	background-position: 0 0, 15px 15px;
-	overflow: hidden;
+	overflow-x: hidden;
 }
 
 header {

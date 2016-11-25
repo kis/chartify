@@ -3,6 +3,8 @@ var path = require('path');
 
 var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
+var vars         = require('postcss-simple-vars');
+var nested       = require('postcss-nested');
 var mixins       = require('postcss-mixins');
 
 var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
@@ -35,7 +37,7 @@ module.exports = {
       }
     }, {
       test: /\.css?$/,
-      loader: 'style-loader!css-loader'
+      loader: 'style-loader!css-loader!postcss-loader'
     }]
   },
   plugins: [
@@ -52,6 +54,6 @@ module.exports = {
     })
   ],
   postcss: function () {
-    return [autoprefixer, precss, mixins];
+    return [autoprefixer, precss, vars, nested, mixins];
   }
 };

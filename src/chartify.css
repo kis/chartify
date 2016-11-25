@@ -1,100 +1,99 @@
+@import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+
 .ruler-container {
   position: relative;
-}
-  
-.ruler-container .ruler-row {
-  display: inline-block;
-}
-    
-.ruler-row .mark {
-  position: relative;
-  width: 20px;
-  height: 20px;
-  border-top: 1px solid rgba(249,250,249, 0.9);
-  border-left: 1px solid rgba(249,250,249, 0.9);
-  box-sizing: border-box;
+
+  .ruler-row {
+    display: inline-block;
+
+    .mark {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      border-top: 1px solid rgba(249,250,249, 0.9);
+      border-left: 1px solid rgba(249,250,249, 0.9);
+      box-sizing: border-box;
+
+      &:hover {
+        cursor: pointer;
+
+        .tooltiptext {
+          visibility: visible;
+        }
+      }
+
+      .line {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        z-index: 99;
+        box-sizing: border-box;
+        transform-origin: left center;
+
+        &:hover + .tooltiptext {
+          visibility: hidden;
+        }
+      }
+
+      .tooltiptext {
+        position: absolute;
+        z-index: 999;
+        visibility: hidden;
+        width: 120px;
+        left: 20px;
+        border-radius: 10px;
+        border: 1px solid white;
+        color: #fff;
+        padding: 5px 5px;
+        font-family: 'PT Sans Narrow', sans-serif;
+
+        div {
+          word-wrap: break-word;
+          text-align: center;
+        }
+      }
+    }
+  }
 }
 
-.ruler-row .mark:hover {
-  cursor: pointer;
+@define-mixin theme $theme, $mark, $empty, $painted, $line {
+  .$(theme) {
+    .mark {
+      background: $mark;
+    }
+    .empty {
+      background: $empty;
+    }
+    .painted {
+      background: $painted;
+    } 
+    .line {
+      border: 1px solid $line;
+    }
+    .tooltiptext {
+      background-color: $line;
+    }
+  }
 }
 
-.mark .line {
-  position: relative;
-  top: 10px;
-  left: 10px;
-  z-index: 99;
-  box-sizing: border-box;
-  transform-origin: left center;
+@mixin theme default, rgba(255,90,0,1), #f6f0c7, rgba(255,90,0,0.5), #9C27B0;
+@mixin theme purple, #448AFF, #E1BEE7, #BDBDBD, #9C27B0;
+@mixin theme grey, #9E9E9E, #FFFFFF, #CFD8DC, #455A64;
+
+.pie {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: yellowgreen;
 }
 
-.tooltiptext {
-  position: absolute;
-  z-index: 999;
-  visibility: hidden;
-  width: 120px;
-  left: 20px;
-  background-color: black;
-  color: #fff;
-  text-align: right;
-  padding: 5px 5px;
-}
-
-.tooltiptext div {
-  word-wrap: break-word;
-}
-
-.mark:hover .tooltiptext {
-  visibility: visible;
-}
-
-/* default theme */
-.default .mark {
-  background: rgba(255,90,0,1);
-}
-
-.default .empty {
-  background: #f6f0c7;
-}
-
-.default .painted {
-  background: rgba(255,90,0,0.5);
-} 
-
-.default .line {
-  border: 2px solid #9C27B0;
-}
-
-/* purple theme */
-.purple .mark {
-  background: #448AFF;
-}
-
-.purple .empty {
-  background: #E1BEE7;
-}
-
-.purple .painted {
-  background: #BDBDBD;
-}
-
-.purple .line {
-  border: 2px solid #9C27B0;
-}
-
-/* grey theme */
-.grey .mark {
-  background: #9E9E9E;
-}
-
-.grey .empty {
-  background: #FFFFFF;
-}
-
-.grey .painted {
-  background: #CFD8DC;
-}
-
-.grey .line {
-  border: 2px solid #455A64;
+.pie:before {
+  content: '';
+  display: block;
+  margin-left: 50%;
+  height: 100%;
+  border-radius: 0 100% 100% 0 / 50%;
+  background: red;
+  transform-origin: left;
+  transform: rotate(.1turn);
 }

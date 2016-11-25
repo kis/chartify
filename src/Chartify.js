@@ -40,22 +40,22 @@ export default class Chartify extends Component {
 					if (height - mark.value == i.value) markClass = "mark";
 					if (height - mark.value < i.value) markClass = "mark painted";
 
+					let isPoint = height - mark.value == i.value && markNum < marks.length - 1;
+
 					return <div key={i.value} style={rowStyle} className={markClass}>
-						{height - mark.value == i.value && markNum < marks.length - 1 && line ?
-							this.renderLine(mark, markNum) : null
-						}
+						{isPoint ? this.renderTools(mark, markNum, line) : null}
 					</div>
 				})}
 			</div>
 		)
 	}
 
-	renderLine(mark: Mark, markNum: number) {
+	renderTools(mark: Mark, markNum: number, drawLine: boolean) {
 		const { data: marks } = this.props;
-		let lineStyle = this.calcLineStyle(mark.value, marks[markNum + 1].value);
+		let lineStyle = drawLine ? this.calcLineStyle(mark.value, marks[markNum + 1].value) : null;
 		return (
 			<div>
-				<div className="line" style={lineStyle}></div>
+				{drawLine ? <div className="line" style={lineStyle}></div> : null}
 				<div className="tooltiptext">
 					<div>{mark.value}</div>
 					<div>{mark.title}</div>
