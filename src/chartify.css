@@ -56,8 +56,21 @@
   }
 }
 
+@keyframes blink {
+  40% {
+    background: #E1BEE7;
+  }
+  80% {
+    background: #9C27B0;
+  }
+}
+
 @define-mixin theme $theme, $mark, $empty, $painted, $line {
   .$(theme) {
+    .ruler-row:hover .mark {
+      border-left: 1px solid $mark;
+      animation: blink 0.5s infinite;
+    }
     .mark {
       background: $mark;
     }

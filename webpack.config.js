@@ -1,8 +1,8 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var autoprefixer = require('autoprefixer');
 var precss       = require('precss');
+var cssnext      = require('postcss-cssnext');
 var vars         = require('postcss-simple-vars');
 var nested       = require('postcss-nested');
 var mixins       = require('postcss-mixins');
@@ -54,6 +54,6 @@ module.exports = {
     })
   ],
   postcss: function () {
-    return [autoprefixer, precss, vars, nested, mixins];
+    return [precss, cssnext, vars, nested, mixins];
   }
 };
