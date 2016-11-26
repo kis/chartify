@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import Chartify from '../../chartify.min';
+import Chartify from '../chartify.min';
 import votes from '../js/votes.json';
 
 class App extends Component {

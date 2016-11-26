@@ -162,16 +162,7 @@ asynckit@^0.4.0:
   version "0.4.0"
   resolved "https://registry.yarnpkg.com/asynckit/-/asynckit-0.4.0.tgz#c79ed97f7f34cb8f2ba1bc9790bcc366474b4b79"
 
-autoprefixer-loader@^3.2.0:
-  version "3.2.0"
-  resolved "https://registry.yarnpkg.com/autoprefixer-loader/-/autoprefixer-loader-3.2.0.tgz#39a7b6646a8269865073d958c97f486152c2c84a"
-  dependencies:
-    autoprefixer "^6.0.2"
-    loader-utils "^0.2.11"
-    postcss "^5.0.4"
-    postcss-safe-parser "^1.0.1"
-
-autoprefixer@^6.0.2, autoprefixer@^6.3.1, autoprefixer@^6.3.4:
+autoprefixer@^6.0.2, autoprefixer@^6.3.1:
   version "6.5.3"
   resolved "https://registry.yarnpkg.com/autoprefixer/-/autoprefixer-6.5.3.tgz#2d853af66d04449fcf50db3066279ab54c3e4b01"
   dependencies:
@@ -3355,12 +3346,6 @@ postcss-replace-overflow-wrap@^1.0.0:
   dependencies:
     postcss "^5.0.16"
 
-postcss-safe-parser@^1.0.1:
-  version "1.0.7"
-  resolved "https://registry.yarnpkg.com/postcss-safe-parser/-/postcss-safe-parser-1.0.7.tgz#43bd0c8c84d5f7d8474de825c699e4dabcac72a8"
-  dependencies:
-    postcss "^5.0.18"
-
 postcss-selector-matches@^2.0.0:
   version "2.0.5"
   resolved "https://registry.yarnpkg.com/postcss-selector-matches/-/postcss-selector-matches-2.0.5.tgz#fa0f43be57b68e77aa4cd11807023492a131027f"
@@ -3431,7 +3416,7 @@ postcss-zindex@^2.0.1:
     postcss "^5.0.4"
     uniqs "^2.0.0"
 
-postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.18, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.4, postcss@^5.2.5:
+postcss@^5.0.0, postcss@^5.0.10, postcss@^5.0.11, postcss@^5.0.12, postcss@^5.0.13, postcss@^5.0.14, postcss@^5.0.16, postcss@^5.0.19, postcss@^5.0.2, postcss@^5.0.21, postcss@^5.0.4, postcss@^5.0.5, postcss@^5.0.6, postcss@^5.0.8, postcss@^5.2.4, postcss@^5.2.5:
   version "5.2.5"
   resolved "https://registry.yarnpkg.com/postcss/-/postcss-5.2.5.tgz#ec428c27dffc7fac65961340a9b022fa4af5f056"
   dependencies:
