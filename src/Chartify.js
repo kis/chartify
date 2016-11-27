@@ -6,7 +6,8 @@ import './chartify.css';
 type Props = {};
 type Mark = {
 	title: string,
-	value: number
+	value: number,
+	date: string
 };
 
 export default class Chartify extends Component {
@@ -93,11 +94,17 @@ export default class Chartify extends Component {
 
 		return (
 			<div className={rulerClass}>
-				{marks.map((mark, markNum) => (
-					<div className="ruler-row" key={markNum}>
-						{this.renderRow(mark, markNum)}
-					</div>
-				))}
+				<div className="y-axis">
+				</div>
+				<div className="marks">	
+					{marks.map((mark, markNum) => (
+						<div className="ruler-row" key={markNum}>
+							{this.renderRow(mark, markNum)}
+						</div>
+					))}
+				</div>
+				<div className="x-axis">
+				</div>
 			</div>
 		);
 	}

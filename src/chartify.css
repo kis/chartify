@@ -2,54 +2,82 @@
 
 .ruler-container {
   position: relative;
+  max-width: 1000px;
+  max-height: 250px;
+  width: 1000px;
+  height: 250px;
 
-  .ruler-row {
-    display: inline-block;
+  .y-axis {
+    float: left;
+    max-width: 50px;
+    max-height: 200px;
+    width: 50px;
+    height: 200px;
+  }
 
-    .mark {
-      position: relative;
-      width: 20px;
-      height: 20px;
-      border-top: 1px solid rgba(249,250,249, 0.9);
-      border-left: 1px solid rgba(249,250,249, 0.9);
-      box-sizing: border-box;
+  .x-axis {
+    clear: both;
+    max-width: 1000px;
+    max-height: 50px;
+    width: 1000px;
+    height: 50px;
+  }
 
-      &:hover {
-        cursor: pointer;
+  .marks {
+    float: right;
+    max-width: 950px;
+    max-height: 200px;
+    width: 950px;
+    height: 200px;
+
+    .ruler-row {
+      display: inline-block;
+
+      .mark {
+        position: relative;
+        width: 20px;
+        height: 20px;
+        border-top: 1px solid rgba(249,250,249, 0.9);
+        border-left: 1px solid rgba(249,250,249, 0.9);
+        box-sizing: border-box;
+
+        &:hover {
+          cursor: pointer;
+
+          .tooltiptext {
+            visibility: visible;
+          }
+        }
+
+        .line {
+          position: relative;
+          top: 10px;
+          left: 10px;
+          z-index: 99;
+          box-sizing: border-box;
+          transform-origin: left center;
+
+          &:hover + .tooltiptext {
+            visibility: hidden;
+          }
+        }
 
         .tooltiptext {
-          visibility: visible;
-        }
-      }
-
-      .line {
-        position: relative;
-        top: 10px;
-        left: 10px;
-        z-index: 99;
-        box-sizing: border-box;
-        transform-origin: left center;
-
-        &:hover + .tooltiptext {
+          position: absolute;
+          z-index: 999;
           visibility: hidden;
-        }
-      }
+          width: 120px;
+          left: 20px;
+          border-radius: 10px;
+          border: 1px solid white;
+          color: #fff;
+          padding: 5px 5px;
+          font-family: 'PT Sans Narrow', sans-serif;
 
-      .tooltiptext {
-        position: absolute;
-        z-index: 999;
-        visibility: hidden;
-        width: 120px;
-        left: 20px;
-        border-radius: 10px;
-        border: 1px solid white;
-        color: #fff;
-        padding: 5px 5px;
-        font-family: 'PT Sans Narrow', sans-serif;
-
-        div {
-          word-wrap: break-word;
-          text-align: center;
+          div {
+            word-wrap: break-word;
+            text-align: center;
+          }
         }
       }
     }

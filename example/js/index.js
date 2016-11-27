@@ -15,9 +15,10 @@ class App extends Component {
 
 	componentWillMount() {
 		this.setState({
-			items: votes.map(item => ({				
+			items: votes.map(item => ({			
 				value: item["моя оценка"],
-				title: item["русскоязычное название"]
+				title: item["русскоязычное название"],
+				date: item["дата и время"]
 			})),
 			boxSize: 20,
 			theme: 'purple',
