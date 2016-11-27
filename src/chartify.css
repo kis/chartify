@@ -57,11 +57,11 @@
 }
 
 @keyframes blink {
-  40% {
-    background: #E1BEE7;
-  }
-  80% {
+  0% {
     background: #9C27B0;
+  }
+  50% {
+    background: #E1BEE7;
   }
 }
 
