@@ -49,10 +49,6 @@ Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written usin
 
 ![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/84d858c0af.png)
 
-### Contributing
-
-Looking for co-maintainers.
-
 ### License
 
 The MIT License (MIT) Copyright (c) 2016 Kirill Stepkin
