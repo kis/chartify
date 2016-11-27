@@ -3,17 +3,17 @@
 [![NPM Version](https://img.shields.io/npm/v/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![Download Month](https://img.shields.io/npm/dm/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![Download Total](https://img.shields.io/npm/dt/chartify.svg)](https://www.npmjs.com/package/chartify)
-[![GitHub issues](https://img.shields.io/github/issues/kirillstepkin/chartify.svg)](https://github.com/kirillstepkin/chartify/issues)
+[![GitHub issues](https://img.shields.io/github/issues/kisqin/chartify.svg)](https://github.com/kisqin/chartify/issues)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Twitter](https://img.shields.io/twitter/url/https/github.com/kirillstepkin/chartify.svg?style=social)](https://twitter.com/intent/tweet?text=Simple and lightweight charts for React.js&url=https://github.com/kirillstepkin/chartify)
+[![Twitter](https://img.shields.io/twitter/url/https/github.com/kisqin/chartify.svg?style=social)](https://twitter.com/intent/tweet?text=Simple and lightweight charts for React.js&url=https://github.com/kisqin/chartify)
 
-[DEMO](https://kirillstepkin.github.io/chartify/)
+[DEMO](https://kisqin.github.io/chartify/)
 
-![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/placeit1.jpg)
+![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/placeit1.jpg)
 
-Simple and lightweight React.js plugin for building charts. Bar chart, calendar view visualisation. Diagram, graph, pyramid visualisation of large datasets. Showreel. The source for this module is in the [main repo](https://github.com/kirillstepkin/chartify). Please create issues and pull requests. Check [angular-scale](https://github.com/kirillstepkin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kirillstepkin/jquery-linechart) if you're using JQuery.
+Simple and lightweight React.js plugin for building charts. Bar chart, calendar view visualisation. Diagram, graph, pyramid visualisation of large datasets. Showreel. The source for this module is in the [main repo](https://github.com/kisqin/chartify). Please create issues and pull requests. Check [angular-scale](https://github.com/kisqin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kisqin/jquery-linechart) if you're using JQuery.
 
-![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/output_eSVfyQ.gif)
+![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/output_eSVfyQ.gif)
 
 |   Library  | Size minified |
 |:----------:|:-------------:|
@@ -51,7 +51,7 @@ import Chartify from 'chartify';
 * **line** is param that determines if this is a line-chart.
 * **theme** is color scheme of the chart.
 
-Please check the [DEMO](https://kirillstepkin.github.io/chartify/) and the example folder to see how it's going on practice.
+Please check the [DEMO](https://kisqin.github.io/chartify/) and the example folder to see how it's going on practice.
 
 ### Themes
 
@@ -61,7 +61,7 @@ Please check the [DEMO](https://kirillstepkin.github.io/chartify/) and the examp
 
 Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash. Feel free for contribute.
 
-![alt text](https://raw.githubusercontent.com/kirillstepkin/scale/master/img/84d858c0af.png)
+![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/84d858c0af.png)
 
 ### Contributing
 
