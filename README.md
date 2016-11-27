@@ -15,12 +15,6 @@ Simple and lightweight React.js plugin for building charts. Bar chart, calendar 
 
 ![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/output_eSVfyQ.gif)
 
-|   Library  | Size minified |
-|:----------:|:-------------:|
-| Chartify   | 19kb          |
-| D3.js      | 116kb         |
-| Highcharts | 45kb          |
-
 ### Install
 
 ```
@@ -59,7 +53,7 @@ Please check the [DEMO](https://kisqin.github.io/chartify/) and the example fold
 * purple
 * grey
 
-Inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash. Feel free for contribute.
+Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash.
 
 ![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/84d858c0af.png)
 
