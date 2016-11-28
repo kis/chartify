@@ -3,8 +3,7 @@
 [![NPM Version](https://img.shields.io/npm/v/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![Download Month](https://img.shields.io/npm/dm/chartify.svg)](https://www.npmjs.com/package/chartify)
 [![Download Total](https://img.shields.io/npm/dt/chartify.svg)](https://www.npmjs.com/package/chartify)
-[![GitHub issues](https://img.shields.io/github/issues/kisqin/chartify.svg)](https://github.com/kisqin/chartify/issues)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Travis branch](https://img.shields.io/travis/kisqin/chartify/master.svg)](https://github.com/kisqin/chartify)
 
 ![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/placeit1.jpg)
 
