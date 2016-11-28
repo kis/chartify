@@ -1,3 +1,8 @@
+## Chartify 1.0.8 (Nov 28, 2016)
+
+* Add x-axis and y-axis captions
+* Add .travis.yml
+
 ## Chartify 1.0.8 (Nov 25, 2016)
 
 * Enhance tooltips style

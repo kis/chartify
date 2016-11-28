@@ -14,12 +14,15 @@ class App extends Component {
 	}
 
 	componentWillMount() {
+		let items = votes.map(item => ({			
+			value: item["моя оценка"],
+			title: item["русскоязычное название"],
+			date: item["дата и время"]
+		}));
+		items.reverse();
+
 		this.setState({
-			items: votes.map(item => ({			
-				value: item["моя оценка"],
-				title: item["русскоязычное название"],
-				date: item["дата и время"]
-			})),
+			items: items,
 			boxSize: 20,
 			theme: 'purple',
 			hasLine: true

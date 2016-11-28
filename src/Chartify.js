@@ -17,7 +17,7 @@ export default class Chartify extends Component {
 		// this.SCALE_WIDTH = props.width || 50;
 	}
 
-	renderRow(mark: Mark, markNum: number) {
+	renderRow(mark: Mark, markNum: number, row: Array) {
 		const { 
 			data: marks = [],
 			height = 50,
@@ -28,9 +28,7 @@ export default class Chartify extends Component {
 		const rowStyle = {
 			width: boxSize + 'px',
 			height: boxSize + 'px'
-		};
-
-		const row = Array(height).fill().map((item, i) => ({ value: i }));		
+		};		
 
 		return (
 			<div>
@@ -60,6 +58,7 @@ export default class Chartify extends Component {
 				<div className="tooltiptext">
 					<div>{mark.value}</div>
 					<div>{mark.title}</div>
+					<div className="date">{mark.date}</div>
 				</div>
 			</div>
 		);
@@ -87,23 +86,36 @@ export default class Chartify extends Component {
 	render() {
 		const { 
 			data: marks, 
+			height = 50,
 			theme = 'default' 
 		} = this.props;
 		
 		const rulerClass = `ruler-container ${theme}`;
 
+		const row = Array(height).fill().map((item, i) => ({ value: i }));
+
 		return (
 			<div className={rulerClass}>
 				<div className="y-axis">
+					{row.map(i => {
+						return <div key={i.value}>
+							{i.value % 2 == 0 ? 10 - i.value : null}
+						</div>
+					})}
 				</div>
 				<div className="marks">	
 					{marks.map((mark, markNum) => (
 						<div className="ruler-row" key={markNum}>
-							{this.renderRow(mark, markNum)}
+							{this.renderRow(mark, markNum, row)}
 						</div>
 					))}
 				</div>
 				<div className="x-axis">
+					{marks.map((mark, markNum) => (
+						markNum % 10 == 0 ? <div className="x-caption" key={markNum}>
+							{mark.date}
+						</div> : null
+					))}
 				</div>
 			</div>
 		);

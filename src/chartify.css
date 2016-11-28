@@ -13,14 +13,35 @@
     max-height: 200px;
     width: 50px;
     height: 200px;
+    color: #9c9191;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+    div {
+      width: 20px;
+      height: 20px;
+      border-top: 1px solid transparent;
+      box-sizing: border-box;
+      float: right;
+      display: block;
+      clear: both;
+    }
   }
 
   .x-axis {
     clear: both;
-    max-width: 1000px;
+    max-width: 950px;
     max-height: 50px;
-    width: 1000px;
+    width: 950px;
     height: 50px;
+    padding-left: 50px;
+    font-family: 'PT Sans Narrow', sans-serif;
+
+    .x-caption {
+      display: inline-block;
+      width: 150px;
+      margin: 15px 20px;
+      color: #9c9191;
+    }
   }
 
   .marks {
@@ -77,6 +98,11 @@
           div {
             word-wrap: break-word;
             text-align: center;
+
+            &.date {
+              margin: 10px 0 5px;
+              font-weight: bold;
+            }
           }
         }
       }
