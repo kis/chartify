@@ -4,4 +4,5 @@ node_js:
   - "6.1"
   - "5.11"
 before_script:
+  - chmod +x sh/build.sh
   - ./sh/build.sh
