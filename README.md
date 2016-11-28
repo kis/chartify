@@ -5,13 +5,11 @@
 [![Download Total](https://img.shields.io/npm/dt/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify)
 [![Travis branch](https://img.shields.io/travis/kisqin/chartify/master.svg?style=flat-square)](https://github.com/kisqin/chartify)
 
-![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/placeit1.jpg)
-
-Check the [EXAMPLE](https://kisqin.github.io/chartify/)
+![alt text](https://raw.githubusercontent.com/kisqin/chartify/master/img/preview.gif)
 
 Simple and lightweight React.js plugin for building charts. The source for this module is in the [main repo](https://github.com/kisqin/chartify). Please contribute. Check [angular-scale](https://github.com/kisqin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kisqin/jquery-linechart) if you're using JQuery.
 
-![alt text](https://raw.githubusercontent.com/kisqin/chartify/master/img/preview.gif)
+Check the [EXAMPLE](https://kisqin.github.io/chartify/)
 
 ### Install
 
@@ -42,8 +40,6 @@ import Chartify from 'chartify';
 * **theme** is color scheme of the chart, "default", "purple", "grey" etc.
 
 Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash.
-
-![alt text](https://raw.githubusercontent.com/kisqin/scale/master/img/84d858c0af.png)
 
 ### License
 
