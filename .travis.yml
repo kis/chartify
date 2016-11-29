@@ -6,3 +6,5 @@ node_js:
 before_script:
   - chmod +x sh/build.sh
   - ./sh/build.sh
+notifications:
+  email: false
