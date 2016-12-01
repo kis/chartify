@@ -4,131 +4,133 @@ body {
 	background-size: 30px 30px;
 	background-position: 0 0, 15px 15px;
 	overflow-x: hidden;
+
+    .container {
+        width: 1000px;
+        margin: 0 auto;
+
+        div {
+            margin-bottom: 30px;
+        }
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    header {
+        height: 100px;
+        padding: 20px 0 0 0;
+
+        h2 {
+            font-family: 'Shrikhand', cursive;
+            color: #c88dff;
+            font-size: 36px;
+            margin: 0;
+        }
+
+        h4 {
+            font-size: 18px;
+            color: #3092e6;
+            margin: 0;
+        }
+    }
+
+    main {
+        height: 520px;
+
+        .gh {
+            margin: 30px 0;
+        }
+
+        #range {
+            margin: 10px 0 20px 0;
+            padding: 10px 0;
+        }
+
+        .button {
+            margin: 20px 10px;
+            border: none;
+            box-shadow: none;
+            text-transform: uppercase;
+            font-size: 16px;
+            color: #fff;
+            padding: 10px 20px;
+            cursor: pointer;
+            outline: none;
+
+            &.one {
+                background-color: #ae88ea;
+            }
+
+            &.two {
+                background-color: #448AFF;
+            }
+
+            &.three {
+                background-color: #788e94;
+            }
+
+            &.four {
+                background-color: #ae88ea;
+            }
+        }
+    }
+
+    footer {
+        position: relative;
+
+        div {
+            text-align: center;
+            font-family: 'Shrikhand', cursive;
+            color: rgba(216, 30, 164, 0.47);
+            font-size: 18px;
+            margin: 20px 0;
+
+            a {
+                cursor: pointer;
+                color: rgba(22, 74, 144, 0.6);
+            }
+        }
+    }
 }
 
-header {
-	height: 100px;
-	padding: 20px 0 0 0;
-}
+#forkongithub {
+    a {
+        background: #ae88ea;
+        color: #fff;
+        text-decoration: none;
+        font-family: arial, sans-serif;
+        text-align: center;
+        font-weight: bold;
+        padding: 5px 40px;
+        font-size: 1rem;
+        line-height: 2rem;
+        position: relative;
+        transition: 0.5s;
 
-header.container > h2 {
-	font-family: 'Shrikhand', cursive;
-	color: #c88dff;
-	font-size: 36px;
-	margin: 0;
-}
+        &:hover {
+            background: #e82086;
+            color: #fff;
+        }
 
-header.container > h4 {
-	font-size: 18px;
-	color: #3092e6;
-	margin: 0;
-}
+        &::before,
+        &::after {
+            content: "";
+            width: 100%;
+            display: block;
+            position: absolute;
+            top: 1px;
+            left: 0;
+            height: 1px;
+            background: #fff;
+        }
 
-#range {
-	margin: 10px 0 20px 0;
-    padding: 10px 0;
-}
-
-main {
-	height: 450px;
-}
-
-footer {
-	position: relative;
-}
-
-footer > div {
-	text-align: center;
-	font-family: 'Shrikhand', cursive;
-	color: rgba(216, 30, 164, 0.47);
-    font-size: 18px;
-	margin: 20px 0;
-}
-
-footer > div > a {
-	cursor: pointer;
-	color: rgba(22, 74, 144, 0.6);
-}
-
-.container {
-	width: 1000px;
-	margin: 0 auto;
-
-	> div {
-		margin-bottom: 30px;
-	}
-}
-
-.text-center {
-	text-align: center;
-}
-
-.button {
-	margin: 20px 10px;
-	border: none;
-	box-shadow: none;
-	text-transform: uppercase;
-	font-size: 16px;
-	color: #fff;
-	padding: 10px 20px;
-	cursor: pointer;
-	outline: none;
-}
-
-.button.one {
-	background-color: #ae88ea;
-}
-
-.button.two {
-	background-color: #448AFF;
-}
-
-.button.three {
-	background-color: #788e94;
-}
-
-.button.four {
-    background-color: #ae88ea;
-}
-
-.gh {
-	margin: 30px 0;
-}
-
-#forkongithub a {
-    background: #ae88ea;
-    color: #fff;
-    text-decoration: none;
-    font-family: arial, sans-serif;
-    text-align: center;
-    font-weight: bold;
-    padding: 5px 40px;
-    font-size: 1rem;
-    line-height: 2rem;
-    position: relative;
-    transition: 0.5s;
-}
-
-#forkongithub a:hover {
-    background: #e82086;
-    color: #fff;
-}
-
-#forkongithub a::before,
-#forkongithub a::after {
-    content: "";
-    width: 100%;
-    display: block;
-    position: absolute;
-    top: 1px;
-    left: 0;
-    height: 1px;
-    background: #fff;
-}
-
-#forkongithub a::after {
-    bottom: 1px;
-    top: auto;
+        &::after {
+            bottom: 1px;
+            top: auto;
+        }
+    }
 }
 
 @media screen and (min-width: 800px) {
@@ -141,13 +143,14 @@ footer > div > a {
         overflow: hidden;
         height: 200px;
         z-index: 9999;
-    }
-    #forkongithub a {
-        width: 200px;
-        position: absolute;
-        top: 60px;
-        right: -60px;
-        transform: rotate(45deg);
-        box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+
+        a {
+            width: 200px;
+            position: absolute;
+            top: 60px;
+            right: -60px;
+            transform: rotate(45deg);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
+        }
     }
 }

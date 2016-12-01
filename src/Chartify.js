@@ -104,7 +104,7 @@ export default class Chartify extends Component {
 			<div className={rulerClass}>
 				<div className="y-axis">
 					{row.map(i => {
-						return <div key={i.value}>
+						return <div className="y-caption" key={i.value}>
 							{i.value % 2 == 0 ? 10 - i.value : null}
 						</div>
 					})}

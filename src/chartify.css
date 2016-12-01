@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 
 $axis-color: #635e5e;
+$box-width: 20px;
 
 .ruler-container {
   position: relative;
@@ -18,9 +19,9 @@ $axis-color: #635e5e;
     color: $axis-color;
     font-family: 'PT Sans Narrow', sans-serif;
 
-    div {
-      width: 20px;
-      height: 20px;
+    .y-caption {
+      width: $box-width;
+      height: $box-width;
       border-top: 1px solid transparent;
       box-sizing: border-box;
       float: right;
@@ -58,8 +59,6 @@ $axis-color: #635e5e;
 
       .mark {
         position: relative;
-        width: 20px;
-        height: 20px;
         border-top: 1px solid rgba(249,250,249, 0.9);
         border-left: 1px solid rgba(249,250,249, 0.9);
         box-sizing: border-box;
@@ -74,8 +73,6 @@ $axis-color: #635e5e;
 
         .line {
           position: relative;
-          top: 10px;
-          left: 10px;
           z-index: 99;
           box-sizing: border-box;
           transform-origin: left center;
@@ -90,7 +87,7 @@ $axis-color: #635e5e;
           z-index: 999;
           visibility: hidden;
           width: 120px;
-          left: 20px;
+          left: $box-width;
           border-radius: 10px;
           border: 1px solid white;
           color: #fff;
@@ -148,21 +145,3 @@ $axis-color: #635e5e;
 @mixin theme default, rgba(255,90,0,1), #f6f0c7, rgba(255,90,0,0.5), #9C27B0;
 @mixin theme purple, #448AFF, #E1BEE7, #BDBDBD, #9C27B0;
 @mixin theme grey, #9E9E9E, #FFFFFF, #CFD8DC, #455A64;
-
-.pie {
-  width: 100px;
-  height: 100px;
-  border-radius: 50%;
-  background: yellowgreen;
-}
-
-.pie:before {
-  content: '';
-  display: block;
-  margin-left: 50%;
-  height: 100%;
-  border-radius: 0 100% 100% 0 / 50%;
-  background: red;
-  transform-origin: left;
-  transform: rotate(.1turn);
-}
