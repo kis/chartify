@@ -1,4 +1,4 @@
 {
 	"presets": ["es2015", "react", "stage-0"],
-  	"plugins": ["transform-class-properties", "transform-flow-strip-types"]
+  	"plugins": ["typecheck", "transform-class-properties", "transform-flow-strip-types"]
 }

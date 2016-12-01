@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import Chartify from '../chartify.min';
-import votes from '../js/votes.json';
+import votes from './votes.json';
+
+import './main.css';
 
 class App extends Component {
 
@@ -14,7 +16,7 @@ class App extends Component {
 	}
 
 	componentWillMount() {
-		let items = votes.map(item => ({			
+		let items = votes.map(item => ({	
 			value: item["моя оценка"],
 			title: item["русскоязычное название"],
 			date: item["дата и время"]
@@ -25,7 +27,8 @@ class App extends Component {
 			items: items,
 			boxSize: 20,
 			theme: 'purple',
-			hasLine: true
+			hasLine: true,
+			bordered: true
 		});
 	}
 
@@ -70,8 +73,14 @@ class App extends Component {
 		});
 	}
 
+	toggleBordered = () => {
+		this.setState({
+			bordered: this.state.bordered ? false : true
+		});
+	}
+
 	render() {
-		const { items, boxSize, theme, hasLine } = this.state;
+		const { items, boxSize, theme, hasLine, bordered } = this.state;
 		return (
 			<div className="container">
 				<input id="range" type="range" min="0" max="20" step="1" onChange={this.changeRange} /> 
@@ -81,6 +90,7 @@ class App extends Component {
 					width = {50} 					      
 					height = {10}
 					boxSize = {boxSize}
+					bordered = {bordered}
 					line = {hasLine}
 					theme = {theme} />
 
@@ -94,13 +104,20 @@ class App extends Component {
 				<button 
 					type="button" 
 					className="button two"
+					onClick={this.toggleBordered}>
+					Toggle borders
+				</button>
+
+				<button 
+					type="button" 
+					className="button three"
 					onClick={this.refreshData}>
 					Refresh data
 				</button>
 
 				<button 
 					type="button" 
-					className="button three"
+					className="button four"
 					onClick={this.changeTheme}>
 					Change theme
 				</button>

@@ -1,0 +1,157 @@
+body {
+	background: rgba(241, 233, 233, .14);
+    background-image: -webkit-radial-gradient(rgba(224, 206, 214, .28) 30%, transparent 0), -webkit-radial-gradient(rgba(137, 130, 255, .11) 30%, transparent 0);
+    background-image: radial-gradient(rgba(224, 206, 214, .28) 30%, transparent 0), radial-gradient(rgba(137, 130, 255, .11) 30%, transparent 0);
+	background-size: 30px 30px;
+	background-position: 0 0, 15px 15px;
+	overflow-x: hidden;
+}
+
+header {
+	height: 100px;
+	padding: 20px 0 0 0;
+}
+
+header.container > h2 {
+	font-family: 'Shrikhand', cursive;
+	color: #c88dff;
+	font-size: 36px;
+	margin: 0;
+}
+
+header.container > h4 {
+	font-size: 18px;
+	color: #3092e6;
+	margin: 0;
+}
+
+#range {
+	margin: 10px 0 20px 0;
+    padding: 10px 0;
+}
+
+main {
+	height: 450px;
+}
+
+footer {
+	position: relative;
+}
+
+footer > div {
+	text-align: center;
+	font-family: 'Shrikhand', cursive;
+	color: rgba(216, 30, 164, .47);
+    font-size: 18px;
+	margin: 20px 0;
+}
+
+footer > div > a {
+	cursor: pointer;
+	color: rgba(22, 74, 144, .6);
+}
+
+.container {
+	width: 1000px;
+	margin: 0 auto;
+}
+
+.container > div {
+	margin-bottom: 30px;
+}
+
+.text-center {
+	text-align: center;
+}
+
+.button {
+	margin: 20px 10px;
+	border: none;
+	box-shadow: none;
+	text-transform: uppercase;
+	font-size: 16px;
+	color: #fff;
+	padding: 10px 20px;
+	cursor: pointer;
+	outline: none;
+}
+
+.button.one {
+	background-color: #ae88ea;
+}
+
+.button.two {
+	background-color: #448AFF;
+}
+
+.button.three {
+	background-color: #788e94;
+}
+
+.button.four {
+    background-color: #ae88ea;
+}
+
+.gh {
+	margin: 30px 0;
+}
+
+#forkongithub a {
+    background: #ae88ea;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40px;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 32px;
+    line-height: 2rem;
+    position: relative;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+
+#forkongithub a:hover {
+    background: #e82086;
+    color: #fff;
+}
+
+#forkongithub a::before, #forkongithub a::after {
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
+}
+
+#forkongithub a::after {
+    bottom: 1px;
+    top: auto;
+}
+
+@media screen and (min-width: 800px) {
+    #forkongithub {
+        position: fixed;
+        display: block;
+        top: 0;
+        right: 0;
+        width: 200px;
+        overflow: hidden;
+        height: 200px;
+        z-index: 9999;
+    }
+    #forkongithub a {
+        width: 200px;
+        position: absolute;
+        top: 60px;
+        right: -60px;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, .8);
+    }
+}

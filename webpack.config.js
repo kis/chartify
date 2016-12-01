@@ -1,11 +1,11 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var precss       = require('precss');
-var cssnext      = require('postcss-cssnext');
-var vars         = require('postcss-simple-vars');
-var nested       = require('postcss-nested');
-var mixins       = require('postcss-mixins');
+var precss  = require('precss');
+var cssnext = require('postcss-cssnext');
+var vars    = require('postcss-simple-vars');
+var nested  = require('postcss-nested');
+var mixins  = require('postcss-mixins');
 
 var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
@@ -31,10 +31,7 @@ module.exports = {
       test: /\.js?$/,
       loader: 'babel',
       exclude: /node_modules/,
-      include: path.join(__dirname, '/src'),
-      query: {
-        presets: ['es2015']
-      }
+      include: path.join(__dirname, '/src')
     }, {
       test: /\.css?$/,
       loader: 'style-loader!css-loader!postcss-loader'

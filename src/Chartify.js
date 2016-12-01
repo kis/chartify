@@ -22,13 +22,19 @@ export default class Chartify extends Component {
 			data: marks = [],
 			height = 50,
 			boxSize = 20,
+			bordered = true,
 			line = false
 		} = this.props;
 
-		const rowStyle = {
+		const markStyle = {
 			width: boxSize + 'px',
 			height: boxSize + 'px'
 		};		
+
+		if (!bordered) {
+			markStyle.borderTop = 'transparent';
+			markStyle.borderLeft = 'transparent';
+		}
 
 		return (
 			<div>
@@ -41,7 +47,7 @@ export default class Chartify extends Component {
 
 					let isPoint = height - mark.value == i.value && markNum < marks.length - 1;
 
-					return <div key={i.value} style={rowStyle} className={markClass}>
+					return <div key={i.value} style={markStyle} className={markClass}>
 						{isPoint ? this.renderTools(mark, markNum, line) : null}
 					</div>
 				})}

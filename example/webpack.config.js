@@ -1,24 +1,26 @@
 var webpack = require('webpack');
 var path = require('path');
 
-var autoprefixer = require('autoprefixer');
-var precss       = require('precss');
-var mixins       = require('postcss-mixins');
+var precss  = require('precss');
+var cssnext = require('postcss-cssnext');
+var vars    = require('postcss-simple-vars');
+var nested  = require('postcss-nested');
+var mixins  = require('postcss-mixins');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var appContext = path.join(__dirname, '/');
+var appContext = path.join(__dirname, '/main');
 
 module.exports = {
   context: appContext,
   entry: [
-    './js/index',
+    './index.js',
     'webpack/hot/dev-server',
     'webpack-dev-server/client?http://localhost:8080/'
   ],
   output: {
-    // path: path.resolve(__dirname, "dist"),
-    filename: "./dist/bundle.js",
+    path: path.resolve(__dirname, "./dist"),
+    filename: "./bundle.js",
     publicPath: "/"
   },
   module: {
@@ -26,23 +28,17 @@ module.exports = {
       test: /\.js?$/,
       loader: 'babel',
       exclude: /node_modules/,
-      include: path.join(__dirname, '/js'),
-      query: {
-        presets: ['es2015', 'react', 'stage-0']
-      }
+      include: path.join(__dirname, '/main')
     }, {
       test: /\.css?$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader!sass-loader')
-    }, {
-      test: /\.(png|jpg|svg|ttf|eot|woff|woff2)$/,
-      loader: 'file?name=[path][name].[ext]?[hash]'
+      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
     }]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("[name].css", { allChunks: true })
+    new ExtractTextPlugin("./[name].css", { allChunks: true })
   ],
   postcss: function () {
-    return [autoprefixer, precss, mixins];
+    return [precss, cssnext, vars, nested, mixins];
   }
 };

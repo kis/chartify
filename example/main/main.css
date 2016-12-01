@@ -87,6 +87,10 @@ footer > div > a {
 	background-color: #788e94;
 }
 
+.button.four {
+    background-color: #ae88ea;
+}
+
 .gh {
 	margin: 30px 0;
 }
@@ -144,10 +148,6 @@ footer > div > a {
         top: 60px;
         right: -60px;
         transform: rotate(45deg);
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        -moz-transform: rotate(45deg);
-        -o-transform: rotate(45deg);
         box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
     }
 }
