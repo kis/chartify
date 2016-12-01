@@ -1,7 +1,7 @@
 ../
-yarn install
+npm i
 webpack
 cp ./chartify.min.js ./example/chartify.min.js
 cd example
-yarn install
+npm i
 webpack
