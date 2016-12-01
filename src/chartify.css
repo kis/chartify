@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 
+$axis-color: #635e5e;
+
 .ruler-container {
   position: relative;
   max-width: 1000px;
@@ -13,7 +15,7 @@
     max-height: 200px;
     width: 50px;
     height: 200px;
-    color: #9c9191;
+    color: $axis-color;
     font-family: 'PT Sans Narrow', sans-serif;
 
     div {
@@ -40,7 +42,7 @@
       display: inline-block;
       width: 150px;
       margin: 15px 20px;
-      color: #9c9191;
+      color: $axis-color;
     }
   }
 
