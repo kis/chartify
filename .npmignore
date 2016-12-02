@@ -4,4 +4,9 @@ example/
 sh/
 img/
 yarn-error.log
+.babelrc
+.flowconfig
+.travis.yml
 Makefile
+webpack.config.js
+yarn.lock
