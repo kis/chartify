@@ -9,7 +9,7 @@ body {
         width: 1000px;
         margin: 0 auto;
 
-        div {
+        & > div {
             margin-bottom: 30px;
         }
     }

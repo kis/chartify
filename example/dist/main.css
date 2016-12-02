@@ -9,10 +9,10 @@ body {
 
 body .container {
 	width: 1000px;
-	margin: 0 auto;
+	margin: 0 auto
 }
 
-body .container div {
+body .container > div {
 	margin-bottom: 30px;
 }
 
