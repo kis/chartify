@@ -5,7 +5,7 @@
 [![Download Total](https://img.shields.io/npm/dt/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify)
 [![Travis branch](https://img.shields.io/travis/kisqin/chartify/master.svg?style=flat-square)](https://github.com/kisqin/chartify)
 
-![alt text](https://raw.githubusercontent.com/kisqin/chartify/master/img/preview.gif)
+![alt text](https://raw.githubusercontent.com/kisqin/chartify/master/img/preview1.gif)
 
 Simple and lightweight React.js plugin for building charts. The source for this module is in the [main repo](https://github.com/kisqin/chartify). Please contribute. Check [angular-scale](https://github.com/kisqin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kisqin/jquery-linechart) if you're using JQuery.
 
