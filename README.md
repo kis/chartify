@@ -1,6 +1,4 @@
-# Chartify - simple and lightweight charts for React.js
-
-[![NPM Version](https://img.shields.io/npm/v/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify)
+# Chartify [![NPM Version](https://img.shields.io/npm/v/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify)
 [![Download Month](https://img.shields.io/npm/dm/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify)
 [![Download Total](https://img.shields.io/npm/dt/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify)
 [![Travis branch](https://img.shields.io/travis/kisqin/chartify/master.svg?style=flat-square)](https://github.com/kisqin/chartify)
@@ -9,7 +7,7 @@
 
 Simple and lightweight React.js plugin for building charts. The source for this module is in the [main repo](https://github.com/kisqin/chartify). Please contribute. Check [angular-scale](https://github.com/kisqin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kisqin/jquery-linechart) if you're using JQuery.
 
-Check the [EXAMPLE](https://kisqin.github.io/chartify/)
+Check the [EXAMPLE](https://kisqin.github.io/chartify/example/)
 
 ### Install
 
