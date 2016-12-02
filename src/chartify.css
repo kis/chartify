@@ -2,57 +2,37 @@
 
 $axis-color: #635e5e;
 $box-width: 20px;
+$font: 'PT Sans Narrow', sans-serif;
 
 .ruler-container {
   position: relative;
-  max-width: 1000px;
-  max-height: 250px;
-  width: 1000px;
-  height: 250px;
 
   .y-axis {
-    float: left;
-    max-width: 50px;
-    max-height: 200px;
-    width: 50px;
-    height: 200px;
+    display: inline-block;
+    padding: 0 10px;
     color: $axis-color;
-    font-family: 'PT Sans Narrow', sans-serif;
+    font-family: $font;
 
     .y-caption {
-      width: $box-width;
       height: $box-width;
-      border-top: 1px solid transparent;
-      box-sizing: border-box;
       float: right;
-      display: block;
       clear: both;
     }
   }
 
   .x-axis {
-    clear: both;
-    max-width: 950px;
-    max-height: 50px;
-    width: 950px;
-    height: 50px;
-    padding-left: 50px;
-    font-family: 'PT Sans Narrow', sans-serif;
+    padding-left: 35px;
+    font-family: $font;
 
     .x-caption {
       display: inline-block;
-      width: 150px;
-      margin: 15px 20px;
+      margin: 5px 30px;
       color: $axis-color;
     }
   }
 
   .marks {
-    float: right;
-    max-width: 950px;
-    max-height: 200px;
-    width: 950px;
-    height: 200px;
+    display: inline-block;
 
     .ruler-row {
       display: inline-block;
@@ -92,7 +72,7 @@ $box-width: 20px;
           border: 1px solid white;
           color: #fff;
           padding: 5px 5px;
-          font-family: 'PT Sans Narrow', sans-serif;
+          font-family: $font;
 
           div {
             word-wrap: break-word;
@@ -121,7 +101,6 @@ $box-width: 20px;
 @define-mixin theme $theme, $mark, $empty, $painted, $line {
   .$(theme) {
     .ruler-row:hover .mark {
-      border-left: 1px solid $mark;
       animation: blink 0.5s infinite;
     }
     .mark {

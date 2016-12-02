@@ -9,11 +9,7 @@ body {
 
 body .container {
 	width: 1000px;
-	margin: 0 auto
-}
-
-body .container > div {
-	margin-bottom: 30px;
+	margin: 0 auto;
 }
 
 body .text-center {
@@ -46,7 +42,11 @@ body main .gh {
 	margin: 30px 0;
 }
 
-body main #range {
+body main .control-block {
+	text-align: center;
+}
+
+body main .control-block #range {
 	margin: 10px 0 20px 0;
 	padding: 10px 0;
 }

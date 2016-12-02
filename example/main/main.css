@@ -8,10 +8,6 @@ body {
     .container {
         width: 1000px;
         margin: 0 auto;
-
-        & > div {
-            margin-bottom: 30px;
-        }
     }
 
     .text-center {
@@ -43,9 +39,13 @@ body {
             margin: 30px 0;
         }
 
-        #range {
-            margin: 10px 0 20px 0;
-            padding: 10px 0;
+        .control-block {
+            text-align: center;
+        
+            #range {
+                margin: 10px 0 20px 0;
+                padding: 10px 0;
+            }
         }
 
         .button {

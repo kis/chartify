@@ -26,9 +26,9 @@ class App extends Component {
 		this.setState({
 			items: items,
 			boxSize: 20,
-			theme: 'purple',
+			theme: 'default',
 			hasLine: true,
-			bordered: true
+			bordered: false
 		});
 	}
 
@@ -83,7 +83,10 @@ class App extends Component {
 		const { items, boxSize, theme, hasLine, bordered } = this.state;
 		return (
 			<div className="container">
-				<input id="range" type="range" min="0" max="20" step="1" onChange={this.changeRange} /> 
+
+				<div className="control-block">
+					<input id="range" type="range" min="0" max="20" step="1" onChange={this.changeRange} /> 
+				</div>
 
 				<Chartify 
 					data = {items}
@@ -94,33 +97,35 @@ class App extends Component {
 					line = {hasLine}
 					theme = {theme} />
 
-				<button 
-					type="button" 
-					className="button one"
-					onClick={this.toggleLine}>
-					Toggle line
-				</button>
+				<div className="control-block">
+					<button 
+						type="button" 
+						className="button one"
+						onClick={this.toggleLine}>
+						Toggle line
+					</button>
 
-				<button 
-					type="button" 
-					className="button two"
-					onClick={this.toggleBordered}>
-					Toggle borders
-				</button>
+					<button 
+						type="button" 
+						className="button two"
+						onClick={this.toggleBordered}>
+						Toggle borders
+					</button>
 
-				<button 
-					type="button" 
-					className="button three"
-					onClick={this.refreshData}>
-					Refresh data
-				</button>
+					<button 
+						type="button" 
+						className="button three"
+						onClick={this.refreshData}>
+						Refresh data
+					</button>
 
-				<button 
-					type="button" 
-					className="button four"
-					onClick={this.changeTheme}>
-					Change theme
-				</button>
+					<button 
+						type="button" 
+						className="button four"
+						onClick={this.changeTheme}>
+						Change theme
+					</button> 
+				</div>
 			</div>
 		);
 	}
