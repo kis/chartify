@@ -14,6 +14,10 @@ export default class Chartify extends Component {
 
 	constructor(props: Props) {
 		super(props);
+
+		this.state = {
+			delta: 0
+		};
 		// this.SCALE_WIDTH = props.width || 50;
 	}
 
@@ -89,12 +93,35 @@ export default class Chartify extends Component {
 		};
 	}
 
+	drag = (e) => {
+		this.pageX = e.pageX;
+		this.lastDelta = this.state.delta;
+		this.checkMove = true;
+	}
+
+	move = (e) => {
+		if (this.checkMove) {
+			let deltaX = e.pageX - this.pageX;
+			this.setState({
+				delta: this.lastDelta + deltaX
+			});
+		}
+	}
+
+	drop = (e) => {
+		this.checkMove = false;
+	}
+
 	render() {
 		const { 
 			data: marks, 
 			height = 50,
-			theme = 'default' 
+			theme = 'default'
 		} = this.props;
+
+		let marksStyle = {
+			transform: `translateX(${this.state.delta}px)`
+		};
 		
 		const rulerClass = `ruler-container ${theme}`;
 
@@ -109,7 +136,11 @@ export default class Chartify extends Component {
 						</div>
 					})}
 				</div>
-				<div className="marks">	
+				<div className="marks" 
+					 style={marksStyle} 
+					 onMouseDown={this.drag.bind(this)} 
+					 onMouseMove={this.move.bind(this)} 
+					 onMouseUp={this.drop.bind(this)}>
 					{marks.map((mark, markNum) => (
 						<div className="ruler-row" key={markNum}>
 							{this.renderRow(mark, markNum, row)}
