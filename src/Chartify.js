@@ -67,7 +67,7 @@ export default class Chartify extends Component {
 				{drawLine ? <div className="line" style={lineStyle}></div> : null}
 				<div className="tooltiptext">
 					<div>{mark.value}</div>
-					<div>{mark.title}</div>
+					<div>{mark.title || mark.titleRus}</div>
 					<div className="date">{mark.date}</div>
 				</div>
 			</div>

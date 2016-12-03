@@ -16,9 +16,10 @@ class App extends Component {
 	}
 
 	componentWillMount() {
-		let items = votes.map(item => ({	
+		let items = votes.map(item => ({
 			value: item["моя оценка"],
-			title: item["русскоязычное название"],
+			titleRus: item["русскоязычное название"],
+			title: item["оригинальное название"],
 			date: item["дата и время"]
 		}));
 		items.reverse();
