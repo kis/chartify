@@ -100,8 +100,21 @@ export default class Chartify extends Component {
 	}
 
 	move = (e) => {
-		if (this.checkMove) {
+		let el1 = document.getElementsByClassName('marks')[0];
+		let el1rightPos = el1.getBoundingClientRect().left - window.scrollX + el1.offsetWidth;
+
+		let el2 = document.getElementsByClassName('marks-wrapper')[0];
+		let el2rightPos = el2.getBoundingClientRect().left - window.scrollX + el2.offsetWidth;
+
+		console.log(el1rightPos, el2rightPos)
+
+		if (this.checkMove && el1rightPos >= el2rightPos) {
 			let deltaX = e.pageX - this.pageX;
+
+			if (el1rightPos + deltaX < el2rightPos && this.lastDelta + deltaX < 0) {
+				return;
+			}
+
 			this.setState({
 				delta: this.lastDelta + deltaX
 			});
@@ -136,16 +149,18 @@ export default class Chartify extends Component {
 						</div>
 					})}
 				</div>
-				<div className="marks" 
-					 style={marksStyle} 
-					 onMouseDown={this.drag.bind(this)} 
-					 onMouseMove={this.move.bind(this)} 
-					 onMouseUp={this.drop.bind(this)}>
-					{marks.map((mark, markNum) => (
-						<div className="ruler-row" key={markNum}>
-							{this.renderRow(mark, markNum, row)}
-						</div>
-					))}
+				<div className="marks-wrapper">
+					<div className="marks" 
+						 style={marksStyle} 
+						 onMouseDown={this.drag.bind(this)} 
+						 onMouseMove={this.move.bind(this)} 
+						 onMouseUp={this.drop.bind(this)}>
+						{marks.map((mark, markNum) => (
+							<div className="ruler-row" key={markNum}>
+								{this.renderRow(mark, markNum, row)}
+							</div>
+						))}
+					</div>
 				</div>
 				<div className="x-axis">
 					{marks.map((mark, markNum) => (
