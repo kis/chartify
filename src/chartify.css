@@ -7,36 +7,50 @@ $font: 'PT Sans Narrow', sans-serif;
 .ruler-container {
   position: relative;
 
-  .y-axis {
+  .y-axis-wrapper {
     display: inline-block;
-    padding: 0 10px;
-    color: $axis-color;
-    font-family: $font;
+    
+    .y-axis {
+      display: inline-block;
+      padding: 0 10px;
+      color: $axis-color;
+      font-family: $font;
 
-    .y-caption {
-      height: $box-width;
-      float: right;
-      clear: both;
+      .y-caption {
+        height: $box-width;
+        float: right;
+        clear: both;
+      }
     }
   }
 
-  .x-axis {
-    padding-left: 35px;
-    font-family: $font;
+  .x-axis-wrapper {
+    overflow: hidden;
+    display: inline-block;
+    max-width: 950px;
+    left: 35px;
+    position: relative;
 
-    .x-caption {
-      display: inline-block;
-      margin: 5px 30px;
-      color: $axis-color;
+    .x-axis {
+      font-family: $font;
+      width: 100vw;
+
+      .x-caption {
+        display: inline-block;
+        margin: 5px 30px;
+        color: $axis-color;
+      }
     }
   }
 
   .marks-wrapper {
     overflow: hidden;
     display: inline-block;
+    max-width: 950px;
 
     .marks {
       display: inline-block;
+      width: 100vw;
 
       .ruler-row {
         display: inline-block;

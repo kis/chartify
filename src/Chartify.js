@@ -100,18 +100,16 @@ export default class Chartify extends Component {
 	}
 
 	move = (e) => {
-		let el1 = document.getElementsByClassName('marks')[0];
-		let el1rightPos = el1.getBoundingClientRect().left - window.scrollX + el1.offsetWidth;
+		let innerPos = this.elements.inner.getBoundingClientRect().left - window.scrollX;
+		let outerPos = this.elements.outer.getBoundingClientRect().left - window.scrollX;
+		let innerRightPos = innerPos + this.elements.inner.offsetWidth;
+		let outerRightPos = outerPos + this.elements.outer.offsetWidth;
 
-		let el2 = document.getElementsByClassName('marks-wrapper')[0];
-		let el2rightPos = el2.getBoundingClientRect().left - window.scrollX + el2.offsetWidth;
-
-		console.log(el1rightPos, el2rightPos)
-
-		if (this.checkMove && el1rightPos >= el2rightPos) {
+		if (this.checkMove && innerPos <= outerPos && innerRightPos >= outerRightPos) {
 			let deltaX = e.pageX - this.pageX;
 
-			if (el1rightPos + deltaX < el2rightPos && this.lastDelta + deltaX < 0) {
+			if (innerRightPos + deltaX < outerRightPos ||
+				innerPos + deltaX > outerPos) {
 				return;
 			}
 
@@ -123,6 +121,13 @@ export default class Chartify extends Component {
 
 	drop = (e) => {
 		this.checkMove = false;
+	}
+
+	componentDidMount() {
+		this.elements = {
+			inner: document.getElementsByClassName('marks')[0],
+			outer: document.getElementsByClassName('marks-wrapper')[0]
+		};
 	}
 
 	render() {
@@ -142,12 +147,14 @@ export default class Chartify extends Component {
 
 		return (
 			<div className={rulerClass}>
-				<div className="y-axis">
-					{row.map(i => {
-						return <div className="y-caption" key={i.value}>
-							{i.value % 2 == 0 ? 10 - i.value : null}
-						</div>
-					})}
+				<div className="y-axis-wrapper">
+					<div className="y-axis">
+						{row.map(i => {
+							return <div className="y-caption" key={i.value}>
+								{i.value % 2 == 0 ? 10 - i.value : null}
+							</div>
+						})}
+					</div>
 				</div>
 				<div className="marks-wrapper">
 					<div className="marks" 
@@ -162,12 +169,15 @@ export default class Chartify extends Component {
 						))}
 					</div>
 				</div>
-				<div className="x-axis">
-					{marks.map((mark, markNum) => (
-						markNum % 10 == 0 ? <div className="x-caption" key={markNum}>
-							{mark.date}
-						</div> : null
-					))}
+				<div className="x-axis-wrapper">
+					<div className="x-axis"
+						 style={marksStyle}>
+						{marks.map((mark, markNum) => (
+							markNum % 10 == 0 ? <div className="x-caption" key={markNum}>
+								{mark.date}
+							</div> : null
+						))}
+					</div>
 				</div>
 			</div>
 		);
