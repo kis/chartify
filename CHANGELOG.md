@@ -1,3 +1,7 @@
+## Chartify 1.1.1 (Dec 8, 2016)
+
+* Improve scroll
+
 ## Chartify 1.1.0 (Dec 4, 2016)
 
 * Add ability to slide left/right through all dataset by x-axis
