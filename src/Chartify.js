@@ -18,7 +18,6 @@ export default class Chartify extends Component {
 		this.state = {
 			delta: 0
 		};
-		// this.SCALE_WIDTH = props.width || 50;
 	}
 
 	renderRow(mark: Mark, markNum: number, row: Array) {
@@ -33,7 +32,7 @@ export default class Chartify extends Component {
 		const markStyle = {
 			width: boxSize + 'px',
 			height: boxSize + 'px'
-		};		
+		};
 
 		if (!bordered) {
 			markStyle.borderTop = 'transparent';
@@ -52,14 +51,14 @@ export default class Chartify extends Component {
 					let isPoint = height - mark.value == i.value && markNum < marks.length - 1;
 
 					return <div key={i.value} style={markStyle} className={markClass}>
-						{isPoint ? this.renderTools(mark, markNum, line) : null}
+						{isPoint ? this.renderMarkTools(mark, markNum, line) : null}
 					</div>
 				})}
 			</div>
 		)
 	}
 
-	renderTools(mark: Mark, markNum: number, drawLine: boolean) {
+	renderMarkTools(mark: Mark, markNum: number, drawLine: boolean) {
 		const { data: marks } = this.props;
 		let lineStyle = drawLine ? this.calcLineStyle(mark.value, marks[markNum + 1].value) : null;
 		return (
@@ -93,30 +92,47 @@ export default class Chartify extends Component {
 		};
 	}
 
-	drag = (e) => {
+	startDrag = (e) => {
 		this.pageX = e.pageX;
 		this.lastDelta = this.state.delta;
 		this.checkMove = true;
 	}
 
-	move = (e) => {
+	processDrag = (e) => {
+		const {
+			data: marks = [],
+			boxSize = 20
+		} = this.props;
+
+		let chartLength = marks.length;
+
 		let innerPos = this.elements.inner.getBoundingClientRect().left - window.scrollX;
 		let outerPos = this.elements.outer.getBoundingClientRect().left - window.scrollX;
-		let innerRightPos = innerPos + this.elements.inner.offsetWidth;
+		let innerRightPos = innerPos + chartLength * boxSize;
 		let outerRightPos = outerPos + this.elements.outer.offsetWidth;
 
-		if (this.checkMove && innerPos <= outerPos && innerRightPos >= outerRightPos) {
-			let deltaX = e.pageX - this.pageX;
-
-			if (innerRightPos + deltaX < outerRightPos ||
-				innerPos + deltaX > outerPos) {
-				return;
-			}
-
-			this.setState({
-				delta: this.lastDelta + deltaX
-			});
+		if (this.state.delta == 0) {
+			this.rightState = outerRightPos - innerRightPos;
 		}
+
+		if (!this.checkMove || innerPos > outerPos || innerRightPos < outerRightPos) {
+			return;
+		}
+
+		let deltaX = e.pageX - this.pageX;
+		let newDelta = this.lastDelta + deltaX;
+
+		if (innerRightPos + deltaX < outerRightPos) {
+			newDelta = this.rightState;
+		}
+
+		if (innerPos + deltaX > outerPos) {
+			newDelta = 0; 
+		}
+
+		this.setState({
+			delta: newDelta
+		});
 	}
 
 	drop = (e) => {
@@ -130,6 +146,53 @@ export default class Chartify extends Component {
 		};
 	}
 
+	renderYAxis(row: Array) {
+		return (
+			<div className="y-axis-wrapper">
+				<div className="y-axis">
+					{row.map(i => {
+						return <div className="y-caption" key={i.value}>
+							{i.value % 2 == 0 ? 10 - i.value : null}
+						</div>
+					})}
+				</div>
+			</div>
+		);
+	}
+
+	renderMarksWrapper(marks, marksStyle, row) {
+		return (
+			<div className="marks-wrapper">
+				<div className="marks" 
+					 style={marksStyle} 
+					 onMouseDown={this.startDrag.bind(this)} 
+					 onMouseMove={this.processDrag.bind(this)} 
+					 onMouseUp={this.drop.bind(this)}>
+					{marks.map((mark, markNum) => (
+						<div className="ruler-row" key={markNum}>
+							{this.renderRow(mark, markNum, row)}
+						</div>
+					))}
+				</div>
+			</div>
+		);
+	}
+
+	renderXAxis(marks, marksStyle) {
+		return (
+			<div className="x-axis-wrapper">
+				<div className="x-axis"
+					 style={marksStyle}>
+					{marks.map((mark, markNum) => (
+						markNum % 10 == 0 ? <div className="x-caption" key={markNum}>
+							{mark.date}
+						</div> : null
+					))}
+				</div>
+			</div>
+		);
+	}
+
 	render() {
 		const { 
 			data: marks, 
@@ -141,44 +204,14 @@ export default class Chartify extends Component {
 			transform: `translateX(${this.state.delta}px)`
 		};
 		
-		const rulerClass = `ruler-container ${theme}`;
-
 		const row = Array(height).fill().map((item, i) => ({ value: i }));
+		const rulerClass = `ruler-container ${theme}`;
 
 		return (
 			<div className={rulerClass}>
-				<div className="y-axis-wrapper">
-					<div className="y-axis">
-						{row.map(i => {
-							return <div className="y-caption" key={i.value}>
-								{i.value % 2 == 0 ? 10 - i.value : null}
-							</div>
-						})}
-					</div>
-				</div>
-				<div className="marks-wrapper">
-					<div className="marks" 
-						 style={marksStyle} 
-						 onMouseDown={this.drag.bind(this)} 
-						 onMouseMove={this.move.bind(this)} 
-						 onMouseUp={this.drop.bind(this)}>
-						{marks.map((mark, markNum) => (
-							<div className="ruler-row" key={markNum}>
-								{this.renderRow(mark, markNum, row)}
-							</div>
-						))}
-					</div>
-				</div>
-				<div className="x-axis-wrapper">
-					<div className="x-axis"
-						 style={marksStyle}>
-						{marks.map((mark, markNum) => (
-							markNum % 10 == 0 ? <div className="x-caption" key={markNum}>
-								{mark.date}
-							</div> : null
-						))}
-					</div>
-				</div>
+				{this.renderYAxis(row)}
+				{this.renderMarksWrapper(marks, marksStyle, row)}
+				{this.renderXAxis(marks, marksStyle)}
 			</div>
 		);
 	}
