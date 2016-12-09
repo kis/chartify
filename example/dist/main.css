@@ -17,18 +17,34 @@ body .text-center {
 }
 
 body header {
-	height: 100px;
+	height: 120px;
 	padding: 20px 0 0 0;
 }
 
-body header h2 {
+body header .project-logo {
+	display: inline-block;
+	width: 120px;
+}
+
+body header .project-logo img {
+	width: 90px;
+}
+
+body header .project-title {
+	position: relative;
+	top: -20px;
+	display: inline-block;
+	width: 650px;
+}
+
+body header .project-title h2 {
 	font-family: 'Shrikhand', cursive;
 	color: #c88dff;
 	font-size: 36px;
 	margin: 0;
 }
 
-body header h4 {
+body header .project-title h4 {
 	font-size: 18px;
 	color: #3092e6;
 	margin: 0;

@@ -15,22 +15,38 @@ body {
     }
 
     header {
-        height: 100px;
+        height: 120px;
         padding: 20px 0 0 0;
 
-        h2 {
-            font-family: 'Shrikhand', cursive;
-            color: #c88dff;
-            font-size: 36px;
-            margin: 0;
-        }
+        .project-logo {
+            display: inline-block;
+            width: 120px;
 
-        h4 {
-            font-size: 18px;
-            color: #3092e6;
-            margin: 0;
+            img {
+                width: 90px;
+            }
+        }   
+
+        .project-title {
+            position: relative;
+            top: -20px;
+            display: inline-block;
+            width: 650px;
+
+            h2 {
+                font-family: 'Shrikhand', cursive;
+                color: #c88dff;
+                font-size: 36px;
+                margin: 0;
+            }
+
+            h4 {
+                font-size: 18px;
+                color: #3092e6;
+                margin: 0;
+            }
         }
-    }
+    }   
 
     main {
         height: 520px;
