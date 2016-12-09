@@ -23,6 +23,7 @@ import Chartify from 'chartify';
 		  width = {50} 
 	      height = {10}
 	      boxSize = {16}
+	      boxRadius = {10}
 	      bordered = {true}
 	      line = {true}
 	      theme = {"purple"} />
@@ -32,6 +33,7 @@ import Chartify from 'chartify';
 * **width** is the horizontal length of the data array. If width param is less than the length of the data array then user will see the last values of the data array.
 * **height** is the vertical length.
 * **boxSize** is size of each box in pixels.
+* **boxRadius** is border radius of each box in pixels.
 * **bordered** is param that determines if each box has top and left borders.
 * **line** is param that determines if this is a line-chart.
 * **theme** is color scheme of the chart, "default", "purple", "grey" etc.

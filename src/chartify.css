@@ -6,6 +6,7 @@ $font: 'PT Sans Narrow', sans-serif;
 
 .ruler-container {
   position: relative;
+  user-select: none;
 
   .y-axis-wrapper {
     display: inline-block;

@@ -27,6 +27,7 @@ class App extends Component {
 		this.setState({
 			items: items,
 			boxSize: 20,
+			boxRadius: 10,
 			theme: 'default',
 			hasLine: true,
 			bordered: false
@@ -80,8 +81,18 @@ class App extends Component {
 		});
 	}
 
+	toggleBoxRadius = () => {
+		let radiuses = [0, 5, 8, 10];
+		let num = radiuses.indexOf(this.state.boxRadius);
+		num = num == 3 ? 0 : ++num;
+
+		this.setState({
+			boxRadius: radiuses[num]
+		});
+	}
+
 	render() {
-		const { items, boxSize, theme, hasLine, bordered } = this.state;
+		const { items, boxSize, theme, hasLine, bordered, boxRadius } = this.state;
 		return (
 			<div className="container">
 
@@ -91,9 +102,10 @@ class App extends Component {
 
 				<Chartify 
 					data = {items}
-					width = {50} 					      
+					width = {50}				      
 					height = {10}
 					boxSize = {boxSize}
+					boxRadius = {boxRadius}
 					bordered = {bordered}
 					line = {hasLine}
 					theme = {theme} />
@@ -116,13 +128,20 @@ class App extends Component {
 					<button 
 						type="button" 
 						className="button three"
+						onClick={this.toggleBoxRadius}>
+						Toggle box radius
+					</button>
+
+					<button 
+						type="button" 
+						className="button four"
 						onClick={this.refreshData}>
 						Refresh data
 					</button>
 
 					<button 
 						type="button" 
-						className="button four"
+						className="button five"
 						onClick={this.changeTheme}>
 						Change theme
 					</button> 

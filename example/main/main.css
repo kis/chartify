@@ -74,6 +74,10 @@ body {
             &.four {
                 background-color: #ae88ea;
             }
+
+            &.five {
+                background-color: #448AFF;
+            }
         }
     }
 

@@ -26,12 +26,14 @@ export default class Chartify extends Component {
 			height = 50,
 			boxSize = 20,
 			bordered = true,
+			boxRadius = 10,
 			line = false
 		} = this.props;
 
 		const markStyle = {
-			width: boxSize + 'px',
-			height: boxSize + 'px'
+			'width': `${boxSize}px`,
+			'height': `${boxSize}px`,
+			'border-radius': `${boxRadius}px`
 		};
 
 		if (!bordered) {
