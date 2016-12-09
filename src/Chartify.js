@@ -197,10 +197,15 @@ export default class Chartify extends Component {
 		const { 
 			data: marks, 
 			height = 50,
-			theme = 'default'
+			theme = 'default',
+			boxSize = 20
 		} = this.props;
 
+		let chartLength = marks.length;
+		let marksWidth = chartLength * boxSize;
+
 		let marksStyle = {
+			width: `${marksWidth}px`,
 			transform: `translateX(${this.state.delta}px)`
 		};
 		

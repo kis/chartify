@@ -27,7 +27,9 @@ $font: 'PT Sans Narrow', sans-serif;
   .x-axis-wrapper {
     overflow: hidden;
     display: inline-block;
+    width: 950px;
     max-width: 950px;
+    height: 30px;
     left: 35px;
     position: relative;
 
@@ -46,11 +48,13 @@ $font: 'PT Sans Narrow', sans-serif;
   .marks-wrapper {
     overflow: hidden;
     display: inline-block;
-    max-width: 950px;
+    width: 950px;
+    max-width: 90vw;
+    height: 200px;
 
     .marks {
       display: inline-block;
-      width: 100vw;
+      height: 200px;
 
       .ruler-row {
         display: inline-block;
