@@ -24,7 +24,8 @@ export default class Chartify extends Component {
 			boxSize = 20,
 			bordered = true,
 			boxRadius = 10,
-			line = false
+			line = false,
+			blink = true
 		} = this.props;
 
 		const markStyle = {
@@ -34,8 +35,8 @@ export default class Chartify extends Component {
 		};
 
 		if (!bordered) {
-			markStyle.borderTop = 'transparent';
-			markStyle.borderLeft = 'transparent';
+			markStyle['borderTop'] = 'transparent';
+			markStyle['borderLeft'] = 'transparent';
 		}
 
 		return (
@@ -49,7 +50,15 @@ export default class Chartify extends Component {
 
 					let isPoint = height - mark.value == i.value && markNum < marks.length - 1;
 
-					return <div key={i.value} style={markStyle} className={markClass}>
+					let individualStyle = Object.assign({}, markStyle);
+
+					if (markClass == "mark painted" && blink) {
+						individualStyle = Object.assign({}, markStyle, {
+							'animation': 'blink 0.5s infinite'
+						});
+					}
+
+					return <div key={i.value} style={individualStyle} className={markClass}>
 						{isPoint ? this.renderMarkTools(mark, markNum, line) : null}
 					</div>
 				})}

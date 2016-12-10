@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
 
-$axis-color: #635e5e;
+$axis-color: #9C27B0;
 $box-width: 20px;
 $font: 'PT Sans Narrow', sans-serif;
 
@@ -36,6 +36,7 @@ $font: 'PT Sans Narrow', sans-serif;
 
     .x-axis {
       font-family: $font;
+      color: $axis-color;
       max-height: 30px;
 
       .x-caption {
@@ -107,6 +108,15 @@ $font: 'PT Sans Narrow', sans-serif;
   }
 }
 
+@keyframes blinkHover {
+  0% {
+    background: #5c2965;
+  }
+  50% {
+    background: #E1BEE7;
+  }
+}
+
 @keyframes blink {
   0% {
     background: #9C27B0;
@@ -119,7 +129,7 @@ $font: 'PT Sans Narrow', sans-serif;
 @define-mixin theme $theme, $mark, $empty, $painted, $line {
   .$(theme) {
     .ruler-row:hover .mark {
-      animation: blink 0.5s infinite;
+      animation: blinkHover 0.5s infinite;
     }
     .mark {
       background: $mark;

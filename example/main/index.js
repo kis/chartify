@@ -35,7 +35,8 @@ class App extends Component {
 			boxRadius: 10,
 			theme: 'default',
 			hasLine: true,
-			bordered: false
+			bordered: false,
+			blink: true
 		});
 	}
 
@@ -76,13 +77,13 @@ class App extends Component {
 
 	toggleLine = () => {
 		this.setState({
-			hasLine: this.state.hasLine ? false : true
+			hasLine: !this.state.hasLine
 		});
 	}
 
 	toggleBordered = () => {
 		this.setState({
-			bordered: this.state.bordered ? false : true
+			bordered: !this.state.bordered
 		});
 	}
 
@@ -96,8 +97,14 @@ class App extends Component {
 		});
 	}
 
+	toggleBlink = () => {
+		this.setState({
+			blink: !this.state.blink
+		});
+	}
+
 	render() {
-		const { items, boxSize, theme, hasLine, bordered, boxRadius } = this.state;
+		const { items, boxSize, theme, hasLine, bordered, boxRadius, blink } = this.state;
 		return (
 			<div className="container">
 
@@ -113,7 +120,8 @@ class App extends Component {
 					boxRadius = {boxRadius}
 					bordered = {bordered}
 					line = {hasLine}
-					theme = {theme} />
+					theme = {theme} 
+					blink = {blink} />
 
 				<div className="control-block">
 					<button 
@@ -150,6 +158,13 @@ class App extends Component {
 						onClick={this.changeTheme}>
 						Change theme
 					</button> 
+
+					<button 
+						type="button" 
+						className="button five"
+						onClick={this.toggleBlink}>
+						Toggle blink
+					</button>
 				</div>
 			</div>
 		);
