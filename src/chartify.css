@@ -10,6 +10,8 @@ $font: 'PT Sans Narrow', sans-serif;
 
   .y-axis-wrapper {
     display: inline-block;
+    position: relative;
+    bottom: 30px;
     
     .y-axis {
       display: inline-block;
@@ -25,18 +27,15 @@ $font: 'PT Sans Narrow', sans-serif;
     }
   }
 
-  .x-axis-wrapper {
+  .marks-wrapper {
     overflow: hidden;
     display: inline-block;
     width: 950px;
-    max-width: 950px;
-    height: 30px;
-    left: 35px;
-    position: relative;
+    max-width: 90vw;
+    height: 230px;
 
     .x-axis {
       font-family: $font;
-      width: 100vw;
 
       .x-caption {
         display: inline-block;
@@ -44,14 +43,6 @@ $font: 'PT Sans Narrow', sans-serif;
         color: $axis-color;
       }
     }
-  }
-
-  .marks-wrapper {
-    overflow: hidden;
-    display: inline-block;
-    width: 950px;
-    max-width: 90vw;
-    height: 200px;
 
     .marks {
       display: inline-block;
