@@ -1,3 +1,8 @@
+## Chartify 1.1.2 (Dec 10, 2016)
+
+* Implement animations and blinking
+* Split draggable feature from main component logic
+
 ## Chartify 1.1.1 (Dec 8, 2016)
 
 * Improve scroll

@@ -6,6 +6,7 @@ var cssnext = require('postcss-cssnext');
 var vars    = require('postcss-simple-vars');
 var nested  = require('postcss-nested');
 var mixins  = require('postcss-mixins');
+var rand    = require('postcss-random');
 
 var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
@@ -51,6 +52,6 @@ module.exports = {
     })
   ],
   postcss: function () {
-    return [precss, cssnext, vars, nested, mixins];
+    return [precss, cssnext, vars, nested, mixins, rand];
   }
 };
