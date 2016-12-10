@@ -1,4 +1,4 @@
-body {
+@import url(https://fonts.googleapis.com/css?family=Poppins);body {
 	background: rgba(241, 233, 233, .14);
     background-image: -webkit-radial-gradient(rgba(224, 206, 214, .28) 30%, transparent 0), -webkit-radial-gradient(rgba(137, 130, 255, .11) 30%, transparent 0);
     background-image: radial-gradient(rgba(224, 206, 214, .28) 30%, transparent 0), radial-gradient(rgba(137, 130, 255, .11) 30%, transparent 0);
@@ -45,7 +45,8 @@ body header .project-title h2 {
 }
 
 body header .project-title h4 {
-	font-size: 18px;
+	font-family: 'Poppins', sans-serif;
+	font-size: 16px;
 	color: #3092e6;
 	margin: 0;
 }
@@ -80,7 +81,7 @@ body main .button {
 	outline: none
 }
 
-body main .button:hover {
+body main .button:hover{
 	opacity: 1 !important;
 }
 
@@ -118,12 +119,12 @@ body footer div a {
 	transition: 0.5s
 }
 
-#forkongithub a:hover {
+#forkongithub a:hover{
 	background: #e82086;
 	color: #fff;
 }
 
-#forkongithub a::before, #forkongithub a::after {
+#forkongithub a::before, #forkongithub a::after{
 	content: "";
 	width: 100%;
 	display: block;
@@ -134,7 +135,7 @@ body footer div a {
 	background: #fff;
 }
 
-#forkongithub a::after {
+#forkongithub a::after{
 	bottom: 1px;
 	top: auto;
 }

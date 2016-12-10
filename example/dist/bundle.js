@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "9b98bc5c58e7c4033d65"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "8d51539bb38373dbfa3d"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -742,7 +742,7 @@
 
 				return {
 					'background': 'rgba( ' + rCol + ', ' + gCol + ', ' + bCol + ', 1)',
-					'opacity': 0.6
+					'opacity': 0.3
 				};
 			}
 		}, {

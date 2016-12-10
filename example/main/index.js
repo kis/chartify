@@ -114,7 +114,7 @@ class App extends Component {
 
 		return {
 			'background': `rgba( ${rCol}, ${gCol}, ${bCol}, 1)`,
-			'opacity': 0.6
+			'opacity': 0.3
 		};
 	}
 

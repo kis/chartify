@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins');
+
 body {
 	background: rgba(241, 233, 233, 0.14);
     background-image: radial-gradient(rgba(224, 206, 214, 0.28) 30%, transparent 0), radial-gradient(rgba(137, 130, 255, 0.11) 30%, transparent 0);
@@ -41,7 +43,8 @@ body {
             }
 
             h4 {
-                font-size: 18px;
+                font-family: 'Poppins', sans-serif;
+                font-size: 16px;
                 color: #3092e6;
                 margin: 0;
             }
