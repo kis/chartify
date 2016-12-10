@@ -103,6 +103,21 @@ class App extends Component {
 		});
 	}
 
+	getRandomColor() {
+		let col = function() {
+			return Math.floor(Math.random() * (255 - 1 + 1)) + 1;
+		};
+
+		let rCol = col();
+		let gCol = col();
+		let bCol = col();
+
+		return {
+			'background': `rgba( ${rCol}, ${gCol}, ${bCol}, 1)`,
+			'opacity': 0.6
+		};
+	}
+
 	render() {
 		const { items, boxSize, theme, hasLine, bordered, boxRadius, blink } = this.state;
 		return (
@@ -126,42 +141,48 @@ class App extends Component {
 				<div className="control-block">
 					<button 
 						type="button" 
-						className="button one"
+						className="button"
+						style={this.getRandomColor()}
 						onClick={this.toggleLine}>
 						Toggle line
 					</button>
 
 					<button 
 						type="button" 
-						className="button two"
+						className="button"
+						style={this.getRandomColor()}
 						onClick={this.toggleBordered}>
 						Toggle borders
 					</button>
 
 					<button 
 						type="button" 
-						className="button three"
+						className="button"
+						style={this.getRandomColor()}
 						onClick={this.toggleBoxRadius}>
 						Toggle box radius
 					</button>
 
 					<button 
 						type="button" 
-						className="button four"
+						className="button"
+						style={this.getRandomColor()}
 						onClick={this.refreshData}>
 						Refresh data
 					</button>
 
 					<button 
 						type="button" 
-						className="button five"
+						className="button"
+						style={this.getRandomColor()}
 						onClick={this.changeTheme}>
 						Change theme
 					</button> 
 
 					<button 
 						type="button" 
-						className="button five"
+						className="button"
+						style={this.getRandomColor()}
 						onClick={this.toggleBlink}>
 						Toggle blink
 					</button>

@@ -60,6 +60,7 @@ body main .gh {
 
 body main .control-block {
 	text-align: center;
+	margin-top: 10px;
 }
 
 body main .control-block #range {
@@ -68,7 +69,7 @@ body main .control-block #range {
 }
 
 body main .button {
-	margin: 20px 10px;
+	margin: 5px 10px;
 	border: none;
 	box-shadow: none;
 	text-transform: uppercase;
@@ -79,24 +80,8 @@ body main .button {
 	outline: none
 }
 
-body main .button.one {
-	background-color: #ae88ea;
-}
-
-body main .button.two {
-	background-color: #448AFF;
-}
-
-body main .button.three {
-	background-color: #788e94;
-}
-
-body main .button.four {
-	background-color: #ae88ea;
-}
-
-body main .button.five {
-	background-color: #448AFF;
+body main .button:hover {
+	opacity: 1 !important;
 }
 
 body footer {

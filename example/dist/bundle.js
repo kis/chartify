@@ -63,7 +63,7 @@
 /******/ 	}
 
 /******/ 	var hotApplyOnUpdate = true;
-/******/ 	var hotCurrentHash = "4e9ffba117fb162d675d"; // eslint-disable-line no-unused-vars
+/******/ 	var hotCurrentHash = "9b98bc5c58e7c4033d65"; // eslint-disable-line no-unused-vars
 /******/ 	var hotCurrentModuleData = {};
 /******/ 	var hotCurrentParents = []; // eslint-disable-line no-unused-vars
 
@@ -730,6 +730,22 @@
 				});
 			}
 		}, {
+			key: 'getRandomColor',
+			value: function getRandomColor() {
+				var col = function col() {
+					return Math.floor(Math.random() * (255 - 1 + 1)) + 1;
+				};
+
+				var rCol = col();
+				var gCol = col();
+				var bCol = col();
+
+				return {
+					'background': 'rgba( ' + rCol + ', ' + gCol + ', ' + bCol + ', 1)',
+					'opacity': 0.6
+				};
+			}
+		}, {
 			key: 'render',
 			value: function render() {
 				var _state = this.state,
@@ -766,7 +782,8 @@
 							'button',
 							{
 								type: 'button',
-								className: 'button one',
+								className: 'button',
+								style: this.getRandomColor(),
 								onClick: this.toggleLine },
 							'Toggle line'
 						),
@@ -774,7 +791,8 @@
 							'button',
 							{
 								type: 'button',
-								className: 'button two',
+								className: 'button',
+								style: this.getRandomColor(),
 								onClick: this.toggleBordered },
 							'Toggle borders'
 						),
@@ -782,7 +800,8 @@
 							'button',
 							{
 								type: 'button',
-								className: 'button three',
+								className: 'button',
+								style: this.getRandomColor(),
 								onClick: this.toggleBoxRadius },
 							'Toggle box radius'
 						),
@@ -790,7 +809,8 @@
 							'button',
 							{
 								type: 'button',
-								className: 'button four',
+								className: 'button',
+								style: this.getRandomColor(),
 								onClick: this.refreshData },
 							'Refresh data'
 						),
@@ -798,7 +818,8 @@
 							'button',
 							{
 								type: 'button',
-								className: 'button five',
+								className: 'button',
+								style: this.getRandomColor(),
 								onClick: this.changeTheme },
 							'Change theme'
 						),
@@ -806,7 +827,8 @@
 							'button',
 							{
 								type: 'button',
-								className: 'button five',
+								className: 'button',
+								style: this.getRandomColor(),
 								onClick: this.toggleBlink },
 							'Toggle blink'
 						)

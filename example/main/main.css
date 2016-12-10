@@ -57,6 +57,7 @@ body {
 
         .control-block {
             text-align: center;
+            margin-top: 10px;
         
             #range {
                 margin: 10px 0 20px 0;
@@ -65,7 +66,7 @@ body {
         }
 
         .button {
-            margin: 20px 10px;
+            margin: 5px 10px;
             border: none;
             box-shadow: none;
             text-transform: uppercase;
@@ -75,24 +76,8 @@ body {
             cursor: pointer;
             outline: none;
 
-            &.one {
-                background-color: #ae88ea;
-            }
-
-            &.two {
-                background-color: #448AFF;
-            }
-
-            &.three {
-                background-color: #788e94;
-            }
-
-            &.four {
-                background-color: #ae88ea;
-            }
-
-            &.five {
-                background-color: #448AFF;
+            &:hover {
+                opacity: 1 !important;
             }
         }
     }

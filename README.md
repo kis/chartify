@@ -2,7 +2,7 @@
 
 ![alt text](https://raw.githubusercontent.com/kisqin/chartify/master/img/preview1.gif)
 
-Simple, lightweight React.js plugin for building scrollable charts. The source for this module is in the [main repo](https://github.com/kisqin/chartify). Please contribute. Check [angular-scale](https://github.com/kisqin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kisqin/jquery-linechart) if you're using JQuery.
+Simple, lightweight React.js plugin for building animated scrollable charts. The source for this module is in the [main repo](https://github.com/kisqin/chartify). Please contribute. Check [angular-scale](https://github.com/kisqin/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kisqin/jquery-linechart) if you're using JQuery.
 
 Check the [EXAMPLE](https://kisqin.github.io/chartify/example/)
 
@@ -34,6 +34,7 @@ import Chartify from 'chartify';
 * **height** is the vertical length.
 * **boxSize** is size of each box in pixels.
 * **boxRadius** is border radius of each box in pixels.
+* **blink** is param that determines if the chart is blinking.
 * **bordered** is param that determines if each box has top and left borders.
 * **line** is param that determines if this is a line-chart.
 * **theme** is color scheme of the chart, "default", "purple", "grey" etc.

@@ -6,6 +6,7 @@ var cssnext = require('postcss-cssnext');
 var vars    = require('postcss-simple-vars');
 var nested  = require('postcss-nested');
 var mixins  = require('postcss-mixins');
+var rand    = require('postcss-random');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -39,6 +40,6 @@ module.exports = {
     new ExtractTextPlugin("./[name].css", { allChunks: true })
   ],
   postcss: function () {
-    return [precss, cssnext, vars, nested, mixins];
+    return [precss, cssnext, vars, nested, mixins, rand];
   }
 };

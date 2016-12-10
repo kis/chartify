@@ -28,6 +28,7 @@
     "postcss-loader": "^0.8.2",
     "postcss-mixins": "^5.0.0",
     "postcss-nested": "^1.0.0",
+    "postcss-random": "^1.0.7",
     "postcss-simple-vars": "^3.0.0",
     "precss": "^1.4.0",
     "react": "^15.4.0",
