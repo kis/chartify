@@ -25,6 +25,7 @@ import Chartify from 'chartify';
 	      boxSize = {16}
 	      boxRadius = {10}
 	      bordered = {true}
+	      blink = {true}
 	      line = {true}
 	      theme = {"purple"} />
 ```
