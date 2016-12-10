@@ -8,22 +8,30 @@ export default class Draggable extends Component {
 
 	constructor(props: Props) {
 		super(props);
-
-		this.state = {
-			delta: 0
-		};
+		this.lastDelta = 0;
 	}
 
 	componentDidMount() {
 		this.elements = {
 			inner: document.getElementsByClassName('marks')[0],
-			outer: document.getElementsByClassName('marks-wrapper')[0]
+			outer: document.getElementsByClassName('marks-wrapper')[0],
+			xAxis: document.getElementsByClassName('x-axis')[0]
 		};
 	}
 
 	startDrag = (e) => {
 		this.pageX = e.pageX;
-		this.lastDelta = this.state.delta;
+
+		let lastTransform = this.elements.inner.style.transform;
+
+		if (!lastTransform) {
+			this.lastDelta = 0;
+		} else {
+			let re = /\D(-?\d+)\D/g;
+			let execVal = re.exec(lastTransform);
+			this.lastDelta = Number(execVal[1]); 
+		}	
+
 		this.checkMove = true;
 	}
 
@@ -40,7 +48,7 @@ export default class Draggable extends Component {
 		let innerRightPos = innerPos + chartLength * boxSize;
 		let outerRightPos = outerPos + this.elements.outer.offsetWidth;
 
-		if (this.state.delta == 0) {
+		if (this.lastDelta == 0) {
 			this.rightState = outerRightPos - innerRightPos;
 		}
 
@@ -59,9 +67,10 @@ export default class Draggable extends Component {
 			newDelta = 0; 
 		}
 
-		this.setState({
-			delta: newDelta
-		});
+		this.lastDelta = newDelta;
+		let newVal = `translateX(${newDelta}px)`;
+		this.elements.inner.style.transform = newVal;
+		this.elements.xAxis.style.transform = newVal;
 	}
 
 	drop = (e) => {
@@ -90,11 +99,22 @@ export default class Draggable extends Component {
 	}
 
 	renderXAxis(marks, marksStyle) {
+		let showDateCount = 0;
+
+		marks.forEach((mark, markNum) => {
+			showDateCount = markNum % 10 == 0 ? ++showDateCount : showDateCount;
+		});
+
+		let width = parseInt(marks.length * this.props.options.boxSize / showDateCount);
+
+		let style = {
+			'width': `${width}px`
+		};
+
 		return (
-			<div className="x-axis"
-				 style={marksStyle}>
+			<div className="x-axis" style={marksStyle}>
 				{marks.map((mark, markNum) => (
-					markNum % 10 == 0 ? <div className="x-caption" key={markNum}>
+					markNum % 10 == 0 ? <div className="x-caption" style={style} key={markNum}>
 						{mark.date}
 					</div> : null
 				))}
@@ -109,8 +129,7 @@ export default class Draggable extends Component {
 		} = this.props.options;
 
 		let marksStyle = {
-			width: `${marks.length * boxSize}px`,
-			transform: `translateX(${this.state.delta}px)`
+			width: `${marks.length * boxSize}px`
 		};
 
 		return (

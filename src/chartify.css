@@ -36,10 +36,13 @@ $font: 'PT Sans Narrow', sans-serif;
 
     .x-axis {
       font-family: $font;
+      max-height: 30px;
 
       .x-caption {
         display: inline-block;
-        margin: 5px 30px;
+        max-height: 30px;
+        margin: 5px 0px;
+        text-align: center;
         color: $axis-color;
       }
     }

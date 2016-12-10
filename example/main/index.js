@@ -7,10 +7,6 @@ import './main.css';
 
 class App extends Component {
 
-	state = {
-		items: []
-	}
-
 	constructor() {
 		super();
 	}
@@ -23,6 +19,15 @@ class App extends Component {
 			date: item["дата и время"]
 		}));
 		items.reverse();
+
+		let dateRegex = /(\d+)[.](\d+)[.](\d+)/;
+
+		for (let i in items) {
+			if (items[i].date) {
+				let date = dateRegex.exec(items[i].date);
+				items[i].date = date && date[0];
+			}
+		}
 
 		this.setState({
 			items: items,
