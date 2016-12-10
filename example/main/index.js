@@ -53,7 +53,7 @@ class App extends Component {
 	changeRange = () => {
 		let val = document.getElementById("range").value;
 		this.setState({
-			boxSize: val
+			boxSize: parseInt(val)
 		});
 	}
 

@@ -8,7 +8,6 @@ export default class Draggable extends Component {
 
 	constructor(props: Props) {
 		super(props);
-		this.lastDelta = 0;
 	}
 
 	componentDidMount() {
@@ -17,6 +16,14 @@ export default class Draggable extends Component {
 			outer: document.getElementsByClassName('marks-wrapper')[0],
 			xAxis: document.getElementsByClassName('x-axis')[0]
 		};
+
+		let {innerRightPos, outerRightPos} = this.getPos();
+
+		this.lastDelta = outerRightPos - innerRightPos;
+
+		let newVal = `translateX(${this.lastDelta}px)`;
+		this.elements.inner.style.transform = newVal;
+		this.elements.xAxis.style.transform = newVal;
 	}
 
 	startDrag = (e) => {
@@ -36,17 +43,7 @@ export default class Draggable extends Component {
 	}
 
 	processDrag = (e) => {
-		const {
-			data: marks = [],
-			boxSize = 20
-		} = this.props.options;
-
-		let chartLength = marks.length;
-
-		let innerPos = this.elements.inner.getBoundingClientRect().left - window.scrollX;
-		let outerPos = this.elements.outer.getBoundingClientRect().left - window.scrollX;
-		let innerRightPos = innerPos + chartLength * boxSize;
-		let outerRightPos = outerPos + this.elements.outer.offsetWidth;
+		let {innerPos, outerPos, innerRightPos, outerRightPos} = this.getPos();
 
 		if (this.lastDelta == 0) {
 			this.rightState = outerRightPos - innerRightPos;
@@ -68,6 +65,7 @@ export default class Draggable extends Component {
 		}
 
 		this.lastDelta = newDelta;
+
 		let newVal = `translateX(${newDelta}px)`;
 		this.elements.inner.style.transform = newVal;
 		this.elements.xAxis.style.transform = newVal;
@@ -122,6 +120,27 @@ export default class Draggable extends Component {
 		);
 	}
 
+	getPos() {
+		const {
+			data: marks = [],
+			boxSize = 20
+		} = this.props.options;
+
+		let chartLength = marks.length;
+
+		let innerPos = this.elements.inner.getBoundingClientRect().left - window.scrollX;
+		let outerPos = this.elements.outer.getBoundingClientRect().left - window.scrollX;
+		let innerRightPos = innerPos + chartLength * boxSize;
+		let outerRightPos = outerPos + this.elements.outer.offsetWidth;
+
+		return {
+			innerPos,
+			outerPos,
+			innerRightPos,
+			outerRightPos
+		};
+	}
+
 	render() {
 		const { 
 			data: marks,
@@ -129,7 +148,7 @@ export default class Draggable extends Component {
 		} = this.props.options;
 
 		let marksStyle = {
-			width: `${marks.length * boxSize}px`
+			'width': `${marks.length * boxSize}px`
 		};
 
 		return (
