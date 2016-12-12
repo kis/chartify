@@ -150,5 +150,5 @@ $font: 'PT Sans Narrow', sans-serif;
 }
 
 @mixin theme default, rgba(255,90,0,1), #f6f0c7, rgba(255,90,0,0.5), #9C27B0;
-@mixin theme purple, #448AFF, #E1BEE7, #BDBDBD, #9C27B0;
+@mixin theme purple, #448AFF, rgba(225, 190, 231, 0.45), #BDBDBD, #9C27B0;
 @mixin theme grey, #9E9E9E, #FFFFFF, #CFD8DC, #455A64;

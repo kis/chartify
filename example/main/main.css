@@ -1,10 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 body {
-	background: rgba(241, 233, 233, 0.14);
-    background-image: radial-gradient(rgba(224, 206, 214, 0.28) 30%, transparent 0), radial-gradient(rgba(137, 130, 255, 0.11) 30%, transparent 0);
-	background-size: 30px 30px;
-	background-position: 0 0, 15px 15px;
 	overflow-x: hidden;
 
     .container {
@@ -17,17 +13,7 @@ body {
     }
 
     header {
-        height: 120px;
-        padding: 20px 0 0 0;
-
-        .project-logo {
-            display: inline-block;
-            width: 120px;
-
-            img {
-                width: 90px;
-            }
-        }   
+        padding: 20px 0 0 0;   
 
         .project-title {
             position: relative;
@@ -53,10 +39,6 @@ body {
 
     main {
         height: 520px;
-
-        .gh {
-            margin: 30px 0;
-        }
 
         .control-block {
             text-align: center;

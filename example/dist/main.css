@@ -1,9 +1,4 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins);body {
-	background: rgba(241, 233, 233, .14);
-    background-image: -webkit-radial-gradient(rgba(224, 206, 214, .28) 30%, transparent 0), -webkit-radial-gradient(rgba(137, 130, 255, .11) 30%, transparent 0);
-    background-image: radial-gradient(rgba(224, 206, 214, .28) 30%, transparent 0), radial-gradient(rgba(137, 130, 255, .11) 30%, transparent 0);
-	background-size: 30px 30px;
-	background-position: 0 0, 15px 15px;
 	overflow-x: hidden;
 }
 
@@ -17,17 +12,7 @@ body .text-center {
 }
 
 body header {
-	height: 120px;
 	padding: 20px 0 0 0;
-}
-
-body header .project-logo {
-	display: inline-block;
-	width: 120px;
-}
-
-body header .project-logo img {
-	width: 90px;
 }
 
 body header .project-title {
@@ -53,10 +38,6 @@ body header .project-title h4 {
 
 body main {
 	height: 520px;
-}
-
-body main .gh {
-	margin: 30px 0;
 }
 
 body main .control-block {

@@ -33,10 +33,10 @@ class App extends Component {
 			items: items,
 			boxSize: 20,
 			boxRadius: 10,
-			theme: 'default',
-			hasLine: true,
+			theme: 'grey',
+			hasLine: false,
 			bordered: false,
-			blink: true
+			blink: false
 		});
 	}
 
