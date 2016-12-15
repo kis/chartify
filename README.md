@@ -27,6 +27,7 @@ import Chartify from 'chartify';
 	      bordered = {true}
 	      blink = {true}
 	      line = {true}
+	      lineOnly = {true}
 	      theme = {"purple"} />
 ```
 
@@ -38,7 +39,8 @@ import Chartify from 'chartify';
 * **blink** is param that determines if the chart is blinking.
 * **bordered** is param that determines if each box has top and left borders.
 * **line** is param that determines if this is a line-chart.
-* **theme** is color scheme of the chart, "default", "purple", "grey" etc.
+* **lineOnly** is param that determines if we show only line on white background.
+* **theme** is color scheme of the chart, "default", "purple", "grey", "white" etc.
 
 Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash.
 
