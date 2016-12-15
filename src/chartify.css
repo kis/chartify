@@ -61,6 +61,7 @@ $main-color: rgba(172, 148, 179, 0.49);
         .mark {
           position: relative;
           border-top: 1px solid rgba(249,250,249, 0.9);
+          border-left: 1px solid rgba(249,250,249, 0.9);
           box-sizing: border-box;
 
           &:hover {
@@ -69,6 +70,10 @@ $main-color: rgba(172, 148, 179, 0.49);
             .tooltiptext {
               visibility: visible;
             }
+          }
+
+          &.white {
+            background: white;
           }
 
           .line {

@@ -25,6 +25,7 @@ export default class Chartify extends Component {
 			bordered = true,
 			boxRadius = 10,
 			line = false,
+			lineOnly = true,
 			blink = true
 		} = this.props;
 
@@ -43,10 +44,18 @@ export default class Chartify extends Component {
 			<div>
 				{row.map(i => {
 					let markClass = null;
+					let drawLine = false;
 
 					if (height - mark.value > i.value) markClass = "mark empty";
 					if (height - mark.value == i.value) markClass = "mark";
 					if (height - mark.value < i.value) markClass = "mark painted";
+
+					if (line) drawLine = true;
+
+					if (lineOnly) {
+						drawLine = true;
+						markClass = "mark white";
+					}
 
 					let isPoint = height - mark.value == i.value && markNum < marks.length - 1;
 
@@ -59,7 +68,7 @@ export default class Chartify extends Component {
 					}
 
 					return <div key={i.value} style={individualStyle} className={markClass}>
-						{isPoint ? this.renderMarkTools(mark, markNum, line) : null}
+						{isPoint ? this.renderMarkTools(mark, markNum, drawLine) : null}
 					</div>
 				})}
 			</div>

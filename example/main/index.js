@@ -33,8 +33,9 @@ class App extends Component {
 			items: items,
 			boxSize: 20,
 			boxRadius: 10,
-			theme: 'grey',
-			hasLine: false,
+			theme: 'white',
+			hasLine: true,
+			lineOnly: true,
 			bordered: false,
 			blink: false
 		});
@@ -71,18 +72,21 @@ class App extends Component {
 		let next = curr < Object.keys(themes).length - 1 ? curr + 1 : 0;
 
 		this.setState({
+			lineOnly: false,
 			theme: themes[next]
 		});
 	}
 
 	toggleLine = () => {
 		this.setState({
+			lineOnly: false,
 			hasLine: !this.state.hasLine
 		});
 	}
 
 	toggleBordered = () => {
 		this.setState({
+			lineOnly: false,
 			bordered: !this.state.bordered
 		});
 	}
@@ -93,13 +97,21 @@ class App extends Component {
 		num = num == 3 ? 0 : ++num;
 
 		this.setState({
+			lineOnly: false,
 			boxRadius: radiuses[num]
 		});
 	}
 
 	toggleBlink = () => {
 		this.setState({
+			lineOnly: false,
 			blink: !this.state.blink
+		});
+	}
+
+	toggleLineOnly = () => {
+		this.setState({
+			lineOnly: !this.state.lineOnly
 		});
 	}
 
@@ -108,21 +120,16 @@ class App extends Component {
 			return Math.floor(Math.random() * (255 - 1 + 1)) + 1;
 		};
 
-		let rCol = col();
-		let gCol = col();
-		let bCol = col();
-
 		return {
-			'background': `rgba( ${rCol}, ${gCol}, ${bCol}, 1)`,
+			'background': `rgba( ${col()}, ${col()}, ${col()}, 1)`,
 			'opacity': 0.3
 		};
 	}
 
 	render() {
-		const { items, boxSize, theme, hasLine, bordered, boxRadius, blink } = this.state;
+		const { items, boxSize, theme, hasLine, lineOnly, bordered, boxRadius, blink } = this.state;
 		return (
 			<div className="container">
-
 				<div className="control-block">
 					<input id="range" type="range" min="0" max="20" step="1" onChange={this.changeRange} /> 
 				</div>
@@ -135,6 +142,7 @@ class App extends Component {
 					boxRadius = {boxRadius}
 					bordered = {bordered}
 					line = {hasLine}
+					lineOnly = {lineOnly}
 					theme = {theme} 
 					blink = {blink} />
 
@@ -185,6 +193,14 @@ class App extends Component {
 						style={this.getRandomColor()}
 						onClick={this.toggleBlink}>
 						Toggle blink
+					</button>
+
+					<button
+						type="button" 
+						className="button"
+						style={this.getRandomColor()}
+						onClick={this.toggleLineOnly}>
+						Toggle line-only
 					</button>
 				</div>
 			</div>
