@@ -3,6 +3,7 @@
 $axis-color: #9C27B0;
 $box-width: 20px;
 $font: 'PT Sans Narrow', sans-serif;
+$main-color: rgba(172, 148, 179, 0.49);
 
 .ruler-container {
   position: relative;
@@ -11,13 +12,14 @@ $font: 'PT Sans Narrow', sans-serif;
   .y-axis-wrapper {
     display: inline-block;
     position: relative;
-    bottom: 30px;
+    bottom: 29px;
     
     .y-axis {
       display: inline-block;
       padding: 0 10px;
       color: $axis-color;
       font-family: $font;
+      border-right: 1px solid $main-color;
 
       .y-caption {
         height: $box-width;
@@ -51,6 +53,7 @@ $font: 'PT Sans Narrow', sans-serif;
     .marks {
       display: inline-block;
       height: 200px;
+      border-bottom: 1px solid $main-color;
 
       .ruler-row {
         display: inline-block;
@@ -58,7 +61,6 @@ $font: 'PT Sans Narrow', sans-serif;
         .mark {
           position: relative;
           border-top: 1px solid rgba(249,250,249, 0.9);
-          border-left: 1px solid rgba(249,250,249, 0.9);
           box-sizing: border-box;
 
           &:hover {
@@ -152,3 +154,4 @@ $font: 'PT Sans Narrow', sans-serif;
 @mixin theme default, rgba(255,90,0,1), #f6f0c7, rgba(255,90,0,0.5), #9C27B0;
 @mixin theme purple, #448AFF, rgba(225, 190, 231, 0.45), #BDBDBD, #9C27B0;
 @mixin theme grey, #9E9E9E, #FFFFFF, #CFD8DC, #455A64;
+@mixin theme white, $main-color, #FFFFFF, #FFFFFF, #9C27B0;

@@ -59,7 +59,7 @@ class App extends Component {
 	}
 
 	changeTheme = () => {
-		const themes = {0:'default', 1:'purple', 2:'grey'};
+		const themes = {0:'default', 1:'purple', 2:'grey', 3:'white'};
 		let curr = 0;
 
 		Object.values(themes).forEach((val, i) => {
