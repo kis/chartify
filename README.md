@@ -2,7 +2,7 @@
 
 ![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/prev.gif)
 
-Simple, lightweight React.js plugin for building animated draggable charts. The source for this module is in the [main repo](https://github.com/kiqs/chartify). Please contribute. Check [angular-scale](https://github.com/kiqs/scale) if you're using Angular.js. And [jquery-linechart](https://github.com/kiqs/jquery-linechart) if you're using JQuery.
+Simple, lightweight React.js plugin for building animated draggable and customizable charts. The source for this module is in the [main repo](https://github.com/kiqs/chartify). Please contribute.
 
 Check the [EXAMPLE](https://kiqs.github.io/chartify/example/)
 
