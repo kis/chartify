@@ -27,7 +27,7 @@ export default class Chartify extends Component {
 			line = false,
 			lineOnly = true,
 			blink = true
-		} = this.props;
+		} = this.props.config;
 
 		const markStyle = {
 			'width': `${boxSize}px`,

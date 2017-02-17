@@ -39,32 +39,6 @@ body {
 
     main {
         height: 520px;
-
-        .control-block {
-            text-align: center;
-            margin-top: 10px;
-        
-            #range {
-                margin: 10px 0 20px 0;
-                padding: 10px 0;
-            }
-        }
-
-        .button {
-            margin: 5px 10px;
-            border: none;
-            box-shadow: none;
-            text-transform: uppercase;
-            font-size: 16px;
-            color: #fff;
-            padding: 10px 20px;
-            cursor: pointer;
-            outline: none;
-
-            &:hover {
-                opacity: 1 !important;
-            }
-        }
     }
 
     footer {
