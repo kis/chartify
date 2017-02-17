@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import * as util from '../../util/util';
 import './controls.css';
 
-class Controls extends Component {
+export default class Controls extends Component {
 
 	constructor() {
 		super();
@@ -147,5 +147,3 @@ class Controls extends Component {
 		);
 	}
 }
-
-export default Controls;

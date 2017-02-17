@@ -19,7 +19,7 @@ import Chartify from 'chartify';
 
 let data = [{
 	value: 5,
-	title: 007 Spectre,
+	title: '007 Spectre',
 	date: '20.11.2016'
 }];
 
