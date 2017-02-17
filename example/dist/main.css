@@ -40,32 +40,6 @@ body main {
 	height: 520px;
 }
 
-body main .control-block {
-	text-align: center;
-	margin-top: 10px;
-}
-
-body main .control-block #range {
-	margin: 10px 0 20px 0;
-	padding: 10px 0;
-}
-
-body main .button {
-	margin: 5px 10px;
-	border: none;
-	box-shadow: none;
-	text-transform: uppercase;
-	font-size: 16px;
-	color: #fff;
-	padding: 10px 20px;
-	cursor: pointer;
-	outline: none
-}
-
-body main .button:hover{
-	opacity: 1 !important;
-}
-
 body footer {
 	position: relative;
 }
@@ -73,6 +47,7 @@ body footer {
 body footer div {
 	text-align: center;
 	font-family: 'Shrikhand', cursive;
+	color: #d81ea4;
 	color: rgba(216, 30, 164, .47);
 	font-size: 18px;
 	margin: 20px 0;
@@ -80,6 +55,7 @@ body footer div {
 
 body footer div a {
 	cursor: pointer;
+	color: #164a90;
 	color: rgba(22, 74, 144, .6);
 }
 
@@ -105,7 +81,7 @@ body footer div a {
 	color: #fff;
 }
 
-#forkongithub a::before, #forkongithub a::after{
+#forkongithub a:before, #forkongithub a:after{
 	content: "";
 	width: 100%;
 	display: block;
@@ -116,7 +92,7 @@ body footer div a {
 	background: #fff;
 }
 
-#forkongithub a::after{
+#forkongithub a:after{
 	bottom: 1px;
 	top: auto;
 }
@@ -141,4 +117,29 @@ body footer div a {
 		        transform: rotate(45deg);
 		box-shadow: 4px 4px 10px rgba(0, 0, 0, .8);
 	}
+}
+.control-block {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.control-block #range {
+    margin: 10px 0 20px 0;
+    padding: 10px 0;
+}
+
+.button {
+    margin: 5px 10px;
+    border: none;
+    box-shadow: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    color: #fff;
+    padding: 10px 20px;
+    cursor: pointer;
+    outline: none
+}
+
+.button:hover {
+    opacity: 1 !important;
 }

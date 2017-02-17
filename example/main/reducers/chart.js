@@ -1,37 +1,31 @@
+import * as util from '../util/util';
+
 var initConfig = {
-	items: items,
-	width: 50,				      
-	height: 10,
-	boxSize: 20,
-	boxRadius: 10,
-	theme: 'white',
-	line: true,
-	lineOnly: true,
-	bordered: false,
-	blink: false
+	data: util.getInitData(),
+	config: {
+		theme: 'white',
+		width: 50,				      
+		height: 10,
+		box_size: 20,
+		box_radius: 10,
+		line: true,
+		line_only: true,
+		bordered: false,
+		blink: false
+	}
 };
 
-export default function teams(state = initTeams, action) {
+function chartApp(state = initConfig, action) {
 	switch (action.type) {
-	case 'REQUEST_TEAMS':
-		return {...state, teams: action.teams};
+	case 'INIT_CONFIG':
+		return {...state, data: state.data, config: state.config};
 
-	case 'RECEIVE_TEAMS':
-		return {...state, teams: action.teams};
-
-	case 'FILTER_TEAMS':
-		return {...state, activeGroupFilter: action.group};
-
-	case 'RECEIVE_STANDINGS':
-		return {...state, standings: action.standings};
-
-	case 'TOGGLE_TEAMS':
-		return {...state, showTeams: true, showStandings: false};
-
-	case 'TOGGLE_STANDINGS':
-		return {...state, showTeams: false, showStandings: true};
+	case 'UPDATE_CHART':
+		return {...state, data: action.data, config: action.config};
 
 	default:
-		return {...state};
+		return state;
 	}
 }
+
+export default chartApp;

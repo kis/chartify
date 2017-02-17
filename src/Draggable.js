@@ -75,8 +75,8 @@ export default class Draggable extends Component {
 		this.checkMove = false;
 	}
 
-	renderMarks(marks, marksStyle) {
-		const row = Array(this.props.options.height).fill().map((item, i) => ({ value: i }));
+	renderMarks(marksStyle) {
+		const row = Array(this.props.config.height).fill().map((item, i) => ({ value: i }));
 
 		return (
 			<div className="marks" 
@@ -87,7 +87,7 @@ export default class Draggable extends Component {
 				 onMouseDown={this.startDrag.bind(this)} 
 				 onMouseMove={this.processDrag.bind(this)} 
 				 onMouseUp={this.drop.bind(this)}>
-				{marks.map((mark, markNum) => (
+				{this.props.data.map((mark, markNum) => (
 					<div className="ruler-row" key={markNum}>
 						{this.props.renderRow(mark, markNum, row)}
 					</div>
@@ -96,14 +96,14 @@ export default class Draggable extends Component {
 		);
 	}
 
-	renderXAxis(marks, marksStyle) {
+	renderXAxis(marksStyle) {
 		let showDateCount = 0;
 
-		marks.forEach((mark, markNum) => {
+		this.props.data.forEach((mark, markNum) => {
 			showDateCount = markNum % 10 == 0 ? ++showDateCount : showDateCount;
 		});
 
-		let width = parseInt(marks.length * this.props.options.boxSize / showDateCount);
+		let width = parseInt(this.props.data.length * this.props.config.box_size / showDateCount);
 
 		let style = {
 			'width': `${width}px`
@@ -111,7 +111,7 @@ export default class Draggable extends Component {
 
 		return (
 			<div className="x-axis" style={marksStyle}>
-				{marks.map((mark, markNum) => (
+				{this.props.data.map((mark, markNum) => (
 					markNum % 10 == 0 ? <div className="x-caption" style={style} key={markNum}>
 						{mark.date}
 					</div> : null
@@ -122,15 +122,18 @@ export default class Draggable extends Component {
 
 	getPos() {
 		const {
-			data: marks = [],
-			boxSize = 20
-		} = this.props.options;
+			box_size = 20
+		} = this.props.config;
+
+		const { 
+			data: marks = [] 
+		} = this.props;
 
 		let chartLength = marks.length;
 
 		let innerPos = this.elements.inner.getBoundingClientRect().left - window.scrollX;
 		let outerPos = this.elements.outer.getBoundingClientRect().left - window.scrollX;
-		let innerRightPos = innerPos + chartLength * boxSize;
+		let innerRightPos = innerPos + chartLength * box_size;
 		let outerRightPos = outerPos + this.elements.outer.offsetWidth;
 
 		return {
@@ -142,19 +145,22 @@ export default class Draggable extends Component {
 	}
 
 	render() {
+		const {
+			box_size = 20
+		} = this.props.config;
+
 		const { 
-			data: marks,
-			boxSize = 20
-		} = this.props.options;
+			data: marks 
+		} = this.props;
 
 		let marksStyle = {
-			'width': `${marks.length * boxSize}px`
+			'width': `${marks.length * box_size}px`
 		};
 
 		return (
 			<div className="marks-wrapper">
-				{this.renderMarks(marks, marksStyle)}
-				{this.renderXAxis(marks, marksStyle)}
+				{this.renderMarks(marksStyle)}
+				{this.renderXAxis(marksStyle)}
 			</div>
 		);
 	}

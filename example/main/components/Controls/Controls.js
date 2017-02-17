@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-
+import * as util from '../../util/util';
 import './controls.css';
 
 class Controls extends Component {
@@ -9,35 +9,18 @@ class Controls extends Component {
 		super();
 	}
 
-	componentWillMount() {
-		this.setState({
-			config: this.getInitConfig()
-		});
-	}
-
 	changeRange = () => {
 		let val = document.getElementById("range").value;
-		this.setState({
-			boxSize: parseInt(val)
-		});
+		this.props.actions.updateChart(this.props.data, {...this.props.config, box_size: parseInt(val)});
 	}
 
 	refreshData = () => {
-		const { items } = this.state;
+		const { data:items } = this.props;
 		let newItems = items.map(item => {
 			item.sortValue = Math.random().toFixed(5);
 			return item;
 		}).sort((a,b) => a.sortValue > b.sortValue ? 1 : -1);
-		this.setState({
-			items: newItems
-		});
-	}
-
-	changeRange = () => {
-		let val = document.getElementById("range").value;
-		this.setState({
-			boxSize: parseInt(val)
-		});
+		this.props.actions.updateChart(newItems, this.props.config);
 	}
 
 	changeTheme = () => {
@@ -45,54 +28,60 @@ class Controls extends Component {
 		let curr = 0;
 
 		Object.values(themes).forEach((val, i) => {
-			if (this.state.theme == val) {
+			if (this.props.config.theme == val) {
 				curr = i;
 			}
 		});
 
 		let next = curr < Object.keys(themes).length - 1 ? curr + 1 : 0;
 
-		this.setState({
-			lineOnly: false,
+		this.props.actions.updateChart(this.props.data, {
+			...this.props.config, 
+			line_only: false,
 			theme: themes[next]
 		});
 	}
 
 	toggleLine = () => {
-		this.setState({
-			lineOnly: false,
-			hasLine: !this.state.hasLine
+		this.props.actions.updateChart(this.props.data, {
+			...this.props.config, 
+			line_only: false,
+			line: !this.props.config.line
 		});
 	}
 
 	toggleBordered = () => {
-		this.setState({
-			lineOnly: false,
-			bordered: !this.state.bordered
+		this.props.actions.updateChart(this.props.data, {
+			...this.props.config, 
+			line_only: false,
+			bordered: !this.props.config.bordered
 		});
 	}
 
 	toggleBoxRadius = () => {
 		let radiuses = [0, 5, 8, 10];
-		let num = radiuses.indexOf(this.state.boxRadius);
+		let num = radiuses.indexOf(this.props.config.box_radius);
 		num = num == 3 ? 0 : ++num;
 
-		this.setState({
-			lineOnly: false,
-			boxRadius: radiuses[num]
+		this.props.actions.updateChart(this.props.data, {
+			...this.props.config, 
+			line_only: false,
+			box_radius: radiuses[num]
 		});
 	}
 
 	toggleBlink = () => {
-		this.setState({
-			lineOnly: false,
-			blink: !this.state.blink
+		this.props.actions.updateChart(this.props.data, {
+			...this.props.config, 
+			line_only: false,
+			blink: !this.props.config.blink
 		});
 	}
 
 	toggleLineOnly = () => {
-		this.setState({
-			lineOnly: !this.state.lineOnly
+		this.props.actions.updateChart(this.props.data, {
+			...this.props.config, 
+			line_only: !this.props.config.line_only
 		});
 	}
 
@@ -102,7 +91,7 @@ class Controls extends Component {
 				<button 
 					type="button" 
 					className="button"
-					style={this.getRandomColor()}
+					style={util.getRandomColor()}
 					onClick={this.toggleLine}>
 					Toggle line
 				</button>
@@ -110,7 +99,7 @@ class Controls extends Component {
 				<button 
 					type="button" 
 					className="button"
-					style={this.getRandomColor()}
+					style={util.getRandomColor()}
 					onClick={this.toggleBordered}>
 					Toggle borders
 				</button>
@@ -118,7 +107,7 @@ class Controls extends Component {
 				<button 
 					type="button" 
 					className="button"
-					style={this.getRandomColor()}
+					style={util.getRandomColor()}
 					onClick={this.toggleBoxRadius}>
 					Toggle box radius
 				</button>
@@ -126,7 +115,7 @@ class Controls extends Component {
 				<button 
 					type="button" 
 					className="button"
-					style={this.getRandomColor()}
+					style={util.getRandomColor()}
 					onClick={this.refreshData}>
 					Refresh data
 				</button>
@@ -134,7 +123,7 @@ class Controls extends Component {
 				<button 
 					type="button" 
 					className="button"
-					style={this.getRandomColor()}
+					style={util.getRandomColor()}
 					onClick={this.changeTheme}>
 					Change theme
 				</button> 
@@ -142,7 +131,7 @@ class Controls extends Component {
 				<button 
 					type="button" 
 					className="button"
-					style={this.getRandomColor()}
+					style={util.getRandomColor()}
 					onClick={this.toggleBlink}>
 					Toggle blink
 				</button>
@@ -150,7 +139,7 @@ class Controls extends Component {
 				<button
 					type="button" 
 					className="button"
-					style={this.getRandomColor()}
+					style={util.getRandomColor()}
 					onClick={this.toggleLineOnly}>
 					Toggle line-only
 				</button>

@@ -1,11 +1,11 @@
 import votes from './votes.json';
 
-export default function getInitConfig() {
-	let items = votes.map(item => {
+export function getInitData() {
+	let items = votes.map(item => ({
 		value: item["моя оценка"],
 		title: item["оригинальное название"],
 		date: item["дата и время"]
-	});
+	}));
 	items.reverse();
 
 	let dateRegex = /(\d+)[.](\d+)[.](\d+)/;
@@ -20,7 +20,7 @@ export default function getInitConfig() {
 	return items;
 }
 
-export default function getRandomColor() {
+export function getRandomColor() {
 	let col = function() {
 		return Math.floor(Math.random() * (255 - 1 + 1)) + 1;
 	};

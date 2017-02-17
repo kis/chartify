@@ -5,21 +5,14 @@ import './chart.css';
 
 class Chart extends Component {
 
-	constructor() {
+	constructor(props) {
 		super();
-	}
-
-	componentWillMount() {
-		this.setState({
-			config: this.getInitConfig()
-		});
 	}
 
 	render() {
 		return (
 			<div className="container">
-				<Chartify items={this.props.items} config={config} />
-				<Controls {..this.props} />
+				<Chartify data={this.props.data} config={this.props.config} />
 			</div>
 		);
 	}

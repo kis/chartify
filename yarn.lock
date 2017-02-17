@@ -3319,6 +3319,12 @@ postcss-pseudoelements@^3.0.0:
   dependencies:
     postcss "^5.0.4"
 
+postcss-random@^1.0.7:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/postcss-random/-/postcss-random-1.0.9.tgz#3ab2bd6bed4e6e4d290fd93282cfa46472f57272"
+  dependencies:
+    postcss "^5.2.5"
+
 postcss-reduce-idents@^2.2.2:
   version "2.3.1"
   resolved "https://registry.yarnpkg.com/postcss-reduce-idents/-/postcss-reduce-idents-2.3.1.tgz#024e8e219f52773313408573db9645ba62d2d2fe"

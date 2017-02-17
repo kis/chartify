@@ -18,21 +18,22 @@ export default class Chartify extends Component {
 	}
 
 	renderRow(mark: Mark, markNum: number, row: Array) {
+		let { data: marks } = this.props;
+
 		const {
-			data: marks = [],
 			height = 50,
-			boxSize = 20,
+			box_size = 20,
 			bordered = true,
-			boxRadius = 10,
+			box_radius = 10,
 			line = false,
-			lineOnly = true,
+			line_only = true,
 			blink = true
 		} = this.props.config;
 
 		const markStyle = {
-			'width': `${boxSize}px`,
-			'height': `${boxSize}px`,
-			'borderRadius': `${boxRadius}px`
+			'width': `${box_size}px`,
+			'height': `${box_size}px`,
+			'borderRadius': `${box_radius}px`
 		};
 
 		if (!bordered) {
@@ -52,7 +53,7 @@ export default class Chartify extends Component {
 
 					if (line) drawLine = true;
 
-					if (lineOnly) {
+					if (line_only) {
 						drawLine = true;
 						markClass = "mark white";
 					}
@@ -84,7 +85,7 @@ export default class Chartify extends Component {
 				{drawLine ? <div className="line" style={lineStyle}></div> : null}
 				<div className="tooltiptext">
 					<div>{mark.value}</div>
-					<div>{mark.title || mark.titleRus}</div>
+					<div>{mark.title}</div>
 					<div className="date">{mark.date}</div>
 				</div>
 			</div>
@@ -92,15 +93,15 @@ export default class Chartify extends Component {
 	}
 
 	calcLineStyle(currentMark: number, nextMark: number) {
-		const { boxSize = 20 } = this.props;
-		const AC = boxSize;
-		const BC = Math.abs(nextMark - currentMark) * boxSize;
+		const { box_size = 20 } = this.props.config;
+		const AC = box_size;
+		const BC = Math.abs(nextMark - currentMark) * box_size;
 		const AB = Math.hypot(AC, BC);
 		let angleA = Math.fround(Math.asin( BC / AB ) * 180 / Math.PI);
 
 		if (nextMark > currentMark) angleA = -angleA;
 
-		let linePos = parseInt(boxSize/2);
+		let linePos = parseInt(box_size/2);
 
 		return {
 			width: `${AB}px`,
@@ -125,13 +126,16 @@ export default class Chartify extends Component {
 	}
 
 	render() {
-		const row = Array(this.props.height).fill().map((item, i) => ({ value: i }));
-		const rulerClass = `ruler-container ${this.props.theme}`;
+		const row = Array(this.props.config.height).fill().map((item, i) => ({ value: i }));
+		const rulerClass = `ruler-container ${this.props.config.theme}`;
 
 		return (
 			<div className={rulerClass}>
 				{this.renderYAxis(row)}
-				<Draggable options={this.props} renderRow={this.renderRow.bind(this)} />
+				<Draggable 
+					data={this.props.data} 
+					config={this.props.config} 
+					renderRow={this.renderRow.bind(this)} />
 			</div>
 		);
 	}

@@ -1,26 +1,13 @@
-export function requestTeams(teams) {
+export function initConfig() {
 	return {
-		type: 'REQUEST_TEAMS',
-		teams
+		type: 'INIT_CONFIG'
 	}
 }
 
-export function receiveTeams(teams) {
+export function updateChart(data, config) {
 	return {
-		type: 'RECEIVE_TEAMS',
-		teams
+		type: 'UPDATE_CHART',
+		data,
+		config
 	}
-}
-
-export function fetchTeams() {
-	return function (dispatch) {
-		dispatch(requestTeams(null));
-    teamsData().then(res => dispatch(receiveTeams(res)));
-	}
-}
-
-async function teamsData() {
-  let teamsData = await fetch('/assets/football/Euro2016/teams.json');
-  let res = await teamsData.json();
-  return res.sheets.Teams;
 }
