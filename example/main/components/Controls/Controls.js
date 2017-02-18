@@ -9,14 +9,9 @@ export default class Controls extends Component {
 		super();
 	}
 
-	changeRange = () => {
-		let val = document.getElementById("range").value;
-		this.props.actions.updateChart(this.props.data, {...this.props.config, box_size: parseInt(val)});
-	}
-
 	refreshData = () => {
-		const { data:items } = this.props;
-		let newItems = items.map(item => {
+		const { data } = this.props;
+		let newItems = data.map(item => {
 			item.sortValue = Math.random().toFixed(5);
 			return item;
 		}).sort((a,b) => a.sortValue > b.sortValue ? 1 : -1);
@@ -24,8 +19,8 @@ export default class Controls extends Component {
 	}
 
 	changeTheme = () => {
-		const themes = {0:'default', 1:'purple', 2:'grey', 3:'white'};
-		let curr = 0;
+		const themes = {0:'default', 1:'blue', 2:'grey', 3:'white'};
+		let curr = 1;
 
 		Object.values(themes).forEach((val, i) => {
 			if (this.props.config.theme == val) {
@@ -88,59 +83,31 @@ export default class Controls extends Component {
 	render() {
 		return (
 			<div className="control-block">
-				<button 
-					type="button" 
-					className="button"
-					style={util.getRandomColor()}
-					onClick={this.toggleLine}>
+				<button type="button" onClick={this.toggleLine}>
 					Toggle line
 				</button>
 
-				<button 
-					type="button" 
-					className="button"
-					style={util.getRandomColor()}
-					onClick={this.toggleBordered}>
+				<button type="button" onClick={this.toggleBordered}>
 					Toggle borders
 				</button>
 
-				<button 
-					type="button" 
-					className="button"
-					style={util.getRandomColor()}
-					onClick={this.toggleBoxRadius}>
+				<button type="button" onClick={this.toggleBoxRadius}>
 					Toggle box radius
 				</button>
 
-				<button 
-					type="button" 
-					className="button"
-					style={util.getRandomColor()}
-					onClick={this.refreshData}>
+				<button type="button" onClick={this.refreshData}>
 					Refresh data
 				</button>
 
-				<button 
-					type="button" 
-					className="button"
-					style={util.getRandomColor()}
-					onClick={this.changeTheme}>
+				<button type="button" onClick={this.changeTheme}>
 					Change theme
 				</button> 
 
-				<button 
-					type="button" 
-					className="button"
-					style={util.getRandomColor()}
-					onClick={this.toggleBlink}>
+				<button type="button" onClick={this.toggleBlink}>
 					Toggle blink
 				</button>
 
-				<button
-					type="button" 
-					className="button"
-					style={util.getRandomColor()}
-					onClick={this.toggleLineOnly}>
+				<button type="button" onClick={this.toggleLineOnly}>
 					Toggle line-only
 				</button>
 			</div>

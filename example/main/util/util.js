@@ -3,7 +3,7 @@ import votes from './votes.json';
 export function getInitData() {
 	let items = votes.map(item => ({
 		value: item["моя оценка"],
-		title: item["оригинальное название"],
+		title: (item["оригинальное название"] || item["русскоязычное название"]) + ' (' + item["год"] +')',
 		date: item["дата и время"]
 	}));
 	items.reverse();

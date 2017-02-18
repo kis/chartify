@@ -1,0 +1,45 @@
+@keyframes blinkHover {
+  0% {
+    background: #5c2965;
+  }
+  50% {
+    background: #E1BEE7;
+  }
+}
+
+@keyframes blink {
+  0% {
+    background: #9C27B0;
+  }
+  50% {
+    background: #E1BEE7;
+  }
+}
+
+@define-mixin theme $theme, $mark, $empty, $painted, $line {
+  .$(theme) {
+    .ruler-row:hover .mark {
+      animation: blinkHover 0.5s infinite;
+    }
+    .mark {
+      background: $mark;
+    }
+    .empty {
+      background: $empty;
+    }
+    .painted {
+      background: $painted;
+    } 
+    .line {
+      border: 1px solid $line;
+    }
+    .tooltiptext {
+      background-color: rgb(216, 213, 213);
+    }
+  }
+}
+
+@mixin theme default, rgba(255,90,0,1), white, rgba(255, 90, 0, 0.24), #9e9e9e;
+@mixin theme blue, #448AFF, white, rgba(189, 189, 189, 0.46), #9e9e9e;
+@mixin theme grey, #9E9E9E, white, rgba(189, 189, 189, 0.46), #9e9e9e;
+@mixin theme white, rgba(172, 148, 179, 0.49), white, #FFFFFF, #9e9e9e;

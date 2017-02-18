@@ -3,13 +3,13 @@ import * as util from '../util/util';
 var initConfig = {
 	data: util.getInitData(),
 	config: {
-		theme: 'white',
+		theme: 'default',
 		width: 50,				      
 		height: 10,
 		box_size: 20,
-		box_radius: 10,
-		line: true,
-		line_only: true,
+		box_radius: 8,
+		line: false,
+		line_only: false,
 		bordered: false,
 		blink: false
 	}

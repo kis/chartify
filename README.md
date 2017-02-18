@@ -24,13 +24,13 @@ let data = [{
 }];
 
 let config = {
-	theme: 'white',
+	theme: 'blue',
 	width: 50,				      
 	height: 10,
 	box_size: 20,
-	box_radius: 10,
-	line: true,
-	line_only: true,
+	box_radius: 8,
+	line: false,
+	line_only: false,
 	bordered: false,
 	blink: false
 };
@@ -47,7 +47,7 @@ let config = {
 * **bordered** - is param that determines if each box has top and left borders.
 * **line** - is param that determines if this is a line-chart.
 * **line_only** - is param that determines if we show only line on white background.
-* **theme** - is color scheme of the chart, "default", "purple", "grey", "white" etc.
+* **theme** - is color scheme of the chart, "default", "blue", "grey", "white" etc.
 
 Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash.
 

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=PT+Sans+Narrow');
+@import './mixins.css';
 
-$axis-color: #9C27B0;
+$axis-color: #9e9e9e;
 $box-width: 20px;
 $font: 'PT Sans Narrow', sans-serif;
 $main-color: rgba(172, 148, 179, 0.49);
@@ -72,10 +73,6 @@ $main-color: rgba(172, 148, 179, 0.49);
             }
           }
 
-          &.white {
-            background: white;
-          }
-
           .line {
             position: relative;
             z-index: 99;
@@ -86,77 +83,36 @@ $main-color: rgba(172, 148, 179, 0.49);
               visibility: hidden;
             }
           }
-
-          .tooltiptext {
-            position: absolute;
-            z-index: 999;
-            visibility: hidden;
-            width: 120px;
-            left: $box-width;
-            border-radius: 10px;
-            border: 1px solid white;
-            color: #fff;
-            padding: 5px 5px;
-            font-family: $font;
-
-            div {
-              word-wrap: break-word;
-              text-align: center;
-
-              &.date {
-                margin: 10px 0 5px;
-                font-weight: bold;
-              }
-            }
-          }
         }
       }
     }
   }
 }
 
-@keyframes blinkHover {
-  0% {
-    background: #5c2965;
-  }
-  50% {
-    background: #E1BEE7;
-  }
-}
+.tooltiptext {
+  position: absolute;
+  z-index: 999;
+  visibility: hidden;
+  width: 130px;
+  left: $box-width;
+  border: 2px solid #717171;
+  color: #676767;
+  padding: 5px 5px;
+  font-family: $font;
 
-@keyframes blink {
-  0% {
-    background: #9C27B0;
-  }
-  50% {
-    background: #E1BEE7;
-  }
-}
+  div {
+    word-wrap: break-word;
+    text-align: center;
 
-@define-mixin theme $theme, $mark, $empty, $painted, $line {
-  .$(theme) {
-    .ruler-row:hover .mark {
-      animation: blinkHover 0.5s infinite;
+    &.date {
+      margin: 10px 0 5px;
+      font-weight: bold;
     }
-    .mark {
-      background: $mark;
-    }
-    .empty {
-      background: $empty;
-    }
-    .painted {
-      background: $painted;
-    } 
-    .line {
-      border: 1px solid $line;
-    }
-    .tooltiptext {
-      background-color: $line;
+
+    &.value {
+      margin: 5px 0 5px;
+      font-size: 18px;
+      font-weight: bold;
     }
   }
 }
-
-@mixin theme default, rgba(255,90,0,1), #f6f0c7, rgba(255,90,0,0.5), #9C27B0;
-@mixin theme purple, #448AFF, rgba(225, 190, 231, 0.45), #BDBDBD, #9C27B0;
-@mixin theme grey, #9E9E9E, #FFFFFF, #CFD8DC, #455A64;
-@mixin theme white, $main-color, #FFFFFF, #FFFFFF, #9C27B0;

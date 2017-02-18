@@ -17,18 +17,8 @@ export default class Chartify extends Component {
 		super(props);
 	}
 
-	renderRow(mark: Mark, markNum: number, row: Array) {
-		let { data: marks } = this.props;
-
-		const {
-			height = 50,
-			box_size = 20,
-			bordered = true,
-			box_radius = 10,
-			line = false,
-			line_only = true,
-			blink = true
-		} = this.props.config;
+	getMarkStyle(config) {
+		let {box_size, box_radius, bordered} = config;
 
 		const markStyle = {
 			'width': `${box_size}px`,
@@ -41,35 +31,41 @@ export default class Chartify extends Component {
 			markStyle['borderLeft'] = 'transparent';
 		}
 
+		return markStyle;
+	}
+
+	renderRow(mark: Mark, markNum: number, row: Array) {
+		let { data } = this.props;
+
+		let {
+			height = 10,
+			line = false,
+			line_only = false,
+			bordered = false,
+			blink = false
+		} = this.props.config;
+
+		let markStyle = this.getMarkStyle(this.props.config);
+
 		return (
 			<div>
 				{row.map(i => {
 					let markClass = null;
-					let drawLine = false;
 
 					if (height - mark.value > i.value) markClass = "mark empty";
 					if (height - mark.value == i.value) markClass = "mark";
 					if (height - mark.value < i.value) markClass = "mark painted";
 
-					if (line) drawLine = true;
+					let isPoint = height - mark.value == i.value && markNum < data.length - 1;
 
-					if (line_only) {
-						drawLine = true;
-						markClass = "mark white";
-					}
-
-					let isPoint = height - mark.value == i.value && markNum < marks.length - 1;
-
-					let individualStyle = Object.assign({}, markStyle);
+					let style = {...markStyle};
 
 					if (markClass == "mark painted" && blink) {
-						individualStyle = Object.assign({}, markStyle, {
-							'animation': 'blink 0.5s infinite'
-						});
+						style = {...markStyle, 'animation': 'blink 0.5s infinite'};
 					}
 
-					return <div key={i.value} style={individualStyle} className={markClass}>
-						{isPoint ? this.renderMarkTools(mark, markNum, drawLine) : null}
+					return <div key={i.value} style={style} className={markClass}>
+						{isPoint ? this.renderMarkTools(mark, markNum, line || line_only) : null}
 					</div>
 				})}
 			</div>
@@ -77,14 +73,14 @@ export default class Chartify extends Component {
 	}
 
 	renderMarkTools(mark: Mark, markNum: number, drawLine: boolean) {
-		const { data: marks } = this.props;
-		let lineStyle = drawLine ? this.calcLineStyle(mark.value, marks[markNum + 1].value) : null;
+		let { data } = this.props;
+		let lineStyle = drawLine ? this.calcLineStyle(mark.value, data[markNum + 1].value) : null;
 		
 		return (
 			<div>
 				{drawLine ? <div className="line" style={lineStyle}></div> : null}
 				<div className="tooltiptext">
-					<div>{mark.value}</div>
+					<div className="value">{mark.value}</div>
 					<div>{mark.title}</div>
 					<div className="date">{mark.date}</div>
 				</div>
@@ -101,13 +97,11 @@ export default class Chartify extends Component {
 
 		if (nextMark > currentMark) angleA = -angleA;
 
-		let linePos = parseInt(box_size/2);
-
 		return {
 			width: `${AB}px`,
 			transform: `rotate(${angleA}deg)`,
-			top: `${linePos}px`,
-			left: `${linePos}px`
+			top: `${parseInt(box_size/2)}px`,
+			left: `${parseInt(box_size/2)}px`
 		};
 	}
 

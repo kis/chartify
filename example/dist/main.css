@@ -1,100 +1,95 @@
 @import url(https://fonts.googleapis.com/css?family=Poppins);body {
+    margin: 8% 0;
 	overflow-x: hidden;
 }
 
 body .container {
-	width: 1000px;
-	margin: 0 auto;
+    width: 1000px;
+    margin: 0 auto;
 }
 
 body .text-center {
-	text-align: center;
+    text-align: center;
 }
 
 body header {
-	padding: 20px 0 0 0;
+    padding: 20px 0 0 0;
 }
 
 body header .project-title {
-	position: relative;
-	top: -20px;
-	display: inline-block;
-	width: 650px;
+    position: relative;
+    top: -20px;
+    display: inline-block;
+    width: 650px;
 }
 
 body header .project-title h2 {
-	font-family: 'Shrikhand', cursive;
-	color: #c88dff;
-	font-size: 36px;
-	margin: 0;
+    font-family: 'Poppins', sans-serif;
+    color: #447bff;
+    font-size: 36px;
+    margin: 0;
 }
 
 body header .project-title h4 {
-	font-family: 'Poppins', sans-serif;
-	font-size: 16px;
-	color: #3092e6;
-	margin: 0;
-}
-
-body main {
-	height: 520px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #3092e6;
+    margin: 0;
 }
 
 body footer {
-	position: relative;
+    position: relative;
 }
 
 body footer div {
-	text-align: center;
-	font-family: 'Shrikhand', cursive;
-	color: #d81ea4;
-	color: rgba(216, 30, 164, .47);
-	font-size: 18px;
-	margin: 20px 0;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #447bff;
+    font-size: 18px;
+    margin: 20px 0;
 }
 
 body footer div a {
-	cursor: pointer;
-	color: #164a90;
-	color: rgba(22, 74, 144, .6);
+    cursor: pointer;
+    color: #447bff;
 }
 
 #forkongithub a {
-	background: #ae88ea;
-	color: #fff;
-	text-decoration: none;
-	font-family: arial, sans-serif;
-	text-align: center;
-	font-weight: bold;
-	padding: 5px 40px;
-	font-size: 16px;
-	font-size: 1rem;
-	line-height: 32px;
-	line-height: 2rem;
-	position: relative;
-	-webkit-transition: 0.5s;
-	transition: 0.5s
+    background: #9e9e9e;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40px;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 32px;
+    line-height: 2rem;
+    position: relative;
+    -webkit-transition: 0.5s;
+    transition: 0.5s
 }
 
 #forkongithub a:hover{
-	background: #e82086;
-	color: #fff;
+    background: #447bff;
+    color: #fff;
 }
 
 #forkongithub a:before, #forkongithub a:after{
-	content: "";
-	width: 100%;
-	display: block;
-	position: absolute;
-	top: 1px;
-	left: 0;
-	height: 1px;
-	background: #fff;
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
 }
 
 #forkongithub a:after{
-	bottom: 1px;
-	top: auto;
+    bottom: 1px;
+    top: auto;
 }
 
 @media screen and (min-width: 800px) {
@@ -109,37 +104,35 @@ body footer div a {
         z-index: 9999;
     }
     #forkongithub a {
-		width: 200px;
-		position: absolute;
-		top: 60px;
-		right: -60px;
-		-webkit-transform: rotate(45deg);
-		        transform: rotate(45deg);
-		box-shadow: 4px 4px 10px rgba(0, 0, 0, .8);
-	}
+        width: 200px;
+        position: absolute;
+        top: 60px;
+        right: -60px;
+        -webkit-transform: rotate(45deg);
+                transform: rotate(45deg);
+        box-shadow: 4px 4px 10px rgba(0, 0, 0, .8);
+    }
 }
 .control-block {
     text-align: center;
     margin-top: 10px;
 }
-
 .control-block #range {
     margin: 10px 0 20px 0;
     padding: 10px 0;
 }
-
-.button {
+.control-block button {
     margin: 5px 10px;
-    border: none;
+    border: 2px solid #447bff;
+    background: transparent;
     box-shadow: none;
     text-transform: uppercase;
     font-size: 16px;
-    color: #fff;
+    color: #447bff;
     padding: 10px 20px;
     cursor: pointer;
     outline: none
 }
-
-.button:hover {
+.control-block button:hover {
     opacity: 1 !important;
 }
