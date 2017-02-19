@@ -6,7 +6,6 @@ var initConfig = {
 		theme: 'default',
 		width: 50,				      
 		height: 10,
-		box_size: 20,
 		box_radius: 8,
 		line: false,
 		line_only: false,

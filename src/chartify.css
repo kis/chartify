@@ -41,6 +41,7 @@ $main-color: rgba(172, 148, 179, 0.49);
       font-family: $font;
       color: $axis-color;
       max-height: 30px;
+      border-top: 1px solid rgba(172,148,179,.49);
 
       .x-caption {
         display: inline-block;
@@ -52,7 +53,7 @@ $main-color: rgba(172, 148, 179, 0.49);
     }
 
     .marks {
-      display: inline-block;
+      box-sizing: border-box;
       height: 200px;
       border-bottom: 1px solid $main-color;
 

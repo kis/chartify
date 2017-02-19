@@ -11,6 +11,10 @@ export default class Draggable extends Component {
 	}
 
 	componentDidMount() {
+		let {
+			data = []
+		} = this.props;
+
 		this.elements = {
 			inner: document.getElementsByClassName('marks')[0],
 			outer: document.getElementsByClassName('marks-wrapper')[0],
@@ -23,7 +27,7 @@ export default class Draggable extends Component {
 
 		let newVal = `translateX(${this.lastDelta}px)`;
 		this.elements.inner.style.transform = newVal;
-		this.elements.xAxis.style.transform = newVal;
+		this.elements.xAxis.style.transform = data.length ? newVal : 0;
 	}
 
 	startDrag = (e) => {
@@ -97,13 +101,21 @@ export default class Draggable extends Component {
 	}
 
 	renderXAxis(marksStyle) {
+		const {
+			box_size = 20
+		} = this.props.config;
+
+		const { 
+			data: marks = 50 
+		} = this.props;
+
 		let showDateCount = 0;
 
-		this.props.data.forEach((mark, markNum) => {
+		marks.forEach((mark, markNum) => {
 			showDateCount = markNum % 10 == 0 ? ++showDateCount : showDateCount;
 		});
 
-		let width = parseInt(this.props.data.length * this.props.config.box_size / showDateCount);
+		let width = parseInt(marks.length * box_size / showDateCount);
 
 		let style = {
 			'width': `${width}px`
@@ -111,7 +123,7 @@ export default class Draggable extends Component {
 
 		return (
 			<div className="x-axis" style={marksStyle}>
-				{this.props.data.map((mark, markNum) => (
+				{marks.map((mark, markNum) => (
 					markNum % 10 == 0 ? <div className="x-caption" style={style} key={markNum}>
 						{mark.date}
 					</div> : null
@@ -130,7 +142,6 @@ export default class Draggable extends Component {
 		} = this.props;
 
 		let chartLength = marks.length;
-
 		let innerPos = this.elements.inner.getBoundingClientRect().left - window.scrollX;
 		let outerPos = this.elements.outer.getBoundingClientRect().left - window.scrollX;
 		let innerRightPos = innerPos + chartLength * box_size;
@@ -149,12 +160,14 @@ export default class Draggable extends Component {
 			box_size = 20
 		} = this.props.config;
 
-		const { 
-			data: marks 
+		const {
+			data: marks
 		} = this.props;
 
+		let width = marks.length * box_size;
+
 		let marksStyle = {
-			'width': `${marks.length * box_size}px`
+			'width': `${width || 750}px`
 		};
 
 		return (

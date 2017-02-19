@@ -18,7 +18,11 @@ export default class Chartify extends Component {
 	}
 
 	getMarkStyle(config) {
-		let {box_size, box_radius, bordered} = config;
+		let {
+			box_size = 20, 
+			box_radius = 8, 
+			bordered = false
+		} = config;
 
 		const markStyle = {
 			'width': `${box_size}px`,
@@ -120,14 +124,23 @@ export default class Chartify extends Component {
 	}
 
 	render() {
-		const row = Array(this.props.config.height).fill().map((item, i) => ({ value: i }));
-		const rulerClass = `ruler-container ${this.props.config.theme}`;
+		let {
+			data = []
+		} = this.props;
+
+		let {
+			height = 10,
+			theme = 'default'
+		} = this.props.config;
+
+		const row = Array(height).fill().map((item, i) => ({ value: i }));
+		const rulerClass = `ruler-container ${theme}`;
 
 		return (
 			<div className={rulerClass}>
 				{this.renderYAxis(row)}
 				<Draggable 
-					data={this.props.data} 
+					data={data} 
 					config={this.props.config} 
 					renderRow={this.renderRow.bind(this)} />
 			</div>
