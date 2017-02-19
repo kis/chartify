@@ -1,6 +1,6 @@
 # Chartify [![NPM Version](https://img.shields.io/npm/v/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Month](https://img.shields.io/npm/dm/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Total](https://img.shields.io/npm/dt/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Travis branch](https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square)](https://github.com/kiqs/chartify)
 
-![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/prev.gif)
+![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/newprev.gif)
 
 Simple, lightweight React.js plugin for building animated draggable and customizable charts. The source for this module is in the [main repo](https://github.com/kiqs/chartify). Please contribute.
 
