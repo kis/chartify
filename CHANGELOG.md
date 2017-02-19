@@ -1,3 +1,11 @@
+## Chartify 1.1.8 (Feb 19, 2017)
+
+* Split chartify styles to chartify.css and misins.css
+* Update chartify component props. Now we have data and config props
+* Implement redux structure and logic for the example project
+* Update bash scripts
+* Make charts work with default values if user setted empty props
+
 ## Chartify 1.1.2 (Dec 10, 2016)
 
 * Implement animations and blinking
