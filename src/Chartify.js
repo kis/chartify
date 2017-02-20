@@ -30,12 +30,14 @@ export default class Chartify extends Component {
 
 		let styles = this.getStyles(this.props.config);
 
+		console.log(styles)
+
 		return (
 			<div>
 				{row.map(i => {
 					let markClasses = this.getMarkClasses(height, mark, i);
 					let markStyles = this.getMarkStyles(styles, markClasses, blink);
-					let isActiveMark = height - mark.value == i.value;
+					let isActiveMark = height - mark.value == i.value && markNum < data.length - 1;
 
 					return <div key={i.value} style={markStyles} className={markClasses}>
 						{isActiveMark ? this.renderMarkTools(mark, markNum, line || line_only) : null}
@@ -62,8 +64,8 @@ export default class Chartify extends Component {
 			'width': `${box_size}px`,
 			'height': `${box_size}px`,
 			'borderRadius': `${box_radius}px`,
-			'borderTop': !bordered ? 'transparent' : 'none',
-			'borderLeft': !bordered ? 'transparent' : 'none'
+			'borderTop': !bordered ? 'transparent' : '1px solid rgba(249,250,249, 0.9)',
+			'borderLeft': !bordered ? 'transparent' : '1px solid rgba(249,250,249, 0.9)'
 		};
 	}
 
@@ -75,7 +77,7 @@ export default class Chartify extends Component {
 
 	renderMarkTools(mark: Mark, markNum: number, drawLine: boolean) {
 		let { data } = this.props;
-		let lineStyle = drawLine ? this.calcLineStyle(mark.value, data[markNum + 1].value) : null;
+		let lineStyle = drawLine ? this.calcLineStyles(mark.value, data[markNum + 1].value) : null;
 		
 		return (
 			<div>
