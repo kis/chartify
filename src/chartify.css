@@ -74,6 +74,10 @@ $main-color: rgba(172, 148, 179, 0.49);
             }
           }
 
+          &.white {
+            background: white;
+          }
+
           .line {
             position: relative;
             z-index: 99;

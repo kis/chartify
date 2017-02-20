@@ -30,12 +30,10 @@ export default class Chartify extends Component {
 
 		let styles = this.getStyles(this.props.config);
 
-		console.log(styles)
-
 		return (
 			<div>
 				{row.map(i => {
-					let markClasses = this.getMarkClasses(height, mark, i);
+					let markClasses = line_only ? 'mark white' : this.getMarkClasses(height, mark, i);
 					let markStyles = this.getMarkStyles(styles, markClasses, blink);
 					let isActiveMark = height - mark.value == i.value && markNum < data.length - 1;
 
