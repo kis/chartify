@@ -1,25 +1,22 @@
-@keyframes blinkHover {
-  0% {
-    background: #5c2965;
-  }
+@keyframes blink {
   50% {
-    background: #E1BEE7;
+    background: white;
   }
 }
 
-@keyframes blink {
-  0% {
-    background: #9C27B0;
-  }
+@keyframes pulse {
   50% {
-    background: #E1BEE7;
+    transform: scale3d(1.1, 1.1, 1.1);
   }
 }
 
 @define-mixin theme $theme, $mark, $empty, $painted, $line {
   .$(theme) {
-    .ruler-row:hover .mark {
-      animation: blinkHover 0.5s infinite;
+    .ruler-row:hover .painted {
+      animation: blink 0.5s infinite;
+    }
+    .tooltiptext {
+      animation: pulse 0.5s infinite;
     }
     .mark {
       background: $mark;
