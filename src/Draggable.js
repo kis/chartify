@@ -1,6 +1,7 @@
 // @flow
 
 import React, { Component, PropTypes } from 'react';
+import moment from 'moment';
 
 type Props = {};
 
@@ -125,7 +126,7 @@ export default class Draggable extends Component {
 			<div className="x-axis" style={marksStyle}>
 				{marks.map((mark, markNum) => (
 					markNum % 10 == 0 ? <div className="x-caption" style={style} key={markNum}>
-						{mark.date}
+						{moment(mark.date, "DD.MM.YYYY").format('MMM D, YYYY')}
 					</div> : null
 				))}
 			</div>

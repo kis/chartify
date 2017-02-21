@@ -10,6 +10,15 @@
   }
 }
 
+@keyframes rotating {
+  0% {
+    transform: rotate(45deg);
+  }
+  50% {
+    transform: rotate(90deg);
+  }
+}
+
 @define-mixin theme $theme, $mark, $empty, $painted, $line {
   .$(theme) {
     .ruler-row:hover .painted {
