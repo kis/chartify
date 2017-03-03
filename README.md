@@ -1,7 +1,13 @@
 <h1 align='center'>Chartify</h1>
 
 <p align='center'>React.js plugin for building animated draggable and customizable charts.</p>
-[![NPM Version](https://img.shields.io/npm/v/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Month](https://img.shields.io/npm/dm/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Total](https://img.shields.io/npm/dt/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Travis branch](https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square)](https://github.com/kiqs/chartify)
+
+<p align='center'>
+	<a href='https://www.npmjs.com/package/chartify'><img src="https://img.shields.io/npm/v/chartify.svg?style=flat-square" alt=""></a>
+	<a href='https://www.npmjs.com/package/chartify'><img src='https://img.shields.io/npm/dm/chartify.svg?style=flat-square' /></a>
+	<a href='https://www.npmjs.com/package/chartify'><img src='https://img.shields.io/npm/dt/chartify.svg?style=flat-square' /></a>
+	<a href='https://github.com/kiqs/chartify'><img src='https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square' /></a>
+</p>
 
 ![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/newprev.gif)
 
@@ -9,7 +15,7 @@ The source for this module is in the [main repo](https://github.com/kiqs/chartif
 
 Check the [EXAMPLE](https://kiqs.github.io/chartify/example/)
 
-### Install
+<h3 align='center'>Install</h3>
 
 ```
 npm install chartify
@@ -54,6 +60,6 @@ let config = {
 
 Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash.
 
-### License
+<h3 align='center'>License</h3>
 
 The MIT License (MIT) Copyright (c) 2017 Kirill Stepkin
