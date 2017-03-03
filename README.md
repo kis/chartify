@@ -1,7 +1,7 @@
 <h1 align='center'>Chartify</h1>
 
 <p align='center'>React.js plugin for building animated draggable and customizable charts.</p>
-<p align='center'>[![NPM Version](https://img.shields.io/npm/v/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Month](https://img.shields.io/npm/dm/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Total](https://img.shields.io/npm/dt/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Travis branch](https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square)](https://github.com/kiqs/chartify)</p>
+[![NPM Version](https://img.shields.io/npm/v/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Month](https://img.shields.io/npm/dm/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Download Total](https://img.shields.io/npm/dt/chartify.svg?style=flat-square)](https://www.npmjs.com/package/chartify) [![Travis branch](https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square)](https://github.com/kiqs/chartify)
 
 ![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/newprev.gif)
 
