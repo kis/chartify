@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import Chartify from '../../../chartify.min';
 import './chart.css';
 
-class Chart extends Component {
+export default class Chart extends Component {
 
 	constructor(props) {
 		super();
@@ -18,5 +17,3 @@ class Chart extends Component {
 	}
 
 }
-
-export default Chart;

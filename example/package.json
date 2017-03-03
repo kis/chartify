@@ -23,6 +23,7 @@
     "eslint-plugin-react": "^5.2.2",
     "extract-text-webpack-plugin": "^2.0.0-beta",
     "flow-bin": "^0.35.0",
+    "mapbox-gl": "^0.32.1",
     "node-sass": "^3.4.2",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^0.8.2",

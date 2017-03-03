@@ -40,6 +40,9 @@ module.exports = {
       })
     }]
   },
+  resolveLoader: {
+    modules: ['node_modules'],
+  },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin({ filename: './[name].css', allChunks: true }),
