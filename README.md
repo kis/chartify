@@ -21,7 +21,7 @@ Check the [EXAMPLE](https://kiqs.github.io/chartify/example/)
 npm install chartify
 ```
 
-### Getting started
+<h3 align='center'>Getting started</h3>
 
 ```javascript
 import Chartify from 'chartify';
