@@ -1,7 +1,7 @@
 {
   "name": "chartify",
   "description": "React.js plugin for creating charts. Inspired by kinopoisk.ru chart. Feel free for contribute.",
-  "version": "1.2.3",
+  "version": "2.0.0",
   "scripts": {
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "start": "webpack",
@@ -33,16 +33,14 @@
     "postcss-loader": "^0.8.2",
     "postcss-mixins": "^5.0.0",
     "postcss-nested": "^1.0.0",
-    "postcss-random": "^1.0.7",
     "postcss-simple-vars": "^3.0.0",
     "precss": "^1.4.0",
     "react": "^15.4.0",
     "react-dom": "^15.4.0",
     "react-test-renderer": "^15.4.2",
-    "sass-loader": "^3.2.0",
     "style-loader": "^0.13.0",
-    "webpack": "^1.12.2",
-    "webpack-dev-server": "^1.12.1",
+    "webpack": "^2.2.1",
+    "webpack-dev-server": "^2.4.1",
     "webpack-uglify-js-plugin": "1.1.9"
   },
   "main": "chartify.js",

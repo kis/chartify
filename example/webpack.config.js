@@ -6,7 +6,6 @@ var cssnext = require('postcss-cssnext');
 var vars    = require('postcss-simple-vars');
 var nested  = require('postcss-nested');
 var mixins  = require('postcss-mixins');
-var rand    = require('postcss-random');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
@@ -25,21 +24,29 @@ module.exports = {
     publicPath: "/"
   },
   module: {
-    loaders: [{
+    rules: [{
       test: /\.js?$/,
-      loader: 'babel',
+      use: ['babel-loader'],
       exclude: /node_modules/,
       include: path.join(__dirname, '/main')
     }, {
       test: /\.css?$/,
-      loader: ExtractTextPlugin.extract('style-loader', 'css-loader!postcss-loader')
+      use: ExtractTextPlugin.extract({
+        fallback: "style-loader",
+        use: [
+          { loader: 'css-loader' },
+          { loader: 'postcss-loader', options: { plugins: () => [...plugins] } }
+        ]
+      })
     }]
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
-    new ExtractTextPlugin("./[name].css", { allChunks: true })
-  ],
-  postcss: function () {
-    return [precss, cssnext, vars, nested, mixins, rand];
-  }
+    new ExtractTextPlugin({ filename: './[name].css', allChunks: true }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [precss, cssnext, vars, nested, mixins]
+      }
+    })
+  ]
 };

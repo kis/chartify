@@ -1,4 +1,4 @@
-import votes from './votes.json';
+import votes from './votes.js';
 
 export function getInitData() {
 	let items = votes.map(item => ({

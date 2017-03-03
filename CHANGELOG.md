@@ -1,3 +1,8 @@
+## Chartify 2.0.0 (Mar 3, 2017)
+
+* Upgrade webpack version and webpack plugins to 2
+* Enhance themes, styles, and animations
+
 ## Chartify 1.1.8 (Feb 19, 2017)
 
 * Split chartify styles to chartify.css and misins.css

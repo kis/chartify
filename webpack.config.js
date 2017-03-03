@@ -6,7 +6,6 @@ var cssnext = require('postcss-cssnext');
 var vars    = require('postcss-simple-vars');
 var nested  = require('postcss-nested');
 var mixins  = require('postcss-mixins');
-var rand    = require('postcss-random');
 
 var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 
@@ -23,19 +22,22 @@ module.exports = {
       'commonjs': 'react',
       'commonjs2': 'react',
       'amd': 'react',
-      // React dep should be available as window.React, not window.react
       'root': 'React'
     }
   },
   module: {
-    loaders: [{
-      test: /\.js?$/,
-      loader: 'babel',
+    rules: [{
+      test: /\.js$/,
+      use: ['babel-loader'],
       exclude: /node_modules/,
       include: path.join(__dirname, '/src')
     }, {
-      test: /\.css?$/,
-      loader: 'style-loader!css-loader!postcss-loader'
+      test: /\.css$/,
+      use: [
+        'style-loader',
+        { loader: 'css-loader' },
+        { loader: 'postcss-loader', options: { plugins: () => [...plugins] } }
+      ]
     }]
   },
   plugins: [
@@ -49,9 +51,11 @@ module.exports = {
       compress: {
         warnings: false
       }
+    }),
+    new webpack.LoaderOptionsPlugin({
+      options: {
+        postcss: [precss, cssnext, vars, nested, mixins],
+      },
     })
-  ],
-  postcss: function () {
-    return [precss, cssnext, vars, nested, mixins, rand];
-  }
+  ]
 };
