@@ -1,7 +1,6 @@
 // @flow
 
 import React, { Component, PropTypes } from 'react';
-import moment from 'moment';
 
 type Props = {};
 
@@ -17,9 +16,9 @@ export default class Draggable extends Component {
 		} = this.props;
 
 		this.elements = {
-			inner: document.getElementsByClassName('marks')[0],
-			outer: document.getElementsByClassName('marks-wrapper')[0],
-			xAxis: document.getElementsByClassName('x-axis')[0]
+			inner: document.querySelector(`.${this.props.container} .marks`),
+			outer: document.querySelector(`.${this.props.container} .marks-wrapper`),
+			xAxis: document.querySelector(`.${this.props.container} .x-axis`)
 		};
 
 		let {innerRightPos, outerRightPos} = this.getPos();
@@ -126,7 +125,7 @@ export default class Draggable extends Component {
 			<div className="x-axis" style={marksStyle}>
 				{marks.map((mark, markNum) => (
 					markNum % 10 == 0 ? <div className="x-caption" style={style} key={markNum}>
-						{moment(mark.date, "DD.MM.YYYY").format('MMM D, YYYY')}
+						{mark.date}
 					</div> : null
 				))}
 			</div>

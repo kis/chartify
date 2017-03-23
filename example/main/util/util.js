@@ -1,4 +1,7 @@
 import votes from './votes.js';
+import itunesData from './ituneslib.js';
+import _ from 'underscore';
+import moment from 'moment';
 
 export function getInitData() {
 	let items = votes.map(item => ({
@@ -13,11 +16,40 @@ export function getInitData() {
 	for (let i in items) {
 		if (items[i].date) {
 			let date = dateRegex.exec(items[i].date);
-			items[i].date = date && date[0];
+			items[i].date = moment(date[0], "DD.MM.YYYY").format('MMM D, YYYY');
 		}
 	}
 
 	return items;
+}
+
+export function getItunesData() {
+	let albumsObj = _.groupBy(itunesData, song => {
+		return song["Album"];
+	});
+
+	let albumNames = Object.keys(albumsObj);
+
+	function accumTimesPlayed(memo, track) {
+		return memo + (track['Plays'] || 0);
+	}
+
+	let albums = albumNames.map(album => ({
+		artist: albumsObj[album][0]["Artist"],
+		album: album,
+		tracks: albumsObj[album],
+		timesPlayed: _.reduce(albumsObj[album], accumTimesPlayed, 0),
+		year: albumsObj[album][0]["Year"],
+		dateAdded: albumsObj[album][0]["Date Added"]
+	}));
+
+	let res = albums.map(album => ({
+		value: album.timesPlayed,
+		title: `${album.artist} - ${album.album}`,
+		date: String(album.year)
+	}));
+
+	return res;
 }
 
 export function getRandomColor() {

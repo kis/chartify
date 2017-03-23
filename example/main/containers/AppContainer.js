@@ -3,7 +3,6 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as actions from '../actions/chart';
 import Chart from '../components/Chart/Chart';
-import Controls from '../components/Controls/Controls';
 import MapSearchPanel from '../components/MapSearchPanel/MapSearchPanel';
 import Map from '../components/Map/Map';
 
@@ -18,7 +17,6 @@ class AppContainer extends Component {
 		return (
 			<div>
 				<Chart {...this.props} />
-				<Controls {...this.props} />
 				<MapSearchPanel {...this.props} />
 				<Map {...this.props} />
 			</div>
@@ -28,6 +26,7 @@ class AppContainer extends Component {
 
 const mapStateToProps = (state) => ({
 	data: state.data,
+	itunes: state.itunes,
 	config: state.config
 });
 

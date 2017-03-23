@@ -36,6 +36,7 @@
     "react-redux": "^4.4.0",
     "redux": "^3.3.1",
     "style-loader": "^0.13.0",
+    "underscore": "^1.8.3",
     "webpack": "^2.2.1",
     "webpack-dev-server": "^2.4.1",
     "webpack-uglify-js-plugin": "1.1.9",

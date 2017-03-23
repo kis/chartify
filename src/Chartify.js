@@ -3,7 +3,6 @@
 import React, { Component, PropTypes } from 'react';
 import Draggable from './Draggable';
 import './chartify.css';
-import moment from 'moment';
 
 type Props = {};
 type Mark = {
@@ -91,7 +90,7 @@ export default class Chartify extends Component {
 			<div className="tooltiptext">
 				<div className="value">{mark.value}</div>
 				<div>{mark.title}</div>
-				<div className="date">{moment(mark.date, "DD.MM.YYYY").format('MMM D, YYYY')}</div>
+				<div className="date">{mark.date}</div>
 			</div>
 		);
 	}
@@ -136,13 +135,14 @@ export default class Chartify extends Component {
 		let {height = 10, theme = 'default'} = this.props.config;
 
 		const row = Array(height).fill().map((item, i) => ({ value: i }));
-		const rulerClass = `ruler-container ${theme}`;
+		const rulerClass = `ruler-container ${this.props.container} ${theme}`;
 
 		return (
 			<div className={rulerClass}>
 				{this.renderYAxis(row)}
 				<Draggable 
 					data={data} 
+					container={this.props.container}
 					config={this.props.config} 
 					renderRow={this.renderRow.bind(this)} />
 			</div>
