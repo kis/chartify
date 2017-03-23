@@ -81,6 +81,7 @@ export default class Draggable extends Component {
 
 	renderMarks(marksStyle) {
 		const row = Array(this.props.config.height).fill().map((item, i) => ({ value: i }));
+		let maxX = this.props.maxX;
 
 		return (
 			<div className="marks" 
@@ -93,7 +94,7 @@ export default class Draggable extends Component {
 				 onMouseUp={this.drop.bind(this)}>
 				{this.props.data.map((mark, markNum) => (
 					<div className="ruler-row" key={markNum}>
-						{this.props.renderRow(mark, markNum, row)}
+						{this.props.renderRow(mark, markNum, row, maxX)}
 					</div>
 				))}
 			</div>

@@ -2,6 +2,7 @@
 
 import React, { Component, PropTypes } from 'react';
 import Draggable from './Draggable';
+import _ from 'underscore';
 import './chartify.css';
 
 type Props = {};
@@ -17,7 +18,7 @@ export default class Chartify extends Component {
 		super(props);
 	}
 
-	renderRow(mark: Mark, markNum: number, row: Array) {
+	renderRow(mark: Mark, markNum: number, row: Array, maxX: number) {
 		let { data } = this.props;
 
 		let {
@@ -29,6 +30,8 @@ export default class Chartify extends Component {
 		} = this.props.config;
 
 		let styles = this.getStyles(this.props.config);
+
+		mark.value = Math.round((mark.value * height) / maxX);
 
 		return (
 			<div>
@@ -116,13 +119,13 @@ export default class Chartify extends Component {
 		return angleA;
 	}
 
-	renderYAxis(row: Array) {
+	renderYAxis(row: Array, maxValue: number) {
 		return (
 			<div className="y-axis-wrapper">
 				<div className="y-axis">
 					{row.map(i => {
 						return <div className="y-caption" key={i.value}>
-							{i.value % 2 == 0 ? 10 - i.value : null}
+							{i.value % 2 == 0 ? maxValue - i.value : null}
 						</div>
 					})}
 				</div>
@@ -134,14 +137,23 @@ export default class Chartify extends Component {
 		let {data = []} = this.props;
 		let {height = 10, theme = 'default'} = this.props.config;
 
-		const row = Array(height).fill().map((item, i) => ({ value: i }));
+		let maxValueObj = _.max(this.props.data, el => { return el.value; });
+		let maxValue = maxValueObj.value;
+
+		const row = Array(height).fill().map((item, i) => { 
+			return {
+				value: i*(maxValue/height)
+			};
+		});
+
 		const rulerClass = `ruler-container ${this.props.container} ${theme}`;
 
 		return (
 			<div className={rulerClass}>
-				{this.renderYAxis(row)}
+				{this.renderYAxis(row, maxValue)}
 				<Draggable 
 					data={data} 
+					maxX={maxValue}
 					container={this.props.container}
 					config={this.props.config} 
 					renderRow={this.renderRow.bind(this)} />
