@@ -48,8 +48,8 @@ let config = {
 ```
 
 * **data** - is an array of objects [{value: 8, title: 'men in black', date: '12.03.2016'}]. This is the dataset of the chart. Keys are required and types are {value: number, title: string, date: string}.
-* **width** - is the horizontal length of the data array. If width param is less than the length of the data array then user will see the last values of the data array.
-* **height** - is the vertical length.
+* **width** - is the length of the data array by X-axis. If width param is less than the length of the data array then user will see the last values of the data array.
+* **height** - is the length of the data by Y-axis.
 * **box_size** - is size of each box in pixels.
 * **box_radius** - is border radius of each box in pixels.
 * **blink** - is param that determines if the chart is blinking.
