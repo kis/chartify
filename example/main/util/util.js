@@ -43,13 +43,19 @@ export function getItunesData() {
 		dateAdded: albumsObj[album][0]["Date Added"]
 	}));
 
-	let res = albums.map(album => ({
+	let resAlbums = albums.map(album => ({
 		value: album.timesPlayed,
 		title: `${album.artist} - ${album.album}`,
 		date: String(album.year)
 	}));
 
-	return res;
+	let albumsSortedByYear = _.sortBy(resAlbums, album => {
+		return parseInt(album.date);
+	});
+
+	console.log(albumsSortedByYear)
+
+	return albumsSortedByYear;
 }
 
 export function getRandomColor() {
