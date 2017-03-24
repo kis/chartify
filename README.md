@@ -27,41 +27,44 @@ npm install chartify
 import Chartify from 'chartify';
 
 let data = [{
-	value: 5,				//Number
-	title: '007 Spectre',	//String
-	date: '20.11.2016'		//String
+	value: 5,				
+	title: '007 Spectre',	
+	date: '20.11.2016'		
 }];
 
 let config = {
-	theme: 'blue',			//String
-	width: 50,				//Number	      
-	height: 10,				//Number	
-	box_size: 20,			//Number
-	box_radius: 8,			//Number
-	line: false,			//Boolean
-	line_only: false,		//Boolean
-	bordered: false,		//Boolean
-	blink: false			//Boolean
+	theme: 'blue',	
+	width: 50,			      
+	height: 10,			
+	box_size: 20,	
+	box_radius: 8,	
+	line: false,	
+	line_only: false,
+	bordered: false,
+	blink: false	
 };
 
 <Chartify data={data} container="films-container" config={config} />
 ```
 
-<h4>Data</h4>
+<h3 align='center'>Data</h3>
+
 Dataset should be an array of objects <b>[{value: 8, title: 'men in black', date: '12.03.2016'}]</b>. Keys are required and types are <b>{value: number, title: string, date: string}</b>.
 
-<h4>Config</h4>
-<b>theme</b> - is color scheme of the chart, "default", "blue", "grey", "white" etc.<br/>
-<b>width</b> - is the length of the data array by X-axis. If width param is less than the length of the data array then user will see the last values of the data array.<br/>
-<b>height</b> - is the length of the data by Y-axis.<br/>
-<b>box_size</b> - is size of each box in pixels.<br/>
-<b>box_radius</b> - is border radius of each box in pixels.<br/>
-<b>line</b> - is param that determines if this is a line-chart.<br/>
-<b>line_only</b> - is param that determines if we show only line on white background.<br/>
-<b>bordered</b> - is param that determines if each box has top and left borders.<br/>
-<b>blink</b> - is param that determines if the chart is blinking.<br/>
+<h3 align='center'>Config</h3>
 
-<h4>Container</h4>
+<b>theme</b> - is color scheme of the chart, "default", "blue", "grey", "white" etc. Type: string.<br/>
+<b>width</b> - is the length of the data array by X-axis. If width param is less than the length of the data array then user will see the last values of the data array. Type: number.<br/>
+<b>height</b> - is the length of the data by Y-axis. Type: number.<br/>
+<b>box_size</b> - is size of each box in pixels. Type: number.<br/>
+<b>box_radius</b> - is border radius of each box in pixels. Type: number.<br/>
+<b>line</b> - is param that determines if this is a line-chart. Type: boolean.<br/>
+<b>line_only</b> - is param that determines if we show only line on white background. Type: boolean.<br/>
+<b>bordered</b> - is param that determines if each box has top and left borders. Type: boolean.<br/>
+<b>blink</b> - is param that determines if the chart is blinking. Type: boolean.<br/>
+
+<h3 align='center'>Container</h3>
+
 Class that will be added to the chart container element. This is important in case you have more than one chart on your page.<br/><br/>
 
 Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash.
