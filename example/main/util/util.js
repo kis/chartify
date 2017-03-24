@@ -28,6 +28,8 @@ export function getItunesData() {
 		return song["Album"];
 	});
 
+	console.log(albumsObj)
+
 	let albumNames = Object.keys(albumsObj);
 
 	function accumTimesPlayed(memo, track) {
@@ -52,8 +54,6 @@ export function getItunesData() {
 	let albumsSortedByYear = _.sortBy(resAlbums, album => {
 		return parseInt(album.date);
 	});
-
-	console.log(albumsSortedByYear)
 
 	return albumsSortedByYear;
 }

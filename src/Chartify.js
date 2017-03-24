@@ -31,7 +31,8 @@ export default class Chartify extends Component {
 
 		let styles = this.getStyles(this.props.config);
 
-		mark.value = Math.round((mark.value * height) / maxX);
+		mark.value = Math.round(((mark.value + 1) * height) / maxX);
+		mark.value = mark.value ? mark.value : 1;
 
 		return (
 			<div>
@@ -89,8 +90,12 @@ export default class Chartify extends Component {
 	}
 
 	renderTooltip(mark: Mark) {
+		let tooltipStyle = {
+			top: (mark.value < this.props.config.height / 2) ? '-100px' : 0
+		};
+
 		return (
-			<div className="tooltiptext">
+			<div className="tooltiptext" style={tooltipStyle}>
 				<div className="value">{mark.value}</div>
 				<div>{mark.title}</div>
 				<div className="date">{mark.date}</div>

@@ -4,12 +4,6 @@
   }
 }
 
-@keyframes pulse {
-  50% {
-    transform: scale3d(1.1, 1.1, 1.1);
-  }
-}
-
 @keyframes rotating {
   0% {
     transform: rotate(45deg);
@@ -23,9 +17,6 @@
   .$(theme) {
     .ruler-row:hover .painted {
       animation: blink 0.5s infinite;
-    }
-    .tooltiptext {
-      animation: pulse 0.5s infinite;
     }
     .mark {
       background: $mark;
