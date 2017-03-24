@@ -11,14 +11,14 @@ class AppContainer extends Component {
 	constructor(props) {
 		super();
 		props.actions.initConfig();
+		// <MapSearchPanel {...this.props} />
+		// <Map {...this.props} />
 	}
 
 	render() {
 		return (
 			<div>
 				<Chart {...this.props} />
-				<MapSearchPanel {...this.props} />
-				<Map {...this.props} />
 			</div>
 		);
 	}
@@ -26,8 +26,9 @@ class AppContainer extends Component {
 
 const mapStateToProps = (state) => ({
 	data: state.data,
+	config: state.config,
 	itunes: state.itunes,
-	config: state.config
+	config_itunes: state.config_itunes
 });
 
 const mapDispatchToProps = (dispatch) => ({actions: bindActionCreators(actions, dispatch)});

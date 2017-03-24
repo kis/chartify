@@ -33,6 +33,12 @@ body .text-center {
 	text-align: center;
 }
 
+body h2 {
+	text-align: center;
+	font-family: 'Poppins', sans-serif;
+	color: #447bff;
+}
+
 body header {
 	padding: 20px 0 0 0;
 }

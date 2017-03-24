@@ -14,7 +14,7 @@ export default class Controls extends Component {
 			item.sortValue = Math.random().toFixed(5);
 			return item;
 		}).sort((a,b) => a.sortValue > b.sortValue ? 1 : -1);
-		this.props.actions.updateChart(newItems, this.props.config);
+		this.props.actions.updateChart(newItems, this.props.config, this.props.chart);
 	}
 
 	changeTheme = () => {
@@ -33,7 +33,7 @@ export default class Controls extends Component {
 			...this.props.config, 
 			line_only: false,
 			theme: themes[next]
-		});
+		}, this.props.chart);
 	}
 
 	toggleLine = () => {
@@ -41,7 +41,7 @@ export default class Controls extends Component {
 			...this.props.config, 
 			line_only: false,
 			line: !this.props.config.line
-		});
+		}, this.props.chart);
 	}
 
 	toggleBordered = () => {
@@ -49,7 +49,7 @@ export default class Controls extends Component {
 			...this.props.config, 
 			line_only: false,
 			bordered: !this.props.config.bordered
-		});
+		}, this.props.chart);
 	}
 
 	toggleBoxRadius = () => {
@@ -61,7 +61,7 @@ export default class Controls extends Component {
 			...this.props.config, 
 			line_only: false,
 			box_radius: radiuses[num]
-		});
+		}, this.props.chart);
 	}
 
 	toggleBlink = () => {
@@ -69,14 +69,14 @@ export default class Controls extends Component {
 			...this.props.config, 
 			line_only: false,
 			blink: !this.props.config.blink
-		});
+		}, this.props.chart);
 	}
 
 	toggleLineOnly = () => {
 		this.props.actions.updateChart(this.props.data, {
 			...this.props.config, 
 			line_only: !this.props.config.line_only
-		});
+		}, this.props.chart);
 	}
 
 	render() {

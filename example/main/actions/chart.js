@@ -4,11 +4,12 @@ export function initConfig() {
 	}
 }
 
-export function updateChart(data, config) {
+export function updateChart(data, config, chart) {
 	return {
 		type: 'UPDATE_CHART',
 		data,
-		config
+		config,
+		chart
 	}
 }
 
