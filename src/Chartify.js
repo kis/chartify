@@ -8,8 +8,8 @@ import './chartify.css';
 type Props = {};
 type Mark = {
 	title: string,
-	value: number,
-	date: string
+	x_value: string,
+	y_value: number
 };
 
 export default class Chartify extends Component {
@@ -31,17 +31,17 @@ export default class Chartify extends Component {
 
 		let styles = this.getStyles(this.props.config);
 
-		mark.value = Math.round(((mark.value + 1) * height) / maxX);
-		mark.value = mark.value ? mark.value : 1;
+		mark.y_value = Math.round((mark.y_value * height) / maxX);
+		mark.y_value = mark.y_value ? mark.y_value : 1;
 
 		return (
 			<div>
 				{row.map(i => {
 					let markClasses = line_only ? 'mark white' : this.getMarkClasses(height, mark, i);
 					let markStyles = this.getMarkStyles(styles, markClasses, blink);
-					let isActiveMark = height - mark.value == i.value && markNum < data.length - 1;
+					let isActiveMark = height - mark.y_value == i.y_value && markNum < data.length - 1;
 
-					return <div key={i.value} style={markStyles} className={markClasses}>
+					return <div key={i.y_value} style={markStyles} className={markClasses}>
 						{isActiveMark ? this.renderMarkTools(mark, markNum, line || line_only) : null}
 					</div>
 				})}
@@ -50,9 +50,9 @@ export default class Chartify extends Component {
 	}
 
 	getMarkClasses(height: number, mark: Mark, i: Object) {
-		if (height - mark.value > i.value) return "mark empty";
-		if (height - mark.value == i.value) return "mark";
-		if (height - mark.value < i.value) return "mark painted";
+		if (height - mark.y_value > i.y_value) return "mark empty";
+		if (height - mark.y_value == i.y_value) return "mark";
+		if (height - mark.y_value < i.y_value) return "mark painted";
 	}
 
 	getStyles(config: Object) {
@@ -79,7 +79,7 @@ export default class Chartify extends Component {
 
 	renderMarkTools(mark: Mark, markNum: number, drawLine: boolean) {
 		let { data } = this.props;
-		let lineStyle = drawLine ? this.calcLineStyles(mark.value, data[markNum + 1].value) : null;
+		let lineStyle = drawLine ? this.calcLineStyles(mark.y_value, data[markNum + 1].y_value) : null;
 		
 		return (
 			<div>
@@ -91,14 +91,14 @@ export default class Chartify extends Component {
 
 	renderTooltip(mark: Mark) {
 		let tooltipStyle = {
-			top: (mark.value < this.props.config.height / 2) ? '-100px' : 0
+			top: (mark.y_value < this.props.config.height / 2) ? '-100px' : 0
 		};
 
 		return (
 			<div className="tooltiptext" style={tooltipStyle}>
-				<div className="value">{mark.value}</div>
+				<div className="value">{mark.y_value}</div>
 				<div>{mark.title}</div>
-				<div className="date">{mark.date}</div>
+				<div className="date">{mark.x_value}</div>
 			</div>
 		);
 	}
@@ -129,8 +129,8 @@ export default class Chartify extends Component {
 			<div className="y-axis-wrapper">
 				<div className="y-axis">
 					{row.map(i => {
-						return <div className="y-caption" key={i.value}>
-							{i.value % 2 == 0 ? maxValue - i.value : null}
+						return <div className="y-caption" key={i.y_value}>
+							{i.y_value % 2 == 0 ? maxValue - i.y_value : null}
 						</div>
 					})}
 				</div>
@@ -142,12 +142,12 @@ export default class Chartify extends Component {
 		let {data = []} = this.props;
 		let {height = 10, theme = 'default'} = this.props.config;
 
-		let maxValueObj = _.max(this.props.data, el => { return el.value; });
-		let maxValue = maxValueObj.value;
+		let maxValueObj = _.max(this.props.data, el => { return el.y_value; });
+		let maxValue = maxValueObj.y_value;
 
 		const row = Array(height).fill().map((item, i) => { 
 			return {
-				value: i*(maxValue/height)
+				y_value: i*(maxValue/height)
 			};
 		});
 

@@ -80,7 +80,7 @@ export default class Draggable extends Component {
 	}
 
 	renderMarks(marksStyle) {
-		const row = Array(this.props.config.height).fill().map((item, i) => ({ value: i }));
+		const row = Array(this.props.config.height).fill().map((item, i) => ({ y_value: i }));
 		let maxX = this.props.maxX;
 
 		return (
@@ -126,7 +126,7 @@ export default class Draggable extends Component {
 			<div className="x-axis" style={marksStyle}>
 				{marks.map((mark, markNum) => (
 					markNum % 10 == 0 ? <div className="x-caption" style={style} key={markNum}>
-						{mark.date}
+						{mark.x_value}
 					</div> : null
 				))}
 			</div>

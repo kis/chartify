@@ -5,18 +5,18 @@ import moment from 'moment';
 
 export function getInitData() {
 	let items = votes.map(item => ({
-		value: item["моя оценка"],
-		title: (item["оригинальное название"] || item["русскоязычное название"]) + ' (' + item["год"] +')',
-		date: item["дата и время"]
+		x_value: item["дата и время"],
+		y_value: item["моя оценка"],
+		title: (item["оригинальное название"] || item["русскоязычное название"]) + ' (' + item["год"] +')'
 	}));
 	items.reverse();
 
 	let dateRegex = /(\d+)[.](\d+)[.](\d+)/;
 
 	for (let i in items) {
-		if (items[i].date) {
-			let date = dateRegex.exec(items[i].date);
-			items[i].date = moment(date[0], "DD.MM.YYYY").format('MMM D, YYYY');
+		if (items[i].x_value) {
+			let x_value = dateRegex.exec(items[i].x_value);
+			items[i].x_value = moment(x_value[0], "DD.MM.YYYY").format('MMM D, YYYY');
 		}
 	}
 
@@ -27,8 +27,6 @@ export function getItunesData() {
 	let albumsObj = _.groupBy(itunesData, song => {
 		return song["Album"];
 	});
-
-	console.log(albumsObj)
 
 	let albumNames = Object.keys(albumsObj);
 
@@ -46,13 +44,13 @@ export function getItunesData() {
 	}));
 
 	let resAlbums = albums.map(album => ({
-		value: album.timesPlayed,
-		title: `${album.artist} - ${album.album}`,
-		date: String(album.year)
+		x_value: String(album.year),
+		y_value: album.timesPlayed,
+		title: `${album.artist} - ${album.album}`
 	}));
 
 	let albumsSortedByYear = _.sortBy(resAlbums, album => {
-		return parseInt(album.date);
+		return parseInt(album.x_value);
 	});
 
 	return albumsSortedByYear;

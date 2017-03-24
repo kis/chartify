@@ -27,9 +27,9 @@ npm install chartify
 import Chartify from 'chartify';
 
 let data = [{
-	value: 5,				
-	title: '007 Spectre',	
-	date: '20.11.2016'		
+	x_value: '20.11.2016',
+	y_value: 5,				
+	title: '007 Spectre'	
 }];
 
 let config = {
@@ -49,7 +49,7 @@ let config = {
 
 <h3 align='center'>Data</h3>
 
-Dataset should be an array of objects <b>[{value: 8, title: 'men in black', date: '12.03.2016'}]</b>. Keys are required and types are <b>{value: number, title: string, date: string}</b>.
+Dataset should be an array of objects <b>[{ x_value: '12.03.2016', y_value: 8, title: 'men in black' }]</b>. Keys are required and types are <b>{ x_value: string, y_value: number, title: string }</b>.
 
 <h3 align='center'>Config</h3>
 
@@ -71,4 +71,5 @@ Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written usin
 
 <h3 align='center'>License</h3>
 
-The MIT License (MIT) Copyright (c) 2017 Kirill Stepkin
+The MIT License (MIT) Copyright (c) 2017
+Author: Kirill Stepkin
