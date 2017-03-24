@@ -71,5 +71,5 @@ Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written usin
 
 <h3 align='center'>License</h3>
 
-The MIT License (MIT) Copyright (c) 2017
+The MIT License (MIT) Copyright (c) 2017<br/>
 Author: Kirill Stepkin
