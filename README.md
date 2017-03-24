@@ -47,7 +47,7 @@ let config = {
 <Chartify data={data} config={config} />
 ```
 
-* **data** - is an array of objects [{value: 8, title: 'men in black', date: '12.03.2016'}]. This is the dataset of the chart.
+* **data** - is an array of objects [{value: 8, title: 'men in black', date: '12.03.2016'}]. This is the dataset of the chart. Keys are required and types are {value: number, title: string, date: string}.
 * **width** - is the horizontal length of the data array. If width param is less than the length of the data array then user will see the last values of the data array.
 * **height** - is the vertical length.
 * **box_size** - is size of each box in pixels.
