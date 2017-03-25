@@ -60,7 +60,7 @@ Dataset should be an array of objects <b>[{ x_value: '12.03.2016', y_value: 8, t
 <b>box_radius</b>:<i>number</i> - is border radius of each box in pixels.<br/>
 <b>line</b>:<i>boolean</i> - is param that determines if this is a line-chart.<br/>
 <b>line_only</b>:<i>boolean</i> - is param that determines if we show only line on white background.<br/>
-<b>bordered</b>:<i>boolean</i> - is param that determines if each box has top and left borders.<br/>
+<b>bordered</b>:<i>boolean</i> - is param that determines if each box has white borders.<br/>
 <b>blink</b>:<i>boolean</i> - is param that determines if the chart is blinking.<br/>
 
 <h3 align='center'>Container</h3>
