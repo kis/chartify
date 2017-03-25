@@ -39,6 +39,11 @@ body h2 {
 	color: #447bff;
 }
 
+body .total-info {
+	font-style: italic;
+	margin: 30px 0;
+}
+
 body header {
 	padding: 20px 0 0 0;
 }

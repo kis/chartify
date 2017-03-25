@@ -15,6 +15,9 @@ export default class Chart extends Component {
 				<h2>Latest movies I watched</h2>
 
 				<Chartify data={this.props.data} container="films-container" config={this.props.config} />
+				
+				<div className="total-info">{this.props.data.length} films total ( X - rank date, Y - rank )</div>
+
 				<Controls data={this.props.data} chart="films" config={this.props.config} actions={this.props.actions} />
 
 				<br/><br/>
@@ -22,6 +25,9 @@ export default class Chart extends Component {
 				<h2>My iPod Touch music library</h2>
 
 				<Chartify data={this.props.itunes} container="songs-container" config={this.props.config_itunes} />
+				
+				<div className="total-info">{this.props.itunes.length} music albums total ( X - albums release year, Y - song played times )</div>
+
 				<Controls data={this.props.itunes} chart="music" config={this.props.config_itunes} actions={this.props.actions} />
 			</div>
 		);

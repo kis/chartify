@@ -18,6 +18,11 @@ body {
         color: #447bff;
     }
 
+    .total-info {
+        font-style: italic;
+        margin: 10px 35px 30px;
+    }
+
     header {
         padding: 20px 0 0 0;   
 
