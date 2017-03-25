@@ -53,15 +53,15 @@ Dataset should be an array of objects <b>[{ x_value: '12.03.2016', y_value: 8, t
 
 <h3 align='center'>Config</h3>
 
-<b>theme</b> - is color scheme of the chart, "default", "blue", "grey", "white" etc. Type: string.<br/>
-<b>width</b> - is the length of the data array by X-axis. If width param is less than the length of the data array then user will see the last values of the data array. Type: number.<br/>
-<b>height</b> - is the length of the data by Y-axis. Type: number.<br/>
-<b>box_size</b> - is size of each box in pixels. Type: number.<br/>
-<b>box_radius</b> - is border radius of each box in pixels. Type: number.<br/>
-<b>line</b> - is param that determines if this is a line-chart. Type: boolean.<br/>
-<b>line_only</b> - is param that determines if we show only line on white background. Type: boolean.<br/>
-<b>bordered</b> - is param that determines if each box has top and left borders. Type: boolean.<br/>
-<b>blink</b> - is param that determines if the chart is blinking. Type: boolean.<br/>
+<b>theme</b>:<i>string</i> - is color scheme of the chart, "default", "blue", "grey", "white" etc.<br/>
+<b>width</b>:<i>number</i> - is the length of the data array by X-axis. If width param is less than the length of the data array then user will see the last values of the data array.<br/>
+<b>height</b>:<i>number</i> - is the length of the data by Y-axis.<br/>
+<b>box_size</b>:<i>number</i> - is size of each box in pixels.<br/>
+<b>box_radius</b>:<i>number</i> - is border radius of each box in pixels.<br/>
+<b>line</b>:<i>boolean</i> - is param that determines if this is a line-chart.<br/>
+<b>line_only</b>:<i>boolean</i> - is param that determines if we show only line on white background.<br/>
+<b>bordered</b>:<i>boolean</i> - is param that determines if each box has top and left borders.<br/>
+<b>blink</b>:<i>boolean</i> - is param that determines if the chart is blinking.<br/>
 
 <h3 align='center'>Container</h3>
 
