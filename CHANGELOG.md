@@ -1,3 +1,11 @@
+## Chartify 2.0.2 (Mar 25, 2017)
+
+* Fix naming of object keys in data array 
+* Implement new chart container for iTunes music library ranks
+* Add container param for Chartify component in case of more than one chart on the page
+* Implement building the Y-scale using the max y-value in dataset 
+* Update readme with param types and additional information
+
 ## Chartify 2.0.0 (Mar 3, 2017)
 
 * Upgrade webpack version and webpack plugins to 2
