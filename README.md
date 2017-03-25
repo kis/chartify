@@ -54,7 +54,7 @@ Dataset should be an array of objects <b>[{ x_value: '12.03.2016', y_value: 8, t
 <h3 align='center'>Config</h3>
 
 <b>theme</b>:<i>string</i> - is color scheme of the chart, "default", "blue", "grey", "white" etc.<br/>
-<b>width</b>:<i>number</i> - is the length of the data array by X-axis. If width param is less than the length of the data array then user will see the last values of the data array.<br/>
+<b>width</b>:<i>number</i> - is the length of the data array by X-axis.<br/>
 <b>height</b>:<i>number</i> - is the length of the data by Y-axis.<br/>
 <b>box_size</b>:<i>number</i> - is size of each box in pixels.<br/>
 <b>box_radius</b>:<i>number</i> - is border radius of each box in pixels.<br/>
