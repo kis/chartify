@@ -16,7 +16,7 @@ export default class Chart extends Component {
 
 				<Chartify data={this.props.data} container="films-container" config={this.props.config} />
 				
-				<div className="total-info">{this.props.data.length} films total ( X - rank date, Y - rank )</div>
+				<div className="total-info">{this.props.data.length} films total ( X - mark date, Y - mark )</div>
 
 				<Controls data={this.props.data} chart="films" config={this.props.config} actions={this.props.actions} />
 
@@ -26,7 +26,7 @@ export default class Chart extends Component {
 
 				<Chartify data={this.props.itunes} container="songs-container" config={this.props.config_itunes} />
 				
-				<div className="total-info">{this.props.itunes.length} music albums total ( X - albums release year, Y - song played times )</div>
+				<div className="total-info">{this.props.itunes.length} music albums total ( X - album release year, Y - song played times )</div>
 
 				<Controls data={this.props.itunes} chart="music" config={this.props.config_itunes} actions={this.props.actions} />
 			</div>
