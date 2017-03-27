@@ -9,7 +9,7 @@
 	<a href='https://github.com/kiqs/chartify'><img src='https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square' /></a>
 </p>
 
-![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/newprev.gif)
+![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/blocks.jpg)
 
 The source for this module is in the [main repo](https://github.com/kiqs/chartify). Please contribute.
 
