@@ -7,10 +7,15 @@ export default class MapSearchPanel extends Component {
 		super();
 	}
 
+	search = () => {
+		console.log(this.refs)
+	}
+
 	render() {
 		return (
 			<div className="map-search-panel">
-				<input placeholder="Enter city..." />	
+				<input type="text" ref={(input) => { this.city = input; }} placeholder="Enter city..." />
+				<button className="map-search-btn" onClick={this.search}>Search</button>
 			</div>
 		);
 	}

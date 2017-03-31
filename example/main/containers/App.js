@@ -6,19 +6,20 @@ import Chart from '../components/Chart/Chart';
 import MapSearchPanel from '../components/MapSearchPanel/MapSearchPanel';
 import Map from '../components/Map/Map';
 
-class AppContainer extends Component {
+class App extends Component {
 
 	constructor(props) {
 		super();
 		props.actions.initConfig();
-		// <MapSearchPanel {...this.props} />
-		// <Map {...this.props} />
 	}
 
 	render() {
 		return (
 			<div>
 				<Chart {...this.props} />
+
+				<MapSearchPanel {...this.props} />
+				<Map {...this.props} />
 			</div>
 		);
 	}
@@ -33,4 +34,4 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = (dispatch) => ({actions: bindActionCreators(actions, dispatch)});
 
-export default connect(mapStateToProps, mapDispatchToProps)(AppContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

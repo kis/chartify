@@ -9,4 +9,15 @@
 		padding: 10px 20px;
 		border: 2px solid #447bff;
 	}
+
+	.map-search-btn {
+		font-size: 18px;
+	    background: white;
+	    outline: none;
+	    padding: 12px 20px;
+	    color: #447bff;
+	    margin: 0 5px;
+	    cursor: pointer;
+	    border: 2px solid #447bff;
+	}
 }

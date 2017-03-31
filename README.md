@@ -1,6 +1,6 @@
 <h1 align='center'>Chartify</h1>
 
-<p align='center'>React.js plugin for building animated draggable and customizable charts.</p>
+<p align='center'>React.js plugin for building animated draggable and customizable charts. [Try it out](https://kiqs.github.io/chartify/example/)</p>
 
 <p align='center'>
 	<a href='https://www.npmjs.com/package/chartify'><img src="https://img.shields.io/npm/v/chartify.svg?style=flat-square" alt=""></a>
@@ -12,8 +12,6 @@
 ![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/blocks.jpg)
 
 The source for this module is in the [main repo](https://github.com/kiqs/chartify). Please contribute.
-
-Check the [EXAMPLE](https://kiqs.github.io/chartify/example/)
 
 <h3 align='center'>Install</h3>
 

@@ -1,4 +1,10 @@
 {
 	"presets": ["es2015", "react", "stage-0"],
-  	"plugins": ["typecheck", "transform-class-properties", "transform-flow-strip-types"]
+	"plugins": [
+		"typecheck", 
+		"transform-class-properties", 
+		"transform-flow-strip-types", 
+		"transform-runtime",
+		"react-hot-loader/babel"
+	]
 }
