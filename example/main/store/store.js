@@ -1,6 +1,14 @@
 import chartApp from '../reducers/chart';
-import { createStore } from 'redux';
+import { createStore, applyMiddleware } from 'redux';
+import thunkMiddleware from 'redux-thunk';
+import { createLogger } from 'redux-logger';
+
+const loggerMiddleware = createLogger();
 
 export default createStore(
-  chartApp
+  chartApp,
+  applyMiddleware(
+    thunkMiddleware,
+    loggerMiddleware
+  )
 );

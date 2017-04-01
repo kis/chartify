@@ -28,13 +28,13 @@ var initConfig = {
 function chartApp(state = initConfig, action) {
 	switch (action.type) {
 	case 'INIT_CONFIG':
-		return {...state, data: state.data, itunes: state.itunes, config: state.config};
+		return { ...state, data: state.data, itunes: state.itunes, config: state.config };
 
 	case 'UPDATE_CHART':
 		if (action.chart == 'music') 
-			return {...state, itunes: action.data, config_itunes: action.config};
+			return { ...state, itunes: action.data, config_itunes: action.config };
 		if (action.chart == 'films') 
-			return {...state, data: action.data, config: action.config};
+			return { ...state, data: action.data, config: action.config };
 
 	default:
 		return state;
