@@ -15,10 +15,12 @@ export default class Draggable extends Component {
 			data = []
 		} = this.props;
 
+		let container = document.querySelector(`.${this.props.container}`);
+
 		this.elements = {
-			inner: document.querySelector(`.${this.props.container} .marks`),
-			outer: document.querySelector(`.${this.props.container} .marks-wrapper`),
-			xAxis: document.querySelector(`.${this.props.container} .x-axis`)
+			inner: container.querySelector('.marks'),
+			outer: container.querySelector('.marks-wrapper'),
+			xAxis: container.querySelector('.x-axis')
 		};
 
 		let {innerRightPos, outerRightPos} = this.getPos();
@@ -49,27 +51,16 @@ export default class Draggable extends Component {
 	processDrag = (e) => {
 		let {innerPos, outerPos, innerRightPos, outerRightPos} = this.getPos();
 
-		if (this.lastDelta == 0) {
-			this.rightState = outerRightPos - innerRightPos;
-		}
-
-		if (!this.checkMove || innerPos > outerPos || innerRightPos < outerRightPos) {
-			return;
-		}
+		if (this.lastDelta == 0) this.rightState = outerRightPos - innerRightPos;
+		if (!this.checkMove || innerPos > outerPos || innerRightPos < outerRightPos) return;
 
 		let deltaX = e.pageX - this.pageX;
 		let newDelta = this.lastDelta + deltaX;
 
-		if (innerRightPos + deltaX < outerRightPos) {
-			newDelta = this.rightState;
-		}
-
-		if (innerPos + deltaX > outerPos) {
-			newDelta = 0; 
-		}
+		if (innerRightPos + deltaX < outerRightPos) newDelta = this.rightState;
+		if (innerPos + deltaX > outerPos) newDelta = 0;
 
 		this.lastDelta = newDelta;
-
 		let newVal = `translateX(${newDelta}px)`;
 		this.elements.inner.style.transform = newVal;
 		this.elements.xAxis.style.transform = newVal;
@@ -117,10 +108,7 @@ export default class Draggable extends Component {
 		});
 
 		let width = parseInt(marks.length * box_size / showDateCount);
-
-		let style = {
-			'width': `${width}px`
-		};
+		let style = { 'width': `${width}px` };
 
 		return (
 			<div className="x-axis" style={marksStyle}>
@@ -142,9 +130,10 @@ export default class Draggable extends Component {
 			data: marks = [] 
 		} = this.props;
 
+		let windowScrollX = window.scrollX;
 		let chartLength = marks.length;
-		let innerPos = this.elements.inner.getBoundingClientRect().left - window.scrollX;
-		let outerPos = this.elements.outer.getBoundingClientRect().left - window.scrollX;
+		let innerPos = this.elements.inner.getBoundingClientRect().left - windowScrollX;
+		let outerPos = this.elements.outer.getBoundingClientRect().left - windowScrollX;
 		let innerRightPos = innerPos + chartLength * box_size;
 		let outerRightPos = outerPos + this.elements.outer.offsetWidth;
 
