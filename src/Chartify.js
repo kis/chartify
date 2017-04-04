@@ -31,15 +31,15 @@ export default class Chartify extends Component {
 
 		let styles = this.getStyles(this.props.config);
 
-		mark.y_value = Math.round((mark.y_value * height) / maxX);
-		mark.y_value = mark.y_value ? mark.y_value : 1;
+		mark.chart_y_value = Math.round((mark.y_value * height) / maxX);
+		mark.chart_y_value = mark.chart_y_value ? mark.chart_y_value : 1;
 
 		return (
 			<div>
 				{row.map(i => {
 					let markClasses = line_only ? 'mark white' : this.getMarkClasses(height, mark, i);
 					let markStyles = this.getMarkStyles(styles, markClasses, blink);
-					let isActiveMark = height - mark.y_value == i.y_value && markNum < data.length - 1;
+					let isActiveMark = height - mark.chart_y_value == i.y_value && markNum < data.length - 1;
 
 					return <div key={i.y_value} style={markStyles} className={markClasses}>
 						{isActiveMark ? this.renderMarkTools(mark, markNum, line || line_only) : null}
@@ -50,9 +50,9 @@ export default class Chartify extends Component {
 	}
 
 	getMarkClasses(height: number, mark: Mark, i: Object) {
-		if (height - mark.y_value > i.y_value) return "mark empty";
-		if (height - mark.y_value == i.y_value) return "mark";
-		if (height - mark.y_value < i.y_value) return "mark painted";
+		if (height - mark.chart_y_value > i.y_value) return "mark empty";
+		if (height - mark.chart_y_value == i.y_value) return "mark";
+		if (height - mark.chart_y_value < i.y_value) return "mark painted";
 	}
 
 	getStyles(config: Object) {
@@ -91,7 +91,7 @@ export default class Chartify extends Component {
 
 	renderTooltip(mark: Mark) {
 		let tooltipStyle = {
-			top: (mark.y_value < this.props.config.height / 2) ? '-100px' : 0
+			top: (mark.chart_y_value < this.props.config.height / 2) ? '-100px' : 0
 		};
 
 		return (
