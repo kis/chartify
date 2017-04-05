@@ -79,7 +79,7 @@ export default class Chartify extends Component {
 
 	renderMarkTools(mark: Mark, markNum: number, drawLine: boolean) {
 		let { data } = this.props;
-		let lineStyle = drawLine ? this.calcLineStyles(mark.y_value, data[markNum + 1].y_value) : null;
+		let lineStyle = drawLine ? this.calcLineStyles(mark.chart_y_value, data[markNum + 1].chart_y_value) : null;
 		
 		return (
 			<div>
