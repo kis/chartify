@@ -1,6 +1,12 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 body {
+
+    .heart {
+        width: 25px;
+        vertical-align: sub;
+    }
+
 	overflow-x: hidden;
 
     .container {
@@ -68,7 +74,7 @@ body {
 
 #forkongithub {
     a {
-        background: #9e9e9e;
+        background: #cc5739;
         color: #fff;
         text-decoration: none;
         font-family: arial, sans-serif;
@@ -81,8 +87,7 @@ body {
         transition: 0.5s;
 
         &:hover {
-            background: #447bff;
-            color: #fff;
+            background: #7d0505;
         }
 
         &::before,
@@ -121,7 +126,6 @@ body {
             top: 60px;
             right: -60px;
             transform: rotate(45deg);
-            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.8);
         }
     }
 }

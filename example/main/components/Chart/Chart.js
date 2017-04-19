@@ -12,7 +12,7 @@ export default class Chart extends Component {
 	render() {
 		return (
 			<div className="container">
-				<h2>Latest movies I watched</h2>
+				<h2>Movies dataset</h2>
 
 				<Chartify data={this.props.data} container="films-container" config={this.props.config} />
 				<div className="total-info">{this.props.data.length} films total ( X - mark date, Y - mark )</div>
@@ -20,7 +20,7 @@ export default class Chart extends Component {
 
 				<br/><br/>
 
-				<h2>My iPod Touch music library</h2>
+				<h2>Music albums dataset</h2>
 
 				<Chartify data={this.props.itunes} container="songs-container" config={this.props.config_itunes} />
 				<div className="total-info">{this.props.itunes.length} music albums total ( X - album release year, Y - times played )</div>

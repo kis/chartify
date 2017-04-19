@@ -51,7 +51,7 @@ export default class Chartify extends Component {
 
 	getMarkClasses(height: number, mark: Mark, i: Object) {
 		if (height - mark.chart_y_value > i.y_value) return "mark empty";
-		if (height - mark.chart_y_value == i.y_value) return "mark";
+		if (height - mark.chart_y_value == i.y_value) return "mark active";
 		if (height - mark.chart_y_value < i.y_value) return "mark painted";
 	}
 

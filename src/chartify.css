@@ -100,8 +100,7 @@ $main-color: rgba(172, 148, 179, 0.49);
   visibility: hidden;
   width: 130px;
   left: $box-width;
-  border: 2px solid #717171;
-  color: #676767;
+  color: #ffffff;
   padding: 5px 5px;
   font-family: $font;
 
