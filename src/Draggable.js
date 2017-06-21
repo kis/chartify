@@ -5,16 +5,8 @@ import React, { Component, PropTypes } from 'react';
 type Props = {};
 
 export default class Draggable extends Component {
-
-	constructor(props: Props) {
-		super(props);
-	}
-
 	componentDidMount() {
-		let {
-			data = []
-		} = this.props;
-
+		let { data = [] } = this.props;
 		let container = document.querySelector(`.${this.props.container}`);
 
 		this.elements = {
@@ -34,7 +26,6 @@ export default class Draggable extends Component {
 
 	startDrag = (e) => {
 		this.pageX = e.pageX;
-
 		let lastTransform = this.elements.inner.style.transform;
 
 		if (!lastTransform) {
@@ -42,8 +33,8 @@ export default class Draggable extends Component {
 		} else {
 			let re = /\D(-?\d+)\D/g;
 			let execVal = re.exec(lastTransform);
-			this.lastDelta = Number(execVal[1]); 
-		}	
+			this.lastDelta = Number(execVal[1]);
+		}
 
 		this.checkMove = true;
 	}
@@ -66,22 +57,21 @@ export default class Draggable extends Component {
 		this.elements.xAxis.style.transform = newVal;
 	}
 
-	drop = (e) => {
-		this.checkMove = false;
-	}
+	drop = (e) => { this.checkMove = false; }
 
 	renderMarks(marksStyle) {
-		const row = Array(this.props.config.height).fill().map((item, i) => ({ y_value: i }));
+		const { height } = this.props.config;
+		const row = Array(height).fill().map((item, i) => ({ y_value: i }));
 		let maxX = this.props.maxX;
 
 		return (
-			<div className="marks" 
+			<div className="marks"
 				 style={marksStyle}
 				 onTouchStart={this.startDrag.bind(this)}
-				 onTouchMove={this.processDrag.bind(this)} 
+				 onTouchMove={this.processDrag.bind(this)}
 				 onTouchEnd={this.drop.bind(this)}
-				 onMouseDown={this.startDrag.bind(this)} 
-				 onMouseMove={this.processDrag.bind(this)} 
+				 onMouseDown={this.startDrag.bind(this)}
+				 onMouseMove={this.processDrag.bind(this)}
 				 onMouseUp={this.drop.bind(this)}>
 				{this.props.data.map((mark, markNum) => (
 					<div className="ruler-row" key={markNum}>
@@ -93,14 +83,8 @@ export default class Draggable extends Component {
 	}
 
 	renderXAxis(marksStyle) {
-		const {
-			box_size = 20
-		} = this.props.config;
-
-		const { 
-			data: marks = 50 
-		} = this.props;
-
+		const { box_size = 20 } = this.props.config;
+		const { data: marks = 50 } = this.props;
 		let showDateCount = 0;
 
 		marks.forEach((mark, markNum) => {
@@ -113,22 +97,18 @@ export default class Draggable extends Component {
 		return (
 			<div className="x-axis" style={marksStyle}>
 				{marks.map((mark, markNum) => (
-					markNum % 10 == 0 ? <div className="x-caption" style={style} key={markNum}>
-						{mark.x_value}
-					</div> : null
+					markNum % 10 == 0 ?
+						<div className="x-caption" style={style} key={markNum}>
+							{mark.x_value}
+						</div> : null
 				))}
 			</div>
 		);
 	}
 
 	getPos() {
-		const {
-			box_size = 20
-		} = this.props.config;
-
-		const { 
-			data: marks = [] 
-		} = this.props;
+		const { box_size = 20 } = this.props.config;
+		const { data: marks = [] } = this.props;
 
 		let windowScrollX = window.scrollX;
 		let chartLength = marks.length;
@@ -146,19 +126,10 @@ export default class Draggable extends Component {
 	}
 
 	render() {
-		const {
-			box_size = 20
-		} = this.props.config;
-
-		const {
-			data: marks
-		} = this.props;
-
+		const { box_size = 20 } = this.props.config;
+		const { data: marks } = this.props;
 		let width = marks.length * box_size;
-
-		let marksStyle = {
-			'width': `${width || 750}px`
-		};
+		let marksStyle = { 'width': `${width || 750}px` };
 
 		return (
 			<div className="marks-wrapper">

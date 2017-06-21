@@ -49,6 +49,8 @@
   "license": "MIT",
   "dependencies": {
     "babel-runtime": "^6.23.0",
-    "react-hot-loader": "^3.0.0-beta.6"
+    "express": "^4.15.2",
+    "react-hot-loader": "^3.0.0-beta.6",
+    "socket.io": "^1.7.3"
   }
 }

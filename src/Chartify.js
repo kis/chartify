@@ -13,11 +13,6 @@ type Mark = {
 };
 
 export default class Chartify extends Component {
-
-	constructor(props: Props) {
-		super(props);
-	}
-
 	renderRow(mark: Mark, markNum: number, row: Array, maxX: number) {
 		let { data } = this.props;
 
@@ -57,8 +52,8 @@ export default class Chartify extends Component {
 
 	getStyles(config: Object) {
 		let {
-			box_size = 20, 
-			box_radius = 8, 
+			box_size = 20,
+			box_radius = 8,
 			bordered = false
 		} = config;
 
@@ -72,7 +67,7 @@ export default class Chartify extends Component {
 	}
 
 	getMarkStyles(styles: Object, markClasses: string, blink: boolean) {
-		return (markClasses == "mark painted" && blink) ? 
+		return (markClasses == "mark painted" && blink) ?
 			{...styles, 'animation': 'blink 0.5s infinite'} :
 			{...styles};
 	}
@@ -80,7 +75,7 @@ export default class Chartify extends Component {
 	renderMarkTools(mark: Mark, markNum: number, drawLine: boolean) {
 		let { data } = this.props;
 		let lineStyle = drawLine ? this.calcLineStyles(mark.chart_y_value, data[markNum + 1].chart_y_value) : null;
-		
+
 		return (
 			<div>
 				{drawLine ? <div className="line" style={lineStyle}></div> : null}
@@ -145,7 +140,7 @@ export default class Chartify extends Component {
 		let maxValueObj = _.max(this.props.data, el => { return el.y_value; });
 		let maxValue = maxValueObj.y_value;
 
-		const row = Array(height).fill().map((item, i) => { 
+		const row = Array(height).fill().map((item, i) => {
 			return {
 				y_value: i*(maxValue/height)
 			};
@@ -156,11 +151,11 @@ export default class Chartify extends Component {
 		return (
 			<div className={rulerClass}>
 				{this.renderYAxis(row, maxValue)}
-				<Draggable 
-					data={data} 
+				<Draggable
+					data={data}
 					maxX={maxValue}
 					container={this.props.container}
-					config={this.props.config} 
+					config={this.props.config}
 					renderRow={this.renderRow.bind(this)} />
 			</div>
 		);
