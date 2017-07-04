@@ -1,6 +1,5 @@
 // @flow
-
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import Draggable from './Draggable';
 import _ from 'underscore';
 import './chartify.css';
@@ -160,13 +159,4 @@ export default class Chartify extends Component {
 			</div>
 		);
 	}
-
-}
-
-Chartify.propTypes = {
-	boxSize: PropTypes.number,
-	data: PropTypes.array,
-	height: PropTypes.number,
-	line: PropTypes.bool,
-	theme: PropTypes.string
 }

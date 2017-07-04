@@ -1,6 +1,5 @@
 // @flow
-
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 
 type Props = {};
 
@@ -24,7 +23,7 @@ export default class Draggable extends Component {
 		this.elements.xAxis.style.transform = data.length ? newVal : 0;
 	}
 
-	startDrag = (e) => {
+	startDrag = e => {
 		this.pageX = e.pageX;
 		let lastTransform = this.elements.inner.style.transform;
 
@@ -39,7 +38,7 @@ export default class Draggable extends Component {
 		this.checkMove = true;
 	}
 
-	processDrag = (e) => {
+	processDrag = e => {
 		let {innerPos, outerPos, innerRightPos, outerRightPos} = this.getPos();
 
 		if (this.lastDelta == 0) this.rightState = outerRightPos - innerRightPos;
@@ -57,7 +56,7 @@ export default class Draggable extends Component {
 		this.elements.xAxis.style.transform = newVal;
 	}
 
-	drop = (e) => { this.checkMove = false; }
+	drop = e => { this.checkMove = false; }
 
 	renderMarks(marksStyle) {
 		const { height } = this.props.config;

@@ -4,11 +4,6 @@ import Controls from '../Controls/Controls';
 import './chart.css';
 
 export default class Chart extends Component {
-
-	constructor(props) {
-		super();
-	}
-
 	render() {
 		return (
 			<div className="container">
@@ -28,5 +23,4 @@ export default class Chart extends Component {
 			</div>
 		);
 	}
-
 }

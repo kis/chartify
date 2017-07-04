@@ -149,8 +149,6 @@ body footer div a {
 
 	position: relative;
 
-	-webkit-transition: 0.5s;
-
 	transition: 0.5s
 }
 
@@ -159,7 +157,7 @@ body footer div a {
 	background: #7d0505;
 }
 
-#forkongithub a:before, #forkongithub a:after{
+#forkongithub a::before, #forkongithub a::after{
 
 	content: "";
 
@@ -178,7 +176,7 @@ body footer div a {
 	background: #fff;
 }
 
-#forkongithub a:after{
+#forkongithub a::after{
 
 	bottom: 1px;
 
@@ -211,3 +209,5 @@ body footer div a {
 		        transform: rotate(45deg);
 	}
 }
+
+/*# sourceMappingURL=app.css.map*/

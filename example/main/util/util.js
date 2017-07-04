@@ -1,5 +1,5 @@
-import votes from './votes.js';
-import itunesData from './ituneslib.js';
+import { votes } from './votes';
+import { ituneslib } from './ituneslib';
 import _ from 'underscore';
 import moment from 'moment';
 
@@ -24,7 +24,7 @@ export function getInitData() {
 }
 
 export function getItunesData() {
-	let albumsObj = _.groupBy(itunesData, song => {
+	let albumsObj = _.groupBy(ituneslib, song => {
 		return song["Album"];
 	});
 

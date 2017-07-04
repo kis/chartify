@@ -5,7 +5,6 @@ import * as actions from '../actions/chart';
 import Chart from '../components/Chart/Chart';
 
 class App extends Component {
-
 	constructor(props) {
 		super();
 		props.actions.initConfig();
@@ -13,9 +12,7 @@ class App extends Component {
 
 	render() {
 		return (
-			<div>
-				<Chart {...this.props} />
-			</div>
+			<Chart {...this.props} />
 		);
 	}
 }

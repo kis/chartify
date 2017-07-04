@@ -9,26 +9,23 @@ var mixins  = require('postcss-mixins');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
-var appContext = path.join(__dirname, '/main');
-
 module.exports = {
-  context: appContext,
+  devtool: 'source-map',
   entry: {
-    app: [
+    'app': [
       'babel-polyfill',
       'react-hot-loader/patch',
-      './index.js',
+      './main/index.js',
     ],
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
-    filename: "./bundle.js",
-    publicPath: "/"
+    filename: '[name].js'
   },
   module: {
     rules: [{
       test: /\.js?$/,
-      use: ['react-hot-loader/webpack', 'babel-loader'],
+      use: 'babel-loader',
       exclude: /node_modules/,
       include: path.join(__dirname, '/main')
     }, {
@@ -46,7 +43,6 @@ module.exports = {
     modules: ['node_modules'],
   },
   plugins: [
-    new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin({ filename: './[name].css', allChunks: true }),
     new webpack.LoaderOptionsPlugin({
       options: {

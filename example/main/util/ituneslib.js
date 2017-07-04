@@ -1,4 +1,4 @@
-module.exports = [
+export const ituneslib = [
   {
     "Name": "Mama Kin",
     "Artist": "Aerosmith",

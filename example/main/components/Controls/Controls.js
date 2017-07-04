@@ -3,11 +3,6 @@ import * as util from '../../util/util';
 import './controls.css';
 
 export default class Controls extends Component {
-
-	constructor() {
-		super();
-	}
-
 	refreshData = () => {
 		const { data } = this.props;
 		let newItems = data.map(item => {
@@ -30,7 +25,7 @@ export default class Controls extends Component {
 		let next = curr < Object.keys(themes).length - 1 ? curr + 1 : 0;
 
 		this.props.actions.updateChart(this.props.data, {
-			...this.props.config, 
+			...this.props.config,
 			line_only: false,
 			theme: themes[next]
 		}, this.props.chart);
@@ -38,7 +33,7 @@ export default class Controls extends Component {
 
 	toggleLine = () => {
 		this.props.actions.updateChart(this.props.data, {
-			...this.props.config, 
+			...this.props.config,
 			line_only: false,
 			line: !this.props.config.line
 		}, this.props.chart);
@@ -46,7 +41,7 @@ export default class Controls extends Component {
 
 	toggleBordered = () => {
 		this.props.actions.updateChart(this.props.data, {
-			...this.props.config, 
+			...this.props.config,
 			line_only: false,
 			bordered: !this.props.config.bordered
 		}, this.props.chart);
@@ -58,7 +53,7 @@ export default class Controls extends Component {
 		num = num == 3 ? 0 : ++num;
 
 		this.props.actions.updateChart(this.props.data, {
-			...this.props.config, 
+			...this.props.config,
 			line_only: false,
 			box_radius: radiuses[num]
 		}, this.props.chart);
@@ -66,7 +61,7 @@ export default class Controls extends Component {
 
 	toggleBlink = () => {
 		this.props.actions.updateChart(this.props.data, {
-			...this.props.config, 
+			...this.props.config,
 			line_only: false,
 			blink: !this.props.config.blink
 		}, this.props.chart);
@@ -74,7 +69,7 @@ export default class Controls extends Component {
 
 	toggleLineOnly = () => {
 		this.props.actions.updateChart(this.props.data, {
-			...this.props.config, 
+			...this.props.config,
 			line_only: !this.props.config.line_only
 		}, this.props.chart);
 	}
@@ -100,7 +95,7 @@ export default class Controls extends Component {
 
 				<button type="button" onClick={this.changeTheme}>
 					Change theme
-				</button> 
+				</button>
 
 				<button type="button" onClick={this.toggleBlink}>
 					Toggle blink
