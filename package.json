@@ -1,7 +1,7 @@
 {
   "name": "chartify",
   "description": "React.js plugin for creating charts. Inspired by kinopoisk.ru chart. Feel free for contribute.",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "scripts": {
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
     "start": "webpack",
