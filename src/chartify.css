@@ -8,13 +8,14 @@ $main-color: rgba(172, 148, 179, 0.49);
 
 .ruler-container {
   position: relative;
+  display: block;
   user-select: none;
 
   .y-axis-wrapper {
     display: inline-block;
     position: relative;
     bottom: 29px;
-    
+
     .y-axis {
       display: inline-block;
       padding: 0 10px;
