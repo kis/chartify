@@ -1,9 +1,7 @@
 sudo: required
 language: node_js
 node_js:
-  - "6"
-  - "6.1"
-  - "5.11"
+  - "8"
 cache: yarn
 install: npm install
 script: "sudo $(which yarn) test"
