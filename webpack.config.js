@@ -12,8 +12,8 @@ var webpackUglifyJsPlugin = require('webpack-uglify-js-plugin');
 module.exports = {
   entry: './src/Chartify.js',
   output: {
-    filename: "./chartify.min.js",
-    sourceMapFilename: './chartify.js.map',
+    filename: "./index.js",
+    sourceMapFilename: './index.js.map',
     library: 'Chartify',
     libraryTarget: 'umd'
   },
@@ -42,7 +42,7 @@ module.exports = {
   },
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
-      minimize: true, 
+      minimize: true,
       debug: true,
       sourceMap: false,
       output: {

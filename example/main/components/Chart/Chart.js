@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Chartify from '../../../chartify.min';
+import Chartify from '../../../../index';
 import Controls from '../Controls/Controls';
 import './chart.css';
 
