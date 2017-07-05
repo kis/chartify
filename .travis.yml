@@ -6,6 +6,7 @@ cache: yarn
 install: npm install
 script: "sudo $(which yarn) test"
 before_script:
+  - brew install yarn
   - chmod +x sh/build.sh
   - ./sh/build.sh
 notifications:
