@@ -9,9 +9,9 @@
 	<a href='https://github.com/kiqs/chartify'><img src='https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square' /></a>
 </p>
 
-![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/img/blocks.jpg)
+![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/blocks.jpg)
 
-The source for this module is in the [main repo](https://github.com/kiqs/chartify). Please contribute.
+The source for this module is in the [main repo](https://github.com/kiqs/chartify).
 
 <h3 align='center'>Install</h3>
 
@@ -27,19 +27,19 @@ import Chartify from 'chartify';
 let data = [{
 	x_value: '20.11.2016',
 	y_value: 5,				
-	title: '007 Spectre'	
+	title: '007 Spectre'
 }];
 
 let config = {
-	theme: 'blue',	
+	theme: 'blue',
 	width: 50,			      
 	height: 10,			
-	box_size: 20,	
-	box_radius: 8,	
-	line: false,	
+	box_size: 20,
+	box_radius: 8,
+	line: false,
 	line_only: false,
 	bordered: false,
-	blink: false	
+	blink: false
 };
 
 <Chartify data={data} container="films-container" config={config} />
@@ -64,8 +64,6 @@ Dataset should be an array of objects <b>[{ x_value: '12.03.2016', y_value: 8, t
 <h3 align='center'>Container</h3>
 
 Class that will be added to the chart container element. This is important in case you have more than one chart on your page.<br/><br/>
-
-Heavily inspired by [kinopoisk.ru](https://www.kinopoisk.ru/) chart written using Adobe Flash.
 
 <h3 align='center'>License</h3>
 

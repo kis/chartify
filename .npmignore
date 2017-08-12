@@ -2,7 +2,6 @@ node_modules/
 .idea/
 example/
 sh/
-img/
 yarn-error.log
 .babelrc
 .flowconfig
