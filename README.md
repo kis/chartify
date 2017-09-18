@@ -9,9 +9,9 @@
 	<a href='https://github.com/kiqs/chartify'><img src='https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square' /></a>
 </p>
 
-![alt text](https://raw.githubusercontent.com/kiqs/chartify/master/blocks.jpg)
+![alt text](https://raw.githubusercontent.com/kis/chartify/master/blocks.jpg)
 
-The source for this module is in the [main repo](https://github.com/kiqs/chartify).
+The source for this module is in the [main repo](https://github.com/kis/chartify).
 
 <h3 align='center'>Install</h3>
 
