@@ -6,7 +6,7 @@
 	<a href='https://www.npmjs.com/package/chartify'><img src="https://img.shields.io/npm/v/chartify.svg?style=flat-square" alt=""></a>
 	<a href='https://www.npmjs.com/package/chartify'><img src='https://img.shields.io/npm/dm/chartify.svg?style=flat-square' /></a>
 	<a href='https://www.npmjs.com/package/chartify'><img src='https://img.shields.io/npm/dt/chartify.svg?style=flat-square' /></a>
-	<a href='https://github.com/kiqs/chartify'><img src='https://img.shields.io/travis/kiqs/chartify/master.svg?style=flat-square' /></a>
+	<a href='https://github.com/kis/chartify'><img src='https://img.shields.io/travis/kis/chartify/master.svg?style=flat-square' /></a>
 </p>
 
 ![alt text](https://raw.githubusercontent.com/kis/chartify/master/blocks.jpg)
