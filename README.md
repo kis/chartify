@@ -55,7 +55,7 @@ Keys are required and types are
 
 Container prop is a class that will be added to the chart container element. This is important in case you have more than one chart on your page.   
 
-Config props are:  
+Config prop is an object with properties:  
 <b>theme</b>:<i>string</i> - is color scheme of the chart, <i>"default", "blue", "grey", "white"</i> etc.<br/>
 <b>width</b>:<i>number</i> - is the length of the data array by X-axis.<br/>
 <b>height</b>:<i>number</i> - is the length of the data by Y-axis.<br/>
