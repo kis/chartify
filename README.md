@@ -45,12 +45,17 @@ let config = {
 <Chartify data={data} container="films-container" config={config} />
 ```
 
-<h3 align='center'>Data</h3>
+<h3 align='center'>Props</h3>
 
-Dataset should be an array of objects <b>[{ x_value: '12.03.2016', y_value: 8, title: 'men in black' }]</b>. Keys are required and types are <b>{ x_value: string, y_value: number, title: string }</b>.
+Dataset should be an array of objects  
+<b>[{ x_value: '12.03.2016', y_value: 8, title: 'men in black' }]</b>  
 
-<h3 align='center'>Config</h3>
+Keys are required and types are  
+<b>{ x_value: string, y_value: number, title: string }</b>  
 
+Container prop is a class that will be added to the chart container element. This is important in case you have more than one chart on your page.   
+
+Config props are:  
 <b>theme</b>:<i>string</i> - is color scheme of the chart, <i>"default", "blue", "grey", "white"</i> etc.<br/>
 <b>width</b>:<i>number</i> - is the length of the data array by X-axis.<br/>
 <b>height</b>:<i>number</i> - is the length of the data by Y-axis.<br/>
@@ -59,11 +64,7 @@ Dataset should be an array of objects <b>[{ x_value: '12.03.2016', y_value: 8, t
 <b>line</b>:<i>boolean</i> - is param that determines if this is a line-chart.<br/>
 <b>line_only</b>:<i>boolean</i> - is param that determines if we show only line on white background.<br/>
 <b>bordered</b>:<i>boolean</i> - is param that determines if each box has white borders.<br/>
-<b>blink</b>:<i>boolean</i> - is param that determines if the chart is blinking.<br/>
-
-<h3 align='center'>Container</h3>
-
-Class that will be added to the chart container element. This is important in case you have more than one chart on your page.<br/><br/>
+<b>blink</b>:<i>boolean</i> - is param that determines if the chart is blinking.<br/>  
 
 <h3 align='center'>License</h3>
 
