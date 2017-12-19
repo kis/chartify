@@ -45,12 +45,12 @@ let config = {
 <Chartify data={data} container="films-container" config={config} />
 ```
 
-<h3 align='center'>Props</h3>
+<h3 align='center'>Passing props</h3>
 
-Dataset should be an array of objects  
+Data prop is a dataset that should be an array of objects:  
 <b>[{ x_value: '12.03.2016', y_value: 8, title: 'men in black' }]</b>  
 
-Keys are required and types are  
+Keys are required and types are:
 <b>{ x_value: string, y_value: number, title: string }</b>  
 
 Container prop is a class that will be added to the chart container element. This is important in case you have more than one chart on your page.   
