@@ -42,7 +42,11 @@ let config = {
     blink: false
 };
 
-<Chartify data={data} container="films-container" config={config} />
+<Chartify 
+    data={data} 
+    container="films-container" 
+    config={config} 
+/>
 ```
 
 <h3 align='center'>Passing props</h3>
