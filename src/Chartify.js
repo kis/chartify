@@ -1,5 +1,5 @@
 // @flow
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import Draggable from './Draggable';
 import _ from 'underscore';
 import './chartify.css';
@@ -29,7 +29,7 @@ export default class Chartify extends Component {
 		mark.chart_y_value = mark.chart_y_value ? mark.chart_y_value : 1;
 
 		return (
-			<React.Fragment>
+			<Fragment>
 				{row.map(i => {
 					let markClasses = line_only ? 'mark white' : this.getMarkClasses(height, mark, i);
 					let markStyles = this.getMarkStyles(styles, markClasses, blink);
@@ -39,7 +39,7 @@ export default class Chartify extends Component {
 						{isActiveMark ? this.renderMarkTools(mark, markNum, line || line_only) : null}
 					</div>
 				})}
-			</React.Fragment>
+			</Fragment>
 		)
 	}
 
@@ -76,10 +76,10 @@ export default class Chartify extends Component {
 		let lineStyle = drawLine ? this.calcLineStyles(mark.chart_y_value, data[markNum + 1].chart_y_value) : null;
 
 		return (
-			<React.Fragment>
+			<Fragment>
 				{drawLine ? <div className="line" style={lineStyle}></div> : null}
 				{this.renderTooltip(mark)}
-			</React.Fragment>
+			</Fragment>
 		);
 	}
 
