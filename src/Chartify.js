@@ -76,10 +76,10 @@ export default class Chartify extends Component {
 		let lineStyle = drawLine ? this.calcLineStyles(mark.chart_y_value, data[markNum + 1].chart_y_value) : null;
 
 		return (
-			<div>
+			<React.Fragment>
 				{drawLine ? <div className="line" style={lineStyle}></div> : null}
 				{this.renderTooltip(mark)}
-			</div>
+			</React.Fragment>
 		);
 	}
 
