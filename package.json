@@ -37,8 +37,9 @@
     "postcss-nested": "^1.0.0",
     "postcss-simple-vars": "^3.0.0",
     "precss": "^1.4.0",
-    "react": "^15.4.0",
-    "react-dom": "^15.4.0",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "prop-types": "^15.6.0",
     "react-test-renderer": "^15.4.2",
     "style-loader": "^0.13.0",
     "underscore": "^1.8.3",
@@ -47,8 +48,8 @@
     "webpack-uglify-js-plugin": "1.1.9"
   },
   "main": "chartify.js",
-  "repository": "kiqs/chartify",
-  "homepage": "github.com/kiqs/chartify",
+  "repository": "kis/chartify",
+  "homepage": "github.com/kis/chartify",
   "keywords": [
     "react",
     "reactjs",
@@ -74,10 +75,10 @@
   "author": {
     "name": "Kirill Stepkin",
     "email": "kirillstyopkin@gmail.com",
-    "url": "github.com/kiqs"
+    "url": "github.com/kis"
   },
   "bugs": {
-    "url": "https://github.com/kiqs/chartify/issues",
+    "url": "https://github.com/kis/chartify/issues",
     "email": "kirillstyopkin@gmail.com"
   },
   "license": "MIT",

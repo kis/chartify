@@ -29,7 +29,7 @@ export default class Chartify extends Component {
 		mark.chart_y_value = mark.chart_y_value ? mark.chart_y_value : 1;
 
 		return (
-			<div>
+			<React.Fragment>
 				{row.map(i => {
 					let markClasses = line_only ? 'mark white' : this.getMarkClasses(height, mark, i);
 					let markStyles = this.getMarkStyles(styles, markClasses, blink);
@@ -39,7 +39,7 @@ export default class Chartify extends Component {
 						{isActiveMark ? this.renderMarkTools(mark, markNum, line || line_only) : null}
 					</div>
 				})}
-			</div>
+			</React.Fragment>
 		)
 	}
 
