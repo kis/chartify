@@ -3,6 +3,7 @@ import { bindActionCreators } from "redux";
 import { connect } from "react-redux";
 import * as actions from "../actions/chart";
 import Chart from "../components/Chart/Chart";
+import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
 
 class App extends Component {
   constructor(props) {
@@ -11,7 +12,11 @@ class App extends Component {
   }
 
   render() {
-    return <Chart {...this.props} />;
+    return (
+      <ErrorBoundary>
+        <Chart {...this.props} />
+      </ErrorBoundary>
+    );
   }
 }
 
