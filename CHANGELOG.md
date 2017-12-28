@@ -1,3 +1,10 @@
+## Chartify 2.0.2 (Dec 21, 2017)
+
+* Update React to 16.2.0
+* Refactor code, use react Fragments, use Error boundary
+* Add Prettier
+* Add Jest/Enzyme test to Chartify component
+
 ## Chartify 2.0.2 (Mar 25, 2017)
 
 * Fix naming of object keys in data array 
