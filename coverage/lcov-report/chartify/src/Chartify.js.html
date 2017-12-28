@@ -1,0 +1,590 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>Code coverage report for chartify/src/Chartify.js</title>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="../../prettify.css" />
+    <link rel="stylesheet" href="../../base.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style type='text/css'>
+        .coverage-summary .sorter {
+            background-image: url(../../sort-arrow-sprite.png);
+        }
+    </style>
+</head>
+<body>
+<div class='wrapper'>
+  <div class='pad1'>
+    <h1>
+      <a href="../../index.html">All files</a> / <a href="index.html">chartify/src</a> Chartify.js
+    </h1>
+    <div class='clearfix'>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">51.11% </span>
+        <span class="quiet">Statements</span>
+        <span class='fraction'>23/45</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">6.52% </span>
+        <span class="quiet">Branches</span>
+        <span class='fraction'>3/46</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">42.86% </span>
+        <span class="quiet">Functions</span>
+        <span class='fraction'>6/14</span>
+      </div>
+      <div class='fl pad1y space-right2'>
+        <span class="strong">53.66% </span>
+        <span class="quiet">Lines</span>
+        <span class='fraction'>22/41</span>
+      </div>
+    </div>
+  </div>
+  <div class='status-line medium'></div>
+<pre><table class="coverage">
+<tr><td class="line-count quiet">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56
+57
+58
+59
+60
+61
+62
+63
+64
+65
+66
+67
+68
+69
+70
+71
+72
+73
+74
+75
+76
+77
+78
+79
+80
+81
+82
+83
+84
+85
+86
+87
+88
+89
+90
+91
+92
+93
+94
+95
+96
+97
+98
+99
+100
+101
+102
+103
+104
+105
+106
+107
+108
+109
+110
+111
+112
+113
+114
+115
+116
+117
+118
+119
+120
+121
+122
+123
+124
+125
+126
+127
+128
+129
+130
+131
+132
+133
+134
+135
+136
+137
+138
+139
+140
+141
+142
+143
+144
+145
+146
+147
+148
+149
+150
+151
+152
+153
+154
+155
+156
+157
+158
+159
+160
+161
+162
+163
+164
+165
+166
+167
+168
+169
+170
+171
+172
+173
+174
+175
+176</td><td class="line-coverage quiet"><span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">10x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">1x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span></td><td class="text"><pre class="prettyprint lang-js">// @flow
+import React, { Component, Fragment } from "react";
+import Draggable from "./Draggable";
+import _ from "underscore";
+import "./chartify.css";
+&nbsp;
+type Props = {};
+type Mark = {
+  title: string,
+  x_value: string,
+  y_value: number
+};
+&nbsp;
+export default class Chartify extends Component {
+<span class="fstat-no" title="function not covered" >  re</span>nderRow(mark: Mark, markNum: number, row: Array, maxX: number) {
+    let { data } = <span class="cstat-no" title="statement not covered" >this.props;</span>
+&nbsp;
+    let {
+      height = <span class="branch-0 cbranch-no" title="branch not covered" >10,</span>
+      line = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
+      line_only = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
+      bordered = <span class="branch-0 cbranch-no" title="branch not covered" >false,</span>
+      blink = <span class="branch-0 cbranch-no" title="branch not covered" >false</span>
+    } = <span class="cstat-no" title="statement not covered" >this.props.config;</span>
+&nbsp;
+    let styles = <span class="cstat-no" title="statement not covered" >this.getStyles(this.props.config);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    mark.chart_y_value = Math.round(mark.y_value * height / maxX);</span>
+<span class="cstat-no" title="statement not covered" >    mark.chart_y_value = mark.chart_y_value ? mark.chart_y_value : 1;</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;Fragment&gt;
+        {row.map(<span class="fstat-no" title="function not covered" >i </span>=&gt; {
+          let markClasses = <span class="cstat-no" title="statement not covered" >line_only</span>
+            ? "mark white"
+            : this.getMarkClasses(height, mark, i);
+          let markStyles = <span class="cstat-no" title="statement not covered" >this.getMarkStyles(styles, markClasses, blink);</span>
+          let isActiveMark =
+<span class="cstat-no" title="statement not covered" >            height - mark.chart_y_value == i.y_value &amp;&amp;</span>
+            markNum &lt; data.length - 1;
+&nbsp;
+<span class="cstat-no" title="statement not covered" >          return (</span>
+            &lt;div key={i.y_value} style={markStyles} className={markClasses}&gt;
+              {isActiveMark
+                ? this.renderMarkTools(mark, markNum, line || line_only)
+                : null}
+            &lt;/div&gt;
+          );
+        })}
+      &lt;/Fragment&gt;
+    );
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ge</span>tMarkClasses(height: number, mark: Mark, i: Object) {
+<span class="cstat-no" title="statement not covered" >    if (height - mark.chart_y_value &gt; i.y_value) <span class="cstat-no" title="statement not covered" >return "mark empty";</span></span>
+<span class="cstat-no" title="statement not covered" >    if (height - mark.chart_y_value == i.y_value) <span class="cstat-no" title="statement not covered" >return "mark active";</span></span>
+<span class="cstat-no" title="statement not covered" >    if (height - mark.chart_y_value &lt; i.y_value) return "mark painted";</span>
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ge</span>tStyles(config: Object) {
+    let { box_size = <span class="branch-0 cbranch-no" title="branch not covered" >20,</span> box_radius = <span class="branch-0 cbranch-no" title="branch not covered" >8,</span> bordered = <span class="branch-0 cbranch-no" title="branch not covered" >false </span>} = config;
+&nbsp;
+    return {
+      width: `${box_size}px`,
+      height: `${box_size}px`,
+      borderRadius: `${box_radius}px`,
+      borderTop: !bordered ? "transparent" : "1px solid rgba(249,250,249, 0.9)",
+      borderLeft: !bordered ? "transparent" : "1px solid rgba(249,250,249, 0.9)"
+    };
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ge</span>tMarkStyles(styles: Object, markClasses: string, blink: boolean) {
+    return markClasses == "mark painted" &amp;&amp; blink
+      ? { ...styles, animation: "blink 0.5s infinite" }
+      : { ...styles };
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  re</span>nderMarkTools(mark: Mark, markNum: number, drawLine: boolean) {
+    let { data } = this.props;
+    let lineStyle = drawLine
+      ? this.calcLineStyles(mark.chart_y_value, data[markNum + 1].chart_y_value)
+      : null;
+&nbsp;
+    return (
+      &lt;Fragment&gt;
+        {drawLine ? &lt;div className="line" style={lineStyle} /&gt; : null}
+        {this.renderTooltip(mark)}
+      &lt;/Fragment&gt;
+    );
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  re</span>nderTooltip(mark: Mark) {
+    let tooltipStyle = {
+      top: mark.chart_y_value &lt; this.props.config.height / 2 ? "-100px" : 0
+    };
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return (</span>
+      &lt;div className="tooltiptext" style={tooltipStyle}&gt;
+        &lt;div className="value"&gt;{mark.y_value}&lt;/div&gt;
+        &lt;div&gt;{mark.title}&lt;/div&gt;
+        &lt;div className="date"&gt;{mark.x_value}&lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+&nbsp;
+<span class="fstat-no" title="function not covered" >  ca</span>lcLineStyles(currentMark: number, nextMark: number) {
+    const { box_size = <span class="branch-0 cbranch-no" title="branch not covered" >20 </span>} = <span class="cstat-no" title="statement not covered" >this.props.config;</span>
+    const AC = <span class="cstat-no" title="statement not covered" >box_size;</span>
+    const BC = <span class="cstat-no" title="statement not covered" >Math.abs(nextMark - currentMark) * box_size;</span>
+    const AB = <span class="cstat-no" title="statement not covered" >Math.hypot(AC, BC);</span>
+    let angleA = <span class="cstat-no" title="statement not covered" >this.calcLineAngle(BC, AB, nextMark, currentMark);</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return {</span>
+      width: `${AB}px`,
+      transform: `rotate(${angleA}deg)`,
+      top: `${parseInt(box_size / 2)}px`,
+      left: `${parseInt(box_size / 2)}px`
+    };
+  }
+&nbsp;
+  calcLineAngle(BC: number, AB: number, nextMark: number, currentMark: number) {
+    let angleA = Math.fround(Math.asin(BC / AB) * 180 / Math.PI);
+    <span class="missing-if-branch" title="else path not taken" >E</span>if (nextMark &gt; currentMark) angleA = -angleA;
+    return angleA;
+  }
+&nbsp;
+  renderYAxis(row: Array, maxValue: number) {
+    return (
+      &lt;div className="y-axis-wrapper"&gt;
+        &lt;div className="y-axis"&gt;
+          {row.map(i =&gt; {
+            return (
+              &lt;div className="y-caption" key={i.y_value}&gt;
+                {i.y_value % 2 == 0 ? maxValue - i.y_value : null}
+              &lt;/div&gt;
+            );
+          })}
+        &lt;/div&gt;
+      &lt;/div&gt;
+    );
+  }
+&nbsp;
+  render() {
+    let { data = <span class="branch-0 cbranch-no" title="branch not covered" >[] </span>} = this.props;
+    let { height = <span class="branch-0 cbranch-no" title="branch not covered" >10,</span> theme = <span class="branch-0 cbranch-no" title="branch not covered" >"default" </span>} = this.props.config;
+&nbsp;
+    let maxValueObj = _.max(this.props.data, el =&gt; {
+      return el.y_value;
+    });
+    let maxValue = maxValueObj.y_value;
+&nbsp;
+    const row = Array(height)
+      .fill()
+      .map((item, i) =&gt; {
+        return {
+          y_value: i * (maxValue / height)
+        };
+      });
+&nbsp;
+    const rulerClass = `ruler-container ${this.props.container} ${theme}`;
+&nbsp;
+    return (
+      &lt;div className={rulerClass}&gt;
+        {this.renderYAxis(row, maxValue)}
+        &lt;Draggable
+          data={data}
+          maxX={maxValue}
+          container={this.props.container}
+          config={this.props.config}
+          renderRow={this.renderRow.bind(this)}
+        /&gt;
+      &lt;/div&gt;
+    );
+  }
+}
+&nbsp;</pre></td></tr>
+</table></pre>
+<div class='push'></div><!-- for sticky footer -->
+</div><!-- /wrapper -->
+<div class='footer quiet pad2 space-top1 center small'>
+  Code coverage
+  generated by <a href="https://istanbul.js.org/" target="_blank">istanbul</a> at Thu Dec 28 2017 13:32:32 GMT+0200 (EET)
+</div>
+</div>
+<script src="../../prettify.js"></script>
+<script>
+window.onload = function () {
+        if (typeof prettyPrint === 'function') {
+            prettyPrint();
+        }
+};
+</script>
+<script src="../../sorter.js"></script>
+</body>
+</html>
