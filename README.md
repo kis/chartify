@@ -7,6 +7,7 @@
 	<a href='https://www.npmjs.com/package/chartify'><img src='https://img.shields.io/npm/dm/chartify.svg?style=flat-square' /></a>
 	<a href='https://www.npmjs.com/package/chartify'><img src='https://img.shields.io/npm/dt/chartify.svg?style=flat-square' /></a>
 	<a href='https://github.com/kis/chartify'><img src='https://img.shields.io/travis/kis/chartify/master.svg?style=flat-square' /></a>
+    <a href='https://coveralls.io/github/kis/chartify?branch=master'><img src='https://coveralls.io/repos/github/kis/chartify/badge.svg?branch=master' alt='Coverage Status' /></a>
 </p>
 
 ![alt text](https://raw.githubusercontent.com/kis/chartify/master/blocks.jpg)
