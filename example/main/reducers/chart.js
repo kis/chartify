@@ -1,5 +1,3 @@
-import * as util from "../util/util";
-
 var initConfig = {
   data: [],
   config: {
