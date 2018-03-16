@@ -24120,33 +24120,39 @@ var Chart = function (_Component) {
 				'div',
 				{ className: 'container' },
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					'h2',
-					null,
-					'Movies dataset'
+					'div',
+					{ className: 'chart-block' },
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+						'h2',
+						null,
+						'Movies dataset'
+					),
+					data.length ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__chartify_min_js___default.a, { data: data, container: 'films-container', config: config }) : __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: 'loader' }),
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+						'div',
+						{ className: 'total-info' },
+						data.length,
+						' films total ( X - mark date, Y - mark )'
+					),
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Controls_Controls__["a" /* default */], { data: data, chart: 'films', config: config, actions: actions })
 				),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__chartify_min_js___default.a, { data: data, container: 'films-container', config: config }),
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					'div',
-					{ className: 'total-info' },
-					data.length,
-					' films total ( X - mark date, Y - mark )'
-				),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Controls_Controls__["a" /* default */], { data: data, chart: 'films', config: config, actions: actions }),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('br', null),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('br', null),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					'h2',
-					null,
-					'Music albums dataset'
-				),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__chartify_min_js___default.a, { data: itunes, container: 'songs-container', config: config_itunes }),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					'div',
-					{ className: 'total-info' },
-					itunes.length,
-					' music albums total ( X - album release year, Y - times played )'
-				),
-				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Controls_Controls__["a" /* default */], { data: itunes, chart: 'music', config: config_itunes, actions: actions })
+					{ className: 'chart-block' },
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+						'h2',
+						null,
+						'Music albums dataset'
+					),
+					itunes.length ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__chartify_min_js___default.a, { data: itunes, container: 'songs-container', config: config_itunes }) : __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: 'loader' }),
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+						'div',
+						{ className: 'total-info' },
+						itunes.length,
+						' music albums total ( X - album release year, Y - times played )'
+					),
+					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Controls_Controls__["a" /* default */], { data: itunes, chart: 'music', config: config_itunes, actions: actions })
+				)
 			);
 		}
 	}]);

@@ -9,19 +9,29 @@ export default class Chart extends Component {
 
 		return (
 			<div className="container">
-				<h2>Movies dataset</h2>
 
-				<Chartify data={data} container="films-container" config={config} />
-				<div className="total-info">{data.length} films total ( X - mark date, Y - mark )</div>
-				<Controls data={data} chart="films" config={config} actions={actions} />
+				<div className="chart-block">
+					<h2>Movies dataset</h2>
 
-				<br/><br/>
+					{ data.length ? 
+						<Chartify data={data} container="films-container" config={config} /> :
+						<div className="loader"></div> }
 
-				<h2>Music albums dataset</h2>
+					<div className="total-info">{data.length} films total ( X - mark date, Y - mark )</div>
+					<Controls data={data} chart="films" config={config} actions={actions} />
+				</div>
 
-				<Chartify data={itunes} container="songs-container" config={config_itunes} />
-				<div className="total-info">{itunes.length} music albums total ( X - album release year, Y - times played )</div>
-				<Controls data={itunes} chart="music" config={config_itunes} actions={actions} />
+				<div className="chart-block">
+					<h2>Music albums dataset</h2>
+
+					{ itunes.length ? 
+						<Chartify data={itunes} container="songs-container" config={config_itunes} /> :
+						<div className="loader"></div> }
+
+					<div className="total-info">{itunes.length} music albums total ( X - album release year, Y - times played )</div>
+					<Controls data={itunes} chart="music" config={config_itunes} actions={actions} />
+				</div>
+					
 			</div>
 		);
 	}
