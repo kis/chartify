@@ -16,7 +16,8 @@
 @define-mixin theme $theme, $mark, $empty, $painted, $line {
   .$(theme) {
     .ruler-row:hover .painted {
-      animation: blink 0.5s infinite;
+      background: white;
+      /* animation: blink 0.5s infinite; */
     }
     .mark {
       background: $mark;

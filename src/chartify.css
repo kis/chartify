@@ -97,7 +97,7 @@ $main-color: rgba(172, 148, 179, 0.49);
 
 .tooltiptext {
   position: absolute;
-  z-index: 999;
+  z-index: 9999999;
   visibility: hidden;
   width: 130px;
   left: $box-width;
