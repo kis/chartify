@@ -1,7 +1,7 @@
 import * as util from "../util/util";
 
 var initConfig = {
-  data: util.getInitData(),
+  data: [],
   config: {
     theme: "default",
     width: 50,
@@ -12,7 +12,7 @@ var initConfig = {
     bordered: false,
     blink: false
   },
-  itunes: util.getItunesData(),
+  itunes: [],
   config_itunes: {
     theme: "blue",
     width: 50,
@@ -30,9 +30,20 @@ function chartApp(state = initConfig, action) {
     case "INIT_CONFIG":
       return {
         ...state,
-        data: state.data,
-        itunes: state.itunes,
-        config: state.config
+        config: state.config,
+        config_itunes: state.config_itunes
+      };
+
+    case "UPDATE_MOVIES_DATASET":
+      return {
+        ...state,
+        data: action.data
+      };
+
+    case "UPDATE_ALBUMS_DATASET":
+      return {
+        ...state,
+        itunes: action.data
       };
 
     case "UPDATE_CHART":

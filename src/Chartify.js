@@ -124,7 +124,7 @@ export default class Chartify extends Component {
     return angleA;
   }
 
-  renderYAxis(row: Array, maxValue: number) {
+  renderYAxis(row: Array, maxValue: any) {
     return (
       <div className="y-axis-wrapper">
         <div className="y-axis">
@@ -144,7 +144,9 @@ export default class Chartify extends Component {
     let { data = [] } = this.props;
     let { height = 10, theme = "default" } = this.props.config;
 
-    let maxValueObj = _.max(this.props.data, el => {
+    if (!data || !data.length) return <h2>No dataset</h2>;
+
+    let maxValueObj = _.max(data, el => {
       return el.y_value;
     });
     let maxValue = maxValueObj.y_value;

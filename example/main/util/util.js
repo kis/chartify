@@ -1,10 +1,8 @@
-import { votes } from "./votes";
-import { ituneslib } from "./ituneslib";
 import _ from "underscore";
 import moment from "moment";
 
-export function getInitData() {
-  let items = votes.map(item => ({
+export function processMovies(movies) {
+  let items = movies.map(item => ({
     x_value: item["дата и время"],
     y_value: item["моя оценка"],
     title:
@@ -27,8 +25,8 @@ export function getInitData() {
   return items;
 }
 
-export function getItunesData() {
-  let albumsObj = _.groupBy(ituneslib, song => {
+export function processAlbums(albumsList) {
+  let albumsObj = _.groupBy(albumsList, song => {
     return song["Album"];
   });
 

@@ -9,6 +9,8 @@ class App extends Component {
   constructor(props) {
     super();
     props.actions.initConfig();
+    props.actions.getAlbums();
+    props.actions.getMovies();
   }
 
   render() {
@@ -21,7 +23,6 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
-  artists: state.artists,
   data: state.data,
   config: state.config,
   itunes: state.itunes,
