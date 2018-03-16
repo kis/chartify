@@ -1,3 +1,9 @@
+## Chartify 2.1.0 (Mar 16, 2018)
+
+* Implement API built with Moleculer https://github.com/kis/chartify-service
+* Implement endpoints for getting movies and albums datasets
+* Update actions and reducers in example project
+
 ## Chartify 2.0.2 (Dec 21, 2017)
 
 * Update React to 16.2.0
