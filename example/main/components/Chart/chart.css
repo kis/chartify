@@ -1,72 +1,67 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 
 body {
+    overflow-x: hidden;
+}
 
-    .loader {
-        position: relative;
-        margin: 0 auto;
-        background-size: 100px 100px;
-        background-repeat: no-repeat;
-        background-image: url(https://loading.io/spinners/coolors/lg.palette-rotating-ring-loader.gif);
-        background-position: center center;
-        z-index: 9999999;
-        width: 100px;
-        min-height: 230px;
-    }
+.loader {
+    position: relative;
+    margin: 0 auto;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-image: url(https://loading.io/spinners/coolors/lg.palette-rotating-ring-loader.gif);
+    background-position: center center;
+    z-index: 9999999;
+    width: 100px;
+    min-height: 230px;
+}
 
-    .chart-block {
-        margin-bottom: 50px;
-    }
+.chart-block {
+    margin-bottom: 50px;
+}
 
-    .heart {
-        width: 25px;
-        vertical-align: sub;
-    }
+.heart {
+    width: 25px;
+    vertical-align: sub;
+}
 
-	overflow-x: hidden;
+h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #447bff;
+}
+
+.total-info {
+    font-style: italic;
+    margin: 10px 35px 30px;
+    text-align: center;
+}
+
+.root-container {
+    margin: 0 auto;
+    width: 1200px;
+    max-width: 1200px;
 
     .container {
         width: 1000px;
         margin: 0 auto;
     }
 
-    .text-center {
-        text-align: center;
-    }
-
-    h2 {
-        text-align: center;
-        font-family: 'Poppins', sans-serif;
-        color: #447bff;
-    }
-
-    .total-info {
-        font-style: italic;
-        margin: 10px 35px 30px;
-    }
-
-    .root-container {
-        margin: 0 auto;
-        width: 1200px;
-        max-width: 1200px;
-    }
-
     header {
         padding: 20px 0 0 0;   
-
+    
         .project-title {
-            position: relative;
-            top: -20px;
-            display: inline-block;
+            margin: 0 auto;
             width: 650px;
-
+            text-align: center;
+    
             h2 {
                 font-family: 'Poppins', sans-serif;
                 color: #447bff;
                 font-size: 36px;
                 margin: 0;
             }
-
+    
             h4 {
                 font-family: 'Poppins', sans-serif;
                 font-size: 16px;
@@ -78,14 +73,14 @@ body {
 
     footer {
         position: relative;
-
+    
         div {
             text-align: center;
             font-family: 'Poppins', sans-serif;
             color: #447bff;
             font-size: 18px;
             margin: 20px 0;
-
+    
             a {
                 cursor: pointer;
                 color: #447bff;

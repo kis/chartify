@@ -21,141 +21,92 @@
 .control-block button:hover {
     opacity: 1 !important;
 }body {
-
-	overflow-x: hidden;
+    overflow-x: hidden;
 }
 
-body .loader {
-
-	position: relative;
-
-	margin: 0 auto;
-
-	background-size: 100px 100px;
-
-	background-repeat: no-repeat;
-
-	background-image: url(https://loading.io/spinners/coolors/lg.palette-rotating-ring-loader.gif);
-
-	background-position: center center;
-
-	z-index: 9999999;
-
-	width: 100px;
-
-	min-height: 230px;
+.loader {
+    position: relative;
+    margin: 0 auto;
+    background-size: 100px 100px;
+    background-repeat: no-repeat;
+    background-image: url(https://loading.io/spinners/coolors/lg.palette-rotating-ring-loader.gif);
+    background-position: center center;
+    z-index: 9999999;
+    width: 100px;
+    min-height: 230px;
 }
 
-body .chart-block {
-
-	margin-bottom: 50px;
+.chart-block {
+    margin-bottom: 50px;
 }
 
-body .heart {
-
-	width: 25px;
-
-	vertical-align: sub;
+.heart {
+    width: 25px;
+    vertical-align: sub;
 }
 
-body .container {
-
-	width: 1000px;
-
-	margin: 0 auto;
+h2 {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #447bff;
 }
 
-body .text-center {
-
-	text-align: center;
+.total-info {
+    font-style: italic;
+    margin: 10px 35px 30px;
+    text-align: center;
 }
 
-body h2 {
-
-	text-align: center;
-
-	font-family: 'Poppins', sans-serif;
-
-	color: #447bff;
+.root-container {
+    margin: 0 auto;
+    width: 1200px;
+    max-width: 1200px;
 }
 
-body .total-info {
-
-	font-style: italic;
-
-	margin: 10px 35px 30px;
+.root-container .container {
+    width: 1000px;
+    margin: 0 auto;
 }
 
-body .root-container {
-
-	margin: 0 auto;
-
-	width: 1200px;
-
-	max-width: 1200px;
+.root-container header {
+    padding: 20px 0 0 0;
 }
 
-body header {
-
-	padding: 20px 0 0 0;
+.root-container header .project-title {
+    margin: 0 auto;
+    width: 650px;
+    text-align: center;
 }
 
-body header .project-title {
-
-	position: relative;
-
-	top: -20px;
-
-	display: inline-block;
-
-	width: 650px;
+.root-container header .project-title h2 {
+    font-family: 'Poppins', sans-serif;
+    color: #447bff;
+    font-size: 36px;
+    margin: 0;
 }
 
-body header .project-title h2 {
-
-	font-family: 'Poppins', sans-serif;
-
-	color: #447bff;
-
-	font-size: 36px;
-
-	margin: 0;
+.root-container header .project-title h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    color: #3092e6;
+    margin: 0;
 }
 
-body header .project-title h4 {
-
-	font-family: 'Poppins', sans-serif;
-
-	font-size: 16px;
-
-	color: #3092e6;
-
-	margin: 0;
+.root-container footer {
+    position: relative;
 }
 
-body footer {
-
-	position: relative;
+.root-container footer div {
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    color: #447bff;
+    font-size: 18px;
+    margin: 20px 0;
 }
 
-body footer div {
-
-	text-align: center;
-
-	font-family: 'Poppins', sans-serif;
-
-	color: #447bff;
-
-	font-size: 18px;
-
-	margin: 20px 0;
-}
-
-body footer div a {
-
-	cursor: pointer;
-
-	color: #447bff;
+.root-container footer div a {
+    cursor: pointer;
+    color: #447bff;
 }
 
 #forkongithub {
@@ -170,75 +121,45 @@ body footer div a {
 }
 
 #forkongithub a {
-
-	background: #cc5739;
-
-	color: #fff;
-
-	text-decoration: none;
-
-	font-family: arial, sans-serif;
-
-	text-align: center;
-
-	font-weight: bold;
-
-	padding: 5px 40px;
-
-	font-size: 16px;
-
-	font-size: 1rem;
-
-	line-height: 32px;
-
-	line-height: 2rem;
-
-	position: absolute;
-
-	-webkit-transition: 0.5s;
-
-	transition: 0.5s;
-
-	width: 200px;
-
-	top: 60px;
-
-	right: -60px;
-
-	-webkit-transform: rotate(45deg);
-
-	        transform: rotate(45deg)
+    background: #cc5739;
+    color: #fff;
+    text-decoration: none;
+    font-family: arial, sans-serif;
+    text-align: center;
+    font-weight: bold;
+    padding: 5px 40px;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 32px;
+    line-height: 2rem;
+    position: absolute;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    width: 200px;
+    top: 60px;
+    right: -60px;
+    -webkit-transform: rotate(45deg);
+            transform: rotate(45deg)
 }
 
 #forkongithub a:hover{
-
-	background: #7d0505;
+    background: #7d0505;
 }
 
 #forkongithub a:before, #forkongithub a:after{
-
-	content: "";
-
-	width: 100%;
-
-	display: block;
-
-	position: absolute;
-
-	top: 1px;
-
-	left: 0;
-
-	height: 1px;
-
-	background: #fff;
+    content: "";
+    width: 100%;
+    display: block;
+    position: absolute;
+    top: 1px;
+    left: 0;
+    height: 1px;
+    background: #fff;
 }
 
 #forkongithub a:after{
-
-	bottom: 1px;
-
-	top: auto;
+    bottom: 1px;
+    top: auto;
 }
 
 /*# sourceMappingURL=app.css.map*/
