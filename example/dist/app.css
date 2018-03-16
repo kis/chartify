@@ -86,6 +86,15 @@ body .total-info {
 	margin: 10px 35px 30px;
 }
 
+body .root-container {
+
+	margin: 0 auto;
+
+	width: 1200px;
+
+	max-width: 1200px;
+}
+
 body header {
 
 	padding: 20px 0 0 0;
@@ -149,6 +158,17 @@ body footer div a {
 	color: #447bff;
 }
 
+#forkongithub {
+    position: fixed;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 200px;
+    overflow: hidden;
+    height: 200px;
+    z-index: 9999;
+}
+
 #forkongithub a {
 
 	background: #cc5739;
@@ -173,11 +193,21 @@ body footer div a {
 
 	line-height: 2rem;
 
-	position: relative;
+	position: absolute;
 
 	-webkit-transition: 0.5s;
 
-	transition: 0.5s
+	transition: 0.5s;
+
+	width: 200px;
+
+	top: 60px;
+
+	right: -60px;
+
+	-webkit-transform: rotate(45deg);
+
+	        transform: rotate(45deg)
 }
 
 #forkongithub a:hover{
@@ -209,33 +239,6 @@ body footer div a {
 	bottom: 1px;
 
 	top: auto;
-}
-
-@media screen and (min-width: 800px) {
-    #forkongithub {
-        position: fixed;
-        display: block;
-        top: 0;
-        right: 0;
-        width: 200px;
-        overflow: hidden;
-        height: 200px;
-        z-index: 9999;
-    }
-    #forkongithub a {
-
-		width: 200px;
-
-		position: absolute;
-
-		top: 60px;
-
-		right: -60px;
-
-		-webkit-transform: rotate(45deg);
-
-		        transform: rotate(45deg);
-	}
 }
 
 /*# sourceMappingURL=app.css.map*/

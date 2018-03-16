@@ -45,6 +45,12 @@ body {
         margin: 10px 35px 30px;
     }
 
+    .root-container {
+        margin: 0 auto;
+        width: 1200px;
+        max-width: 1200px;
+    }
+
     header {
         padding: 20px 0 0 0;   
 
@@ -89,6 +95,15 @@ body {
 }
 
 #forkongithub {
+    position: fixed;
+    display: block;
+    top: 0;
+    right: 0;
+    width: 200px;
+    overflow: hidden;
+    height: 200px;
+    z-index: 9999;
+
     a {
         background: #cc5739;
         color: #fff;
@@ -99,8 +114,12 @@ body {
         padding: 5px 40px;
         font-size: 1rem;
         line-height: 2rem;
-        position: relative;
+        position: absolute;
         transition: 0.5s;
+        width: 200px;
+        top: 60px;
+        right: -60px;
+        transform: rotate(45deg);
 
         &:hover {
             background: #7d0505;
@@ -121,27 +140,6 @@ body {
         &::after {
             bottom: 1px;
             top: auto;
-        }
-    }
-}
-
-@media screen and (min-width: 800px) {
-    #forkongithub {
-        position: fixed;
-        display: block;
-        top: 0;
-        right: 0;
-        width: 200px;
-        overflow: hidden;
-        height: 200px;
-        z-index: 9999;
-
-        a {
-            width: 200px;
-            position: absolute;
-            top: 60px;
-            right: -60px;
-            transform: rotate(45deg);
         }
     }
 }
