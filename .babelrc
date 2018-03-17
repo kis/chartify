@@ -1,5 +1,6 @@
 {
-	"presets": [["es2015", {"modules": false }], "stage-0", "react"],
+	"presets": [["es2015", {"modules": false }], "stage-0", "react", "flow"],
+	"retainLines": true,
 	"plugins": [
 		"react-hot-loader/babel",
 		"typecheck",
