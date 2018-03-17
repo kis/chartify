@@ -13,7 +13,7 @@ type Mark = {
 
 export default class Chartify extends Component {
   renderRow(mark: Mark, markNum: number, row: Array, maxX: number) {
-    let { data } = this.props;
+    let { data, config } = this.props;
 
     let {
       height = 10,
@@ -21,9 +21,9 @@ export default class Chartify extends Component {
       line_only = false,
       bordered = false,
       blink = false
-    } = this.props.config;
+    } = config;
 
-    let styles = this.getStyles(this.props.config);
+    let styles = this.getStyles(config);
 
     mark.chart_y_value = Math.round(mark.y_value * height / maxX);
     mark.chart_y_value = mark.chart_y_value ? mark.chart_y_value : 1;
@@ -141,8 +141,8 @@ export default class Chartify extends Component {
   }
 
   render() {
-    let { data = [] } = this.props;
-    let { height = 10, theme = "default" } = this.props.config;
+    let { data = [], config, container } = this.props;
+    let { height = 10, theme = "default" } = config;
 
     if (!data || !data.length) return <h2>No dataset</h2>;
 
@@ -159,7 +159,7 @@ export default class Chartify extends Component {
         };
       });
 
-    const rulerClass = `ruler-container ${this.props.container} ${theme}`;
+    const rulerClass = `ruler-container ${container} ${theme}`;
 
     return (
       <div className={rulerClass}>
@@ -167,8 +167,8 @@ export default class Chartify extends Component {
         <Draggable
           data={data}
           maxX={maxValue}
-          container={this.props.container}
-          config={this.props.config}
+          container={container}
+          config={config}
           renderRow={this.renderRow.bind(this)}
         />
       </div>

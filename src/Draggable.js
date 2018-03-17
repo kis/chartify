@@ -5,13 +5,13 @@ type Props = {};
 
 export default class Draggable extends Component {
   componentDidMount() {
-    let { data = [] } = this.props;
-    let container = document.querySelector(`.${this.props.container}`);
+    let { data = [], container } = this.props;
+    let container_el = document.querySelector(`.${container}`);
 
     this.elements = {
-      inner: container.querySelector(".marks"),
-      outer: container.querySelector(".marks-wrapper"),
-      xAxis: container.querySelector(".x-axis")
+      inner: container_el.querySelector(".marks"),
+      outer: container_el.querySelector(".marks-wrapper"),
+      xAxis: container_el.querySelector(".x-axis")
     };
 
     let { innerRightPos, outerRightPos } = this.getPos();
@@ -89,13 +89,12 @@ export default class Draggable extends Component {
   }
 
   renderXAxis(marksStyle) {
-    const { box_size = 20 } = this.props.config;
-    const { data: marks = 50 } = this.props;
-    let showDateCount = 0;
+    const { data: marks = 50, config } = this.props;
+    const { box_size = 20 } = config;
 
-    marks.forEach((mark, markNum) => {
-      showDateCount = markNum % 10 == 0 ? ++showDateCount : showDateCount;
-    });
+    let showDateCount = marks.reduce((prev, mark, markNum) => {
+      return markNum % 10 == 0 ? ++prev : prev;
+    }, 0);
 
     let width = parseInt(marks.length * box_size / showDateCount);
     let style = { width: `${width}px` };
@@ -115,8 +114,8 @@ export default class Draggable extends Component {
   }
 
   getPos() {
-    const { box_size = 20 } = this.props.config;
-    const { data: marks = [] } = this.props;
+    const { data: marks = [], config } = this.props;
+    const { box_size = 20 } = config;
 
     let windowScrollX = window.scrollX;
     let chartLength = marks.length;
@@ -136,8 +135,8 @@ export default class Draggable extends Component {
   }
 
   render() {
-    const { box_size = 20 } = this.props.config;
-    const { data: marks } = this.props;
+    const { data: marks, config } = this.props;
+    const { box_size = 20 } = config;
     let width = marks.length * box_size;
     let marksStyle = { width: `${width || 750}px` };
 
