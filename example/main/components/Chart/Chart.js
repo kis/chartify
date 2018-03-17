@@ -1,37 +1,37 @@
-import React, { Component } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import Chartify from '../../../../chartify.min.js';
 import Controls from '../Controls/Controls';
 import './chart.css';
 
-export default class Chart extends Component {
+export default class Chart extends PureComponent {
+	constructor(props) {
+		super();
+		props.metadata.getDataset();
+	}
+
 	render() {
-		let { data, config, actions, itunes, config_itunes } = this.props;
+		let { data, config, metadata, actions } = this.props;
 
 		return (
-			<div className="container">
+			<div className="chart-block">
+				<h2>{metadata.header}</h2>
 
-				<div className="chart-block">
-					<h2>Movies dataset</h2>
+				{ data.length ? 
+					<Chartify 
+						data={data} 
+						container={metadata.container} 
+						config={config} 
+					/> :
+					<div className="loader"></div> }
 
-					{ data.length ? 
-						<Chartify data={data} container="films-container" config={config} /> :
-						<div className="loader"></div> }
+				<div className="total-info">{data.length} {metadata.total}</div>
 
-					<div className="total-info">{data.length} films total ( X - mark date, Y - mark )</div>
-					<Controls data={data} chart="films" config={config} actions={actions} />
-				</div>
-
-				<div className="chart-block">
-					<h2>Music albums dataset</h2>
-
-					{ itunes.length ? 
-						<Chartify data={itunes} container="songs-container" config={config_itunes} /> :
-						<div className="loader"></div> }
-
-					<div className="total-info">{itunes.length} music albums total ( X - album release year, Y - times played )</div>
-					<Controls data={itunes} chart="music" config={config_itunes} actions={actions} />
-				</div>
-					
+				<Controls 
+					data={data} 
+					chart={metadata.chart} 
+					config={config} 
+					actions={actions} 
+				/>
 			</div>
 		);
 	}

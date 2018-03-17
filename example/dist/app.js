@@ -23928,7 +23928,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 var fetchAlbums = function () {
-  var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee(team) {
+  var _ref = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee() {
     var albums, res;
     return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee$(_context) {
       while (1) {
@@ -23954,13 +23954,13 @@ var fetchAlbums = function () {
     }, _callee, this);
   }));
 
-  return function fetchAlbums(_x) {
+  return function fetchAlbums() {
     return _ref.apply(this, arguments);
   };
 }();
 
 var fetchMovies = function () {
-  var _ref2 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2(team) {
+  var _ref2 = __WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_asyncToGenerator___default()(__WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.mark(function _callee2() {
     var movies, res;
     return __WEBPACK_IMPORTED_MODULE_0_babel_runtime_regenerator___default.a.wrap(function _callee2$(_context2) {
       while (1) {
@@ -23986,7 +23986,7 @@ var fetchMovies = function () {
     }, _callee2, this);
   }));
 
-  return function fetchMovies(_x2) {
+  return function fetchMovies() {
     return _ref2.apply(this, arguments);
   };
 }();
@@ -24030,7 +24030,7 @@ function getAlbums() {
   };
 }
 
-function getMovies(team) {
+function getMovies() {
   return function (dispatch) {
     fetchMovies().then(function (res) {
       return dispatch(updateMoviesDataset(res));
@@ -24096,13 +24096,16 @@ var _temp = function () {
 
 
 
-var Chart = function (_Component) {
-	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Chart, _Component);
+var Chart = function (_PureComponent) {
+	__WEBPACK_IMPORTED_MODULE_4_babel_runtime_helpers_inherits___default()(Chart, _PureComponent);
 
-	function Chart() {
+	function Chart(props) {
 		__WEBPACK_IMPORTED_MODULE_1_babel_runtime_helpers_classCallCheck___default()(this, Chart);
 
-		return __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Chart.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Chart)).apply(this, arguments));
+		var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (Chart.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(Chart)).call(this));
+
+		props.metadata.getDataset();
+		return _this;
 	}
 
 	__WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(Chart, [{
@@ -24111,54 +24114,42 @@ var Chart = function (_Component) {
 			var _props = this.props,
 			    data = _props.data,
 			    config = _props.config,
-			    actions = _props.actions,
-			    itunes = _props.itunes,
-			    config_itunes = _props.config_itunes;
+			    metadata = _props.metadata,
+			    actions = _props.actions;
 
 
 			return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 				'div',
-				{ className: 'container' },
+				{ className: 'chart-block' },
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-					'div',
-					{ className: 'chart-block' },
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						'h2',
-						null,
-						'Movies dataset'
-					),
-					data.length ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__chartify_min_js___default.a, { data: data, container: 'films-container', config: config }) : __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: 'loader' }),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						'div',
-						{ className: 'total-info' },
-						data.length,
-						' films total ( X - mark date, Y - mark )'
-					),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Controls_Controls__["a" /* default */], { data: data, chart: 'films', config: config, actions: actions })
+					'h2',
+					null,
+					metadata.header
 				),
+				data.length ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__chartify_min_js___default.a, {
+					data: data,
+					container: metadata.container,
+					config: config
+				}) : __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: 'loader' }),
 				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
 					'div',
-					{ className: 'chart-block' },
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						'h2',
-						null,
-						'Music albums dataset'
-					),
-					itunes.length ? __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__chartify_min_js___default.a, { data: itunes, container: 'songs-container', config: config_itunes }) : __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement('div', { className: 'loader' }),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
-						'div',
-						{ className: 'total-info' },
-						itunes.length,
-						' music albums total ( X - album release year, Y - times played )'
-					),
-					__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Controls_Controls__["a" /* default */], { data: itunes, chart: 'music', config: config_itunes, actions: actions })
-				)
+					{ className: 'total-info' },
+					data.length,
+					' ',
+					metadata.total
+				),
+				__WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__Controls_Controls__["a" /* default */], {
+					data: data,
+					chart: metadata.chart,
+					config: config,
+					actions: actions
+				})
 			);
 		}
 	}]);
 
 	return Chart;
-}(__WEBPACK_IMPORTED_MODULE_5_react__["Component"]);
+}(__WEBPACK_IMPORTED_MODULE_5_react__["PureComponent"]);
 
 var _default = Chart;
 /* harmony default export */ __webpack_exports__["a"] = _default;
@@ -24519,19 +24510,65 @@ var App = function (_Component) {
 
     var _this = __WEBPACK_IMPORTED_MODULE_3_babel_runtime_helpers_possibleConstructorReturn___default()(this, (App.__proto__ || __WEBPACK_IMPORTED_MODULE_0_babel_runtime_core_js_object_get_prototype_of___default()(App)).call(this));
 
-    props.actions.initConfig();
-    props.actions.getAlbums();
-    props.actions.getMovies();
+    var data = props.data,
+        config = props.config,
+        actions = props.actions,
+        itunes = props.itunes,
+        config_itunes = props.config_itunes;
+
+    actions.initConfig();
+    _this.state = {
+      movies_metadata: {
+        container: "films-container",
+        header: "Movies dataset",
+        total: 'films total ( X - mark date, Y - mark )',
+        chart: "films",
+        getDataset: actions.getMovies
+      },
+      albums_metadata: {
+        container: "songs-container",
+        header: "Music albums dataset",
+        total: 'music albums total ( X - album release year, Y - times played )',
+        chart: "music",
+        getDataset: actions.getAlbums
+      }
+    };
     return _this;
   }
 
   __WEBPACK_IMPORTED_MODULE_2_babel_runtime_helpers_createClass___default()(App, [{
     key: "render",
     value: function render() {
+      var _props = this.props,
+          data = _props.data,
+          config = _props.config,
+          actions = _props.actions,
+          itunes = _props.itunes,
+          config_itunes = _props.config_itunes;
+      var _state = this.state,
+          albums_metadata = _state.albums_metadata,
+          movies_metadata = _state.movies_metadata;
+
+
       return __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_10__components_ErrorBoundary_ErrorBoundary__["a" /* default */],
         null,
-        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_Chart_Chart__["a" /* default */], this.props)
+        __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(
+          "div",
+          { className: "container" },
+          __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_Chart_Chart__["a" /* default */], {
+            data: data,
+            config: config,
+            metadata: movies_metadata,
+            actions: actions
+          }),
+          __WEBPACK_IMPORTED_MODULE_5_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_9__components_Chart_Chart__["a" /* default */], {
+            data: itunes,
+            config: config_itunes,
+            metadata: albums_metadata,
+            actions: actions
+          })
+        )
       );
     }
   }]);
