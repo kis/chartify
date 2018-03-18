@@ -1,6 +1,5 @@
 // @flow
 import React, { Component, Fragment } from "react";
-import Draggable, { DraggableCore } from "react-draggable";
 import "./chartify.css";
 
 type Props = {};
@@ -218,12 +217,8 @@ export default class Chartify extends Component {
       <div className={rulerClass}>
         {this.renderYAxis(row, maxValue)}
         <div className="marks-wrapper">
-          <Draggable axis="x">
-            <div>
-              {this.renderMarks(marksStyle, maxValue)}
-              {this.renderXAxis(marksStyle)}
-            </div>
-          </Draggable>
+          {this.renderMarks(marksStyle, maxValue)}
+          {this.renderXAxis(marksStyle)}
         </div>
       </div>
     );

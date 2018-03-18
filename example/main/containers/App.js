@@ -13,21 +13,21 @@ class App extends Component {
     this.state = {
       time_metadata: {
         container: "real-time-container", 
-        header: "Draggable real-time chart",
+        header: "Real-time chart",
         total: 'items total ( X - mark date, Y - mark )',
         chart: "time",
         getDataset: null//api.connect
       },
       movies_metadata: {
         container: "films-container", 
-        header: "Draggable movies dataset",
+        header: "Movies dataset",
         total: 'films total ( X - mark date, Y - mark )',
         chart: "films",
         getDataset: actions.getMovies
       },
       albums_metadata: { 
         container: "songs-container", 
-        header: "Draggable music albums dataset",
+        header: "Music albums dataset",
         total: 'music albums total ( X - album release year, Y - times played )',
         chart: "music",
         getDataset: actions.getAlbums
