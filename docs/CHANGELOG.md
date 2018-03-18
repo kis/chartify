@@ -1,3 +1,7 @@
+## Chartify 3.0.0 (Mar 18, 2018)
+
+* Remove draggable
+
 ## Chartify 2.2.0 (Mar 18, 2018)
 
 * Improve Y-axis calculation with rounding digits
