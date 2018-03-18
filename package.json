@@ -88,8 +88,8 @@
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",
+    "socket.io-client": "^2.0.4",
     "style-loader": "^0.13.0",
-    "underscore": "^1.8.3",
     "webpack": "^2.6.1",
     "webpack-dev-server": "^2.4.1",
     "webpack-uglify-js-plugin": "1.1.9"

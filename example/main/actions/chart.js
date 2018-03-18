@@ -1,11 +1,5 @@
 import { processMovies, processAlbums } from '../util/util';
 
-export function initConfig() {
-  return {
-    type: "INIT_CONFIG"
-  };
-}
-
 export function updateAlbumsDataset(data) {
   return {
     type: "UPDATE_ALBUMS_DATASET",
@@ -17,15 +11,6 @@ export function updateMoviesDataset(data) {
   return {
     type: "UPDATE_MOVIES_DATASET",
     data
-  };
-}
-
-export function updateChart(data, config, chart) {
-  return {
-    type: "UPDATE_CHART",
-    data,
-    config,
-    chart
   };
 }
 

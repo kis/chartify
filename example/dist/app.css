@@ -7,14 +7,14 @@
     padding: 10px 0;
 }
 .control-block button {
-    margin: 5px 10px;
+    margin: 5px 5px;
     border: 2px solid #447bff;
     background: transparent;
     box-shadow: none;
     text-transform: uppercase;
-    font-size: 16px;
+    font-size: 14px;
     color: #447bff;
-    padding: 10px 20px;
+    padding: 8px 16px;
     cursor: pointer;
     outline: none
 }
@@ -52,7 +52,6 @@ h2 {
 }
 
 .total-info {
-    font-style: italic;
     margin: 10px 35px 30px;
     text-align: center;
 }

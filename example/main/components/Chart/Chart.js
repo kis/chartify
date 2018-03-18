@@ -6,11 +6,29 @@ import './chart.css';
 export default class Chart extends PureComponent {
 	constructor(props) {
 		super();
-		props.metadata.getDataset();
+		let { metadata } = props;
+		metadata.getDataset();
+		this.state = {
+			config: {
+				theme: metadata.chart === 'films' ? "default" : "blue",
+				width: 50,
+				height: 10,
+				box_radius: metadata.chart === 'films' ? 8 : 0,
+				line: false,
+				line_only: false,
+				bordered: false,
+				blink: false
+			}
+		}
+	}
+
+	changeConfig(params) {
+		this.setState({config: params});
 	}
 
 	render() {
-		let { data, config, metadata, actions } = this.props;
+		let { data, metadata, actions } = this.props;
+		let { config } = this.state;
 
 		return (
 			<div className="chart-block">
@@ -31,6 +49,7 @@ export default class Chart extends PureComponent {
 					chart={metadata.chart} 
 					config={config} 
 					actions={actions} 
+					onChange={params => this.changeConfig(params)}
 				/>
 			</div>
 		);

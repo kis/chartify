@@ -1,7 +1,6 @@
 // @flow
 import React, { Component, Fragment } from "react";
 import Draggable from "./Draggable";
-import _ from "underscore";
 import "./chartify.css";
 
 type Props = {};
@@ -128,10 +127,10 @@ export default class Chartify extends Component {
     return (
       <div className="y-axis-wrapper">
         <div className="y-axis">
-          {row.map(i => {
+          {row.map((i, key) => {
             return (
               <div className="y-caption" key={i.y_value}>
-                {i.y_value % 2 == 0 ? maxValue - i.y_value : null}
+                {key % 2 == 0 ? maxValue - i.y_value : null}
               </div>
             );
           })}
@@ -140,23 +139,32 @@ export default class Chartify extends Component {
     );
   }
 
+  calculateMaxValue() {
+    let { data = [] } = this.props;
+    let valuesArr = data.map(el => el.y_value);
+    let maxValue = Math.max.apply(null, valuesArr);
+    maxValue = Math.round(maxValue);
+    let exponent = maxValue.toString().length;
+    exponent--;
+    exponent = !exponent ? 1 : exponent;
+    let prec = Math.pow(10, exponent);
+    maxValue = Math.round(maxValue / prec) * prec;
+    return maxValue;
+  }
+
   render() {
     let { data = [], config, container } = this.props;
     let { height = 10, theme = "default" } = config;
 
     if (!data || !data.length) return <h2>No dataset</h2>;
 
-    let maxValueObj = _.max(data, el => {
-      return el.y_value;
-    });
-    let maxValue = maxValueObj.y_value;
+    let maxValue = this.calculateMaxValue();
 
     const row = Array(height)
       .fill()
       .map((item, i) => {
-        return {
-          y_value: i * (maxValue / height)
-        };
+        let y_value = Math.round(i * (maxValue / height));
+        return { y_value };
       });
 
     const rulerClass = `ruler-container ${container} ${theme}`;
