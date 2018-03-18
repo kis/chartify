@@ -1,5 +1,12 @@
 import { processMovies, processAlbums } from '../util/util';
 
+export function updateTimeChart(data) {
+  return {
+    type: "UPDATE_TIME_CHART",
+    data
+  };
+}
+
 export function updateAlbumsDataset(data) {
   return {
     type: "UPDATE_ALBUMS_DATASET",

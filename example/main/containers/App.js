@@ -4,14 +4,20 @@ import { connect } from "react-redux";
 import * as actions from "../actions/chart";
 import Chart from "../components/Chart/Chart";
 import ErrorBoundary from "../components/ErrorBoundary/ErrorBoundary";
-import * as api from '../api/api'; 
+// import * as api from '../api/api'; 
 
 class App extends Component {
   constructor(props) {
     super();
     let { actions } = props;
-    // api.connect();
     this.state = {
+      time_metadata: {
+        container: "real-time-container", 
+        header: "Draggable real-time chart",
+        total: 'items total ( X - mark date, Y - mark )',
+        chart: "time",
+        getDataset: null//api.connect
+      },
       movies_metadata: {
         container: "films-container", 
         header: "Draggable movies dataset",
@@ -30,8 +36,8 @@ class App extends Component {
   }
 
   render() {
-    let { data, actions, itunes } = this.props;
-    let { albums_metadata, movies_metadata } = this.state;
+    let { time, data, itunes, actions } = this.props;
+    let { time_metadata, albums_metadata, movies_metadata } = this.state;
 
     return (
       <ErrorBoundary>
@@ -53,6 +59,7 @@ class App extends Component {
 }
 
 const mapStateToProps = state => ({
+  time: state.time,
   data: state.data,
   itunes: state.itunes
 });
