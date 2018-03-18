@@ -1,3 +1,9 @@
+## Chartify 2.2.0 (Mar 18, 2018)
+
+* Improve Y-axis calculation with rounding digits
+* Refactor example logic
+* Improve controls UI in example
+
 ## Chartify 2.1.0 (Mar 16, 2018)
 
 * Implement API built with Moleculer https://github.com/kis/chartify-service
