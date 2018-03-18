@@ -54,7 +54,6 @@ $main-color: rgba(172, 148, 179, 0.49);
     }
 
     .marks {
-      box-sizing: border-box;
       height: 200px;
       border-bottom: 1px solid $main-color;
 

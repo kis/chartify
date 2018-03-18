@@ -1,6 +1,7 @@
 // @flow
 import React, { Component, Fragment } from "react";
-import Draggable, { DraggableCore } from "react-draggable";
+import Draggable, {DraggableCore} from 'react-draggable';
+// import Draggable from "./Draggable";
 import "./chartify.css";
 
 type Props = {};
@@ -178,15 +179,17 @@ export default class Chartify extends Component {
   }
 
   renderMarks(marksStyle, maxValue) {
-    let { data = [], config } = this.props;
-    const { height } = config;
+    const { height } = this.props.config;
     const row = Array(height)
       .fill()
       .map((item, i) => ({ y_value: i }));
 
     return (
-      <div className="marks" style={marksStyle}>
-        {data.map((mark, markNum) => (
+      <div
+        className="marks"
+        style={marksStyle}
+      >
+        {this.props.data.map((mark, markNum) => (
           <div className="ruler-row" key={markNum}>
             {this.renderRow(mark, markNum, row, maxValue)}
           </div>
@@ -211,6 +214,22 @@ export default class Chartify extends Component {
       });
 
     const rulerClass = `ruler-container ${container} ${theme}`;
+
+    // <Draggable
+    //   data={data}
+    //   maxX={maxValue}
+    //   container={container}
+    //   config={config}
+    //   renderRow={this.renderRow.bind(this)}
+    // />
+
+    // defaultPosition={{x: 0, y: 0}}
+    // position={null}
+    // grid={[25, 25]}
+    // onStart={this.handleStart}
+    // onDrag={this.handleDrag}
+    // onStop={this.handleStop}
+
     let width = data.length * box_size;
     let marksStyle = { width: `${width || 750}px` };
 
@@ -218,12 +237,14 @@ export default class Chartify extends Component {
       <div className={rulerClass}>
         {this.renderYAxis(row, maxValue)}
         <div className="marks-wrapper">
-          <Draggable axis="x">
+          <Draggable
+            axis="x"
+          >
             <div>
               {this.renderMarks(marksStyle, maxValue)}
-              {this.renderXAxis(marksStyle)}
             </div>
           </Draggable>
+          {this.renderXAxis(marksStyle)}
         </div>
       </div>
     );
