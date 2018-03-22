@@ -1,6 +1,6 @@
 ../
 webpack
-cp ./chartify.min.js ./example/chartify.min.js
+cp ./index.js ./example/index.js
 cd example
 webpack
 static

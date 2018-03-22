@@ -1,5 +1,5 @@
 import React, { PureComponent, Fragment } from 'react';
-import Chartify from '../../../../chartify.min.js';
+import Chartify from '../../../../index.js';
 import Controls from '../Controls/Controls';
 import './chart.css';
 
