@@ -19,6 +19,12 @@ npm package is [here](https://www.npmjs.com/package/chartify).
 
 <h3 align='center'>Install</h3>
 
+<p align="center">
+    <a href="https://github.com/kis/chartify/blob/master/index.js">
+        <img src="http://img.badgesize.io/kis/chartify/master/index.js?compression=gzip">
+    </a>
+</p>
+
 ```
 npm install chartify --save-dev
 ```
@@ -76,4 +82,4 @@ Config prop is an object with properties:
 
 <h3 align='center'>License</h3>
 
-The MIT License (MIT) Copyright (c) 2017
+The MIT License (MIT) Copyright (c) 2018
