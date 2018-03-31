@@ -12,7 +12,9 @@
 
 ![alt text](https://raw.githubusercontent.com/kis/chartify/master/blocks.jpg)
 
-The source for this module is in the [main repo](https://github.com/kis/chartify).
+The source for this module is in the [main repo](https://github.com/kis/chartify).  
+Example app is [here](https://github.com/kis/chartify/tree/master/example).  
+Backend service for the example app is [here](https://github.com/kis/chartify-service).
 
 <h3 align='center'>Install</h3>
 
