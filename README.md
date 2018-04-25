@@ -1,6 +1,6 @@
 <h1 align='center'>Chartify</h1>
 
-<p align='center'>React.js plugin for building customizable charts. <a target="_blank" href="https://kis.github.io/chartify/example/">Demo</a></p>
+<p align='center'>React.js plugin for building charts using CSS. <a target="_blank" href="https://kis.github.io/chartify/example/">Demo</a></p>
 
 <p align='center'>
 	<a href='https://www.npmjs.com/package/chartify'><img src="https://img.shields.io/npm/v/chartify.svg?style=flat-square" alt=""></a>
@@ -12,9 +12,18 @@
 
 ![alt text](https://raw.githubusercontent.com/kis/chartify/master/blocks.jpg)
 
-The source for this module is in the [main repo](https://github.com/kis/chartify).
+The source for this module is in the [main repo](https://github.com/kis/chartify).  
+Example app is [here](https://github.com/kis/chartify/tree/master/example).  
+Backend service for the example app is [here](https://github.com/kis/chartify-service).  
+npm package is [here](https://www.npmjs.com/package/chartify).
 
 <h3 align='center'>Install</h3>
+
+<p align="center">
+    <a href="https://github.com/kis/chartify/blob/master/index.js">
+        <img src="http://img.badgesize.io/kis/chartify/master/index.js?compression=gzip">
+    </a>
+</p>
 
 ```
 npm install chartify --save-dev
@@ -73,4 +82,4 @@ Config prop is an object with properties:
 
 <h3 align='center'>License</h3>
 
-The MIT License (MIT) Copyright (c) 2017
+The MIT License (MIT) Copyright (c) 2018
