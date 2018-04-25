@@ -11,7 +11,9 @@
     "start": "webpack",
     "test": "jest",
     "prettier": "prettier src/*.js --ignore-path ./.prettierignore --write && git add . && git status",
-    "prettier-watch": "onchange 'src/*.js' -- prettier --write {{changed}}"
+    "prettier-watch": "onchange 'src/*.js' -- prettier --write {{changed}}",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "pre-commit": [
     "prettier"
@@ -42,6 +44,10 @@
     "react-hot-loader": "^3.0.0-beta.6"
   },
   "devDependencies": {
+    "@storybook/addon-actions": "^4.0.0-alpha.3",
+    "@storybook/addon-links": "^4.0.0-alpha.3",
+    "@storybook/addons": "^4.0.0-alpha.3",
+    "@storybook/react": "^4.0.0-alpha.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.2.0",
     "babel-jest": "^22.0.4",
@@ -89,7 +95,8 @@
     "react-test-renderer": "^16.2.0",
     "socket.io-client": "^2.0.4",
     "style-loader": "^0.13.0",
-    "webpack": "^2.6.1",
+    "webpack": "^4.0.0",
+    "webpack-cli": "^2.0.15",
     "webpack-dev-server": "^2.4.1",
     "webpack-uglify-js-plugin": "1.1.9"
   },
