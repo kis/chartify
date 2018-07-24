@@ -2,3 +2,5 @@ node_modules/
 .idea/
 yarn-error.log
 coverage/
+package-lock.json
+yarn.lock
