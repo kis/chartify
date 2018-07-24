@@ -41,6 +41,8 @@
     ]
   },
   "dependencies": {
+    "react": "^16.2.0",
+    "prop-types": "^15.6.1",
     "eslint": "^4.19.1",
     "react-hot-loader": "^3.0.0-beta.6"
   },
@@ -51,6 +53,7 @@
     "@storybook/react": "^4.0.0-alpha.3",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.2.0",
+    "babel-eslint": "^8.2.6",
     "babel-jest": "^22.0.4",
     "babel-loader": "^6.2.0",
     "babel-plugin-istanbul": "^4.1.6",
@@ -75,6 +78,7 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
     "eslint-config-airbnb": "17.0.0",
+    "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.12.0",
     "eslint-plugin-jsx-a11y": "^6.1.1",
     "eslint-plugin-react": "^7.10.0",
@@ -92,8 +96,6 @@
     "pre-commit": "^1.2.2",
     "precss": "^1.4.0",
     "prettier": "1.9.2",
-    "prop-types": "^15.6.1",
-    "react": "^16.2.0",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.2.0",
     "react-test-renderer": "^16.2.0",

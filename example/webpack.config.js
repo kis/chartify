@@ -10,6 +10,7 @@ var mixins  = require('postcss-mixins');
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
+  mode: 'production',
   devtool: 'source-map',
   entry: {
     'app': [
