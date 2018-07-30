@@ -9,6 +9,7 @@
     "flow status": "flow status",
     "flow coverage": "flow coverage",
     "start": "webpack",
+    "lint": "eslint src/Chartify.js --fix",
     "test": "jest",
     "prettier": "prettier src/*.js --ignore-path ./.prettierignore --write && git add . && git status",
     "prettier-watch": "onchange 'src/*.js' -- prettier --write {{changed}}",
@@ -16,7 +17,8 @@
     "build-storybook": "build-storybook"
   },
   "pre-commit": [
-    "prettier"
+    "prettier",
+    "lint"
   ],
   "nyc": {
     "require": [
@@ -41,9 +43,10 @@
     ]
   },
   "dependencies": {
-    "react": "^16.2.0",
-    "prop-types": "^15.6.1",
     "eslint": "^4.19.1",
+    "eslint-config-standard": "^12.0.0-alpha.0",
+    "prop-types": "^15.6.1",
+    "react": "^16.2.0",
     "react-hot-loader": "^3.0.0-beta.6"
   },
   "devDependencies": {
@@ -80,8 +83,8 @@
     "eslint-config-airbnb": "17.0.0",
     "eslint-plugin-flowtype": "^2.50.0",
     "eslint-plugin-import": "^2.12.0",
-    "eslint-plugin-jsx-a11y": "^6.1.1",
-    "eslint-plugin-react": "^7.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.9.1",
     "extract-text-webpack-plugin": "^1.0.1",
     "flow-bin": "^0.68.0",
     "jest": "^22.0.4",

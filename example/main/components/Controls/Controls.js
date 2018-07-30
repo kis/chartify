@@ -50,14 +50,6 @@ export default class Controls extends Component {
 		});
 	}
 
-	toggleBlink = () => {
-		this.props.onChange({
-			...this.props.config,
-			line_only: false,
-			blink: !this.props.config.blink
-		});
-	}
-
 	toggleLineOnly = () => {
 		this.props.onChange({
 			...this.props.config,
@@ -82,10 +74,6 @@ export default class Controls extends Component {
 
 				<button type="button" onClick={this.changeTheme}>
 					Change theme
-				</button>
-
-				<button type="button" onClick={this.toggleBlink}>
-					Toggle blink
 				</button>
 
 				<button type="button" onClick={this.toggleLineOnly}>

@@ -1,5 +1,6 @@
 import React, { PureComponent, Fragment } from 'react';
-import Chartify from 'chartify';
+// import Chartify from 'chartify';
+import Chartify from '../../../../dist';
 import Controls from '../Controls/Controls';
 import './chart.css';
 
@@ -16,8 +17,7 @@ export default class Chart extends PureComponent {
 				box_radius: metadata.chart === 'films' ? 8 : 0,
 				line: false,
 				line_only: false,
-				bordered: false,
-				blink: false
+				bordered: false
 			}
 		}
 	}

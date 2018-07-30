@@ -48,8 +48,7 @@ let config = {
     box_radius: 8,
     line: false,
     line_only: false,
-    bordered: false,
-    blink: false
+    bordered: false
 };
 
 <Chartify 
@@ -77,8 +76,7 @@ Config prop is an object with properties:
 <b>box_radius</b>:<i>number</i> - is border radius of each box in pixels.<br/>
 <b>line</b>:<i>boolean</i> - is param that determines if this is a line-chart.<br/>
 <b>line_only</b>:<i>boolean</i> - is param that determines if we show only line on white background.<br/>
-<b>bordered</b>:<i>boolean</i> - is param that determines if each box has white borders.<br/>
-<b>blink</b>:<i>boolean</i> - is param that determines if the chart is blinking.<br/>  
+<b>bordered</b>:<i>boolean</i> - is param that determines if each box has white borders.<br/>  
 
 <h3 align='center'>License</h3>
 
