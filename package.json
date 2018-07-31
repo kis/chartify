@@ -110,8 +110,8 @@
     "webpack-uglify-js-plugin": "1.1.9"
   },
   "main": "chartify.js",
-  "repository": "kis/chartify",
-  "homepage": "github.com/kis/chartify",
+  "repository": "chartify/chartify",
+  "homepage": "github.com/chartify/chartify",
   "keywords": [
     "react",
     "reactjs",
@@ -130,7 +130,7 @@
     "pyramid",
     "progress-chart",
     "showreel",
-    "visualisation",
+    "visualization",
     "diagram",
     "graph"
   ],
@@ -140,7 +140,7 @@
     "url": "github.com/kis"
   },
   "bugs": {
-    "url": "https://github.com/kis/chartify/issues",
+    "url": "https://github.com/chartify/chartify/issues",
     "email": "kirillstyopkin@gmail.com"
   },
   "license": "MIT"

@@ -978,7 +978,12 @@ Mark = function () {function Mark(input) {return input != null && typeof input.
 
 Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_9___default()(Chartify, _Component);function Chartify() {babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_6___default()(this, Chartify);return babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_8___default()(this, (Chartify.__proto__ || babel_runtime_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_5___default()(Chartify)).apply(this, arguments));}babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_7___default()(Chartify, [{ key: 'getMarkClasses',
     // get mark classes by mark position
-    value: function getMarkClasses(height, mark, i, aproximateYValue) {if (!(typeof height === 'number')) {throw new TypeError('Value of argument "height" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(height));}if (!Mark(mark)) {throw new TypeError('Value of argument "mark" violates contract.\n\nExpected:\nMark\n\nGot:\n' + _inspect(mark));}if (!(i instanceof Object)) {throw new TypeError('Value of argument "i" violates contract.\n\nExpected:\nObject\n\nGot:\n' + _inspect(i));}if (!(typeof aproximateYValue === 'number')) {throw new TypeError('Value of argument "aproximateYValue" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(aproximateYValue));}
+    value: function getMarkClasses(
+    height,
+    mark,
+    i,
+    aproximateYValue)
+    {if (!(typeof height === 'number')) {throw new TypeError('Value of argument "height" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(height));}if (!Mark(mark)) {throw new TypeError('Value of argument "mark" violates contract.\n\nExpected:\nMark\n\nGot:\n' + _inspect(mark));}if (!(i instanceof Object)) {throw new TypeError('Value of argument "i" violates contract.\n\nExpected:\nObject\n\nGot:\n' + _inspect(i));}if (!(typeof aproximateYValue === 'number')) {throw new TypeError('Value of argument "aproximateYValue" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(aproximateYValue));}
       if (height - aproximateYValue > i.y_value) return 'mark empty';
       if (height - aproximateYValue === i.y_value) return 'mark active';
       if (height - aproximateYValue < i.y_value) return 'mark painted';
@@ -1078,8 +1083,13 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
     }
 
     // render mark line (if needed) and mark tooltip for active mark
-  }, { key: 'renderMarkTools', value: function renderMarkTools(mark, markNum, drawLine,
-    aproximateYValue, nextAproximateYValue) {if (!Mark(mark)) {throw new TypeError('Value of argument "mark" violates contract.\n\nExpected:\nMark\n\nGot:\n' + _inspect(mark));}if (!(typeof markNum === 'number')) {throw new TypeError('Value of argument "markNum" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(markNum));}if (!(typeof drawLine === 'boolean')) {throw new TypeError('Value of argument "drawLine" violates contract.\n\nExpected:\nboolean\n\nGot:\n' + _inspect(drawLine));}if (!(typeof aproximateYValue === 'number')) {throw new TypeError('Value of argument "aproximateYValue" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(aproximateYValue));}if (!(typeof nextAproximateYValue === 'number')) {throw new TypeError('Value of argument "nextAproximateYValue" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(nextAproximateYValue));}
+  }, { key: 'renderMarkTools', value: function renderMarkTools(
+    mark,
+    markNum,
+    drawLine,
+    aproximateYValue,
+    nextAproximateYValue)
+    {if (!Mark(mark)) {throw new TypeError('Value of argument "mark" violates contract.\n\nExpected:\nMark\n\nGot:\n' + _inspect(mark));}if (!(typeof markNum === 'number')) {throw new TypeError('Value of argument "markNum" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(markNum));}if (!(typeof drawLine === 'boolean')) {throw new TypeError('Value of argument "drawLine" violates contract.\n\nExpected:\nboolean\n\nGot:\n' + _inspect(drawLine));}if (!(typeof aproximateYValue === 'number')) {throw new TypeError('Value of argument "aproximateYValue" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(aproximateYValue));}if (!(typeof nextAproximateYValue === 'number')) {throw new TypeError('Value of argument "nextAproximateYValue" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(nextAproximateYValue));}
       var lineStyle = drawLine ?
       this.calcLineStyles(aproximateYValue, nextAproximateYValue) :
       null;
@@ -1121,15 +1131,22 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
             var nextAproximateYValue = aproximateYValue;
 
             if (data[markNum + 1]) {
-              nextAproximateYValue = Math.round(data[markNum + 1].y_value * height / maxY);
+              nextAproximateYValue = Math.round(
+              data[markNum + 1].y_value * height / maxY);
+
               nextAproximateYValue = nextAproximateYValue || 1;
             }
 
             return (
               react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { key: i.y_value, style: styles, className: markClasses },
                 isActiveMark ?
-                _this2.renderMarkTools(mark, markNum, line || lineOnly,
-                aproximateYValue, nextAproximateYValue) :
+                _this2.renderMarkTools(
+                mark,
+                markNum,
+                line || lineOnly,
+                aproximateYValue,
+                nextAproximateYValue) :
+
                 null));
 
 

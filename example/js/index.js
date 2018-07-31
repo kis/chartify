@@ -9,6 +9,11 @@ import 'react-hot-loader/patch';
 
 import App from './containers/App';
 
+if (process.env.NODE_ENV !== 'production') {
+  const { whyDidYouUpdate } = require('why-did-you-update');
+  whyDidYouUpdate(React);
+}
+
 const render = Component => {
   ReactDOM.render(
     <AppContainer>

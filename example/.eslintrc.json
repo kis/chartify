@@ -1,0 +1,15 @@
+{
+    "parser": "babel-eslint",
+    "extends": "airbnb",
+    "plugins": [
+        "flowtype"
+    ],
+    "rules": {
+        "class-methods-use-this": ["off"],
+        "react/jsx-filename-extension": ["off"],
+        "func-names": ["off"],
+        "no-undef": ["off"],
+        "react/require-default-props": ["off"],
+        "react/prop-types": ["off"]
+    }
+}
