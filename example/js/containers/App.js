@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as chartActions from '../actions/chart';
@@ -38,24 +38,24 @@ class App extends Component {
 
   render() {
     const {
-      data, itunes, actions,
+      albums, movies, actions,
     } = this.props;
     const { albumsMetadata, moviesMetadata } = this.state;
 
     return (
       <ErrorBoundary>
-        <div className="container">
+        <Fragment>
           <Chart
-            data={data}
+            data={movies}
             metadata={moviesMetadata}
             actions={actions}
           />
           <Chart
-            data={itunes}
+            data={albums}
             metadata={albumsMetadata}
             actions={actions}
           />
-        </div>
+        </Fragment>
       </ErrorBoundary>
     );
   }
@@ -63,8 +63,8 @@ class App extends Component {
 
 const mapStateToProps = state => ({
   // time: state.time,
-  data: state.data,
-  itunes: state.itunes,
+  movies: state.movies,
+  albums: state.albums,
 });
 
 const mapDispatchToProps = dispatch => ({

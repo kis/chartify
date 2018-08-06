@@ -4,24 +4,24 @@ const BASE_URL = 'https://powerful-fortress-78429.herokuapp.com/api';
 const ALBUMS_URL = `${BASE_URL}/albums/list`;
 const MOVIES_URL = `${BASE_URL}/movies/list`;
 
-export function updateTimeChart(data) {
+export function updateTimeChart(time) {
   return {
     type: 'UPDATE_TIME_CHART',
-    data,
+    time,
   };
 }
 
-export function updateAlbumsDataset(data) {
+export function updateAlbumsDataset(albums) {
   return {
     type: 'UPDATE_ALBUMS_DATASET',
-    data,
+    albums,
   };
 }
 
-export function updateMoviesDataset(data) {
+export function updateMoviesDataset(movies) {
   return {
     type: 'UPDATE_MOVIES_DATASET',
-    data,
+    movies,
   };
 }
 

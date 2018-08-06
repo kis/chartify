@@ -4914,24 +4914,24 @@ var BASE_URL = 'https://powerful-fortress-78429.herokuapp.com/api';
 var ALBUMS_URL = BASE_URL + '/albums/list';
 var MOVIES_URL = BASE_URL + '/movies/list';
 
-function updateTimeChart(data) {
+function updateTimeChart(time) {
   return {
     type: 'UPDATE_TIME_CHART',
-    data: data
+    time: time
   };
 }
 
-function updateAlbumsDataset(data) {
+function updateAlbumsDataset(albums) {
   return {
     type: 'UPDATE_ALBUMS_DATASET',
-    data: data
+    albums: albums
   };
 }
 
-function updateMoviesDataset(data) {
+function updateMoviesDataset(movies) {
   return {
     type: 'UPDATE_MOVIES_DATASET',
-    data: data
+    movies: movies
   };
 }
 
@@ -5491,8 +5491,8 @@ var App = function (_Component) {
     key: 'render',
     value: function render() {
       var _props = this.props,
-          data = _props.data,
-          itunes = _props.itunes,
+          albums = _props.albums,
+          movies = _props.movies,
           actions = _props.actions;
       var _state = this.state,
           albumsMetadata = _state.albumsMetadata,
@@ -5503,15 +5503,15 @@ var App = function (_Component) {
         _components_ErrorBoundary_ErrorBoundary__WEBPACK_IMPORTED_MODULE_10__["default"],
         null,
         react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
-          'div',
-          { className: 'container' },
+          react__WEBPACK_IMPORTED_MODULE_5__["Fragment"],
+          null,
           react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_Chart_Chart__WEBPACK_IMPORTED_MODULE_9__["default"], {
-            data: data,
+            data: movies,
             metadata: moviesMetadata,
             actions: actions
           }),
           react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_components_Chart_Chart__WEBPACK_IMPORTED_MODULE_9__["default"], {
-            data: itunes,
+            data: albums,
             metadata: albumsMetadata,
             actions: actions
           })
@@ -5526,8 +5526,8 @@ var App = function (_Component) {
 var mapStateToProps = function mapStateToProps(state) {
   return {
     // time: state.time,
-    data: state.data,
-    itunes: state.itunes
+    movies: state.movies,
+    albums: state.albums
   };
 };
 
@@ -5641,8 +5641,8 @@ __webpack_require__.r(__webpack_exports__);
 
 var initConfig = {
   // time: [],
-  data: [],
-  itunes: []
+  movies: [],
+  albums: []
 };
 
 function chartApp() {
@@ -5663,12 +5663,12 @@ function chartApp() {
 
     case 'UPDATE_MOVIES_DATASET':
       return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, state, {
-        data: action.data
+        movies: action.movies
       });
 
     case 'UPDATE_ALBUMS_DATASET':
       return babel_runtime_helpers_extends__WEBPACK_IMPORTED_MODULE_0___default()({}, state, {
-        itunes: action.data
+        albums: action.albums
       });
 
     default:

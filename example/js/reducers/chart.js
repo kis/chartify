@@ -1,7 +1,7 @@
 const initConfig = {
   // time: [],
-  data: [],
-  itunes: [],
+  movies: [],
+  albums: [],
 };
 
 function chartApp(state = initConfig, action) {
@@ -20,13 +20,13 @@ function chartApp(state = initConfig, action) {
     case 'UPDATE_MOVIES_DATASET':
       return {
         ...state,
-        data: action.data,
+        movies: action.movies,
       };
 
     case 'UPDATE_ALBUMS_DATASET':
       return {
         ...state,
-        itunes: action.data,
+        albums: action.albums,
       };
 
     default:
