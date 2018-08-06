@@ -1,0 +1,26 @@
+.datasets-menu {
+    text-align: center;
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    margin: 25px 0 0 0;
+
+    li {
+        width: 100px;
+        margin: 5px 5px;
+        border: 2px solid #447bff;
+        background: transparent;
+        text-transform: uppercase;
+        font-size: 14px;
+        padding: 8px 16px;
+        cursor: pointer;
+        outline: none;
+
+        a {
+            color: #447bff;
+            font-weight: bold;
+            text-decoration: none;
+        }
+    }
+}

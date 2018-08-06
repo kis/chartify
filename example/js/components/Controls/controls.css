@@ -19,9 +19,5 @@
         padding: 8px 16px;
         cursor: pointer;
         outline: none;
-
-        &:hover {
-            opacity: 1 !important;
-        }
     }
 }

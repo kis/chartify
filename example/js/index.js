@@ -7,7 +7,7 @@ import store from './store/store';
 import { AppContainer } from 'react-hot-loader';
 import 'react-hot-loader/patch';
 
-import App from './containers/App';
+import RootContainer from './containers/RootContainer';
 
 if (process.env.NODE_ENV !== 'production') {
   const { whyDidYouUpdate } = require('why-did-you-update');
@@ -21,11 +21,11 @@ const render = Component => {
       	<Component />
       </Provider>
     </AppContainer>,
-    document.getElementById('app')
+    document.getElementById('root')
   );
 }
 
-render(App);
+render(RootContainer);
 
 if (module.hot) {
   module.hot.accept('./containers/App', () => { render(App) })

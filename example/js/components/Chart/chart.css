@@ -89,7 +89,7 @@ h2 {
     }
 }
 
-#forkongithub {
+:global(#forkongithub) {
     position: fixed;
     display: block;
     top: 0;

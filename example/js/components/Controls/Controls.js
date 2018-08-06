@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import * as util from '../../util/util';
-import './controls.css';
+import CSSModules from 'react-css-modules';
+import styles from './controls.css';
 
-export default class Controls extends Component {
+class Controls extends Component {
 	changeTheme = () => {
-		const themes = {0:'default', 1:'blue', 2:'grey', 3:'white'};
+		const themes = { 0:'default', 1:'blue', 2:'grey', 3:'white' };
 		let curr = 1;
 
 		Object.values(themes).forEach((val, i) => {
@@ -59,7 +60,7 @@ export default class Controls extends Component {
 
 	render() {
 		return (
-			<div className="control-block">
+			<div styleName="control-block">
 				<button type="button" onClick={this.toggleLine}>
 					Toggle line
 				</button>
@@ -83,3 +84,5 @@ export default class Controls extends Component {
 		);
 	}
 }
+
+export default CSSModules(Controls, styles, {allowMultiple: true})

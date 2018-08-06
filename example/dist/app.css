@@ -1,12 +1,12 @@
-@import url(https://fonts.googleapis.com/css?family=Poppins);.control-block {
+@import url(https://fonts.googleapis.com/css?family=Poppins);.___controls__control-block___1rH4U {
     text-align: center;
     margin-top: 10px;
 }
-.control-block #range {
+.___controls__control-block___1rH4U #___controls__range___2HhJP {
     margin: 10px 0 20px 0;
     padding: 10px 0;
 }
-.control-block button {
+.___controls__control-block___1rH4U button {
     margin: 5px 5px;
     border: 2px solid #447bff;
     background: transparent;
@@ -17,15 +17,12 @@
     color: #447bff;
     padding: 8px 16px;
     cursor: pointer;
-    outline: none
-}
-.control-block button:hover {
-    opacity: 1 !important;
+    outline: none;
 }body {
     overflow-x: hidden;
 }
 
-.loader {
+.___chart__loader___3Tc34 {
     position: relative;
     margin: 0 auto;
     background-size: 100px 100px;
@@ -37,11 +34,11 @@
     min-height: 230px;
 }
 
-.chart-block {
+.___chart__chart-block___2PY4i {
     margin-bottom: 50px;
 }
 
-.heart {
+.___chart__heart___2Rril {
     width: 25px;
     vertical-align: sub;
 }
@@ -52,52 +49,52 @@ h2 {
     color: #447bff;
 }
 
-.total-info {
+.___chart__total-info___3n0WR {
     font-family: 'Poppins', sans-serif;
     margin: 10px 35px 30px;
     text-align: center;
 }
 
-.root-container {
+.___chart__root-container___d2dBP {
     margin: 0 auto;
     width: 1200px;
     max-width: 1200px;
 }
 
-.root-container .container {
+.___chart__root-container___d2dBP .___chart__container___2u21B {
     width: 1000px;
     margin: 0 auto;
 }
 
-.root-container header {
+.___chart__root-container___d2dBP header {
     padding: 20px 0 0 0;
 }
 
-.root-container header .project-title {
+.___chart__root-container___d2dBP header .___chart__project-title___2iSBB {
     margin: 0 auto;
     width: 650px;
     text-align: center;
 }
 
-.root-container header .project-title h2 {
+.___chart__root-container___d2dBP header .___chart__project-title___2iSBB h2 {
     font-family: 'Poppins', sans-serif;
     color: #447bff;
     font-size: 36px;
     margin: 0;
 }
 
-.root-container header .project-title h4 {
+.___chart__root-container___d2dBP header .___chart__project-title___2iSBB h4 {
     font-family: 'Poppins', sans-serif;
     font-size: 16px;
     color: #3092e6;
     margin: 0;
 }
 
-.root-container footer {
+.___chart__root-container___d2dBP footer {
     position: relative;
 }
 
-.root-container footer div {
+.___chart__root-container___d2dBP footer div {
     text-align: center;
     font-family: 'Poppins', sans-serif;
     color: #447bff;
@@ -105,7 +102,7 @@ h2 {
     margin: 20px 0;
 }
 
-.root-container footer div a {
+.___chart__root-container___d2dBP footer div a {
     cursor: pointer;
     color: #447bff;
 }
@@ -162,5 +159,32 @@ h2 {
     bottom: 1px;
     top: auto;
 }
-
+.___header__datasets-menu___3xt9s {
+    text-align: center;
+    list-style: none;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    padding: 0;
+    margin: 25px 0 0 0;
+}
+.___header__datasets-menu___3xt9s li {
+    width: 100px;
+    margin: 5px 5px;
+    border: 2px solid #447bff;
+    background: transparent;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 8px 16px;
+    cursor: pointer;
+    outline: none;
+}
+.___header__datasets-menu___3xt9s li a {
+    color: #447bff;
+    font-weight: bold;
+    text-decoration: none;
+}
 /*# sourceMappingURL=app.css.map*/

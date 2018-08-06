@@ -1,10 +1,11 @@
 import React, { PureComponent, Fragment } from 'react';
 // import Chartify from 'chartify';
 import Chartify from '../../../../dist';
+import CSSModules from 'react-css-modules';
 import Controls from '../Controls/Controls';
-import './chart.css';
+import styles from './chart.css';
 
-export default class Chart extends PureComponent {
+class Chart extends PureComponent {
 	constructor(props) {
 		super();
 		let { metadata } = props;
@@ -31,7 +32,7 @@ export default class Chart extends PureComponent {
 		let { config } = this.state;
 
 		return (
-			<div className="chart-block">
+			<div styleName="chart-block">
 				<h2>{metadata.header}</h2>
 
 				{ data.length ? 
@@ -40,9 +41,9 @@ export default class Chart extends PureComponent {
 						container={metadata.container} 
 						config={config} 
 					/> :
-					<div className="loader"></div> }
+					<div styleName="loader"></div> }
 
-				<div className="total-info">{data.length} {metadata.total}</div>
+				<div styleName="total-info">{data.length} {metadata.total}</div>
 
 				<Controls 
 					data={data} 
@@ -55,3 +56,5 @@ export default class Chart extends PureComponent {
 		);
 	}
 }
+
+export default CSSModules(Chart, styles, {allowMultiple: true})
