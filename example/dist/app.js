@@ -5069,7 +5069,7 @@ var Chart = function (_PureComponent) {
 				{ styleName: 'chart-block' },
 				react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
 					'h2',
-					null,
+					{ styleName: 'main-header' },
 					metadata.header
 				),
 				data.length ? react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(_dist__WEBPACK_IMPORTED_MODULE_6___default.a, {
@@ -5127,7 +5127,7 @@ var _temp = function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"loader":"___chart__loader___3Tc34","chart-block":"___chart__chart-block___2PY4i","heart":"___chart__heart___2Rril","total-info":"___chart__total-info___3n0WR","root-container":"___chart__root-container___d2dBP","container":"___chart__container___2u21B","project-title":"___chart__project-title___2iSBB"};
+module.exports = {"loader":"___chart__loader___3Tc34","main-header":"___chart__main-header___3wonD ___shared__poppins-font___1th1b","chart-block":"___chart__chart-block___2PY4i","total-info":"___chart__total-info___3n0WR ___shared__poppins-font___1th1b"};
 
 /***/ }),
 
@@ -5179,50 +5179,62 @@ __webpack_require__.r(__webpack_exports__);
 var Controls = function (_Component) {
 	babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_7___default()(Controls, _Component);
 
-	function Controls() {
-		var _ref;
-
-		var _temp, _this, _ret;
-
+	function Controls(props) {
 		babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_4___default()(this, Controls);
 
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
+		var _this = babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6___default()(this, (Controls.__proto__ || babel_runtime_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_3___default()(Controls)).call(this));
 
-		return _ret = (_temp = (_this = babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6___default()(this, (_ref = Controls.__proto__ || babel_runtime_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_3___default()(Controls)).call.apply(_ref, [this].concat(args))), _this), _this.changeTheme = function () {
-			var _this2;
+		_this.changeTheme = function () {
+			return _this.__changeTheme__REACT_HOT_LOADER__.apply(_this, arguments);
+		};
 
-			return (_this2 = _this).__changeTheme__REACT_HOT_LOADER__.apply(_this2, arguments);
-		}, _this.toggleLine = function () {
-			var _this3;
+		_this.toggleLine = function () {
+			return _this.__toggleLine__REACT_HOT_LOADER__.apply(_this, arguments);
+		};
 
-			return (_this3 = _this).__toggleLine__REACT_HOT_LOADER__.apply(_this3, arguments);
-		}, _this.toggleBordered = function () {
-			var _this4;
+		_this.toggleBordered = function () {
+			return _this.__toggleBordered__REACT_HOT_LOADER__.apply(_this, arguments);
+		};
 
-			return (_this4 = _this).__toggleBordered__REACT_HOT_LOADER__.apply(_this4, arguments);
-		}, _this.toggleBoxRadius = function () {
-			var _this5;
+		_this.toggleBoxRadius = function () {
+			return _this.__toggleBoxRadius__REACT_HOT_LOADER__.apply(_this, arguments);
+		};
 
-			return (_this5 = _this).__toggleBoxRadius__REACT_HOT_LOADER__.apply(_this5, arguments);
-		}, _this.toggleLineOnly = function () {
-			var _this6;
+		_this.toggleLineOnly = function () {
+			return _this.__toggleLineOnly__REACT_HOT_LOADER__.apply(_this, arguments);
+		};
 
-			return (_this6 = _this).__toggleLineOnly__REACT_HOT_LOADER__.apply(_this6, arguments);
-		}, _temp), babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_6___default()(_this, _ret);
+		_this.state = {
+			controls: [{
+				name: 'Toggle line',
+				func: _this.changeTheme
+			}, {
+				name: 'Toggle borders',
+				func: _this.toggleBordered
+			}, {
+				name: 'Toggle box radius',
+				func: _this.toggleBoxRadius
+			}, {
+				name: 'Change theme',
+				func: _this.changeTheme
+			}, {
+				name: 'Toggle line-only',
+				func: _this.toggleLineOnly
+			}]
+		};
+		return _this;
 	}
 
 	babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_5___default()(Controls, [{
 		key: '__changeTheme__REACT_HOT_LOADER__',
 		value: function __changeTheme__REACT_HOT_LOADER__() {
-			var _this7 = this;
+			var _this2 = this;
 
 			var themes = { 0: 'default', 1: 'blue', 2: 'grey', 3: 'white' };
 			var curr = 1;
 
 			babel_runtime_core_js_object_values__WEBPACK_IMPORTED_MODULE_2___default()(themes).forEach(function (val, i) {
-				if (_this7.props.config.theme == val) {
+				if (_this2.props.config.theme == val) {
 					curr = i;
 				}
 			});
@@ -5272,34 +5284,23 @@ var Controls = function (_Component) {
 	}, {
 		key: 'render',
 		value: function render() {
+			var controls = this.state.controls;
+
+
 			return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
 				'div',
 				{ styleName: 'control-block' },
-				react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
-					'button',
-					{ type: 'button', onClick: this.toggleLine },
-					'Toggle line'
-				),
-				react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
-					'button',
-					{ type: 'button', onClick: this.toggleBordered },
-					'Toggle borders'
-				),
-				react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
-					'button',
-					{ type: 'button', onClick: this.toggleBoxRadius },
-					'Toggle box radius'
-				),
-				react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
-					'button',
-					{ type: 'button', onClick: this.changeTheme },
-					'Change theme'
-				),
-				react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
-					'button',
-					{ type: 'button', onClick: this.toggleLineOnly },
-					'Toggle line-only'
-				)
+				controls.map(function (control, i) {
+					return react__WEBPACK_IMPORTED_MODULE_8___default.a.createElement(
+						'button',
+						{
+							type: 'button',
+							onClick: control.func,
+							styleName: 'control',
+							key: i },
+						control.name
+					);
+				})
 			);
 		}
 	}]);
@@ -5312,7 +5313,7 @@ var _default = react_css_modules__WEBPACK_IMPORTED_MODULE_10___default()(Control
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
 
-var _temp2 = function () {
+var _temp = function () {
 	if (typeof __REACT_HOT_LOADER__ === 'undefined') {
 		return;
 	}
@@ -5334,7 +5335,7 @@ var _temp2 = function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"control-block":"___controls__control-block___1rH4U","range":"___controls__range___2HhJP"};
+module.exports = {"control-block":"___controls__control-block___1rH4U","range":"___controls__range___2HhJP","control":"___controls__control___3xYjX ___shared__poppins-font___1th1b"};
 
 /***/ }),
 
@@ -5460,36 +5461,43 @@ __webpack_require__.r(__webpack_exports__);
 var Header = function (_PureComponent) {
 	babel_runtime_helpers_inherits__WEBPACK_IMPORTED_MODULE_4___default()(Header, _PureComponent);
 
-	function Header() {
+	function Header(props) {
 		babel_runtime_helpers_classCallCheck__WEBPACK_IMPORTED_MODULE_1___default()(this, Header);
 
-		return babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, (Header.__proto__ || babel_runtime_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default()(Header)).apply(this, arguments));
+		var _this = babel_runtime_helpers_possibleConstructorReturn__WEBPACK_IMPORTED_MODULE_3___default()(this, (Header.__proto__ || babel_runtime_core_js_object_get_prototype_of__WEBPACK_IMPORTED_MODULE_0___default()(Header)).call(this));
+
+		_this.state = {
+			links: [{
+				name: 'Albums',
+				path: '/albums'
+			}, {
+				name: 'Movies',
+				path: '/movies'
+			}]
+		};
+		return _this;
 	}
 
 	babel_runtime_helpers_createClass__WEBPACK_IMPORTED_MODULE_2___default()(Header, [{
 		key: 'render',
 		value: function render() {
+			var links = this.state.links;
+
+
 			return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
 				'ul',
 				{ styleName: 'datasets-menu' },
-				react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
-					'li',
-					null,
-					react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
-						react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"],
-						{ to: '/albums' },
-						'Albums'
-					)
-				),
-				react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
-					'li',
-					null,
-					react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
-						react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"],
-						{ to: '/movies' },
-						'Movies'
-					)
-				)
+				links.map(function (link, i) {
+					return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
+						'li',
+						{ styleName: 'menu-link', key: i },
+						react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
+							react_router_dom__WEBPACK_IMPORTED_MODULE_6__["Link"],
+							{ to: link.path },
+							link.name
+						)
+					);
+				})
 			);
 		}
 	}]);
@@ -5524,7 +5532,7 @@ var _temp = function () {
 /***/ (function(module, exports) {
 
 // removed by extract-text-webpack-plugin
-module.exports = {"datasets-menu":"___header__datasets-menu___3xt9s"};
+module.exports = {"datasets-menu":"___header__datasets-menu___3xt9s","menu-link":"___header__menu-link___2cW-T ___shared__poppins-font___1th1b"};
 
 /***/ }),
 
@@ -5908,13 +5916,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var react_css_modules__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! react-css-modules */ "./node_modules/react-css-modules/dist/index.js");
 /* harmony import */ var react_css_modules__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(react_css_modules__WEBPACK_IMPORTED_MODULE_6__);
 /* harmony import */ var _AppContainer__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./AppContainer */ "./js/containers/AppContainer.js");
-/* harmony import */ var _components_Chart_Chart__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/Chart/Chart */ "./js/components/Chart/Chart.js");
-/* harmony import */ var _components_Header_Header__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ../components/Header/Header */ "./js/components/Header/Header.js");
-/* harmony import */ var _components_ErrorBoundary_ErrorBoundary__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ../components/ErrorBoundary/ErrorBoundary */ "./js/components/ErrorBoundary/ErrorBoundary.js");
-/* harmony import */ var _components_Chart_chart_css__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ../components/Chart/chart.css */ "./js/components/Chart/chart.css");
-/* harmony import */ var _components_Chart_chart_css__WEBPACK_IMPORTED_MODULE_11___default = /*#__PURE__*/__webpack_require__.n(_components_Chart_chart_css__WEBPACK_IMPORTED_MODULE_11__);
-
-
+/* harmony import */ var _components_ErrorBoundary_ErrorBoundary__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../components/ErrorBoundary/ErrorBoundary */ "./js/components/ErrorBoundary/ErrorBoundary.js");
+/* harmony import */ var _root_css__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./root.css */ "./js/containers/root.css");
+/* harmony import */ var _root_css__WEBPACK_IMPORTED_MODULE_9___default = /*#__PURE__*/__webpack_require__.n(_root_css__WEBPACK_IMPORTED_MODULE_9__);
 
 
 
@@ -5939,7 +5943,7 @@ var RootContainer = function (_Component) {
         key: 'render',
         value: function render() {
             return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
-                _components_ErrorBoundary_ErrorBoundary__WEBPACK_IMPORTED_MODULE_10__["default"],
+                _components_ErrorBoundary_ErrorBoundary__WEBPACK_IMPORTED_MODULE_8__["default"],
                 null,
                 react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
                     react__WEBPACK_IMPORTED_MODULE_5__["Fragment"],
@@ -5964,12 +5968,12 @@ var RootContainer = function (_Component) {
                                 { styleName: 'project-title' },
                                 react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
                                     'h2',
-                                    null,
+                                    { styleName: 'main-header' },
                                     'Chartify'
                                 ),
                                 react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
                                     'h4',
-                                    null,
+                                    { styleName: 'sub-header' },
                                     'React.js plugin for building customizable charts'
                                 )
                             )
@@ -5984,7 +5988,7 @@ var RootContainer = function (_Component) {
                             { styleName: 'container' },
                             react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
                                 'div',
-                                null,
+                                { styleName: 'footer-text' },
                                 'Made with ',
                                 react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement('img', { styleName: 'heart', src: 'https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Love_Heart_symbol.svg/2000px-Love_Heart_symbol.svg.png', title: 'love' }),
                                 ' Inspired by ',
@@ -6004,7 +6008,7 @@ var RootContainer = function (_Component) {
     return RootContainer;
 }(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
-var _default = react_css_modules__WEBPACK_IMPORTED_MODULE_6___default()(RootContainer, _components_Chart_chart_css__WEBPACK_IMPORTED_MODULE_11___default.a, { allowMultiple: true });
+var _default = react_css_modules__WEBPACK_IMPORTED_MODULE_6___default()(RootContainer, _root_css__WEBPACK_IMPORTED_MODULE_9___default.a, { allowMultiple: true });
 
 /* harmony default export */ __webpack_exports__["default"] = (_default);
 ;
@@ -6020,6 +6024,18 @@ var _temp = function () {
 }();
 
 ;
+
+/***/ }),
+
+/***/ "./js/containers/root.css":
+/*!********************************!*\
+  !*** ./js/containers/root.css ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
+module.exports = {"heart":"___root__heart___1VNOS","main-header":"___root__main-header___1H54O ___shared__poppins-font___1th1b","sub-header":"___root__sub-header___1y04j ___shared__poppins-font___1th1b","footer-text":"___root__footer-text___rYjEA ___shared__poppins-font___1th1b","root-container":"___root__root-container___271Ro","container":"___root__container___10Epj","project-title":"___root__project-title___2ewKt"};
 
 /***/ }),
 

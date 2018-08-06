@@ -1,10 +1,8 @@
 import React, { Component, Fragment } from 'react';
 import CSSModules from 'react-css-modules';
 import AppContainer from './AppContainer';
-import Chart from '../components/Chart/Chart';
-import Header from '../components/Header/Header';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
-import styles from '../components/Chart/chart.css';
+import styles from './root.css';
 
 class RootContainer extends Component {
   render() {
@@ -18,8 +16,8 @@ class RootContainer extends Component {
                 <div styleName="root-container">
                     <header styleName="container">
                         <div styleName="project-title">
-                            <h2>Chartify</h2>
-                            <h4>React.js plugin for building customizable charts</h4>
+                            <h2 styleName="main-header">Chartify</h2>
+                            <h4 styleName="sub-header">React.js plugin for building customizable charts</h4>
                         </div>
                     </header>
 
@@ -28,7 +26,7 @@ class RootContainer extends Component {
                     </main>
 
                     <footer styleName="container">
-                        <div>Made with <img styleName="heart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Love_Heart_symbol.svg/2000px-Love_Heart_symbol.svg.png" title="love" /> Inspired by <a href="http://kinopoisk.ru" target="_blank">kinopoisk</a></div>
+                        <div styleName="footer-text">Made with <img styleName="heart" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Love_Heart_symbol.svg/2000px-Love_Heart_symbol.svg.png" title="love" /> Inspired by <a href="http://kinopoisk.ru" target="_blank">kinopoisk</a></div>
                     </footer>
                 </div>
             </Fragment>

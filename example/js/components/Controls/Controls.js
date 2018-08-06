@@ -4,6 +4,28 @@ import CSSModules from 'react-css-modules';
 import styles from './controls.css';
 
 class Controls extends Component {
+	constructor(props) {
+		super();
+		this.state = {
+			controls: [{
+				name: 'Toggle line',
+				func: this.changeTheme
+			}, {
+				name: 'Toggle borders',
+				func: this.toggleBordered
+			}, {
+				name: 'Toggle box radius',
+				func: this.toggleBoxRadius
+			}, {
+				name: 'Change theme',
+				func: this.changeTheme
+			}, {
+				name: 'Toggle line-only',
+				func: this.toggleLineOnly
+			}]
+		}
+	}
+
 	changeTheme = () => {
 		const themes = { 0:'default', 1:'blue', 2:'grey', 3:'white' };
 		let curr = 1;
@@ -59,27 +81,19 @@ class Controls extends Component {
 	}
 
 	render() {
+		const { controls } = this.state;
+
 		return (
 			<div styleName="control-block">
-				<button type="button" onClick={this.toggleLine}>
-					Toggle line
-				</button>
-
-				<button type="button" onClick={this.toggleBordered}>
-					Toggle borders
-				</button>
-
-				<button type="button" onClick={this.toggleBoxRadius}>
-					Toggle box radius
-				</button>
-
-				<button type="button" onClick={this.changeTheme}>
-					Change theme
-				</button>
-
-				<button type="button" onClick={this.toggleLineOnly}>
-					Toggle line-only
-				</button>
+				{controls.map((control, i) => {
+					return <button 
+						type="button" 
+						onClick={control.func} 
+						styleName="control" 
+						key={i}>
+							{control.name} 
+						</button>
+				})}
 			</div>
 		);
 	}

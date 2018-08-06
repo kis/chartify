@@ -33,7 +33,7 @@ class Chart extends PureComponent {
 
 		return (
 			<div styleName="chart-block">
-				<h2>{metadata.header}</h2>
+				<h2 styleName="main-header">{metadata.header}</h2>
 
 				{ data.length ? 
 					<Chartify 

@@ -4,15 +4,29 @@ import CSSModules from 'react-css-modules';
 import styles from './header.css';
 
 class Header extends PureComponent {
+	constructor(props) {
+		super();
+		this.state = {
+			links: [{
+				name: 'Albums',
+				path: '/albums'
+			}, {
+				name: 'Movies',
+				path: '/movies'
+			}]
+		}
+	}
+	
 	render() {
+		const { links } = this.state;
+
 		return (
 			<ul styleName="datasets-menu">
-				<li>
-					<Link to="/albums">Albums</Link>
-				</li>
-				<li>
-					<Link to="/movies">Movies</Link>
-				</li>
+				{links.map((link, i) => {
+					return <li styleName="menu-link" key={i}>
+						<Link to={link.path}>{link.name}</Link>
+					</li>
+				})}
 			</ul>
 		);
 	}
