@@ -5,11 +5,11 @@
         "flowtype"
     ],
     "rules": {
-        "class-methods-use-this": ["off"],
-        "react/jsx-filename-extension": ["off"],
-        "func-names": ["off"],
-        "no-undef": ["off"],
-        "react/require-default-props": ["off"],
-        "react/prop-types": ["off"]
+        "class-methods-use-this": 0,
+        "react/jsx-filename-extension": 0,
+        "func-names": 0,
+        "no-undef": 0,
+        "react/require-default-props": 0,
+        "react/prop-types": 0
     }
 }

@@ -78,13 +78,13 @@ export default class Chartify extends Component {
   }
 
   // render Y-axis with approximate values
-  renderYAxis(row: Array, maxYValue: any) {
+  renderYAxis(column: Array, maxYValue: any) {
     return (
       <div className="y-axis-wrapper">
         <div className="y-axis">
-          {row.map((i, key) => (
-            <div className="y-caption" key={i.y_value}>
-              {key % 2 === 0 ? maxYValue - i.y_value : null}
+          {column.map((item, i) => (
+            <div className="y-caption" key={i}>
+              {i % 2 === 0 ? maxYValue - item.y_value : null}
             </div>
           ))}
         </div>
@@ -131,7 +131,7 @@ export default class Chartify extends Component {
 
   // render column of multiple boxes, each box has own style
   // possible styles is active, empty, painted
-  renderColumn(mark: Mark, markNum: number, row: Array, maxY: number) {
+  renderColumn(mark: Mark, markNum: number, column: Array, maxY: number) {
     const { data, config } = this.props;
     const { height = 10, line = false, line_only: lineOnly = false } = config;
     const styles = this.getStyles(config);
@@ -148,12 +148,12 @@ export default class Chartify extends Component {
 
     return (
       <Fragment>
-        {row.map(i => {
+        {column.map((box, i) => {
           const markClasses = lineOnly
             ? "mark white"
-            : this.getMarkClasses(height, mark, i, aproximateYValue);
+            : this.getMarkClasses(height, mark, box, aproximateYValue);
           const isActiveMark =
-            height - aproximateYValue === i.y_value &&
+            height - aproximateYValue === box.y_value &&
             markNum < data.length - 1;
 
           let nextAproximateYValue = aproximateYValue;
@@ -166,7 +166,7 @@ export default class Chartify extends Component {
           }
 
           return (
-            <div key={i.y_value} style={styles} className={markClasses}>
+            <div key={i} style={styles} className={markClasses}>
               {isActiveMark
                 ? this.renderMarkTools(
                     mark,
@@ -200,7 +200,7 @@ export default class Chartify extends Component {
         {marks.map(
           (mark, markNum) =>
             markNum % 10 === 0 ? (
-              <div className="x-caption" style={style} key={mark.id}>
+              <div className="x-caption" style={style} key={markNum}>
                 {mark.x_value}
               </div>
             ) : null
@@ -213,15 +213,15 @@ export default class Chartify extends Component {
   renderMarks(marksStyle: Object, maxYValue: number) {
     const { data = [], config } = this.props;
     const { height } = config;
-    const row = Array(height)
+    const column = Array(height)
       .fill()
       .map((item, i) => ({ y_value: i }));
 
     return (
       <div className="marks" style={marksStyle}>
         {data.map((mark, markNum) => (
-          <div className="ruler-row" key={mark.id}>
-            {this.renderColumn(mark, markNum, row, maxYValue)}
+          <div className="ruler-row" key={markNum}>
+            {this.renderColumn(mark, markNum, column, maxYValue)}
           </div>
         ))}
       </div>
@@ -238,7 +238,7 @@ export default class Chartify extends Component {
 
     const maxYValue = this.calculateMaxYValue();
 
-    const row = Array(height)
+    const column = Array(height)
       .fill()
       .map((item, i) => {
         const yValue = Math.round(i * (maxYValue / height));
@@ -251,7 +251,7 @@ export default class Chartify extends Component {
 
     return (
       <div className={rulerClass}>
-        {this.renderYAxis(row, maxYValue)}
+        {this.renderYAxis(column, maxYValue)}
         <div className="marks-wrapper">
           {this.renderMarks(marksStyle, maxYValue)}
           {this.renderXAxis(marksStyle)}

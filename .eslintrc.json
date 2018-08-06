@@ -5,7 +5,8 @@
         "flowtype"
     ],
     "rules": {
-        "class-methods-use-this": ["off"],
-        "react/jsx-filename-extension": ["off"]
+        "class-methods-use-this": 0,
+        "react/jsx-filename-extension": 0,
+        "react/no-array-index-key": 0
     }
 }

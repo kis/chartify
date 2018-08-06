@@ -1045,13 +1045,13 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
     }
 
     // render Y-axis with approximate values
-  }, { key: 'renderYAxis', value: function renderYAxis(row, maxYValue) {if (!Array.isArray(row)) {throw new TypeError('Value of argument "row" violates contract.\n\nExpected:\nArray\n\nGot:\n' + _inspect(row));}
+  }, { key: 'renderYAxis', value: function renderYAxis(column, maxYValue) {if (!Array.isArray(column)) {throw new TypeError('Value of argument "column" violates contract.\n\nExpected:\nArray\n\nGot:\n' + _inspect(column));}
       return (
         react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'y-axis-wrapper' },
           react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'y-axis' },
-            row.map(function (i, key) {return (
-                react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'y-caption', key: i.y_value },
-                  key % 2 === 0 ? maxYValue - i.y_value : null));}))));
+            column.map(function (item, i) {return (
+                react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'y-caption', key: i },
+                  i % 2 === 0 ? maxYValue - item.y_value : null));}))));
 
 
 
@@ -1104,7 +1104,7 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
 
     // render column of multiple boxes, each box has own style
     // possible styles is active, empty, painted
-  }, { key: 'renderColumn', value: function renderColumn(mark, markNum, row, maxY) {var _this2 = this;if (!Mark(mark)) {throw new TypeError('Value of argument "mark" violates contract.\n\nExpected:\nMark\n\nGot:\n' + _inspect(mark));}if (!(typeof markNum === 'number')) {throw new TypeError('Value of argument "markNum" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(markNum));}if (!Array.isArray(row)) {throw new TypeError('Value of argument "row" violates contract.\n\nExpected:\nArray\n\nGot:\n' + _inspect(row));}if (!(typeof maxY === 'number')) {throw new TypeError('Value of argument "maxY" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(maxY));}var _props =
+  }, { key: 'renderColumn', value: function renderColumn(mark, markNum, column, maxY) {var _this2 = this;if (!Mark(mark)) {throw new TypeError('Value of argument "mark" violates contract.\n\nExpected:\nMark\n\nGot:\n' + _inspect(mark));}if (!(typeof markNum === 'number')) {throw new TypeError('Value of argument "markNum" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(markNum));}if (!Array.isArray(column)) {throw new TypeError('Value of argument "column" violates contract.\n\nExpected:\nArray\n\nGot:\n' + _inspect(column));}if (!(typeof maxY === 'number')) {throw new TypeError('Value of argument "maxY" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(maxY));}var _props =
       this.props,data = _props.data,config = _props.config;var _config$height =
       config.height,height = _config$height === undefined ? 10 : _config$height,_config$line = config.line,line = _config$line === undefined ? false : _config$line,_config$line_only = config.line_only,lineOnly = _config$line_only === undefined ? false : _config$line_only;
       var styles = this.getStyles(config);
@@ -1121,11 +1121,11 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
 
       return (
         react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement(react__WEBPACK_IMPORTED_MODULE_12__["Fragment"], null,
-          row.map(function (i) {
+          column.map(function (box, i) {
             var markClasses = lineOnly ?
             'mark white' :
-            _this2.getMarkClasses(height, mark, i, aproximateYValue);
-            var isActiveMark = height - aproximateYValue === i.y_value &&
+            _this2.getMarkClasses(height, mark, box, aproximateYValue);
+            var isActiveMark = height - aproximateYValue === box.y_value &&
             markNum < data.length - 1;
 
             var nextAproximateYValue = aproximateYValue;
@@ -1138,7 +1138,7 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
             }
 
             return (
-              react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { key: i.y_value, style: styles, className: markClasses },
+              react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { key: i, style: styles, className: markClasses },
                 isActiveMark ?
                 _this2.renderMarkTools(
                 mark,
@@ -1171,7 +1171,7 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
         react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'x-axis', style: marksStyle },
           marks.map(
           function (mark, markNum) {return markNum % 10 === 0 ?
-            react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'x-caption', style: style, key: mark.id },
+            react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'x-caption', style: style, key: markNum },
               mark.x_value) :
 
             null;})));
@@ -1184,15 +1184,15 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
   }, { key: 'renderMarks', value: function renderMarks(marksStyle, maxYValue) {var _this3 = this;if (!(marksStyle instanceof Object)) {throw new TypeError('Value of argument "marksStyle" violates contract.\n\nExpected:\nObject\n\nGot:\n' + _inspect(marksStyle));}if (!(typeof maxYValue === 'number')) {throw new TypeError('Value of argument "maxYValue" violates contract.\n\nExpected:\nnumber\n\nGot:\n' + _inspect(maxYValue));}var _props3 =
       this.props,_props3$data = _props3.data,data = _props3$data === undefined ? [] : _props3$data,config = _props3.config;var
       height = config.height;
-      var row = Array(height).
+      var column = Array(height).
       fill().
       map(function (item, i) {return { y_value: i };});
 
       return (
         react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'marks', style: marksStyle },
           data.map(function (mark, markNum) {return (
-              react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'ruler-row', key: mark.id },
-                _this3.renderColumn(mark, markNum, row, maxYValue)));})));
+              react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'ruler-row', key: markNum },
+                _this3.renderColumn(mark, markNum, column, maxYValue)));})));
 
 
 
@@ -1213,7 +1213,7 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
 
       var maxYValue = this.calculateMaxYValue();
 
-      var row = Array(height).
+      var column = Array(height).
       fill().
       map(function (item, i) {
         var yValue = Math.round(i * (maxYValue / height));
@@ -1226,7 +1226,7 @@ Chartify = function (_Component) {babel_runtime_helpers_inherits__WEBPACK_IMPORT
 
       return (
         react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: rulerClass },
-          this.renderYAxis(row, maxYValue),
+          this.renderYAxis(column, maxYValue),
           react__WEBPACK_IMPORTED_MODULE_12___default.a.createElement('div', { className: 'marks-wrapper' },
             this.renderMarks(marksStyle, maxYValue),
             this.renderXAxis(marksStyle))));
