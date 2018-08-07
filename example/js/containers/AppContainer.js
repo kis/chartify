@@ -32,7 +32,7 @@ class AppContainer extends Component {
     } = this.props;
 
     return (
-      <BrowserRouter>
+      <BrowserRouter basename="/chartify/example/">
         <Fragment>
           <Header />
           <Route exact path="/" component={AlbumsContainer} />

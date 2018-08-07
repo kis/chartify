@@ -5727,7 +5727,7 @@ var AppContainer = function (_Component) {
 
       return react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
         react_router_dom__WEBPACK_IMPORTED_MODULE_13__["BrowserRouter"],
-        null,
+        { basename: '/chartify/example/' },
         react__WEBPACK_IMPORTED_MODULE_5___default.a.createElement(
           react__WEBPACK_IMPORTED_MODULE_5__["Fragment"],
           null,
