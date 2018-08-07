@@ -20,9 +20,12 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, "dist"),
+    contentBase: path.join(__dirname, "./dist"),
+    index: 'index-dev.html',
     compress: true,
-    port: 9000
+    publicPath: 'http://localhost:8080/dist/',
+    historyApiFallback: true,
+    port: 8080
   },
   output: {
     path: path.resolve(__dirname, "./dist"),

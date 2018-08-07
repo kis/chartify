@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "chartify",
   "scripts": {
+    "start": "webpack-dev-server --inline --history-api-fallback",
     "lint": "eslint js/*/*.js --fix",
     "prettier": "prettier main/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
     "prettier-watch": "onchange 'main/**/*.js' -- prettier --write {{changed}}"
@@ -64,7 +65,7 @@
     "style-loader": "^0.13.0",
     "webpack": "^4.16.5",
     "webpack-cli": "^3.1.0",
-    "webpack-dev-server": "^2.4.1",
+    "webpack-dev-server": "^3.1.5",
     "webpack-uglify-js-plugin": "1.1.9",
     "why-did-you-update": "^0.1.1"
   },
