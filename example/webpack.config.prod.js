@@ -19,6 +19,12 @@ module.exports = {
       './js/index.js',
     ],
   },
+  devServer: {
+    contentBase: path.join(__dirname, "dist/app"),
+    index: 'index.html',
+    compress: true,
+    port: 9000
+  },
   output: {
     path: path.resolve(__dirname, "./dist"),
     filename: '[name].js'

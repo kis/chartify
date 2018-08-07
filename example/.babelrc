@@ -1,15 +1,10 @@
 {
-	"presets": [["es2015", {"modules": false }], "stage-0", "react"],
+	"presets": ["env", "stage-0", "react"],
 	"plugins": [
 		"react-hot-loader/babel",
 		"typecheck",
 		"transform-class-properties",
 		"transform-flow-strip-types",
 		"transform-runtime"
-	],
-	"env": {
-    "test": {
-      "presets": ["es2015", "react", "stage-0"]
-    }
-  }
+	]
 }
