@@ -8,6 +8,7 @@ var nested  = require('postcss-nested');
 var mixins  = require('postcss-mixins');
 
 var ExtractTextPlugin = require("extract-text-webpack-plugin");
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
@@ -20,15 +21,16 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, "./dist"),
-    index: 'index-dev.html',
-    compress: true,
-    publicPath: 'http://localhost:8080/dist/',
+    // contentBase: path.join(__dirname, "./dist"),
+    // index: 'index-dev.html',
+    // compress: true,
+    // publicPath: 'http://localhost:8080/dist/',
     historyApiFallback: true,
-    port: 8080
+    // port: 8080
   },
   output: {
-    path: path.resolve(__dirname, "./dist"),
+    path: path.resolve(__dirname, "dist"),
+    publicPath: '/',
     filename: '[name].js'
   },
   module: {
@@ -64,6 +66,9 @@ module.exports = {
     modules: ['node_modules'],
   },
   plugins: [
+    new HtmlWebpackPlugin({
+      template: './index.html'
+    }),
     new ExtractTextPlugin({ filename: './[name].css', allChunks: true }),
     new webpack.LoaderOptionsPlugin({
       options: {

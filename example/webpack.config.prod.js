@@ -20,15 +20,16 @@ module.exports = {
     ],
   },
   devServer: {
-    contentBase: path.join(__dirname, "./dist"),
-    index: 'index-dev.html',
-    compress: true,
-    publicPath: 'http://localhost:8080/dist/',
+    // contentBase: path.join(__dirname, "./dist"),
+    // index: 'index-dev.html',
+    // compress: true,
+    // publicPath: 'https://chartify.github.io/chartify/example/dist/',
     historyApiFallback: true,
-    port: 8080
+    // port: 8080
   },
   output: {
     path: path.resolve(__dirname, "./dist"),
+    publicPath: 'https://chartify.github.io/chartify/example/dist/',
     filename: '[name].js'
   },
   module: {

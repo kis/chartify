@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "description": "chartify",
   "scripts": {
+    "dev": "webpack-dev-server --config webpack.config.dev.js --history-api-fallback",
     "start": "webpack-dev-server --inline --history-api-fallback",
     "lint": "eslint js/*/*.js --fix",
     "prettier": "prettier main/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
@@ -50,6 +51,8 @@
     "eslint-plugin-react": "^7.9.1",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "flow-bin": "^0.35.0",
+    "history": "^4.7.2",
+    "html-webpack-plugin": "^4.0.0-alpha",
     "node-sass": "^4.5.3",
     "postcss-loader": "^0.8.2",
     "postcss-mixins": "^5.0.0",
