@@ -5818,9 +5818,15 @@ var AppContainer = function (_Component) {
           _react.Fragment,
           null,
           _react2.default.createElement(_Header2.default, null),
-          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _AlbumsContainer2.default }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: '/albums', component: _AlbumsContainer2.default }),
-          _react2.default.createElement(_reactRouterDom.Route, { path: '/movies', component: _MoviesContainer2.default })
+          _react2.default.createElement(
+            _reactRouterDom.Switch,
+            null,
+            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _AlbumsContainer2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/albums', component: _AlbumsContainer2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/movies', component: _MoviesContainer2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '', component: _AlbumsContainer2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '**', component: _AlbumsContainer2.default })
+          )
         )
       );
     }
