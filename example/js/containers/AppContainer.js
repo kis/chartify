@@ -9,7 +9,7 @@ import Header from '../components/Header/Header';
 // import * as api from '../api/api';
 
 import createHistory from 'history/createBrowserHistory';
-import { Router, Route, Link } from 'react-router-dom';
+import { Router, Switch, Route, Link } from 'react-router-dom';
 
 const history = createHistory({
   basename: '/chartify/example/',
@@ -41,9 +41,13 @@ class AppContainer extends Component {
       <Router history={history}>
         <Fragment>
           <Header />
-          <Route exact path="/" component={AlbumsContainer} />
-          <Route path="/albums" component={AlbumsContainer} />
-          <Route path="/movies" component={MoviesContainer} />
+          <Switch>
+            <Route exact path="/" component={AlbumsContainer} />
+            <Route path="/albums" component={AlbumsContainer} />
+            <Route path="/movies" component={MoviesContainer} />
+            <Route path="" component={AlbumsContainer} />
+            <Route path="**" component={AlbumsContainer} />
+          </Switch>
         </Fragment>
       </Router>
     );
