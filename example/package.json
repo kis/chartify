@@ -6,8 +6,8 @@
     "dev": "webpack-dev-server --config webpack.config.dev.js --history-api-fallback",
     "start": "webpack-dev-server --inline --history-api-fallback",
     "lint": "eslint js/*/*.js --fix",
-    "prettier": "prettier main/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
-    "prettier-watch": "onchange 'main/**/*.js' -- prettier --write {{changed}}"
+    "prettier": "prettier js/**/*.js --ignore-path ./.prettierignore --write && git add . && git status",
+    "prettier-watch": "onchange 'js/**/*.js' -- prettier --write {{changed}}"
   },
   "pre-commit": [
     "prettier",
