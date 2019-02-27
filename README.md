@@ -1,6 +1,6 @@
 <h1 align='center'>Chartify</h1>
 
-<p align='center'>React.js plugin for building charts using CSS. <a target="_blank" href="https://chartify.github.io/chartify/example/">Demo</a></p>
+<p align='center'>React.js plugin for building charts using CSS. <a target="_blank" href="https://chartify-213721.firebaseapp.com/">Demo</a></p>
 
 <p align='center'>
 	<a href='https://www.npmjs.com/package/chartify'><img src="https://img.shields.io/npm/v/chartify.svg?style=flat-square" alt=""></a>
