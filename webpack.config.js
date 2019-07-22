@@ -9,7 +9,9 @@ var mixins  = require('postcss-mixins');
 
 module.exports = {
   mode: "production",
-  entry: './src/Chartify.js',
+  entry: {
+    app: ['@babel/polyfill', './src/Chartify.tsx'],
+  },
   output: {
     filename: "./index.js",
     sourceMapFilename: './index.js.map',
@@ -26,7 +28,7 @@ module.exports = {
   },
   module: {
     rules: [{
-      test: /\.js$/,
+      test: /\.js|\.ts|\.tsx?$/,
       use: ['babel-loader'],
       exclude: /node_modules/,
       include: path.join(__dirname, '/src')
@@ -38,6 +40,12 @@ module.exports = {
         { loader: 'postcss-loader', options: { plugins: () => [...plugins] } }
       ]
     }]
+  },
+  resolve: {
+    extensions: ['.ts', '.tsx', '.js', '.json', '.css'],
+  },
+  resolveLoader: {
+    modules: ['node_modules'],
   },
   optimization: {
     minimize: false

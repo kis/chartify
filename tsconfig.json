@@ -1,0 +1,35 @@
+{
+  "compilerOptions": {
+    "baseUrl": "./src",
+    "target": "esnext",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "allowJs": true,
+    "noEmit": true,
+    "strict": true,
+    "isolatedModules": false,
+    "esModuleInterop": true,
+    "jsx": "react",
+    "allowSyntheticDefaultImports": true,
+    "paths": {
+      "actions/*": ["domain/actions/*"],
+      "@components/*": ["views/components/*"],
+      "@containers/*": ["views/containers/*"],
+      "@views/*": ["views/*"],
+      "@typings/*": ["typings/*"],
+      "@services/*": ["domain/services/*"],
+      "store/*": ["domain/store/*"],
+      "selectors/*": ["domain/selectors/*"],
+      "constants/*": ["constants/*"],
+      "helpers/*": ["helpers/*"],
+    }
+  },
+  "include": [
+    "**/*.ts", 
+    "**/*.tsx", 
+    "node_modules/cypress", 
+    "cypress/*/*.ts",
+  ],
+  "exclude": ["dist", "node_modules"]
+}

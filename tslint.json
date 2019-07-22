@@ -1,0 +1,28 @@
+{
+  "defaultSeverity": "error",
+  "extends": ["tslint:recommended", "tslint-react", "tslint-config-prettier"],
+  "linterOptions": {
+    "exclude": ["node_modules/**/*.ts"]
+  },
+  "jsRules": {
+    "jsx-wrap-multiline": false
+  },
+  "rules": {
+    "prettier": true,
+    "no-unused-expression": false,
+    "no-var-requires": false,
+    "no-var": false,
+    "no-console": false,
+    "object-literal-sort-keys": false,
+    "interface-name": false,
+    "no-shadowed-variable": false,
+    "one-variable-per-declaration": false,
+    "no-angle-bracket-type-assertion": false,
+    "jsx-no-lambda": false,
+    "jsx-no-bind": false,
+    "jsx-no-string-ref": false,
+    "triple-equals": false,
+    "ordered-imports": false,
+  },
+  "rulesDirectory": []
+}

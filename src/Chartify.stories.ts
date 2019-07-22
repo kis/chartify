@@ -4,7 +4,7 @@ import { storiesOf } from "@storybook/react";
 import { action } from "@storybook/addon-actions";
 import { linkTo } from "@storybook/addon-links";
 
-import Chartify from "../src/Chartify.js";
+import Chartify from "./Chartify.js";
 
 let data = [
   {

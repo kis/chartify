@@ -1,12 +1,10 @@
-// @flow
 import React, { Component, Fragment } from "react";
-import PropTypes from "prop-types";
 import "./chartify.css";
 
 type Mark = {
-  title: string,
-  x_value: string,
-  y_value: number
+  title: string;
+  x_value: string;
+  y_value: number;
 };
 
 export default class Chartify extends Component {
@@ -14,7 +12,7 @@ export default class Chartify extends Component {
   getMarkClasses(
     height: number,
     mark: Mark,
-    i: Object,
+    i: Mark,
     aproximateYValue: number
   ) {
     if (height - aproximateYValue > i.y_value) return "mark empty";
@@ -24,7 +22,7 @@ export default class Chartify extends Component {
   }
 
   // get basic mark styles object
-  getStyles(config: Object) {
+  getStyles(config: object) {
     const {
       box_size: boxSize = 20,
       box_radius: boxRadius = 8,
@@ -78,11 +76,11 @@ export default class Chartify extends Component {
   }
 
   // render Y-axis with approximate values
-  renderYAxis(column: Array, maxYValue: any) {
+  renderYAxis(column: Array<any>, maxYValue: any) {
     return (
       <div className="y-axis-wrapper">
         <div className="y-axis">
-          {column.map((item, i) => (
+          {column.map((item: any, i: any) => (
             <div className="y-caption" key={i}>
               {i % 2 === 0 ? maxYValue - item.y_value : null}
             </div>
@@ -184,7 +182,7 @@ export default class Chartify extends Component {
   }
 
   // render X-axis with x-values, 1 date for 10 marks
-  renderXAxis(marksStyle: Object) {
+  renderXAxis(marksStyle: object) {
     const { data: marks = 50, config } = this.props;
     const { boxSize = 20 } = config;
     const showDateCount = marks.reduce((prev, mark, markNum) => {
@@ -210,7 +208,7 @@ export default class Chartify extends Component {
   }
 
   // render marks, each mark is a column of multiple boxes
-  renderMarks(marksStyle: Object, maxYValue: number) {
+  renderMarks(marksStyle: object, maxYValue: number) {
     const { data = [], config } = this.props;
     const { height } = config;
     const column = Array(height)
@@ -261,23 +259,23 @@ export default class Chartify extends Component {
   }
 }
 
-Chartify.propTypes = {
-  data: PropTypes.arrayOf(
-    PropTypes.shape({
-      x_value: PropTypes.number,
-      y_value: PropTypes.number,
-      title: PropTypes.string
-    })
-  ).isRequired,
-  container: PropTypes.string.isRequired,
-  config: PropTypes.shape({
-    theme: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
-    box_size: PropTypes.number,
-    box_radius: PropTypes.number,
-    line: PropTypes.bool,
-    line_only: PropTypes.bool,
-    bordered: PropTypes.bool
-  }).isRequired
-};
+// Chartify.propTypes = {
+//   data: PropTypes.arrayOf(
+//     PropTypes.shape({
+//       x_value: PropTypes.number,
+//       y_value: PropTypes.number,
+//       title: PropTypes.string
+//     })
+//   ).isRequired,
+//   container: PropTypes.string.isRequired,
+//   config: PropTypes.shape({
+//     theme: PropTypes.string,
+//     width: PropTypes.number,
+//     height: PropTypes.number,
+//     box_size: PropTypes.number,
+//     box_radius: PropTypes.number,
+//     line: PropTypes.bool,
+//     line_only: PropTypes.bool,
+//     bordered: PropTypes.bool
+//   }).isRequired
+// };
