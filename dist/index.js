@@ -9113,27 +9113,7 @@ function (_Component) {
   }]);
 
   return Chartify;
-}(react__WEBPACK_IMPORTED_MODULE_5__["Component"]); // Chartify.propTypes = {
-//   data: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       x_value: PropTypes.number,
-//       y_value: PropTypes.number,
-//       title: PropTypes.string
-//     })
-//   ).isRequired,
-//   container: PropTypes.string.isRequired,
-//   config: PropTypes.shape({
-//     theme: PropTypes.string,
-//     width: PropTypes.number,
-//     height: PropTypes.number,
-//     box_size: PropTypes.number,
-//     box_radius: PropTypes.number,
-//     line: PropTypes.bool,
-//     line_only: PropTypes.bool,
-//     bordered: PropTypes.bool
-//   }).isRequired
-// };
-
+}(react__WEBPACK_IMPORTED_MODULE_5__["Component"]);
 
 
 ;

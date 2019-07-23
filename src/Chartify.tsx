@@ -7,7 +7,30 @@ type Mark = {
   y_value: number;
 };
 
-export default class Chartify extends Component {
+type Config = {
+  theme: string;
+  width: number;
+  height: number;
+  box_size: number;
+  box_radius: number;
+  line: boolean;
+  line_only: boolean;
+  bordered: boolean;
+};
+
+type Data = {
+  x_value: number;
+  y_value: number;
+  title: string;
+};
+
+interface ChartifyProps {
+  data: Data;
+  container: string;
+  config: Config;
+}
+
+export default class Chartify extends Component<ChartifyProps, any> {
   // get mark classes by mark position
   getMarkClasses(
     height: number,
@@ -64,7 +87,7 @@ export default class Chartify extends Component {
   // calculate approximate max value for the current dataset
   calculateMaxYValue() {
     const { data = [] } = this.props;
-    const valuesArr = data.map(el => el.y_value);
+    const valuesArr = data.map((el: any) => el.y_value);
     let maxValue = Math.max.apply(null, valuesArr);
     maxValue = Math.round(maxValue);
     let exponent = maxValue.toString().length;
@@ -146,7 +169,7 @@ export default class Chartify extends Component {
 
     return (
       <Fragment>
-        {column.map((box, i) => {
+        {column.map((box: any, i: number) => {
           const markClasses = lineOnly
             ? "mark white"
             : this.getMarkClasses(height, mark, box, aproximateYValue);
@@ -185,7 +208,7 @@ export default class Chartify extends Component {
   renderXAxis(marksStyle: object) {
     const { data: marks = 50, config } = this.props;
     const { boxSize = 20 } = config;
-    const showDateCount = marks.reduce((prev, mark, markNum) => {
+    const showDateCount = marks.reduce((prev: any, mark: any, markNum: any) => {
       const prevPlus = prev + 1;
       return markNum % 10 === 0 ? prevPlus : prev;
     }, 0);
@@ -196,7 +219,7 @@ export default class Chartify extends Component {
     return (
       <div className="x-axis" style={marksStyle}>
         {marks.map(
-          (mark, markNum) =>
+          (mark: any, markNum: number) =>
             markNum % 10 === 0 ? (
               <div className="x-caption" style={style} key={markNum}>
                 {mark.x_value}
@@ -211,13 +234,13 @@ export default class Chartify extends Component {
   renderMarks(marksStyle: object, maxYValue: number) {
     const { data = [], config } = this.props;
     const { height } = config;
-    const column = Array(height)
+    const column: Array<any> = Array(height)
       .fill()
-      .map((item, i) => ({ y_value: i }));
+      .map((item: number, i: number) => ({ y_value: i }));
 
     return (
       <div className="marks" style={marksStyle}>
-        {data.map((mark, markNum) => (
+        {data.map((mark: any, markNum: any) => (
           <div className="ruler-row" key={markNum}>
             {this.renderColumn(mark, markNum, column, maxYValue)}
           </div>
@@ -238,7 +261,7 @@ export default class Chartify extends Component {
 
     const column = Array(height)
       .fill()
-      .map((item, i) => {
+      .map((item: any, i: any) => {
         const yValue = Math.round(i * (maxYValue / height));
         return { y_value: yValue };
       });
@@ -258,24 +281,3 @@ export default class Chartify extends Component {
     );
   }
 }
-
-// Chartify.propTypes = {
-//   data: PropTypes.arrayOf(
-//     PropTypes.shape({
-//       x_value: PropTypes.number,
-//       y_value: PropTypes.number,
-//       title: PropTypes.string
-//     })
-//   ).isRequired,
-//   container: PropTypes.string.isRequired,
-//   config: PropTypes.shape({
-//     theme: PropTypes.string,
-//     width: PropTypes.number,
-//     height: PropTypes.number,
-//     box_size: PropTypes.number,
-//     box_radius: PropTypes.number,
-//     line: PropTypes.bool,
-//     line_only: PropTypes.bool,
-//     bordered: PropTypes.bool
-//   }).isRequired
-// };

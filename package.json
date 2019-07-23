@@ -1,6 +1,6 @@
 {
   "name": "chartify",
-  "description": "React.js plugin for creating charts. Inspired by kinopoisk.ru chart. Feel free for contribute.",
+  "description": "React.js plugin for creating charts",
   "version": "3.1.0",
   "scripts": {
     "flow": "flow; test $? -eq 0 -o $? -eq 2",
@@ -11,8 +11,8 @@
     "start": "webpack",
     "lint": "eslint src/Chartify.tsx --fix",
     "test": "jest",
-    "prettier": "prettier src/*.tsx --ignore-path ./.prettierignore --write && git add . && git status",
-    "prettier-watch": "onchange 'src/*.js' -- prettier --write {{changed}}",
+    "prettier": "prettier src/*.{js,jsx,ts,tsx} --ignore-path ./.prettierignore --write && git add . && git status",
+    "prettier-watch": "onchange 'src/*.{js,jsx,ts,tsx}' -- prettier --write {{changed}}",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -102,8 +102,8 @@
     "webpack-uglify-js-plugin": "1.1.9"
   },
   "main": "chartify.js",
-  "repository": "chartify/chartify",
-  "homepage": "github.com/chartify/chartify",
+  "repository": "kis/chartify",
+  "homepage": "github.com/kis/chartify",
   "keywords": [
     "react",
     "reactjs",
@@ -132,7 +132,7 @@
     "url": "github.com/kis"
   },
   "bugs": {
-    "url": "https://github.com/chartify/chartify/issues",
+    "url": "https://github.com/kis/chartify/issues",
     "email": "kirillstyopkin@gmail.com"
   },
   "license": "MIT"
