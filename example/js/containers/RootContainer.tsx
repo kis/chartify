@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+// import { hot } from 'react-hot-loader';
 import CSSModules from 'react-css-modules';
 import AppContainer from './AppContainer';
 import ErrorBoundary from '../components/ErrorBoundary/ErrorBoundary';
@@ -35,4 +36,4 @@ class RootContainer extends Component {
   }
 }
 
-export default CSSModules(RootContainer, styles, {allowMultiple: true})
+export default CSSModules(RootContainer, styles, {allowMultiple: true});

@@ -2,35 +2,24 @@ import React, { Component } from 'react';
 import CSSModules from 'react-css-modules';
 import styles from './controls.css';
 
-interface Props {
-	config: any;
-	actions: any;
-	onChange: any;
-}
+const controls = [{
+	name: 'Toggle line',
+	func: 'changeTheme'
+}, {
+	name: 'Toggle borders',
+	func: 'toggleBordered'
+}, {
+	name: 'Toggle box radius',
+	func: 'toggleBoxRadius'
+}, {
+	name: 'Change theme',
+	func: 'changeTheme'
+}, {
+	name: 'Toggle line-only',
+	func: 'toggleLineOnly'
+}];
 
-class Controls extends Component<Props, any> {
-	constructor(props: Props) {
-		super(props);
-		this.state = {
-			controls: [{
-				name: 'Toggle line',
-				func: this.changeTheme
-			}, {
-				name: 'Toggle borders',
-				func: this.toggleBordered
-			}, {
-				name: 'Toggle box radius',
-				func: this.toggleBoxRadius
-			}, {
-				name: 'Change theme',
-				func: this.changeTheme
-			}, {
-				name: 'Toggle line-only',
-				func: this.toggleLineOnly
-			}]
-		}
-	}
-
+class Controls extends Component<any, any> {
 	changeTheme = () => {
 		const themes: any = { 0:'default', 1:'blue', 2:'grey', 3:'white' };
 		let curr = 1;
@@ -86,14 +75,12 @@ class Controls extends Component<Props, any> {
 	}
 
 	render() {
-		const { controls } = this.state;
-
 		return (
 			<div styleName="control-block">
 				{controls.map((control: any, i: number) => {
 					return <button 
 						type="button" 
-						onClick={control.func} 
+						onClick={this[control.func]} 
 						styleName="control" 
 						key={i}>
 							{control.name} 

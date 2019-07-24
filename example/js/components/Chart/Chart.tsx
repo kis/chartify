@@ -7,8 +7,6 @@ import styles from './chart.css';
 
 interface Props {
 	data: any;
-	container: any;
-	config: any;
 	metadata: any;
 	actions: any;
 }

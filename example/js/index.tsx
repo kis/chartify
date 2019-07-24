@@ -1,9 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { Provider } from 'react-redux';
-import store from './store/store';
-
 import { AppContainer } from 'react-hot-loader';
 import 'react-hot-loader/patch';
 
@@ -14,12 +11,10 @@ if (process.env.NODE_ENV !== 'production') {
   whyDidYouUpdate(React);
 }
 
-const render = Component => {
+const render = (Component: any) => {
   ReactDOM.render(
     <AppContainer>
-    	<Provider store={store}>
-      	<Component />
-      </Provider>
+      <Component />
     </AppContainer>,
     document.getElementById('root')
   );
@@ -28,5 +23,7 @@ const render = Component => {
 render(RootContainer);
 
 if (module.hot) {
-  module.hot.accept('./containers/RootContainer', () => { render(RootContainer) })
+  module.hot.accept('./containers/RootContainer', () => { 
+    render(RootContainer) 
+  });
 }

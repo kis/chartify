@@ -1,12 +1,17 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as chartActions from '../actions/chart';
 import Chart from '../components/Chart/Chart';
 
-class AlbumsContainer extends Component {
-  constructor(props) {
-    super();
+interface Props {
+  albums: any;
+	actions: any;
+}
+
+class AlbumsContainer extends Component<Props, any> {
+  constructor(props: Props) {
+    super(props);
     const { actions } = props;
 
     this.state = {
@@ -36,11 +41,11 @@ class AlbumsContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
   albums: state.albums,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: any) => ({
   actions: bindActionCreators(chartActions, dispatch),
 });
 
