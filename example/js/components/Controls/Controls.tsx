@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
-import * as util from '../../util/util';
 import CSSModules from 'react-css-modules';
 import styles from './controls.css';
 
-class Controls extends Component {
-	constructor(props) {
-		super();
+interface Props {
+	config: any;
+	actions: any;
+	onChange: any;
+}
+
+class Controls extends Component<Props, any> {
+	constructor(props: Props) {
+		super(props);
 		this.state = {
 			controls: [{
 				name: 'Toggle line',
@@ -27,7 +32,7 @@ class Controls extends Component {
 	}
 
 	changeTheme = () => {
-		const themes = { 0:'default', 1:'blue', 2:'grey', 3:'white' };
+		const themes: any = { 0:'default', 1:'blue', 2:'grey', 3:'white' };
 		let curr = 1;
 
 		Object.values(themes).forEach((val, i) => {
@@ -85,7 +90,7 @@ class Controls extends Component {
 
 		return (
 			<div styleName="control-block">
-				{controls.map((control, i) => {
+				{controls.map((control: any, i: number) => {
 					return <button 
 						type="button" 
 						onClick={control.func} 

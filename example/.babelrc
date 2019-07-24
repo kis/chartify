@@ -1,10 +1,10 @@
 {
-	"presets": ["env", "stage-0", "react"],
-	"plugins": [
-		"react-hot-loader/babel",
-		"typecheck",
-		"transform-class-properties",
-		"transform-flow-strip-types",
-		"transform-runtime"
-	]
+  "presets": ["@babel/env", "@babel/react", "@babel/preset-typescript"],
+  "plugins": [
+    "@babel/proposal-class-properties",
+    "@babel/proposal-object-rest-spread",
+    "@babel/plugin-syntax-dynamic-import",
+    "@babel/transform-runtime",
+    "react-hot-loader/babel"
+  ]
 }

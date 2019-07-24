@@ -5,9 +5,17 @@ import CSSModules from 'react-css-modules';
 import Controls from '../Controls/Controls';
 import styles from './chart.css';
 
-class Chart extends PureComponent {
-	constructor(props) {
-		super();
+interface Props {
+	data: any;
+	container: any;
+	config: any;
+	metadata: any;
+	actions: any;
+}
+
+class Chart extends PureComponent<Props, any> {
+	constructor(props: Props) {
+		super(props);
 		let { metadata } = props;
 		metadata.getDataset();
 		this.state = {
@@ -23,7 +31,7 @@ class Chart extends PureComponent {
 		}
 	}
 
-	changeConfig(params) {
+	changeConfig(params: any) {
 		this.setState({config: params});
 	}
 
@@ -50,7 +58,7 @@ class Chart extends PureComponent {
 					chart={metadata.chart} 
 					config={config} 
 					actions={actions} 
-					onChange={params => this.changeConfig(params)}
+					onChange={(params: any) => this.changeConfig(params)}
 				/>
 			</div>
 		);

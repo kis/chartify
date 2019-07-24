@@ -16,20 +16,14 @@ const history = createHistory({
   // forceRefresh: false, 
 });
 
-class AppContainer extends Component {
-  constructor(props) {
-    super();
-    const { actions } = props;
+interface Props {
+	actions: any;
+}
 
-    // this.state = {
-    //   timeMetadata: {
-    //     container: 'real-time-container',
-    //     header: 'Real-time chart',
-    //     total: 'items total ( X - mark date, Y - mark )',
-    //     chart: 'time',
-    //     getDataset: null, // api.connect
-    //   },
-    // };
+class AppContainer extends Component<Props, any> {
+  constructor(props: Props) {
+    super(props);
+    const { actions } = props;
   }
 
   render() {
@@ -43,10 +37,10 @@ class AppContainer extends Component {
           <Header />
           <Switch>
             <Route exact path="/" component={AlbumsContainer} />
-            <Route path="/albums" component={AlbumsContainer} />
-            <Route path="/movies" component={MoviesContainer} />
-            <Route path="" component={AlbumsContainer} />
-            <Route path="**" component={AlbumsContainer} />
+            <Route path={"/albums"} component={AlbumsContainer} />
+            <Route path={"/movies"} component={MoviesContainer} />
+            <Route path={""} component={AlbumsContainer} />
+            <Route path={"**"} component={AlbumsContainer} />
           </Switch>
         </Fragment>
       </Router>
@@ -54,11 +48,11 @@ class AppContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
   // time: state.time,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: any) => ({
   actions: bindActionCreators(chartActions, dispatch),
 });
 

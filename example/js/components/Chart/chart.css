@@ -1,3 +1,5 @@
+@import "../../shared.css";
+
 .loader {
     position: relative;
     margin: 0 auto;
@@ -10,15 +12,15 @@
     min-height: 230px;
 }
 
-.main-header {
-    composes: poppins-font from "../../shared.css";
+:local .main-header {
+    composes: poppins-font from global;
 }
 
 .chart-block {
     margin-bottom: 50px;
 }
 
-.total-info {
-    composes: poppins-font from "../../shared.css";
+:local .total-info {
+    composes: poppins-font from global;
     margin: 10px 35px 30px;
 }

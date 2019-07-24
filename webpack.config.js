@@ -48,13 +48,13 @@ module.exports = {
     modules: ['node_modules'],
   },
   optimization: {
-    minimize: false
+    minimize: true
   },
   plugins: [
     new webpack.LoaderOptionsPlugin({
       options: {
         postcss: [precss, cssnext, vars, nested, mixins],
       },
-    })
+    }),
   ]
 };

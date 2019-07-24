@@ -1,3 +1,5 @@
+@import "../../shared.css";
+
 .datasets-menu {
     text-align: center;
     list-style: none;
@@ -6,8 +8,8 @@
     padding: 0;
 }
 
-.menu-link {
-    composes: poppins-font from "../../shared.css";
+:local .menu-link {
+    composes: poppins-font from global;
     background: transparent;
     text-transform: uppercase;
     font-weight: bold;

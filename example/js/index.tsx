@@ -28,5 +28,5 @@ const render = Component => {
 render(RootContainer);
 
 if (module.hot) {
-  module.hot.accept('./containers/App', () => { render(App) })
+  module.hot.accept('./containers/RootContainer', () => { render(RootContainer) })
 }

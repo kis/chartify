@@ -1,27 +1,29 @@
+@import "../shared.css";
+
 body {
     overflow-x: hidden;
 }
 
-.heart {
+:local .heart {
     width: 25px;
     vertical-align: sub;
 }
 
-.main-header {
-    composes: poppins-font from "../shared.css";
+:local .main-header {
+    composes: poppins-font from global;
     font-size: 36px;
     margin: 0;
 }
 
-.sub-header {
-    composes: poppins-font from "../shared.css";
+:local .sub-header {
+    composes: poppins-font from global;
     font-size: 16px;
     color: #3092e6;
     margin: 0;
 }
 
-.footer-text {
-    composes: poppins-font from "../shared.css";
+:local .footer-text {
+    composes: poppins-font from global;
     font-size: 18px;
     margin: 20px 0;
 
@@ -31,12 +33,12 @@ body {
     }
 }
 
-.root-container {
+:local .root-container {
     margin: 0 auto;
     width: 1200px;
     max-width: 1200px;
 
-    .container {
+    :local .container {
         width: 1000px;
         margin: 0 auto;
     }
@@ -44,7 +46,7 @@ body {
     header {
         padding: 20px 0 0 0;   
     
-        .project-title {
+        :local .project-title {
             margin: 0 auto;
             width: 650px;
             text-align: center;

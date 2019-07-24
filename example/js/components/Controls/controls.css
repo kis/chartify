@@ -1,3 +1,5 @@
+@import "../../shared.css";
+
 .control-block {
     text-align: center;
     margin-top: 10px;
@@ -22,8 +24,8 @@
     }
 }
 
-.control {
-    composes: poppins-font from "../../shared.css";
+:local .control {
+    composes: poppins-font from global;
     margin: 5px 5px;
     border: 2px solid #447bff;
     background: transparent;
