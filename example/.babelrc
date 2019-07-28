@@ -5,6 +5,7 @@
     "@babel/proposal-object-rest-spread",
     "@babel/plugin-syntax-dynamic-import",
     "@babel/transform-runtime",
+    "babel-plugin-styled-components",
     "react-hot-loader/babel"
   ]
 }

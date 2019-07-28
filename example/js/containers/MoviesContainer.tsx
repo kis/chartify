@@ -4,9 +4,9 @@ import { connect } from 'react-redux';
 import * as chartActions from '../actions/chart';
 import Chart from '../components/Chart/Chart';
 
-class MoviesContainer extends Component {
-  constructor(props) {
-    super();
+class MoviesContainer extends Component<any, any> {
+  constructor(props: any) {
+    super(props);
     const { actions } = props;
 
     this.state = {
@@ -36,11 +36,11 @@ class MoviesContainer extends Component {
   }
 }
 
-const mapStateToProps = state => ({
+const mapStateToProps = (state: any) => ({
   movies: state.movies,
 });
 
-const mapDispatchToProps = dispatch => ({
+const mapDispatchToProps = (dispatch: any) => ({
   actions: bindActionCreators(chartActions, dispatch),
 });
 

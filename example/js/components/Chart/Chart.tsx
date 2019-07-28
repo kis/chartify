@@ -38,7 +38,7 @@ export default class Chart extends PureComponent<Props, any> {
 
 		return (
 			<ChartBlock>
-				<h2 className="main-header">{metadata.header}</h2>
+				<h3 className="main-header">{metadata.header}</h3>
 
 				{ data.length ? 
 					<Chartify 

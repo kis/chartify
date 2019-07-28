@@ -40,6 +40,7 @@ export const Root = styled.div`
         .footer-text {
             font-size: 18px;
             margin: 20px 0;
+            text-align: center;
 
             a {
                 cursor: pointer;
@@ -68,7 +69,6 @@ export const ForkGithub = styled.span`
         background: #cc5739;
         color: #fff;
         text-decoration: none;
-        font-family: arial, sans-serif;
         text-align: center;
         font-weight: bold;
         padding: 5px 40px;

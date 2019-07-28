@@ -1,13 +1,6 @@
 const webpack = require('webpack');
 const path = require('path');
 
-const precss  = require('precss');
-const cssnext = require('postcss-cssnext');
-const vars    = require('postcss-simple-vars');
-const nested  = require('postcss-nested');
-const mixins  = require('postcss-mixins');
-const pImport = require('postcss-import');
-
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
 const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
@@ -84,11 +77,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './index.html'
-    }),
-    new webpack.LoaderOptionsPlugin({
-      options: {
-        postcss: [pImport, precss, cssnext, vars, nested, mixins],
-      },
     }),
     new webpack.HotModuleReplacementPlugin(),
     new CompressionPlugin({

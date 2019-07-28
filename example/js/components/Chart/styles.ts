@@ -15,7 +15,14 @@ export const Loader = styled.div`
 export const ChartBlock = styled.div`
     margin-bottom: 50px;
 
+    .main-header {
+        text-align: center;
+        text-transform: uppercase;
+        color: #447bff;
+    }
+
     .total-info {
+        text-align: center;
         margin: 10px 35px 30px;
     }
 `;
