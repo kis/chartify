@@ -3,7 +3,6 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CompressionPlugin = require('compression-webpack-plugin');
-// const ExtractCssChunks = require('extract-css-chunks-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
@@ -87,24 +86,9 @@ module.exports = {
       cache: true,
     }),
     new MiniCssExtractPlugin({
-      // Options similar to the same options in webpackOptions.output
-      // all options are optional
       filename: '[name].css',
       chunkFilename: '[id].css',
       ignoreOrder: false, // Enable to remove warnings about conflicting order
     }),
-    // new ExtractCssChunks({
-    //   // Options similar to the same options in webpackOptions.output
-    //   // both options are optional
-    //   filename: '[name].css',
-    //   chunkFilename: '[id].css',
-    //   hot: true,
-    //   orderWarning: true, // Disable to remove warnings about conflicting order between imports
-    //   reloadAll: true, // when desperation kicks in - this is a brute force HMR flag
-    //   cssModules: true, // if you use cssModules, this can help.
-    // }),
-    // new webpack.optimize.LimitChunkCountPlugin({
-    //   maxChunks: 1
-    // }),
   ]
 };
