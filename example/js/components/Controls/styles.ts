@@ -1,6 +1,6 @@
-@import "../../shared.css";
+import styled from 'styled-components';
 
-.control-block {
+export const ControlBlock = styled.div`
     text-align: center;
     margin-top: 10px;
 
@@ -22,10 +22,9 @@
         cursor: pointer;
         outline: none;
     }
-}
+`;
 
-:local .control {
-    composes: poppins-font from global;
+export const Control = styled.button`
     margin: 5px 5px;
     border: 2px solid #447bff;
     background: transparent;
@@ -37,4 +36,4 @@
     padding: 8px 16px;
     cursor: pointer;
     outline: none;
-}
+`;

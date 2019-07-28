@@ -1,9 +1,8 @@
-import React, { PureComponent, Fragment } from 'react';
+import React, { PureComponent } from 'react';
 // import Chartify from 'chartify';
 import Chartify from '../../../../dist';
-import CSSModules from 'react-css-modules';
 import Controls from '../Controls/Controls';
-import styles from './chart.css';
+import { Loader, ChartBlock } from './styles';
 
 interface Props {
 	data: any;
@@ -11,7 +10,7 @@ interface Props {
 	actions: any;
 }
 
-class Chart extends PureComponent<Props, any> {
+export default class Chart extends PureComponent<Props, any> {
 	constructor(props: Props) {
 		super(props);
 		let { metadata } = props;
@@ -38,8 +37,8 @@ class Chart extends PureComponent<Props, any> {
 		let { config } = this.state;
 
 		return (
-			<div styleName="chart-block">
-				<h2 styleName="main-header">{metadata.header}</h2>
+			<ChartBlock>
+				<h2 className="main-header">{metadata.header}</h2>
 
 				{ data.length ? 
 					<Chartify 
@@ -47,9 +46,9 @@ class Chart extends PureComponent<Props, any> {
 						container={metadata.container} 
 						config={config} 
 					/> :
-					<div styleName="loader"></div> }
+					<Loader /> }
 
-				<div styleName="total-info">{data.length} {metadata.total}</div>
+				<div className="total-info">{data.length} {metadata.total}</div>
 
 				<Controls 
 					data={data} 
@@ -58,9 +57,7 @@ class Chart extends PureComponent<Props, any> {
 					actions={actions} 
 					onChange={(params: any) => this.changeConfig(params)}
 				/>
-			</div>
+			</ChartBlock>
 		);
 	}
 }
-
-export default CSSModules(Chart, styles, {allowMultiple: true})

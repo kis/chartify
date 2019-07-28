@@ -1,15 +1,14 @@
-@import "../../shared.css";
+import styled from 'styled-components';
 
-.datasets-menu {
+export const DatasetsMenu = styled.ul`
     text-align: center;
     list-style: none;
     display: flex;
     justify-content: center;
     padding: 0;
-}
+`;
 
-:local .menu-link {
-    composes: poppins-font from global;
+export const MenuLink = styled.li`
     background: transparent;
     text-transform: uppercase;
     font-weight: bold;
@@ -24,4 +23,4 @@
         font-weight: bold;
         text-decoration: none;
     }
-}
+`;

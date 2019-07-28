@@ -23,6 +23,7 @@
   ],
   "dependencies": {
     "@babel/polyfill": "^7.0.0",
+    "@types/styled-components": "^4.1.18",
     "express": "^4.15.2",
     "moment": "^2.24.0",
     "react": "^16.8.6",
@@ -30,8 +31,7 @@
     "react-redux": "^5.0.6",
     "redux": "^4.0.0-beta.1",
     "redux-thunk": "^2.2.0",
-    "socket.io": "^1.7.3",
-    "socket.io-client": "^2.2.0",
+    "styled-components": "^4.3.2",
     "underscore": "^1.8.3",
     "whatwg-fetch": "^1.0.0"
   },
@@ -51,7 +51,6 @@
     "@types/react-redux": "^6.0.9",
     "@types/react": "^16.8.2",
     "@types/react-dom": "^16.8.5",
-    "@types/react-css-modules": "^4.6.2",
     "@types/react-router-dom": "^4.3.4",
     "@types/webpack-env": "^1.13.6",
     "autoprefixer": "^6.3.4",
@@ -79,7 +78,6 @@
     "postcss-simple-vars": "^3.0.0",
     "precss": "^1.4.0",
     "prettier": "1.9.2",
-    "react-css-modules": "^4.7.9",
     "react-dom": "^16.8.6",
     "react-router-dom": "^5.0.1",
     "style-loader": "^0.13.0",

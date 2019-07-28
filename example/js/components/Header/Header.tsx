@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import CSSModules from 'react-css-modules';
-import styles from './header.css';
+import { DatasetsMenu, MenuLink } from './styles';
 
 const	links = [{
 	name: 'Albums',
@@ -12,13 +11,13 @@ const	links = [{
 }];
 
 const Header = () => (
-	<ul styleName="datasets-menu">
+	<DatasetsMenu>
 		{links.map((link: any, i: number) => {
-			return <li styleName="menu-link" key={i}>
+			return <MenuLink key={i}>
 				<Link to={link.path}>{link.name}</Link>
-			</li>
+			</MenuLink>
 		})}
-	</ul>
+	</DatasetsMenu>
 );
 
-export default CSSModules(Header, styles, {allowMultiple: true})
+export default Header;

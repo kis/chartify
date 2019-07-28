@@ -1,6 +1,6 @@
-@import "../../shared.css";
+import styled from 'styled-components';
 
-.loader {
+export const Loader = styled.div`
     position: relative;
     margin: 0 auto;
     background-size: 100px 100px;
@@ -10,17 +10,12 @@
     z-index: 9999999;
     width: 100px;
     min-height: 230px;
-}
+`;
 
-:local .main-header {
-    composes: poppins-font from global;
-}
-
-.chart-block {
+export const ChartBlock = styled.div`
     margin-bottom: 50px;
-}
 
-:local .total-info {
-    composes: poppins-font from global;
-    margin: 10px 35px 30px;
-}
+    .total-info {
+        margin: 10px 35px 30px;
+    }
+`;

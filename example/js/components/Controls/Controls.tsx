@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import CSSModules from 'react-css-modules';
-import styles from './controls.css';
+import { ControlBlock, Control } from './styles';
 
 const controls = [{
 	name: 'Toggle line',
@@ -19,7 +18,7 @@ const controls = [{
 	func: 'toggleLineOnly'
 }];
 
-class Controls extends Component<any, any> {
+export default class Controls extends Component<any, any> {
 	changeTheme = () => {
 		const themes: any = { 0:'default', 1:'blue', 2:'grey', 3:'white' };
 		let curr = 1;
@@ -76,19 +75,16 @@ class Controls extends Component<any, any> {
 
 	render() {
 		return (
-			<div styleName="control-block">
+			<ControlBlock>
 				{controls.map((control: any, i: number) => {
-					return <button 
+					return <Control 
 						type="button" 
 						onClick={this[control.func]} 
-						styleName="control" 
 						key={i}>
 							{control.name} 
-						</button>
+						</Control>
 				})}
-			</div>
+			</ControlBlock>
 		);
 	}
 }
-
-export default CSSModules(Controls, styles, {allowMultiple: true})

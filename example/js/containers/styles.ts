@@ -1,44 +1,11 @@
-@import "../shared.css";
+import styled from 'styled-components';
 
-body {
-    overflow-x: hidden;
-}
-
-:local .heart {
-    width: 25px;
-    vertical-align: sub;
-}
-
-:local .main-header {
-    composes: poppins-font from global;
-    font-size: 36px;
-    margin: 0;
-}
-
-:local .sub-header {
-    composes: poppins-font from global;
-    font-size: 16px;
-    color: #3092e6;
-    margin: 0;
-}
-
-:local .footer-text {
-    composes: poppins-font from global;
-    font-size: 18px;
-    margin: 20px 0;
-
-    a {
-        cursor: pointer;
-        color: #447bff;
-    }
-}
-
-:local .root-container {
+export const Root = styled.div`
     margin: 0 auto;
     width: 1200px;
     max-width: 1200px;
 
-    :local .container {
+    .container {
         width: 1000px;
         margin: 0 auto;
     }
@@ -46,19 +13,48 @@ body {
     header {
         padding: 20px 0 0 0;   
     
-        :local .project-title {
+        .project-title {
             margin: 0 auto;
             width: 650px;
             text-align: center;
+            font-size: 1.5em;
+            text-align: center;
+            color: palevioletred;
+
+            .main-header {
+                font-size: 36px;
+                margin: 0;
+            }
+
+            .sub-header {
+                font-size: 16px;
+                color: #3092e6;
+                margin: 0;
+            }
         }
     }
 
     footer {
         position: relative;
-    }
-}
 
-:global(#forkongithub) {
+        .footer-text {
+            font-size: 18px;
+            margin: 20px 0;
+
+            a {
+                cursor: pointer;
+                color: #447bff;
+            }
+
+            img {
+                width: 25px;
+                vertical-align: sub;
+            }
+        }
+    }
+`;
+
+export const ForkGithub = styled.span`
     position: fixed;
     display: block;
     top: 0;
@@ -68,7 +64,7 @@ body {
     height: 200px;
     z-index: 9999;
 
-    a {
+    .fork-link {
         background: #cc5739;
         color: #fff;
         text-decoration: none;
@@ -106,4 +102,4 @@ body {
             top: auto;
         }
     }
-}
+`;
