@@ -14,17 +14,6 @@
   "pre-commit": [
     "prettier"
   ],
-  "nyc": {
-    "require": [
-      "babel-register"
-    ],
-    "reporter": [
-      "lcov",
-      "text"
-    ],
-    "sourceMap": false,
-    "instrument": false
-  },
   "jest": {
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
@@ -74,7 +63,6 @@
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
     "node-sass": "^3.4.2",
-    "nyc": "^11.6.0",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^0.8.2",
     "postcss-mixins": "^5.0.0",
