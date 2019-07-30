@@ -59,7 +59,7 @@
     "babel-jest": "^23.4.0",
     "babel-loader": "^8.0.1",
     "babel-plugin-styled-components": "^1.10.6",
-    "chartify": "^3.2.0",
+    "chartify": "^3.3.0",
     "compression-webpack-plugin": "^2.0.0",
     "css-loader": "^0.23.1",
     "eslint-config-airbnb": "17.0.0",

@@ -1,6 +1,7 @@
 node_modules/
 .idea/
 .github/
+.firebase/
 .storybook/
 coverage/
 example/
@@ -15,7 +16,7 @@ yarn-error.log
 .firebaserc
 404.html
 assetsTransformer.js
-blocks.jpeg
+blocks.jpg
 firebase.json
 tsconfig.json
 tslint.json
