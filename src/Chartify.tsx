@@ -1,34 +1,28 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
-import React, { Component, Fragment } from "react";
+import React, { Component } from "react";
 import "./chartify.css";
 
 type Mark = {
   title: string;
-  x_value: string;
-  y_value: number;
+  xValue: string;
+  yValue: number;
 };
 
 type Config = {
   theme: string;
   width: number;
   height: number;
-  box_size: number;
-  box_radius: number;
+  boxSize: number;
+  boxRadius: number;
   line: boolean;
-  line_only: boolean;
+  lineOnly: boolean;
   bordered: boolean;
 };
 
-type DataItem = {
-  x_value: number;
-  y_value: number;
-  title: string;
-};
-
 interface ChartifyProps {
-  data: Array<DataItem>;
+  data: Array<Mark>;
   container: string;
   config: Config;
 }
@@ -36,19 +30,15 @@ interface ChartifyProps {
 export default class Chartify extends Component<ChartifyProps, any> {
   // get mark classes by mark position
   getMarkClasses(height: number, i: Mark, aproximateYValue: number) {
-    if (height - aproximateYValue > i.y_value) return "mark empty";
-    if (height - aproximateYValue === i.y_value) return "mark active";
-    if (height - aproximateYValue < i.y_value) return "mark painted";
+    if (height - aproximateYValue > i.yValue) return "mark empty";
+    if (height - aproximateYValue === i.yValue) return "mark active";
+    if (height - aproximateYValue < i.yValue) return "mark painted";
     return "mark empty";
   }
 
   // get basic mark styles object
-  getStyles(config: object) {
-    const {
-      box_size: boxSize = 20,
-      box_radius: boxRadius = 8,
-      bordered = false
-    } = config;
+  getStyles(config: Config) {
+    const { boxSize = 20, boxRadius = 8, bordered = false } = config;
 
     return {
       width: `${boxSize}px`,
@@ -61,7 +51,7 @@ export default class Chartify extends Component<ChartifyProps, any> {
 
   // calculate line styles with calculated incline angle
   calcLineStyles(currentMark: number, nextMark: number) {
-    const { config: { box_size: boxSize = 20 } } = this.props;
+    const { config: { boxSize = 20 } } = this.props;
     const AC = boxSize;
     const BC = Math.abs(nextMark - currentMark) * boxSize;
     const AB = Math.hypot(AC, BC);
@@ -83,8 +73,8 @@ export default class Chartify extends Component<ChartifyProps, any> {
   }
 
   // calculate approximate max value for the current dataset
-  calculateMaxYValue(dataset: Array<DataItem>) {
-    const valuesArr = dataset.map((el: any) => el.y_value);
+  calculateMaxYValue(dataset: Array<Mark>) {
+    const valuesArr = dataset.map((el: any) => el.yValue);
     let maxValue = Math.max.apply(null, valuesArr);
     maxValue = Math.round(maxValue);
     let exponent = maxValue.toString().length;
@@ -100,9 +90,9 @@ export default class Chartify extends Component<ChartifyProps, any> {
     return (
       <div className="y-axis-wrapper">
         <div className="y-axis">
-          {column.map((item: any, i: any) => (
+          {column.map((item: Mark, i: number) => (
             <div className="y-caption" key={i}>
-              {i % 2 === 0 ? maxYValue - item.y_value : null}
+              {i % 2 === 0 ? maxYValue - item.yValue : null}
             </div>
           ))}
         </div>
@@ -120,9 +110,9 @@ export default class Chartify extends Component<ChartifyProps, any> {
 
     return (
       <div className="tooltiptext" style={tooltipStyle}>
-        <div className="value">{mark.y_value}</div>
+        <div className="value">{mark.yValue}</div>
         <div>{mark.title}</div>
-        <div className="date">{mark.x_value}</div>
+        <div className="date">{mark.xValue}</div>
       </div>
     );
   }
@@ -139,18 +129,24 @@ export default class Chartify extends Component<ChartifyProps, any> {
       : null;
 
     return (
-      <Fragment>
+      <>
         {drawLine ? <div className="line" style={lineStyle} /> : null}
         {this.renderTooltip(mark, aproximateYValue)}
-      </Fragment>
+      </>
     );
   }
 
   // render column of multiple boxes, each box has own style
   // possible styles is active, empty, painted
-  renderColumn(mark: Mark, markNum: number, column: Array, maxY: number) {
-    const { data, config } = this.props;
-    const { height = 10, line = false, line_only: lineOnly = false } = config;
+  renderColumn(
+    dataset: Array<Mark>,
+    mark: Mark,
+    markNum: number,
+    column: Array<Mark>,
+    maxY: number
+  ) {
+    const { config } = this.props;
+    const { height = 10, line = false, lineOnly: lineOnly = false } = config;
     const styles = this.getStyles(config);
 
     /*
@@ -160,24 +156,24 @@ export default class Chartify extends Component<ChartifyProps, any> {
       aproximateYValue = 1
       mark.chart_y_value = 1
     */
-    let aproximateYValue = Math.round(mark.y_value * height / maxY);
+    let aproximateYValue = Math.round(mark.yValue * height / maxY);
     aproximateYValue = aproximateYValue || 1;
 
     return (
-      <Fragment>
+      <>
         {column.map((box: any, i: number) => {
           const markClasses = lineOnly
             ? "mark white"
             : this.getMarkClasses(height, box, aproximateYValue);
           const isActiveMark =
-            height - aproximateYValue === box.y_value &&
-            markNum < data.length - 1;
+            height - aproximateYValue === box.yValue &&
+            markNum < dataset.length - 1;
 
           let nextAproximateYValue = aproximateYValue;
 
-          if (data[markNum + 1]) {
+          if (dataset[markNum + 1]) {
             nextAproximateYValue = Math.round(
-              data[markNum + 1].y_value * height / maxY
+              dataset[markNum + 1].yValue * height / maxY
             );
             nextAproximateYValue = nextAproximateYValue || 1;
           }
@@ -195,22 +191,25 @@ export default class Chartify extends Component<ChartifyProps, any> {
             </div>
           );
         })}
-      </Fragment>
+      </>
     );
   }
 
   // render X-axis with x-values, 1 date for 10 marks
-  renderXAxis(dataset: Array<DataItem>, marksStyle: object) {
+  renderXAxis(dataset: Array<Mark>, marksStyle: object) {
     const { boxSize = 20 } = this.props.config;
     const showDateCount = dataset.reduce(
-      (prev: any, mark: any, markNum: any) => {
+      (prev: any, mark: any, markNum: number) => {
         const prevPlus = prev + 1;
         return markNum % 10 === 0 ? prevPlus : prev;
       },
       0
     );
 
-    const width = parseInt(dataset.length * boxSize / showDateCount, 10);
+    const width: number = parseInt(
+      dataset.length * boxSize / showDateCount,
+      10
+    );
     const style = { width: `${width}px` };
 
     return (
@@ -219,7 +218,7 @@ export default class Chartify extends Component<ChartifyProps, any> {
           (mark: any, markNum: number) =>
             markNum % 10 === 0 ? (
               <div className="x-caption" style={style} key={markNum}>
-                {mark.x_value}
+                {mark.xValue}
               </div>
             ) : null
         )}
@@ -228,17 +227,17 @@ export default class Chartify extends Component<ChartifyProps, any> {
   }
 
   // render marks, each mark is a column of multiple boxes
-  renderMarks(dataset: Array<DataItem>, marksStyle: object, maxYValue: number) {
+  renderMarks(dataset: Array<Mark>, marksStyle: object, maxYValue: number) {
     const { height } = this.props.config;
     const column: Array<any> = Array(height)
-      .fill()
-      .map((item: number, i: number) => ({ y_value: i }));
+      .fill(0)
+      .map((item: number, i: number) => ({ yValue: i }));
 
     return (
       <div className="marks" style={marksStyle}>
         {dataset.map((mark: any, markNum: any) => (
           <div className="ruler-row" key={markNum}>
-            {this.renderColumn(mark, markNum, column, maxYValue)}
+            {this.renderColumn(dataset, mark, markNum, column, maxYValue)}
           </div>
         ))}
       </div>
@@ -257,10 +256,10 @@ export default class Chartify extends Component<ChartifyProps, any> {
     const maxYValue = this.calculateMaxYValue(dataset);
 
     const column = Array(height)
-      .fill()
+      .fill(0)
       .map((item: any, i: any) => {
         const yValue = Math.round(i * (maxYValue / height));
-        return { y_value: yValue };
+        return { yValue };
       });
 
     const rulerClass = `ruler-container ${container} ${theme}`;

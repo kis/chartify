@@ -1,19 +1,25 @@
 import _ from 'underscore';
 import moment from 'moment';
 
-export function processMovies(movies) {
-  const items = [];
+interface Item {
+  xValue: any;
+  yValue: number;
+  title: string;
+}
+
+export function processMovies(movies: Array<any>) {
+  const items: Array<Item> = [];
   const dateRegex = /(\d+)[.](\d+)[.](\d+)/;
 
-  movies.forEach((movie) => {
+  movies.forEach((movie: any) => {
     if (!movie['дата и время']) return;
 
-    const xValue = dateRegex.exec(movie['дата и время']);
+    const xValue: any = dateRegex.exec(movie['дата и время']);
     const xValueFormatted = moment(xValue[0], 'DD.MM.YYYY').format('MMM D, YYYY');
 
     items.push({
-      x_value: xValueFormatted,
-      y_value: movie['моя оценка'],
+      xValue: xValueFormatted,
+      yValue: movie['моя оценка'],
       title:
         `${movie['оригинальное название'] || movie['русскоязычное название']
         } (${
@@ -26,12 +32,12 @@ export function processMovies(movies) {
   return items;
 }
 
-export function processAlbums(albumsList) {
-  const albumsObj = _.groupBy(albumsList, song => song.Album);
+export function processAlbums(albumsList: Array<any>) {
+  const albumsObj = _.groupBy(albumsList, (song: any) => song.Album);
 
   const albumNames = Object.keys(albumsObj);
 
-  function accumTimesPlayed(memo, track) {
+  function accumTimesPlayed(memo: number, track: any) {
     return memo + (track.Plays || 0);
   }
 
@@ -45,23 +51,12 @@ export function processAlbums(albumsList) {
   }));
 
   const resAlbums = albums.map(album => ({
-    x_value: String(album.year),
-    y_value: album.timesPlayed,
+    xValue: String(album.year),
+    yValue: album.timesPlayed,
     title: `${album.artist} - ${album.album}`,
   }));
 
-  const albumsSortedByYear = _.sortBy(resAlbums, album => parseInt(album.x_value, 10));
+  const albumsSortedByYear = _.sortBy(resAlbums, (album: any) => parseInt(album.x_value, 10));
 
   return albumsSortedByYear;
-}
-
-export function getRandomColor() {
-  const col = function () {
-    return Math.floor(Math.random() * (255 - 1 + 1)) + 1;
-  };
-
-  return {
-    background: `rgba( ${col()}, ${col()}, ${col()}, 1)`,
-    opacity: 0.3,
-  };
 }

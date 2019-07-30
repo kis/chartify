@@ -20,9 +20,9 @@ export default class Chart extends PureComponent<Props, any> {
 				theme: metadata.chart === 'films' ? "default" : "blue",
 				width: 50,
 				height: 10,
-				box_radius: metadata.chart === 'films' ? 8 : 0,
+				boxRadius: metadata.chart === 'films' ? 8 : 0,
 				line: false,
-				line_only: false,
+				lineOnly: false,
 				bordered: false
 			}
 		}

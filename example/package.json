@@ -22,8 +22,10 @@
     "lint"
   ],
   "dependencies": {
-    "@babel/polyfill": "^7.0.0",
+    "@types/core-js": "^2.5.2",
     "@types/styled-components": "^4.1.18",
+    "@types/underscore": "^1.9.2",
+    "core-js": "^3.1.4",
     "express": "^4.15.2",
     "moment": "^2.24.0",
     "react": "^16.8.6",

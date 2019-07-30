@@ -35,8 +35,8 @@ npm install chartify --save-dev
 import Chartify from 'chartify';
 
 let data = [{
-    x_value: '20.11.2016',
-    y_value: 5,
+    xValue: '20.11.2016',
+    yValue: 5,
     title: '007 Spectre'
 }];
 
@@ -44,10 +44,10 @@ let config = {
     theme: 'blue',
     width: 50,			      
     height: 10,		
-    box_size: 20,
-    box_radius: 8,
+    boxSize: 20,
+    boxRadius: 8,
     line: false,
-    line_only: false,
+    lineOnly: false,
     bordered: false
 };
 
@@ -61,10 +61,10 @@ let config = {
 <h3 align='center'>Passing props</h3>
 
 Data prop is a dataset that should be an array of objects:    
-<b>[{ x_value: '12.03.2019', y_value: 8, title: 'men in black' }]</b>  
+<b>[{ xValue: '12.03.2019', yValue: 8, title: 'men in black' }]</b>  
 
 Keys are required and types are:  
-<b>{ x_value: string, y_value: number, title: string }</b>  
+<b>{ xValue: string, yValue: number, title: string }</b>  
 
 Container prop is a class that will be added to the chart container element. This is important in case you have more than one chart on your page.   
 
@@ -72,10 +72,10 @@ Config prop is an object with properties:
 <b>theme</b>:<i>string</i> - is color scheme of the chart, <i>"default", "blue", "grey", "white"</i> etc.<br/>
 <b>width</b>:<i>number</i> - is the length of the data array by X-axis.<br/>
 <b>height</b>:<i>number</i> - is the length of the data by Y-axis.<br/>
-<b>box_size</b>:<i>number</i> - is size of each box in pixels.<br/>
-<b>box_radius</b>:<i>number</i> - is border radius of each box in pixels.<br/>
+<b>boxSize</b>:<i>number</i> - is size of each box in pixels.<br/>
+<b>boxRadius</b>:<i>number</i> - is border radius of each box in pixels.<br/>
 <b>line</b>:<i>boolean</i> - is param that determines if this is a line-chart.<br/>
-<b>line_only</b>:<i>boolean</i> - is param that determines if we show only line on white background.<br/>
+<b>lineOnly</b>:<i>boolean</i> - is param that determines if we show only line on white background.<br/>
 <b>bordered</b>:<i>boolean</i> - is param that determines if each box has white borders.<br/>  
 
 <h3 align='center'>License</h3>

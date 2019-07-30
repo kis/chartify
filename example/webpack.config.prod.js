@@ -11,7 +11,7 @@ module.exports = {
   mode: 'production',
   devtool: 'source-map',
   entry: {
-    app: ['@babel/polyfill', 'react-hot-loader/patch', './js/index'],
+    app: ['react-hot-loader/patch', './js/index'],
   },
   devServer: {
     historyApiFallback: true,
