@@ -154,7 +154,7 @@ export default class Chartify extends Component<ChartifyProps, any> {
       for example:
       y = 22, height = 10, maxY = 300
       aproximateYValue = 1
-      mark.chart_y_value = 1
+      mark.chart_yValue = 1
     */
     let aproximateYValue = Math.round(mark.yValue * height / maxY);
     aproximateYValue = aproximateYValue || 1;
