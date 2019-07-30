@@ -4,7 +4,6 @@ example/
 sh/
 yarn-error.log
 .babelrc
-.flowconfig
 .travis.yml
 Makefile
 webpack.config.js

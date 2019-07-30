@@ -1,4 +1,11 @@
-## Chartify 3.0.0 (Mar 18, 2018)
+## Chartify 3.2.0 (Jul 30, 2019)  
+  
+* Remove flow, add Typescript to main package and the example project  
+* Rewrite styles for example project to use styled-components, remove postcss    
+* Replace babel-polyfill with core-js  
+* Host example app on firebase  
+   
+## Chartify 3.0.0 (Mar 18, 2018)  
 
 * Remove draggable
 

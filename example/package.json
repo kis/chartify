@@ -66,7 +66,6 @@
     "eslint-plugin-react": "^7.9.1",
     "extract-css-chunks-webpack-plugin": "^4.5.6",
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
-    "flow-bin": "^0.35.0",
     "history": "^4.7.2",
     "html-webpack-plugin": "^4.0.0-alpha",
     "mini-css-extract-plugin": "^0.8.0",

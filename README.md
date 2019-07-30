@@ -61,7 +61,7 @@ let config = {
 <h3 align='center'>Passing props</h3>
 
 Data prop is a dataset that should be an array of objects:    
-<b>[{ x_value: '12.03.2016', y_value: 8, title: 'men in black' }]</b>  
+<b>[{ x_value: '12.03.2019', y_value: 8, title: 'men in black' }]</b>  
 
 Keys are required and types are:  
 <b>{ x_value: string, y_value: number, title: string }</b>  
@@ -80,4 +80,4 @@ Config prop is an object with properties:
 
 <h3 align='center'>License</h3>
 
-The MIT License (MIT) Copyright (c) 2018
+The MIT License (MIT) Copyright (c) 2019
