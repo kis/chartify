@@ -1,3 +1,6 @@
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
 import React, { Component, Fragment } from "react";
 import "./chartify.css";
 
