@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import Chartify from 'chartify';
-// import Chartify from '../../../../dist';
+// import Chartify from 'chartify';
+import Chartify from '../../../../dist';
 import Controls from '../Controls/Controls';
 import { Loader, ChartBlock } from './styles';
 
