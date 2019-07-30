@@ -1,7 +1,7 @@
 {
   "name": "chartify",
   "description": "React.js plugin for creating charts",
-  "version": "3.1.0",
+  "version": "3.2.0",
   "scripts": {
     "start": "webpack",
     "lint": "eslint src/Chartify.tsx --fix",

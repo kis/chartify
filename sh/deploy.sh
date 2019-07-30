@@ -1,4 +1,5 @@
 # http://www.damian.oquanta.info/posts/one-line-deployment-of-your-site-to-gh-pages.html
+## deprecated after using firebase hosting
 
 git checkout -b gh-pages
 git commit -am "init"
