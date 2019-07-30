@@ -10,7 +10,7 @@ var mixins  = require('postcss-mixins');
 module.exports = {
   mode: "production",
   entry: {
-    app: ['@babel/polyfill', './src/Chartify.tsx'],
+    app: ['./src/Chartify.tsx'],
   },
   output: {
     filename: "./index.js",
