@@ -20,8 +20,7 @@ export default class Chart extends PureComponent<Props, any> {
 				theme: metadata.chart === 'films' ? "default" : "blue",
 				width: 50,
 				height: 10,
-				line: false,
-				lineOnly: false,
+				isLineChart: false,
 				bordered: false
 			}
 		}

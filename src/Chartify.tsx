@@ -16,8 +16,7 @@ type Config = {
   width: number;
   height: number;
   boxSize: number;
-  line: boolean;
-  lineOnly: boolean;
+  isLineChart: boolean;
   bordered: boolean;
 };
 
@@ -117,9 +116,7 @@ export default class Chartify extends Component<ChartifyProps, any> {
     maxY: number
   ) {
     const { config } = this.props;
-    const { height = 10, line = false, lineOnly: lineOnly = false } = config;
-    const stylesActive = this.getStyles(config, mark.yValue, true);
-    const stylesPainted = this.getStyles(config, mark.yValue, false);
+    const { height = 10, isLineChart = false } = config;
 
     /*
       calculate Y-value related to the fixed height of the chart
@@ -140,21 +137,24 @@ export default class Chartify extends Component<ChartifyProps, any> {
       nextAproximateYValue = nextAproximateYValue || 1;
     }
 
+    const stylesActive = this.getStyles(config, aproximateYValue, true);
+    const stylesPainted = this.getStyles(config, aproximateYValue, false);
+
     return (
       <>
         <div
           key={shortid.generate()}
           style={stylesPainted}
-          className="mark painted"
+          className={`mark painted ${isLineChart ? "white" : ""}`}
         />
         <div
           key={shortid.generate()}
           style={stylesActive}
-          className="mark active"
+          className={`mark active ${isLineChart ? "white" : ""}`}
         >
           {this.renderMarkTools(
             mark,
-            line || lineOnly,
+            isLineChart,
             aproximateYValue,
             nextAproximateYValue
           )}
@@ -166,17 +166,17 @@ export default class Chartify extends Component<ChartifyProps, any> {
   // render mark line (if needed) and mark tooltip for active mark
   renderMarkTools(
     mark: Mark,
-    drawLine: boolean,
+    isLineChart: boolean,
     aproximateYValue: number,
     nextAproximateYValue: number
   ) {
-    const lineStyle = drawLine
+    const lineStyle = isLineChart
       ? this.calcLineStyles(aproximateYValue, nextAproximateYValue)
       : null;
 
     return (
       <>
-        {drawLine ? <div className="line" style={lineStyle} /> : null}
+        {isLineChart ? <div className="line" style={lineStyle} /> : null}
         {this.renderTooltip(mark, aproximateYValue)}
       </>
     );

@@ -16,43 +16,27 @@ export default class Controls extends Component<any, any> {
 
 		this.props.onChange({
 			...this.props.config,
-			lineOnly: false,
 			theme: themes[next]
-		});
-	}
-
-	toggleLine = () => {
-		this.props.onChange({
-			...this.props.config,
-			lineOnly: false,
-			line: !this.props.config.line
 		});
 	}
 
 	toggleBordered = () => {
 		this.props.onChange({
 			...this.props.config,
-			lineOnly: false,
 			bordered: !this.props.config.bordered
 		});
 	}
 
-	toggleLineOnly = () => {
+	toggleLineChart = () => {
 		this.props.onChange({
 			...this.props.config,
-			lineOnly: !this.props.config.lineOnly
+			isLineChart: !this.props.config.isLineChart
 		});
 	}
 
 	render() {
 		return (
 			<ControlBlock>
-				<Control 
-					type="button" 
-					onClick={this.toggleLine} 
-				>
-					Toggle line
-				</Control>
 				<Control 
 					type="button" 
 					onClick={this.toggleBordered} 
@@ -67,9 +51,9 @@ export default class Controls extends Component<any, any> {
 				</Control>
 				<Control 
 					type="button" 
-					onClick={this.toggleLineOnly} 
+					onClick={this.toggleLineChart} 
 				>
-					Toggle line-only
+					Toggle line-chart
 				</Control>
 			</ControlBlock>
 		);
