@@ -1,23 +1,6 @@
 import React, { Component } from 'react';
 import { ControlBlock, Control } from './styles';
 
-const controls = [{
-	name: 'Toggle line',
-	func: 'changeTheme'
-}, {
-	name: 'Toggle borders',
-	func: 'toggleBordered'
-}, {
-	name: 'Toggle box radius',
-	func: 'toggleBoxRadius'
-}, {
-	name: 'Change theme',
-	func: 'changeTheme'
-}, {
-	name: 'Toggle line-only',
-	func: 'toggleLineOnly'
-}];
-
 export default class Controls extends Component<any, any> {
 	changeTheme = () => {
 		const themes: any = { 0:'default', 1:'blue', 2:'grey', 3:'white' };
@@ -33,7 +16,7 @@ export default class Controls extends Component<any, any> {
 
 		this.props.onChange({
 			...this.props.config,
-			line_only: false,
+			lineOnly: false,
 			theme: themes[next]
 		});
 	}
@@ -41,7 +24,7 @@ export default class Controls extends Component<any, any> {
 	toggleLine = () => {
 		this.props.onChange({
 			...this.props.config,
-			line_only: false,
+			lineOnly: false,
 			line: !this.props.config.line
 		});
 	}
@@ -49,41 +32,45 @@ export default class Controls extends Component<any, any> {
 	toggleBordered = () => {
 		this.props.onChange({
 			...this.props.config,
-			line_only: false,
+			lineOnly: false,
 			bordered: !this.props.config.bordered
-		});
-	}
-
-	toggleBoxRadius = () => {
-		let radiuses = [0, 5, 8, 10];
-		let num = radiuses.indexOf(this.props.config.box_radius);
-		num = num == 3 ? 0 : ++num;
-
-		this.props.onChange({
-			...this.props.config,
-			line_only: false,
-			box_radius: radiuses[num]
 		});
 	}
 
 	toggleLineOnly = () => {
 		this.props.onChange({
 			...this.props.config,
-			line_only: !this.props.config.line_only
+			lineOnly: !this.props.config.lineOnly
 		});
 	}
 
 	render() {
 		return (
 			<ControlBlock>
-				{controls.map((control: any, i: number) => {
-					return <Control 
-						type="button" 
-						onClick={this[control.func]} 
-						key={i}>
-							{control.name} 
-						</Control>
-				})}
+				<Control 
+					type="button" 
+					onClick={this.toggleLine} 
+				>
+					Toggle line
+				</Control>
+				<Control 
+					type="button" 
+					onClick={this.toggleBordered} 
+				>
+					Toggle borders
+				</Control>
+				<Control 
+					type="button" 
+					onClick={this.changeTheme} 
+				>
+					Change theme
+				</Control>
+				<Control 
+					type="button" 
+					onClick={this.toggleLineOnly} 
+				>
+					Toggle line-only
+				</Control>
 			</ControlBlock>
 		);
 	}

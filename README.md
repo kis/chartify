@@ -45,7 +45,6 @@ let config = {
     width: 50,			      
     height: 10,		
     boxSize: 20,
-    boxRadius: 8,
     line: false,
     lineOnly: false,
     bordered: false
@@ -73,7 +72,6 @@ Config prop is an object with properties:
 <b>width</b>:<i>number</i> - is the length of the data array by X-axis.<br/>
 <b>height</b>:<i>number</i> - is the length of the data by Y-axis.<br/>
 <b>boxSize</b>:<i>number</i> - is size of each box in pixels.<br/>
-<b>boxRadius</b>:<i>number</i> - is border radius of each box in pixels.<br/>
 <b>line</b>:<i>boolean</i> - is param that determines if this is a line-chart.<br/>
 <b>lineOnly</b>:<i>boolean</i> - is param that determines if we show only line on white background.<br/>
 <b>bordered</b>:<i>boolean</i> - is param that determines if each box has white borders.<br/>  

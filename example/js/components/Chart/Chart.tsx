@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
-import Chartify from 'chartify';
-// import Chartify from '../../../../dist';
+// import Chartify from 'chartify';
+import Chartify from '../../../../dist';
 import Controls from '../Controls/Controls';
 import { Loader, ChartBlock } from './styles';
 
@@ -20,7 +20,6 @@ export default class Chart extends PureComponent<Props, any> {
 				theme: metadata.chart === 'films' ? "default" : "blue",
 				width: 50,
 				height: 10,
-				boxRadius: metadata.chart === 'films' ? 8 : 0,
 				line: false,
 				lineOnly: false,
 				bordered: false
