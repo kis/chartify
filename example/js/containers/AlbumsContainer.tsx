@@ -10,19 +10,17 @@ interface Props {
 }
 
 class AlbumsContainer extends Component<Props, any> {
-  constructor(props: Props) {
-    super(props);
-    const { actions } = props;
+  state = {
+    albumsMetadata: {
+      container: 'songs-container',
+      header: 'Music albums dataset',
+      total: 'music albums total ( X - album release year, Y - times played )',
+      chart: 'music'
+    }
+  }
 
-    this.state = {
-      albumsMetadata: {
-        container: 'songs-container',
-        header: 'Music albums dataset',
-        total: 'music albums total ( X - album release year, Y - times played )',
-        chart: 'music',
-        getDataset: actions.getAlbums,
-      },
-    };
+  componentWillMount() {
+    this.props.actions.getAlbums();
   }
 
   render() {

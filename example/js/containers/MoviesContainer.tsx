@@ -5,19 +5,18 @@ import * as chartActions from '../actions/chart';
 import Chart from '../components/Chart/Chart';
 
 class MoviesContainer extends Component<any, any> {
-  constructor(props: any) {
-    super(props);
-    const { actions } = props;
+  state = {
+    moviesMetadata: {
+      container: 'films-container',
+      header: 'Movies dataset',
+      total: 'films total ( X - mark date, Y - mark )',
+      chart: 'films'
+    }
+  }
 
-    this.state = {
-      moviesMetadata: {
-        container: 'films-container',
-        header: 'Movies dataset',
-        total: 'films total ( X - mark date, Y - mark )',
-        chart: 'films',
-        getDataset: actions.getMovies,
-      },
-    };
+  componentWillMount() {
+    const { actions } = this.props;
+    actions.getMovies();
   }
 
   render() {

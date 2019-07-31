@@ -230,11 +230,9 @@ export default class Chartify extends Component<ChartifyProps, any> {
     const { data = [], config, container } = this.props;
     const { height = 10, theme = "default", boxSize = 20 } = config;
 
-    if (!data || !data.length) {
-      return <h2>No dataset</h2>;
-    }
+    if (!data || !data.length) return <h2>No dataset</h2>;
 
-    const dataset = data.splice(0, config.width);
+    const dataset = data.slice(0, config.width);
     const maxYValue = this.calculateMaxYValue(dataset);
 
     const column = Array(height)
@@ -247,9 +245,10 @@ export default class Chartify extends Component<ChartifyProps, any> {
     const rulerClass = `ruler-container ${container} ${theme}`;
     const width = dataset.length * boxSize;
     const marksStyle = { width: `${width || 750}px` };
+    const rulerStyle = { width: `${width + 50 || 750}px` };
 
     return (
-      <div className={rulerClass}>
+      <div className={rulerClass} style={rulerStyle}>
         {this.renderYAxis(column, maxYValue)}
         <div className="marks-wrapper">
           {this.renderMarks(dataset, marksStyle, maxYValue)}

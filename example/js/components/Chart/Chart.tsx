@@ -11,18 +11,13 @@ interface Props {
 }
 
 export default class Chart extends PureComponent<Props, any> {
-	constructor(props: Props) {
-		super(props);
-		let { metadata } = props;
-		metadata.getDataset();
-		this.state = {
-			config: {
-				theme: metadata.chart === 'films' ? "default" : "blue",
-				width: 50,
-				height: 10,
-				isLineChart: false,
-				bordered: false
-			}
+	state = {
+		config: {
+			theme: "blue",
+			width: 50,
+			height: 10,
+			isLineChart: false,
+			bordered: false
 		}
 	}
 
