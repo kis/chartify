@@ -10,7 +10,7 @@ $main-color: rgba(172, 148, 179, 0.49);
   position: relative;
   display: block;
   user-select: none;
-  margin: 0 auto;
+  margin: 40px auto;
 
   .y-axis-wrapper {
     display: inline-block;

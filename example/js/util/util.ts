@@ -31,32 +31,3 @@ export function processMovies(movies: Array<any>) {
   items.reverse();
   return items;
 }
-
-export function processAlbums(albumsList: Array<any>) {
-  const albumsObj = _.groupBy(albumsList, (song: any) => song.Album);
-
-  const albumNames = Object.keys(albumsObj);
-
-  function accumTimesPlayed(memo: number, track: any) {
-    return memo + (track.Plays || 0);
-  }
-
-  const albums = albumNames.map(album => ({
-    artist: albumsObj[album][0].Artist,
-    album,
-    tracks: albumsObj[album],
-    timesPlayed: _.reduce(albumsObj[album], accumTimesPlayed, 0),
-    year: albumsObj[album][0].Year,
-    dateAdded: albumsObj[album][0]['Date Added'],
-  }));
-
-  const resAlbums = albums.map(album => ({
-    xValue: String(album.year),
-    yValue: album.timesPlayed,
-    title: `${album.artist} - ${album.album}`,
-  }));
-
-  const albumsSortedByYear = _.sortBy(resAlbums, (album: any) => parseInt(album.x_value, 10));
-
-  return albumsSortedByYear;
-}

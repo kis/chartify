@@ -7,7 +7,7 @@ export const Root = styled.div`
 
     .container {
         width: 1000px;
-        margin: 0 auto;
+        margin: 0px auto;
     }
 
     header {
