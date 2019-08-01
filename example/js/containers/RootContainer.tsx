@@ -1,9 +1,11 @@
-import React, { Component, Fragment } from 'react';
-import AppContainer from './AppContainer';
+import React from 'react';
+import ChartContainer from './ChartContainer';
+import { Provider } from 'react-redux';
+import store from '../store/store';
 import { Root, ForkGithub } from './styles';
 
 const RootContainer = () => (
-    <Fragment>
+    <>
         <ForkGithub>
             <a className="fork-link" href="https://github.com/kis/chartify" target="_blank">Fork me on GitHub</a>
         </ForkGithub>
@@ -17,7 +19,9 @@ const RootContainer = () => (
             </header>
 
             <main className="container">
-                <AppContainer />
+                <Provider store={store}>
+                    <ChartContainer />
+                </Provider>
             </main>
 
             <footer className="container">
@@ -26,7 +30,7 @@ const RootContainer = () => (
                 </div>
             </footer>
         </Root>
-    </Fragment>
+    </>
 );
 
 export default RootContainer;

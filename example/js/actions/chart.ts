@@ -9,7 +9,6 @@ export function updateMoviesDataset(movies: any) {
 }
 
 async function fetchMovies() {
-  console.log(movies50)
   return processMovies(movies50);
 }
 
