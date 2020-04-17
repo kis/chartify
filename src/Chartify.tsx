@@ -50,8 +50,8 @@ export default class Chartify extends Component<ChartifyProps, any> {
     return {
       width: `${AB}px`,
       transform: `rotate(${angleA}deg)`,
-      top: `${parseInt(boxSize / 2, 10)}px`,
-      left: `${parseInt(boxSize / 2, 10)}px`
+      top: `${parseInt(String(boxSize / 2), 10)}px`,
+      left: `${parseInt(String(boxSize / 2), 10)}px`
     };
   }
 
@@ -91,11 +91,11 @@ export default class Chartify extends Component<ChartifyProps, any> {
   }
 
   // render tooltip on active mark
-  renderTooltip(mark: Mark, aproximateYValue: number) {
+  renderTooltip(mark: Mark, approximateYValue: number) {
     const { config: { height } } = this.props;
 
     const tooltipStyle = {
-      top: aproximateYValue < height / 2 ? "-100px" : 0
+      top: approximateYValue < height / 2 ? "-100px" : 0
     };
 
     return (
@@ -122,23 +122,23 @@ export default class Chartify extends Component<ChartifyProps, any> {
       calculate Y-value related to the fixed height of the chart
       for example:
       y = 22, height = 10, maxY = 300
-      aproximateYValue = 1
+      approximateYValue = 1
       mark.chart_yValue = 1
     */
-    let aproximateYValue = Math.round(mark.yValue * height / maxY);
-    aproximateYValue = aproximateYValue || 1;
+    let approximateYValue = Math.round(mark.yValue * height / maxY);
+    approximateYValue = approximateYValue || 1;
 
-    let nextAproximateYValue = aproximateYValue;
+    let nextApproximateYValue = approximateYValue;
 
     if (dataset[markNum + 1]) {
-      nextAproximateYValue = Math.round(
+      nextApproximateYValue = Math.round(
         dataset[markNum + 1].yValue * height / maxY
       );
-      nextAproximateYValue = nextAproximateYValue || 1;
+      nextApproximateYValue = nextApproximateYValue || 1;
     }
 
-    const stylesActive = this.getStyles(config, aproximateYValue, true);
-    const stylesPainted = this.getStyles(config, aproximateYValue, false);
+    const stylesActive = this.getStyles(config, approximateYValue, true);
+    const stylesPainted = this.getStyles(config, approximateYValue, false);
 
     return (
       <>
@@ -155,8 +155,8 @@ export default class Chartify extends Component<ChartifyProps, any> {
           {this.renderMarkTools(
             mark,
             isLineChart,
-            aproximateYValue,
-            nextAproximateYValue
+            approximateYValue,
+            nextApproximateYValue
           )}
         </div>
       </>
@@ -167,17 +167,17 @@ export default class Chartify extends Component<ChartifyProps, any> {
   renderMarkTools(
     mark: Mark,
     isLineChart: boolean,
-    aproximateYValue: number,
-    nextAproximateYValue: number
+    approximateYValue: number,
+    nextApproximateYValue: number
   ) {
     const lineStyle = isLineChart
-      ? this.calcLineStyles(aproximateYValue, nextAproximateYValue)
+      ? this.calcLineStyles(approximateYValue, nextApproximateYValue)
       : null;
 
     return (
       <>
         {isLineChart ? <div className="line" style={lineStyle} /> : null}
-        {this.renderTooltip(mark, aproximateYValue)}
+        {this.renderTooltip(mark, approximateYValue)}
       </>
     );
   }
