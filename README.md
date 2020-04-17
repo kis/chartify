@@ -34,13 +34,13 @@ npm install chartify --save-dev
 ```javascript
 import Chartify from 'chartify';
 
-let data = [{
+const data = [{
     xValue: '20.11.2016',
     yValue: 5,
     title: '007 Spectre'
 }];
 
-let config = {
+const config = {
     theme: 'blue',
     width: 50,			      
     height: 10,		
@@ -59,10 +59,10 @@ let config = {
 <h3 align='center'>Passing props</h3>
 
 Data prop is a dataset that should be an array of objects:    
-<b>[{ xValue: '12.03.2019', yValue: 8, title: 'men in black' }]</b>  
+```[{ xValue: '12.03.2019', yValue: 8, title: 'men in black' }]```
 
 Keys are required and types are:  
-<b>{ xValue: string, yValue: number, title: string }</b>  
+```{ xValue: string, yValue: number, title: string }```
 
 Container prop is a class that will be added to the chart container element. This is important in case you have more than one chart on your page.   
 
@@ -76,4 +76,4 @@ Config prop is an object with properties:
 
 <h3 align='center'>License</h3>
 
-The MIT License (MIT) Copyright (c) 2019
+The MIT License (MIT) Copyright (c) 2020
