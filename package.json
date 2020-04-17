@@ -77,6 +77,7 @@
     "husky": "^4.2.5",
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
+    "lerna": "^3.20.2",
     "lint-staged": "^10.1.4",
     "node-sass": "^3.4.2",
     "postcss-cssnext": "^2.8.0",
