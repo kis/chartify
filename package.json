@@ -6,6 +6,7 @@
     "start": "webpack",
     "lint": "eslint src/Chartify.tsx --fix",
     "test": "jest",
+    "format": "prettier --write \"./src/**/*.{ts,tsx}\"",
     "prettier": "prettier src/*.{js,jsx,ts,tsx} --ignore-path ./.prettierignore --write && git add . && git status",
     "prettier-watch": "onchange 'src/*.{js,jsx,ts,tsx}' -- prettier --write {{changed}}",
     "storybook": "start-storybook -p 6006",
@@ -14,15 +15,25 @@
   "pre-commit": [
     "prettier"
   ],
-  "jest": {
-    "moduleNameMapper": {
-      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/assetsTransformer.js",
-      "\\.(css|less)$": "<rootDir>/assetsTransformer.js"
-    },
-    "collectCoverageFrom": [
-      "src/**/*.{js,jsx,ts,tsx}",
-      "!**/node_modules/**",
-      "!**/vendor/**"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commit-message-validator",
+      "pre-commit": "npm run format && lint-staged",
+      "pre-push": "validate-branch-name"
+    }
+  },
+  "config": {
+    "commit-message-validator": {
+      "pattern": "(?=^.{15,50}$)(NONE|CH-\\d+):\\s[a-z0-9\\s-']+"
+    }
+  },
+  "validate-branch-name": {
+    "pattern": "^((master)|(dev)|(bugfix|feature)/(NONE|CH-\\d+)-[a-z0-9-]{5,40})$"
+  },
+  "lint-staged": {
+    "./src/*.ts": [
+      "prettier --write",
+      "eslint --cache --fix"
     ]
   },
   "dependencies": {
@@ -53,6 +64,7 @@
     "@types/shortid": "0.0.29",
     "babel-jest": "^23.4.0",
     "babel-loader": "^8.0.1",
+    "commit-message-validator": "^0.1.11",
     "cross-env": "^5.1.4",
     "css-loader": "^0.23.1",
     "enzyme": "^3.3.0",
@@ -62,8 +74,10 @@
     "eslint-plugin-jsx-a11y": "^6.0.3",
     "eslint-plugin-react": "^7.9.1",
     "extract-text-webpack-plugin": "^1.0.1",
+    "husky": "^4.2.5",
     "jest": "^24.8.0",
     "jest-cli": "^24.8.0",
+    "lint-staged": "^10.1.4",
     "node-sass": "^3.4.2",
     "postcss-cssnext": "^2.8.0",
     "postcss-loader": "^0.8.2",
@@ -72,12 +86,13 @@
     "postcss-simple-vars": "^3.0.0",
     "pre-commit": "^1.2.2",
     "precss": "^1.4.0",
-    "prettier": "1.9.2",
+    "prettier": "^1.9.2",
     "react-addons-test-utils": "^15.6.2",
     "react-dom": "^16.8.6",
     "react-test-renderer": "^16.8.6",
     "shortid": "^2.2.14",
     "style-loader": "^0.13.0",
+    "validate-branch-name": "^1.0.5",
     "webpack": "^4.38.0",
     "webpack-cli": "^3.3.6",
     "webpack-dev-server": "^3.7.2",
