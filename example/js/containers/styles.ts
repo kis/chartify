@@ -6,7 +6,7 @@ export const Root = styled.div`
     max-width: 1200px;
 
     .container {
-        width: 1000px;
+        width: 1050px;
         margin: 0px auto;
     }
 
