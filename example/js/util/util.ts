@@ -1,21 +1,29 @@
 import _ from 'underscore';
 import moment from 'moment';
 
-interface Item {
+interface Bar {
   xValue: any;
   yValue: number;
   title: string;
 }
 
-export function processMovies(movies: Array<any>) {
-  const items: Array<Item> = [];
+interface Movie {
+  'дата и время': string;
+  'моя оценка': number;
+  'оригинальное название': string;
+  'русскоязычное название': string;
+  'год': string;
+}
+
+export function processMovies(movies: Movie[]) {
+  const items: Bar[] = [];
   const dateRegex = /(\d+)[.](\d+)[.](\d+)/;
 
-  movies.forEach((movie: any) => {
+  movies.forEach((movie: Movie) => {
     if (!movie['дата и время']) return;
 
-    const xValue: any = dateRegex.exec(movie['дата и время']);
-    const xValueFormatted = moment(xValue[0], 'DD.MM.YYYY').format('MMM D, YYYY');
+    const xValue = dateRegex.exec(movie['дата и время']) as string[];
+    const xValueFormatted = moment(_.first(xValue), 'DD.MM.YYYY').format('MMM D, YYYY');
 
     items.push({
       xValue: xValueFormatted,
