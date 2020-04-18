@@ -1,33 +1,25 @@
-import React, { Component, Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import * as chartActions from '../actions/chart';
 import Chart from '../components/Chart/Chart';
 
-class ChartContainer extends Component<any, any> {
-  state = {
-    moviesMetadata: {
-      container: 'films-container',
-      chart: 'films'
-    }
-  }
+const ChartContainer = ({ actions, movies }: any) => {
+  const [moviesMetadata, setMoviesMetadata] = useState({
+    container: 'films-container',
+    chart: 'films'
+  })
 
-  componentWillMount() {
-    const { actions } = this.props;
-    actions.getMovies();
-  }
+  useEffect(() => {
+    actions.getMovies()
+  }, [actions])
 
-  render() {
-    const { movies } = this.props;
-    const { moviesMetadata } = this.state;
-
-    return (
-      <Chart
-        data={movies}
-        metadata={moviesMetadata}
-      />
-    );
-  }
+  return (
+    <Chart
+      data={movies}
+      metadata={moviesMetadata}
+    />
+  );
 }
 
 const mapStateToProps = (state: any) => ({

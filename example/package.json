@@ -33,6 +33,7 @@
     "react-redux": "^5.0.6",
     "redux": "^4.0.0-beta.1",
     "redux-thunk": "^2.2.0",
+    "shortid": "^2.2.15",
     "styled-components": "^4.3.2",
     "underscore": "^1.8.3",
     "whatwg-fetch": "^1.0.0"
