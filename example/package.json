@@ -72,7 +72,7 @@
     "history": "^4.7.2",
     "html-webpack-plugin": "^4.0.0-alpha",
     "mini-css-extract-plugin": "^0.8.0",
-    "node-sass": "^4.5.3",
+    "node-sass": "^7.0.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "prettier": "1.9.2",
     "react-dom": "^16.8.6",
