@@ -23,12 +23,6 @@ const RootContainer = () => (
                     <ChartContainer />
                 </Provider>
             </main>
-
-            <footer className="container">
-                <div className="footer-text">
-                    Made with <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c8/Love_Heart_symbol.svg/2000px-Love_Heart_symbol.svg.png" title="love" /> Inspired by <a href="http://kinopoisk.ru" target="_blank">kinopoisk</a>
-                </div>
-            </footer>
         </Root>
     </>
 );
