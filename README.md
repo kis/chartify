@@ -17,14 +17,13 @@ Example app is [here](https://github.com/kis/chartify/tree/master/example).
 Backend service for the example app is [here](https://github.com/kis/chartify-service).  
 npm package is [here](https://www.npmjs.com/package/chartify).
 
----
 
 ## Prerequisites
 Before installing the Chartify package, make sure that you have a recent version of Node.js installed on your system.
 
 Install Node.js [here](https://nodejs.org/en/)
 
----
+
 
 ## Installation
 To install the Chartify package, you can use the following command in your terminal:
@@ -35,7 +34,7 @@ npm install chartify --save-dev
 ```
 The above command installs the Chartify package and adds it as a dev dependency in your project. The "--save-dev" option indicates that the package is only required for development purposes and should not be included in the final production build.
 
----
+
 
 ## Integrating Chartify into an existing project
 To integrate the Chartify library into an existing project, you will need to import it into your project and create a data array with objects that represent each data point.
@@ -74,7 +73,7 @@ The `container` prop is a class that will be added to the chart container elemen
 
 The `config` prop is an object with properties that allow you to configure the look and feel of the chart. The properties include `theme`, `width`, `height`, `boxSize`, `isLineChart`, and `bordered`. You can choose the color scheme of the chart ("default", "blue", "grey","white", etc.), set the width ( length of X-axis) and height ( length of Y-axis) of the chart, specify the size of each box in pixels, determine if the chart is a line chart or not, and whether or not each box should have a border.
 
----
+
 
 ## License
 The Chartify project is released under the MIT License, which means that it is open-source and free to use. If you have any questions or would like to contribute to the project, you can visit the repository on Github.
