@@ -42,7 +42,7 @@ To integrate the Chartify library into an existing project, you will need to imp
 
 Here is a code snippet to get you started:
  
-```
+```javascript
 import Chartify from 'chartify';
 
 const data = [{
