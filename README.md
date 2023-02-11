@@ -76,5 +76,6 @@ The `config` prop is an object with properties that allow you to configure the l
 
 
 ## License
-The Chartify project is released under The MIT License (MIT) Copyright (c) 2020, which means that it is open-source and free to use. If you have any questions or would like to contribute to the project, you can visit the repository on Github.
+
+The MIT License (MIT) Copyright (c) 2020
 
